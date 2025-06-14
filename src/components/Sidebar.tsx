@@ -2,21 +2,17 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  HomeIcon, 
-  UsersIcon, 
-  ChartBarIcon, 
-  CogIcon,
-  DocumentTextIcon
-} from '@heroicons/react/24/outline';
+ 
+
+import { GoHomeFill } from "react-icons/go";
 import Image from 'next/image';
 
 const menuItems = [
-  { name: 'Dashboard', href: '/', icon: HomeIcon },
-  { name: 'Kullanıcılar', href: '/users', icon: UsersIcon },
-  { name: 'Raporlar', href: '/reports', icon: ChartBarIcon },
-  { name: 'Dökümanlar', href: '/documents', icon: DocumentTextIcon },
-  { name: 'Ayarlar', href: '/settings', icon: CogIcon },
+  { name: 'Dashboard', href: '/', icon: GoHomeFill },
+  { name: 'Kullanıcılar', href: '/users', icon: GoHomeFill },
+  { name: 'Raporlar', href: '/reports', icon: GoHomeFill },
+  { name: 'Dökümanlar', href: '/documents', icon: GoHomeFill },
+  { name: 'Ayarlar', href: '/settings', icon: GoHomeFill },
 ];
 
 export default function Sidebar() {
@@ -55,6 +51,7 @@ export default function Sidebar() {
           );
         })}
       </nav>
+ 
     </div>
   );
 } 
