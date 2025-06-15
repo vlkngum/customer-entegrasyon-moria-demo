@@ -24,7 +24,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = (username: string, password: string) => {
     if (username === 'admin' && password === '123') {
       setIsAuthenticated(true);
-      Cookies.set('isAuthenticated', 'true', { expires: 7 }); // 7 gün geçerli
+      Cookies.set('isAuthenticated', 'true'); 
       return true;
     }
     return false;
