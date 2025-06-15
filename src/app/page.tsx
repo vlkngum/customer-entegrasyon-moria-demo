@@ -1,16 +1,45 @@
-import { 
-  UsersIcon, 
-  ChartBarIcon, 
-  DocumentTextIcon,
-  CurrencyDollarIcon 
-} from '@heroicons/react/24/outline';
+"use client";
+
+import { MdDiscount } from "react-icons/md";
+import { LuWallet } from "react-icons/lu";
+import { RiShoppingCart2Line } from "react-icons/ri";
+import StatCard from "@/components/dashboard/StatCard";
+import ActivityList from "@/components/dashboard/ActivityList";
+import QuickActions from "@/components/dashboard/QuickActions";
+import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart";
 import Image from 'next/image';
 
 const stats = [
-  { name: 'Toplam Kullanıcı', value: '1,234', icon: UsersIcon, change: '+12%' },
-  { name: 'Aylık Gelir', value: '₺45,678', icon: CurrencyDollarIcon, change: '+8%' },
-  { name: 'Aktif Raporlar', value: '23', icon: ChartBarIcon, change: '+5%' },
-  { name: 'Dökümanlar', value: '156', icon: DocumentTextIcon, change: '+3%' },
+  { name: 'Bugunki Sipariş Sayısı', value: '16', icon: MdDiscount, change: '+12%', gradient: 'blue' as const },
+  { name: 'Aylık Gelir', value: '₺45,678', icon: LuWallet, change: '+8%', gradient: 'green' as const },
+  { name: 'Aktif Raporlar', value: '23', icon: RiShoppingCart2Line, change: '+5%', gradient: 'purple' as const },
+  { name: 'Dökümanlar', value: '156', icon: LuWallet, change: '+3%', gradient: 'orange' as const },
+];
+
+const activities = [
+  { id: 1, user: 'Kullanıcı 1', action: 'Yeni bir işlem gerçekleştirdi', time: '2 saat önce' },
+  { id: 2, user: 'Kullanıcı 2', action: 'Yeni bir işlem gerçekleştirdi', time: '3 saat önce' },
+  { id: 3, user: 'Kullanıcı 3', action: 'Yeni bir işlem gerçekleştirdi', time: '4 saat önce' },
+  { id: 4, user: 'Kullanıcı 4', action: 'Yeni bir işlem gerçekleştirdi', time: '5 saat önce' },
+  { id: 5, user: 'Kullanıcı 5', action: 'Yeni bir işlem gerçekleştirdi', time: '6 saat önce' },
+];
+
+const quickActions = [
+  { label: 'Yeni Kullanıcı Ekle', color: 'blue' as const, onClick: () => console.log('Yeni Kullanıcı') },
+  { label: 'Rapor Oluştur', color: 'green' as const, onClick: () => console.log('Rapor') },
+  { label: 'Döküman Yükle', color: 'purple' as const, onClick: () => console.log('Döküman') },
+  { label: 'Ayarları Düzenle', color: 'orange' as const, onClick: () => console.log('Ayarlar') },
+];
+
+const salesData = [
+  { date: '03-06-2025', sales: 0.1, revenue: 0 },
+  { date: '07-06-2025', sales: 2, revenue: 1 },
+  { date: '11-06-2025', sales: 0.3, revenue: 2 },
+  { date: '15-06-2025', sales: 0.8, revenue: 0.7 },
+  { date: '19-06-2025', sales: 1.5, revenue: 1.8 },
+  { date: '23-06-2025', sales: 0.6, revenue: 2.5 },
+  { date: '27-06-2025', sales: 2.7, revenue: 0.7 },
+  { date: '31-06-2025', sales: 0.8, revenue: 1.8 },
 ];
 
 export default function Home() {
@@ -18,76 +47,17 @@ export default function Home() {
     <div>
       <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat) => (
-          <div
-            key={stat.name}
-            className="bg-white rounded-lg shadow p-6"
-          >
-            <div className="flex items-center">
-              <div className="p-3 rounded-full bg-blue-100">
-                <stat.icon className="h-6 w-6 text-blue-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">{stat.name}</p>
-                <p className="text-lg font-semibold text-gray-900">{stat.value}</p>
-              </div>
-            </div>
-            <div className="mt-4">
-              <span className="text-sm text-green-600">{stat.change}</span>
-              <span className="text-sm text-gray-500"> geçen aya göre</span>
-            </div>
-          </div>
+          <StatCard key={stat.name} {...stat} />
         ))}
       </div>
 
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Son Aktiviteler</h2>
-          <div className="space-y-4">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <div className="h-8 w-8 rounded-full bg-gray-200"></div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">Kullanıcı {i}</p>
-                    <p className="text-sm text-gray-500">Yeni bir işlem gerçekleştirdi</p>
-                  </div>
-                </div>
-                <span className="text-sm text-gray-500">2 saat önce</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow p-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Hızlı İşlemler</h2>
-          <div className="grid grid-cols-2 gap-4">
-            <button className="p-4 bg-blue-50 rounded-lg text-blue-600 hover:bg-blue-100 transition-colors">
-              Yeni Kullanıcı Ekle
-            </button>
-            <button className="p-4 bg-green-50 rounded-lg text-green-600 hover:bg-green-100 transition-colors">
-              Rapor Oluştur
-            </button>
-            <button className="p-4 bg-purple-50 rounded-lg text-purple-600 hover:bg-purple-100 transition-colors">
-              Döküman Yükle
-            </button>
-            <button className="p-4 bg-orange-50 rounded-lg text-orange-600 hover:bg-orange-100 transition-colors">
-              Ayarları Düzenle
-            </button>
-          </div>
-        </div>
+      <div className="mb-8">
+        <SalesStatisticsChart data={salesData} />
       </div>
 
-      <Image 
-        src="/cmapps-logo" 
-        alt="CMApps Logo"
-        width={0}
-        height={0}
-        sizes="100vw"
-        style={{ width: '100%', height: 'auto' }}
-        priority
-      />
+   
     </div>
   );
 }

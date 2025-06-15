@@ -159,7 +159,7 @@ export default function Sidebar() {
     >
       <div className="flex items-center justify-between px-4 py-4 border-b border-black/20">
         {!isCollapsed && (
-          <div className='flex-1'>
+          <div className='flex-1 px-5'>
             <Image 
               src="/cmapps-logo.svg" 
               alt="CMApps Logo"
@@ -175,7 +175,7 @@ export default function Sidebar() {
           onClick={togglePin}
           className={`p-1 rounded-full hover:bg-gray-100 ${isPinned ? 'text-blue-500' : 'text-gray-500'} relative group`}
         >
-          {isPinned ? <FaThumbtack className="h-5 w-5" /> : <FaThumbtack className="h-5 w-5" />}
+          {isPinned ? <FaThumbtack className="h-4 w-4" /> : <FaThumbtack className="h-4 w-4" />}
           <span className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             Menüyü Sabitle
           </span>
@@ -192,7 +192,7 @@ export default function Sidebar() {
                 onClick={() => item.hasSubmenu ? toggleSubmenu(item.name) : null}
                 className={`flex items-center px-6 py-3 cursor-pointer ${
                   item.name === 'Ekle' 
-                    ? 'text-blue-500 hover:bg-[#e8f2ff] hover:bg-white' 
+                    ? 'text-blue-500 hover:bg-white' 
                     : 'text-gray-700 hover:text-blue-500 hover:bg-gray-100'
                 } ${
                   isActive ? 'bg-gray-100 border-r-4 border-blue-500' : ''
