@@ -15,7 +15,7 @@ export default function OrderHeader({ tabItems }: OrderHeaderProps) {
   const pathname = usePathname();
   
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+    <>
       <div className="border-b border-gray-200">
         <nav className="-mb-px flex space-x-8" aria-label="Tabs">
           {tabItems.map((tab) =>  {
@@ -35,6 +35,6 @@ export default function OrderHeader({ tabItems }: OrderHeaderProps) {
           })}
         </nav>
       </div>
-    </div>
+    </>
   );
 } 

@@ -13,7 +13,7 @@ const InvoiceSearchAndFilter: React.FC = () => {
   };
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md mb-4">
+    <div className="panel">
       <div className="flex flex-col md:flex-row items-center justify-between mb-4 w-1/2">
         <div className="flex-grow mr-4 w-full md:w-auto">
           <input

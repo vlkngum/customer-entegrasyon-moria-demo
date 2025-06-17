@@ -1,6 +1,6 @@
 export default function OrderPagination() {
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex items-center justify-between text-sm text-gray-600">
+    <div className="panel  flex items-center justify-between text-sm text-gray-600">
       <div>
         Toplam 0 sayfada
         <select className="mx-2 border border-gray-300 rounded-md px-2 py-1">

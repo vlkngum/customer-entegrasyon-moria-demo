@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useCallback, useEffect } from 'react';
-import ImageUpload from '@/tools/ImageUpload'; // adjust the path as needed
+import ImageUpload from '@/tools/ImageUpload';  
 import { BsNewspaper } from "react-icons/bs";
 
 function QuickAddProductModal({ open, onClose }: { open: boolean, onClose: () => void }) {
@@ -11,7 +11,7 @@ function QuickAddProductModal({ open, onClose }: { open: boolean, onClose: () =>
 
   useEffect(() => {
     if (open) {
-      setTimeout(() => setShowAnim(true), 10); // bir sonraki renderda animasyon başlasın
+      setTimeout(() => setShowAnim(true), 10); 
     } else {
       setShowAnim(false);
     }
@@ -29,31 +29,31 @@ function QuickAddProductModal({ open, onClose }: { open: boolean, onClose: () =>
         `}
       >
         <button className="absolute top-4 right-4 text-2xl" onClick={onClose}>&times;</button>
-        <h2 className="text-xl font-semibold mb-4">Hızlı Ürün Ekle</h2>
+          <h2 className="text-xl font-semibold mb-4">Hızlı Ürün Ekle</h2>
         <div className="mb-4 text-gray-700">Ürünün çekileceği pazar yerini seçiniz.</div>
-        <div className="mb-4">
-          <label className="block text-xs font-semibold mb-1">PAZARYERLERİ</label>
-          <select
-            className="w-full border rounded px-3 py-2 text-sm bg-gray-50"
-            value={market}
-            onChange={e => setMarket(e.target.value)}
-          >
-            <option value="">Seçiniz</option>
-            <option value="trendyol">Trendyol</option>
-            <option value="hepsiburada">Hepsiburada</option>
-            {/* Add more options as needed */}
-          </select>
-        </div>
-        <div className="mb-2 text-gray-700">Ürün linkini aşağıdaki alana yapıştırınız.</div>
-        <div className="mb-4">
-          <label className="block text-xs font-semibold mb-1">TARAMA YAPILACAK SAYFA LİNKİ</label>
-          <input
-            className="w-full border rounded px-3 py-2 text-sm"
-            value={link}
-            onChange={e => setLink(e.target.value)}
-            placeholder=""
-          />
-        </div>
+          <div className="mb-4">
+            <label className="block text-xs font-semibold mb-1">PAZARYERLERİ</label>
+            <select
+              className="w-full border rounded px-3 py-2 text-sm bg-gray-50"
+              value={market}
+              onChange={e => setMarket(e.target.value)}
+            >
+              <option value="">Seçiniz</option>
+              <option value="trendyol">Trendyol</option>
+              <option value="hepsiburada">Hepsiburada</option>
+              {/* Add more options as needed */}
+            </select>
+          </div>
+          <div className="mb-2 text-gray-700">Ürün linkini aşağıdaki alana yapıştırınız.</div>
+            <div className="mb-4">
+              <label className="block text-xs font-semibold mb-1">TARAMA YAPILACAK SAYFA LİNKİ</label>
+              <input
+                className="w-full border rounded px-3 py-2 text-sm"
+                value={link}
+                onChange={e => setLink(e.target.value)}
+                placeholder=""
+              />
+          </div>
         <div className="flex justify-end">
           <a
             href={link || "#"}
@@ -81,6 +81,7 @@ export default function AddProductPage() {
     <div className="bg-[#f6f9fc] min-h-screen p-6">
       {/* Breadcrumb and Title */}
       <div className="mb-6">
+      <h1 className="text-2xl font-semibold">Ürün Genel Bilgileri</h1>
         <div className="text-xs text-gray-500 mb-1 flex gap-1 items-center">
           <a href="/" className="text-blue-600 hover:underline">CMApps</a>
           <span>/</span>
@@ -88,7 +89,7 @@ export default function AddProductPage() {
           <span>/</span>
           <a href="#" className="text-blue-600 hover:underline">Ürün Genel Bilgileri</a>
         </div>
-        <h1 className="text-2xl font-semibold">Ürün Genel Bilgileri</h1>
+       
       </div>
       <div className="flex gap-6">
         {/* Left Column */}

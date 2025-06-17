@@ -44,17 +44,19 @@ const salesData = [
 
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {stats.map((stat) => (
-          <StatCard key={stat.name} {...stat} />
-        ))}
-      </div>
+    <div className=" px-6 py-10">
+      <div className="panel">
+        <h1 className="text-2xl font-semibold text-gray-900 mb-6">Dashboard</h1>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {stats.map((stat) => (
+            <StatCard key={stat.name} {...stat} />
+          ))}
+        </div>
 
-      <div className="mb-8">
-        <SalesStatisticsChart data={salesData} />
+        <div className="mb-8">
+          <SalesStatisticsChart data={salesData} />
+        </div>
       </div>
 
    

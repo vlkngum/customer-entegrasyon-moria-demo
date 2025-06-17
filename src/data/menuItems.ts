@@ -35,15 +35,15 @@ export const menuItems: MenuItem[] = [
   { name: 'Siparişler', href: '/orders', icon: CiShoppingBasket },
   { 
     name: 'Faturalar', 
-    href: '/reports', 
+    href: '/invoices', 
     icon: LuNewspaper,
     hasSubmenu: true,
     submenu: [
-      { name: 'Fatura Listesi', href: '/reports/invoices' },
-      { name: 'Müşteri Listesi', href: '/reports/new-invoice' }
+      { name: 'Fatura Listesi', href: '/orders/invoice-list' },
+      { name: 'Müşteri Listesi', href: '/invoices/customer-invoices' }
     ]
   },
-  { name: 'İade Yönetimi', href: '/documents', icon: LuFolderDown },
+  { name: 'İade Yönetimi', href: '/claims', icon: LuFolderDown },
   { 
     name: 'Ürünler', 
     href: '/settings', 

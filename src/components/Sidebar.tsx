@@ -15,8 +15,8 @@ export default function Sidebar() {
   const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const [isPinned, setIsPinned] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isPinned, setIsPinned] = useState(true);
 
   if (!isAuthenticated) {
     return null;

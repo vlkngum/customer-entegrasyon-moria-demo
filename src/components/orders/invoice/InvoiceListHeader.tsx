@@ -51,7 +51,7 @@ export default function InvoiceListHeader() {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+    <div className="panel">
       <div className="grid grid-cols-3 gap-4 font-semibold text-sm text-gray-600  pb-3 mb-3 items-center">
         <div className=" gap-4 flex"> 
           <input type="checkbox" className="form-checkbox hidden " />

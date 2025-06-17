@@ -18,7 +18,7 @@ export default function OrderFilters() {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+    <div className="panel">
       <div className="flex flex-col md:flex-row gap-4 md:items-start">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 flex-grow">
           <div className='space-y-1'>
