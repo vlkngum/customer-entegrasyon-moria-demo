@@ -53,7 +53,7 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-transparent backdrop-blur-sm">
       <form onSubmit={handleSubmit} className="space-y-4 p-6 rounded-lg bg-white mt-16 max-h-[90vh] overflow-auto w-full max-w-2xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
