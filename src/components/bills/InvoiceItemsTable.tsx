@@ -29,7 +29,7 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="p-2">
       <h2 className="font-semibold mb-4 text-xl">FATURA KALEMLERİ</h2>
       <hr className="mb-4" />
       <table className="w-full text-sm mb-2">
@@ -50,7 +50,7 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
                 <div>
                   <input
                     ref={inputRef}
-                    className="w-full border rounded px-3 py-2 bg-gray-50 focus:outline-blue-400"
+                    className="input my-1 h-12 w-full"
                     placeholder="Ürün adı,Stok Kodu,Barkod,Varyant Stok Kodu"
                     value={idx === 0 ? searchTerm : item.name}
                     onFocus={() => idx === 0 && setShowDropdown(true)}
@@ -100,32 +100,32 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
                   )}
                 </div>
               </td>
-              <td className="px-2">
+              <td className="px-2 w-36 h-12">
                 <input
                   type="number"
                   min={1}
-                  className="w-16 border rounded px-2 py-2 text-center bg-gray-50 focus:outline-blue-400"
+                  className="input h-12"
                   value={item.quantity}
                   onChange={e => handleItemChange(idx, 'quantity', e.target.value)}
                 />
               </td>
-              <td className="px-2">
-                <div className="flex items-center gap-0">
+              <td className="px-2 w-24 h-12">
+                <div className="flex items-center gap-0 h-12">
                   <input
                     type="number"
                     min={0}
-                    className="w-20 border rounded-l px-2 py-2 bg-gray-50 focus:outline-blue-400 h-10"
+                    className="w-full border border-gray-500 rounded-l px-2 py-2 bg-gray-50 focus:outline-blue-400 h-full"
                     value={item.price}
                     onChange={e => handleItemChange(idx, 'price', e.target.value)}
                   />
-                  <span className="inline-flex items-center border border-l-0 rounded-r bg-gray-100 text-gray-500 text-xs h-10 px-2">₺</span>
+                  <span className="inline-flex items-center border border-l-0 rounded-r bg-gray-100 text-gray-500 text-xs h-full px-2">₺</span>
                 </div>
               </td>
-              <td className="px-2">
-                <div className="flex items-center gap-0">
-                  <span className="inline-flex items-center px-2 border rounded-l bg-gray-100 text-gray-500 text-xs h-10">KDV</span>
+              <td className="px-2 w-24 h-12">
+                <div className="flex items-center gap-0 h-12">
+                  <span className="inline-flex items-center px-2 border rounded-l bg-gray-100 text-gray-500 text-xs h-full">KDV</span>
                   <select
-                    className="border-t border-b border-r rounded-r px-2 py-2 bg-white focus:outline-blue-400 h-10"
+                    className="border-t border-b border-r border-gray-500 rounded-r px-2 py-2 bg-white focus:outline-blue-400 h-full"
                     value={item.vat}
                     onChange={e => handleItemChange(idx, 'vat', e.target.value)}
                   >
@@ -135,15 +135,15 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
                   </select>
                 </div>
               </td>
-              <td className="px-2">
-                <div className="flex items-center gap-0">
+              <td className="px-2 w-36">
+                <div className="flex items-center gap-0 h-12">
                   <input
                     type="number"
-                    className="w-20 border rounded-l px-2 py-2 bg-gray-50 text-right focus:outline-none h-10"
+                    className="w-full border rounded-l px-2 py-2 bg-gray-50 text-right focus:outline-none h-full"
                     value={item.total}
                     disabled
                   />
-                  <span className="inline-flex items-center border border-l-0 rounded-r bg-gray-100 text-gray-500 text-xs h-10 px-2">₺</span>
+                  <span className="inline-flex items-center border border-l-0 rounded-r bg-gray-100 text-gray-500 text-xs h-full px-2">₺</span>
                 </div>
               </td>
               <td className="pl-2">

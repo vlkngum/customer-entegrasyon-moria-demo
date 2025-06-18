@@ -11,10 +11,7 @@ export default function DetailedFilterSidebar({
 }: {
   isOpen: boolean;
   onClose: () => void;
-}) {
-  const [platform, setPlatform] = useState("");
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+}) { 
 
   return (
     <div
@@ -58,7 +55,6 @@ export default function DetailedFilterSidebar({
       </div>
         </div>
 
-        {/* Fixed bottom filter button */}
         <div className="w-full p-4 bg-white border-t border-gray-200">
           <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold flex items-center justify-center space-x-2 w-full hover:bg-blue-700 transition-colors duration-200">
             <FaSearch className="w-4 h-4" />

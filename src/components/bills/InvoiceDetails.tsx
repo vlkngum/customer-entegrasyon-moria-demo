@@ -10,12 +10,12 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
   setSatisTipi,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow p-4 space-y-3">
+    <div className="panel">
       <label className="block text-sm font-medium">Fatura Düzenleme Tarihi</label>
-      <input type="datetime-local" className="w-full border rounded px-2 py-1" />
+      <input type="datetime-local" className="input" />
 
       <label className="block text-sm font-medium">Sipariş No</label>
-      <input type="text" className="w-full border rounded px-2 py-1" />
+      <input type="text" className="input" />
 
       <div className="flex items-center space-x-4 mt-2">
         <label className="font-semibold">
@@ -44,13 +44,13 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
         <div className="flex space-x-2">
           <div className="flex-1">
             <label className="block text-sm font-medium">Kargo Şirketi</label>
-            <select className="w-full border rounded px-2 py-1">
+            <select className="input">
               <option>Kargo Şirketi Seç</option>
             </select>
           </div>
           <div className="flex-1">
             <label className="block text-sm font-medium">Kargo Kampanya Kodu</label>
-            <input type="text" className="w-full border rounded px-2 py-1" />
+            <input type="text" className="input" />
           </div>
         </div>
       )}
@@ -58,20 +58,20 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
       <div className="flex space-x-2">
         <div className="flex-1">
           <label className="block text-sm font-medium">Fatura Kaynağı</label>
-          <select className="w-full border rounded px-2 py-1">
+          <select className="input">
             <option>CMApps</option>
           </select>
         </div>
         <div className="flex-1">
           <label className="block text-sm font-medium">Ödeme Yöntemi</label>
-          <select className="w-full border rounded px-2 py-1">
+          <select className="input">
             <option>Kredi Kartı</option>
           </select>
         </div>
       </div>
 
       <label className="block text-sm font-medium">Fatura Açıklaması</label>
-      <textarea className="w-full border rounded px-2 py-1" rows={3} placeholder="Fatura açıklaması giriniz." />
+      <textarea className="input" rows={3} placeholder="Fatura açıklaması giriniz." />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const InvoiceTotals: React.FC<InvoiceTotalsProps> = ({
   toplam,
 }) => {
   return (
-    <div className="bg-white rounded-lg shadow p-4 w-full max-w-xs mb-4 lg:mb-0">
+    <div className="panel">
       <h3 className="font-semibold mb-2 text-xl">Genel Toplamlar</h3>
       <div className="flex justify-between text-base mb-1">
         <span>Ara Toplam</span>

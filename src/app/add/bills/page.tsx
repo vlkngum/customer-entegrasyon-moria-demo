@@ -104,16 +104,16 @@ export default function CreateInvoicePage() {
 
   return (
     <div className="min-h-screen bg-blue-50 p-4">
-      <div className="max-w-7xl mx-auto">
+      
         {/* Header */}
         <div className="mb-6 flex items-center space-x-2">
           <LuPackage className="text-3xl" />
           <h1 className="text-xl font-semibold">Fatura Oluştur</h1>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="flex w-full gap-6">
           {/* Left: Fatura Kalemleri */}
-          <div className="lg:col-span-2">
+          <div className="w-3/5 panel">
             <InvoiceItemsTable
               items={items}
               searchTerm={searchTerm}
@@ -128,8 +128,8 @@ export default function CreateInvoicePage() {
           </div>
 
           {/* Right: Müşteri ve Fatura Bilgileri */}
-          <div className="space-y-4">
-            <div className="bg-white rounded-lg shadow p-4">
+          <div className="w-2/5">
+            <div className="panel">
               <label className="block text-sm font-medium mb-1">Müşteri Seçiniz</label>
               <div className="relative">
                 <input
@@ -175,9 +175,9 @@ export default function CreateInvoicePage() {
                 className="fixed inset-0 flex items-center justify-center z-50"
                 overlayClassName="fixed inset-0 bg-black/10 backdrop-blur-sm z-40"
               >
-                <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl relative">
+                <div className="panel text-black">
                   <button className="absolute top-2 right-2 text-2xl" onClick={() => setShowCustomerModal(false)}>×</button>
-                  <h2 className="text-lg font-semibold mb-2">Yeni Müşteri Ekle</h2>
+                  <h2 className="text-lg font-semibold mb-2 text-black">Yeni Müşteri Ekle</h2>
                   <p className="text-gray-500 mb-4 text-sm">Müşteriye ait bilgileri eksiksiz olarak doldurunuz.</p>
                   <CustomerForm onSubmit={handleCustomerAdd} onCancel={() => setShowCustomerModal(false)} />
                 </div>
@@ -209,8 +209,7 @@ export default function CreateInvoicePage() {
             <button className="px-6 py-2 border rounded text-gray-600 border-gray-400 hover:bg-gray-100">Vazgeç</button>
             <button className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600">Faturayı Oluştur</button>
           </div>
-        </div>
-      </div>
+        </div> 
     </div>
   );
 }

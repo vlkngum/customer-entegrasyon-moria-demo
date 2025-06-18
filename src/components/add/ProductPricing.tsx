@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductPricing: React.FC = () => {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="panel">
       {/* Channel icons */}
       <div className="flex gap-2 mb-4">
         {/* Placeholder icons */}

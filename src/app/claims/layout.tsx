@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { FaBars } from "react-icons/fa6";
-import { FaFileDownload, FaQuestionCircle } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
 
 export default function ClaimsLayout({ children }: { children: React.ReactNode }) {
   const [activeTab, setActiveTab] = useState("Aktif İadeler");
@@ -27,14 +27,15 @@ export default function ClaimsLayout({ children }: { children: React.ReactNode }
           </div>
           <div className="flex flex-wrap p-1 border-t border-gray-200">
             {tabs.map((tab) => (
-              <button
+              <a
+                href={tab.href}
                 key={tab.name}
                 className={`px-6 py-2  text-sm font-semibold flex items-center space-x-2 transition-colors duration-200 ${activeTab === tab.name ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600" : "text-gray-500 hover:bg-blue-50 hover:text-gray-700"}`}
                 onClick={() => setActiveTab(tab.name)}
               >
                 {tab.icon && tab.icon}
                 <span>{tab.name}</span>
-              </button>
+              </a>
             ))}
           </div>
         </div>
