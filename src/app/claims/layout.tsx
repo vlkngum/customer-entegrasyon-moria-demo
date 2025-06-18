@@ -20,7 +20,7 @@ export default function ClaimsLayout({ children }: { children: React.ReactNode }
   return (
     <div className="min-h-screen p-4">
       <div className="mx-auto">
-        <div className="bg-white rounded-lg shadow-sm border-b border-gray-200 mb-6 w-full">
+        <div className="panel">
           <div className="flex items-center space-x-2 py-4 px-6">
             <FaFileDownload className="text-3xl text-gray-700" />
             <h1 className="text-xl font-semibold text-gray-800">İade Yönetimi</h1> 
