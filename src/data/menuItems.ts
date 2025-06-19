@@ -51,7 +51,7 @@ export const menuItems: MenuItem[] = [
     hasSubmenu: true,
     submenu: [
       { name: 'Ürün Listesi', href: '/settings/products' },
-      { name: 'Rekabet Robotu', href: '/settings/new-product' },
+      { name: 'Rekabet Robotu', href: 'price-competition-robot' },
       { name: 'Kategoriler', href: '/settings/new-product' },
       { name: 'Markalar', href: '/settings/new-product' },
       { name: 'Etiketler', href: '/settings/new-product' },
@@ -65,10 +65,10 @@ export const menuItems: MenuItem[] = [
     icon: CiLocationArrow1,
     hasSubmenu: true,
     submenu: [
-      { name: 'Ürün Gönderimleri', href: '/settings/bulk-update' },
-      { name: 'Ürün Güncellemeleri', href: '/settings/bulk-price' },
-      { name: 'Excel İşlemleri', href: '/settings/bulk-update' },
-      { name: 'Ürün Farklılık Kontrolleri', href: '/settings/bulk-price' }
+      { name: 'Ürün Gönderimleri', href: '/product-shipments' },
+      { name: 'Ürün Güncellemeleri', href: '/new-bulk-product-shipment' },
+      { name: 'Excel İşlemleri', href: '/excel-operations' },
+      { name: 'Ürün Farklılık Kontrolleri', href: '/product-difference-control' }
     ]
   },
   { 
