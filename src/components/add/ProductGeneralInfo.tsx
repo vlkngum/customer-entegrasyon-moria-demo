@@ -163,7 +163,7 @@ export default function ProductGeneralInfo() {
                       onChange={() => setValue(true)}
                       className="accent-blue-500 w-4 h-4"
                     />
-                    <span className="text-base font-semibold">AÇIK</span>
+                    <span className=" font-semibold text-sm">AÇIK</span>
                   </label> 
                   <label
                     className={`flex items-center gap-2 px-6 py-3 rounded-md border transition-all cursor-pointer w-1/2 h-full ${
@@ -180,7 +180,7 @@ export default function ProductGeneralInfo() {
                       onChange={() => setValue(false)}
                       className="accent-blue-500 w-4 h-4"
                     />
-                    <span className="text-base font-semibold">KAPALI</span>
+                    <span className=" font-semibold text-sm">KAPALI</span>
                   </label>
                 </div>
               </div> 
