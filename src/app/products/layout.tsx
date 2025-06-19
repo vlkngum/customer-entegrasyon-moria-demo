@@ -17,7 +17,7 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
     { name: "Seçenek Grupları (Varyant)", href: '/products/variant' },
     { name: "Hepsiburada Kataloğa Önerilen Ürünler", href: '/products/hbCatalogProducts' },
     { name: "Ürün Bazlı Kategori Özellik Eşitleme Listesi", href: '/products/list_sync' },
-    { name: "Rekabet Robotu", href: '/products/price_robot' },
+    { name: "Rekabet Robotu", href: '/products/price-robot' },
 
   ];
 
