@@ -1,8 +1,8 @@
+'use client'
+
 import React, { useState } from 'react';
 import { GoSearch } from 'react-icons/go';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
-import { IoClose } from "react-icons/io5";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'; 
 import InvoiceFilterModal from './InvoiceFilterModal';
 
 const InvoiceSearchAndFilter: React.FC = () => {

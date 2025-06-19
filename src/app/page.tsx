@@ -6,9 +6,7 @@ import { RiShoppingCart2Line } from "react-icons/ri";
 import StatCard from "@/components/dashboard/StatCard";
 import ActivityList from "@/components/dashboard/ActivityList";
 import QuickActions from "@/components/dashboard/QuickActions";
-import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart";
-import Image from 'next/image';
-
+import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart"; 
 const stats = [
   { name: 'Bugunki Sipariş Sayısı', value: '16', icon: MdDiscount, change: '+12%', gradient: 'blue' as const },
   { name: 'Aylık Gelir', value: '₺45,678', icon: LuWallet, change: '+8%', gradient: 'green' as const },
@@ -57,8 +55,12 @@ export default function Home() {
         <div className="mb-8">
           <SalesStatisticsChart data={salesData} />
         </div>
-      </div>
 
+          <QuickActions actions={quickActions}/>
+          <ActivityList activities={activities}/>
+
+      </div>
+ 
    
     </div>
   );

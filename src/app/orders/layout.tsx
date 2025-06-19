@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactNode } from 'react';
 import OrderHeader from '@/app/orders/components/Header';
 import { PiStepsFill } from "react-icons/pi";

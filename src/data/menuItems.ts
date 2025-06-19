@@ -50,13 +50,13 @@ export const menuItems: MenuItem[] = [
     icon: CiShoppingCart,
     hasSubmenu: true,
     submenu: [
-      { name: 'Ürün Listesi', href: '/settings/products' },
-      { name: 'Rekabet Robotu', href: 'price-competition-robot' },
-      { name: 'Kategoriler', href: '/settings/new-product' },
-      { name: 'Markalar', href: '/settings/new-product' },
-      { name: 'Etiketler', href: '/settings/new-product' },
-      { name: 'Seçenekler', href: '/settings/new-product' },
-      { name: 'XML Kaynakları', href: '/settings/new-product' }
+      { name: 'Ürün Listesi', href: '/products' },
+      { name: 'Rekabet Robotu', href: '/products/price_robot' },
+      { name: 'Kategoriler', href: '/categorys-marks/category' },
+      { name: 'Markalar', href: '/categorys-marks/marks' },
+      { name: 'Etiketler', href: '/tags' },
+      { name: 'Seçenekler', href: '/products/variant' },
+      { name: 'XML Kaynakları', href: '/xml' }
     ]
   },
   { 
