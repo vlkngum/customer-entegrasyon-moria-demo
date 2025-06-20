@@ -137,15 +137,15 @@ export default function ProductGeneralInfo() {
             </div>
 
             <div className='flex gap-4 py-6'> 
-             <div className="w-2/5 h-10">
+             <div className="w-1/3 h-10">
                 <label className="block text-xs text-gray-500 mb-1">RAF</label>
                 <input className="input" placeholder="" />
               </div>
-              <div className="w-2/5 h-10">
+              <div className="w-1/3 h-10">
                 <label className="block text-xs text-gray-500 mb-1">ÜRÜNÜN E-TİCARET LİNKİ</label>
                 <input className="input" placeholder="" />
               </div>
-              <div className="w-1/5 h-10">
+              <div className="w-1/3 h-10">
                 <label className="block text-xs text-gray-500 mb-1">XML FİYAT KİLİDİ</label>
                 <div className="flex gap-2"> 
                   <label
