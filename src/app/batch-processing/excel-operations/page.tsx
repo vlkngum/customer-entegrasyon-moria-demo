@@ -22,7 +22,7 @@ export default function ExcelOperationsPage() {
         <div className="grid grid-cols-3 text-center">
           <div className="text-gray-700 font-medium text-sm">İŞLEM DETAYLARI</div>
           <div className="text-gray-700 font-medium text-sm">DURUM BİLGİSİ</div>
-          <div className="text-gray-700 font-medium text-sm">İŞLEMLER</div>
+          <div className="text-gray-700 font-medium text-sm">İŞLEMLER 22</div>
         </div>
         {/* Buraya tablo içeriği veya diğer içerikler eklenebilir */}
       </div>
