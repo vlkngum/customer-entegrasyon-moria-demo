@@ -1,144 +1,80 @@
 import React from 'react';
 
-import { platforms } from '@/data/platforms';
-
 const OrderFiltersContent: React.FC = () => {
+  const selectOptions: { [key: string]: string[] } = {
+    'ÜRÜN DURUMU': ['Ürün Durumunu listele', 'Satışa Açıkları Listele', 'Satışa Kapalıları Listele'],
+    'SEÇENEK DURUMU': ['Seçenek Durumunu Filtrele','Seçenekli Ürünleri Listele','Seçeneksiz Ürünleri Listele'],
+    'SET (BUNDLE) ÜRÜN DURUMU': ['Set (Bundle) Ürün Durumunu Filtrele', 'Set (Bundle) Ürünleri Listele', 'Set (Bundle) Olmayan Ürünleri Listele'],
+    'SANAL ÜRÜN DURUMU': ['Sanal Ürünleri Filtrele', 'Sanal Olmayan Ürünleri Listele'],
+    'ÜRÜN GRUP DURUMU': ['Gruplu Ürün Durumunu Filtrele', 'Gruplu Ürünleri Listele', 'Gruplu Olmayan Ürünleri Listele'],
+    'TOPLU İŞLEM DURUMU': ['Toplu İşlem Durumunu Filtrele', 'Güncelleme Durumunda Olan Ürünleri Listele', 'Platforma Gönderme Durumunda Olan Ürünleri Listele'],
+    'GÖRSEL DURUMU': ['Görsel Durumunu Filtrele ', 'Görselli Olan Ürünleri Listele','Görselli Olmayan Ürünleri Listele'],
+    'BARKOD DURUMU': ['Barkod Durumunu Filtrele ', 'Barkodlu Olan Ürünleri Listele','Barkodlu Olmayan Ürünleri Listele'],
+    'MARKA DURUMU': ['Marka Durumunu Filtrele ', 'Markalı Olan Ürünleri Listele','Markalı Olmayan Ürünleri Listele'],
+    'KATEGORİ DURUMU': ['Kategori Durumunu Filtrele ', 'Kategorili Olan Ürünleri Listele','Kategorili Olmayan Ürünleri Listele'],
+    'LİSTELEME BİTİŞ DURUMU': ['Listeleme Bitiş Durumu ', 'Listeleme Süresi Bitmiş', '1 Gün İçerisinde Bitecekler', '2 Gün İçerisinde Bitecekler', '3 Gün İçerisinde Bitecekler', '4 Gün İçerisinde Bitecekler', '5 Gün İçerisinde Bitecekler', '6 Gün İçerisinde Bitecekler', '7 Gün İçerisinde Bitecekler', '8 Gün İçerisinde Bitecekler', '9 Gün İçerisinde Bitecekler'],
+    'FİYAT KİLİT DURUMU': ['Açık', 'Kapalı'],
+    'KANAL BAZLI AÇIK/KAPALI DURUMU': ['Açık', 'Kapalı'],
+    'FİYAT ROBOT DURUMU': ['Açık', 'Kapalı'],
+  };
+
   return (
-    <div className="space-y-4 max-h-[80vh] overflow-y-auto pr-2 pl-6">
-      {/* STOK DURUMU (FİYAT TİPİ GİBİ) */}
+    <div className="max-h-[100vh] overflow-y-auto px-6 space-y-6   min-w-1/4"> 
+ 
       <div>
-        <label className="block text-sm font-medium text-gray-700">STOK DURUMU</label>
-        <select className="input mb-2">
-          <option>Stok Durumu</option>
-        </select>
-        <div className="flex space-x-2">
-          <input type="number" placeholder="Minimum" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
-          <input type="number" placeholder="Maksimum" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
+        <label className="block text-sm font-semibold text-gray-800 mb-2">PLATFORM BAĞLANTI DURUMU</label>
+        <div className="space-y-2">
+          <div className="flex items-center space-x-2">
+            <input type="checkbox" id="trendAktif" className="" />
+            <label htmlFor="trendAktif" className="text-sm">Trendyol Aktif</label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <input type="checkbox" id="trendPasif" className="" />
+            <label htmlFor="trendPasif" className="text-sm">Trendyol Pasif</label>
+          </div>
         </div>
       </div>
-      {/* PLATFORM BAĞLANTI DURUMU */}
+
+      {/* STOK DURUMU */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">PLATFORM BAĞLANTI DURUMU</label>
-        <select className="input">
-          <option>Platform bağlantı durumunu filtrele</option>
-          <option>Bağlı</option>
-          <option>Bağlı Değil</option>
-        </select>
+        <label className="block text-sm font-semibold text-gray-800 mb-1">STOK DURUMU</label>
+        <div className="flex space-x-2">
+          <input type="number" placeholder="Minimum" className="w-1/2 input" />
+          <input type="number" placeholder="Maksimum" className="w-1/2 input" />
+        </div>
       </div>
+
       {/* FİYAT DURUMU */}
       <div>
-        <label className="block text-sm font-medium text-gray-700">FİYAT DURUMU</label>
+        <label className="block text-sm font-semibold text-gray-800 mb-1">FİYAT DURUMU</label>
         <select className="input mb-2">
           <option>Satış Fiyatı</option>
         </select>
         <div className="flex space-x-2">
-          <input type="number" placeholder="Minimum" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
-          <input type="number" placeholder="Maksimum" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
+          <input type="number" placeholder="Minimum" className="w-1/2 input" />
+          <input type="number" placeholder="Maksimum" className="w-1/2 input" />
         </div>
       </div>
-      {/* ÜRÜN DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">ÜRÜN DURUMU</label>
-        <select className="input">
-          <option>Ürün durumunu filtrele</option>
-          <option>Aktif</option>
-          <option>Pasif</option>
-          <option>Taslak</option>
-        </select>
-      </div>
-      {/* SEÇENEK DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">SEÇENEK DURUMU</label>
-        <select className="input">
-          <option>Seçenek durumunu filtrele</option>
-        </select>
-      </div>
-      {/* SET (BUNDLE) ÜRÜN DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">SET (BUNDLE) ÜRÜN DURUMU</label>
-        <select className="input">
-          <option>Set (Bundle) ürün durumunu filtrele</option>
-        </select>
-      </div>
-      {/* SANAL ÜRÜN DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">SANAL ÜRÜN DURUMU</label>
-        <select className="input">
-          <option>Sanal ürün durumunu filtrele</option>
-        </select>
-      </div>
-      {/* ÜRÜN GRUP DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">ÜRÜN GRUP DURUMU</label>
-        <select className="input">
-          <option>Gruplu ürün durumunu filtrele</option>
-        </select>
-      </div>
-      {/* TOPLU İŞLEM DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">TOPLU İŞLEM DURUMU</label>
-        <select className="input">
-          <option>Toplu işlem durumunu filtrele</option>
-        </select>
-      </div>
-      {/* GÖRSEL DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">GÖRSEL DURUMU</label>
-        <select className="input">
-          <option>Görsel durumunu filtrele</option>
-        </select>
-      </div>
-      {/* BARKOD DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">BARKOD DURUMU</label>
-        <select className="input">
-          <option>Barkod durumunu filtrele</option>
-        </select>
-      </div>
-      {/* MARKA DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">MARKA DURUMU</label>
-        <select className="input">
-          <option>Marka durumunu filtrele</option>
-        </select>
-      </div>
-      {/* KATEGORİ DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">KATEGORİ DURUMU</label>
-        <select className="input">
-          <option>Kategori durumunu filtrele</option>
-        </select>
-      </div>
-      {/* LİSTELEME BİTİŞ DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">LİSTELEME BİTİŞ DURUMU</label>
-        <select className="input">
-          <option>Listeleme Bitiş Durumu</option>
-        </select>
-      </div>
-      {/* FİYAT KİLİT DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">FİYAT KİLİT DURUMU</label>
-        <select className="input">
-          <option>Fiyat Kilit Durumunu filtrele</option>
-        </select>
-      </div>
-      {/* KANAL BAZLI AÇIK/KAPALI DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">KANAL BAZLI AÇIK/KAPALI DURUMU</label>
-        <select className="input">
-          <option>Kanal Bazlı Açık/Kapalı Durumu filtrele</option>
-        </select>
-      </div>
-      {/* FİYAT ROBOT DURUMU */}
-      <div>
-        <label className="block text-sm font-medium text-gray-700">FİYAT ROBOT DURUMU</label>
-        <select className="input">
-          <option>Fiyat robot Durumunu filtrele</option>
-        </select>
+
+      {/* ÜRÜN DURUMLARI */}
+      {Object.entries(selectOptions).map(([label, options], index) => (
+        <div key={index}>
+          <label htmlFor={`select-${index}`} className="block text-sm font-semibold text-gray-800 mb-1">{label}</label>
+          <select id={`select-${index}`} className="input">
+            <option>{label.toLowerCase()} filtrele</option>
+            {options.map((option, i) => (
+              <option key={i} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
+      ))}
+
+      <div className="flex justify-end gap-3 pt-6 mt-36">
+        <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md font-semibold">Vazgeç</button>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md font-semibold">Filtrele</button>
       </div>
     </div>
   );
 };
 
-export default OrderFiltersContent; 
+export default OrderFiltersContent;
