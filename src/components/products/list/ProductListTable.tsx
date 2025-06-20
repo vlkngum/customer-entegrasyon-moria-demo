@@ -5,6 +5,7 @@ import { MdKeyboardArrowRight } from "react-icons/md"
 import { useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"
 import ProductFilterModal from "@/components/products/list/ProductFilterModal"
+import BulkProcessModal from '@/components/products/list/BulkProcessModal';
 
 export default function ProductListTable() { 
 
@@ -45,6 +46,10 @@ export default function ProductListTable() {
         </div>
 
         <ProductFilterModal showModal={showDetailedFilters} onClose={toggleDetailedFilters} />
+        
+        {bulkProcessModal && (
+          <BulkProcessModal showModal={bulkProcessModal} onClose={toggleBulkProcess} />
+        )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ export default function ProductListTable() {
       stok: 800,
       platformDurum: "Yüklendi",
       durum: "Satışa Açık",
-      kaynak: "Sopyo",
+      kaynak: "Cm Apps",
     },
   ];
 
