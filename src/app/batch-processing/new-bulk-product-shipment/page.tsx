@@ -25,16 +25,16 @@ export default function BulkProductUpdatesPage() {
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col items-center justify-center w-full">
-        <div className="bg-white rounded-xl shadow-md p-10 mt-10 flex flex-col items-center w-full max-w-2xl">
+        <div className="bg-white rounded-xl shadow-md px-10 py-20 mt-10 flex flex-col items-center w-full max-w-5xl">
           
           <h2 className="text-lg font-bold text-center text-gray-700 mb-2">DAHA ÖNCE HİÇ TOPLU ÜRÜN GÜNCELLEMESİ YAPMAMIŞSINIZ</h2>
           <p className="text-gray-500 text-center mb-6">Toplu ürün güncellemesi başlatmak için ürün listenizden toplu işlemler ekranından yapabilirsiniz.</p>
           <img
             src="/bulk-products-illustration.webp"
             alt="Toplu Ürün Gönderimi Görseli"
-            className="mb-6 w-full max-w-md mx-auto"
+            className="mb-6 w-full max-w-xxl mx-auto"
           />
-          <button className="bg-green-600 text-white px-6 py-3 rounded font-semibold hover:bg-green-700 transition">ÜRÜN LİSTESİNE GİT</button>
+          <button className="bg-green-600 text-white mt-10 px-6 py-3 rounded font-semibold hover:bg-green-700 transition">ÜRÜN LİSTESİNE GİT</button>
         </div>
       </main>
     </div>
