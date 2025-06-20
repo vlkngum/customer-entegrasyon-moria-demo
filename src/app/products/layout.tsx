@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AiFillProduct, AiOutlineProduct  } from "react-icons/ai"; 
 import { FaProductHunt  } from "react-icons/fa";
-import ProductSingleFetchModal from "@/components/products/ProductSingleFetchModal";
+import ProductSingleFetchModal from "@/components/products/list/ProductSingleFetchModal";
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
   const [activeTab, setActiveTab] = useState("Ürün Listesi");

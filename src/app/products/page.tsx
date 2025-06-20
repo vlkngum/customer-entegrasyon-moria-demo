@@ -1,5 +1,5 @@
-import ProductListTable from "@/components/products/ProductListTable";
-import ProductList from "@/components/products/ProductList";
+import ProductListTable from "@/components/products/list/ProductListTable";
+import ProductList from "@/components/products/list/ProductList";
 
 export default function Products(){
     return(
