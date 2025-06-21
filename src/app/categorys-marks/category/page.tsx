@@ -1,26 +1,60 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaSearch, FaTrash } from "react-icons/fa";
 import { MdKeyboardArrowRight, MdSync } from "react-icons/md";
 import DetailedFilterSidebar from "../../../components/categorys-marks/DetailedFilterSidebar";
+import BatchTransactions from "@/components/products/list/batch-transactions";
+import { useRouter } from "next/navigation";
+import DeactivateCategoryModal from "@/components/categorys-marks/DeactivateCategoryModal";
+import ActivateCategoryModal from "@/components/categorys-marks/ActivateCategoryModal";
 
 const categories = [
   {
     id: 1,
-    name: "Deneme 2",
-    source: "CMApps",
+    name: "Deneme",
+    source: "Entekas",
   },
   {
     id: 2,
+    name: "Deneme 2",
+    source: "Entekas",
+  },
+  {
+    id: 3,
     name: "Deneme Kategorisi",
-    source: "CMApps",
+    source: "Entekas",
   },
 ];
 
 export default function CategoryPage() {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
+  const [isBulkProcessModalOpen, setIsBulkProcessModalOpen] = useState(false);
+  const [deactivateModalInfo, setDeactivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
+  const [activateModalInfo, setActivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
+  const router = useRouter();
+
+  const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.checked) {
+      setSelectedCategories(categories.map((c) => c.id));
+    } else {
+      setSelectedCategories([]);
+    }
+  };
+
+  const handleSelectCategory = (categoryId: number) => {
+    setSelectedCategories((prevSelected) => {
+      if (prevSelected.includes(categoryId)) {
+        return prevSelected.filter((id) => id !== categoryId);
+      } else {
+        return [...prevSelected, categoryId];
+      }
+    });
+  };
+
+  const allSelected = selectedCategories.length === categories.length && categories.length > 0;
 
   return (
     <div style={{ background: '#f5f9ff', minHeight: '100vh', padding: 20 }}>
@@ -39,7 +73,7 @@ export default function CategoryPage() {
           <FaSearch /> FİLTRELE
           </button>
           <div style={{ marginLeft: 'auto', display: 'flex', gap: 24 }}>
-            <button style={{ background: 'none', border: 'none', color: '#222', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }}>
+            <button onClick={() => setIsBulkProcessModalOpen(true)} style={{ background: 'none', border: 'none', color: '#222', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }}>
               <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <MdKeyboardArrowRight style={{ color: '#168cff', width: 16, height: 16 }} />
               </span>
@@ -55,18 +89,59 @@ export default function CategoryPage() {
         </div>
       </div>
 
-      {/* Tablo başlıkları */}
-      <div style={{ display: 'flex', alignItems: 'center', background: '#f5f9ff', padding: '8px 16px', fontWeight: 600, color: '#5a6a85' }}>
-        <input type="checkbox" style={{ marginRight: 16 }} />
-        <div style={{ flex: 2 }}>KATEGORİ ADI</div>
-        <div style={{ flex: 2 }}>EŞİTLEME DURUMLARI</div>
-        <div style={{ flex: 1, textAlign: 'right' }}>İŞLEMLER</div>
-      </div>
+      {selectedCategories.length > 0 ? (
+        <div style={{ background: '#168cff', color: '#fff', borderRadius: 10, padding: '12px 20px', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 24 }}>
+          <input
+            type="checkbox"
+            checked={allSelected}
+            onChange={handleSelectAll}
+            style={{
+                width: 18,
+                height: 18,
+                accentColor: '#168cff'
+            }}
+        />
+        <span style={{ fontWeight: 600 }}>{selectedCategories.length} adet kayıt seçildi.</span>
+
+        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24, marginLeft: 8 }}></div>
+
+        <button
+            onClick={() => setIsBulkProcessModalOpen(true)}
+            style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+            <MdKeyboardArrowRight /> TOPLU İŞLEMLER
+        </button>
+
+        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24 }}></div>
+
+        <button style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <FaTrash /> SİLME İŞLEMLERİ
+        </button>
+
+        <div style={{ marginLeft: 'auto' }}>
+            {selectedCategories.length < categories.length && (
+                <button
+                    onClick={() => setSelectedCategories(categories.map(c => c.id))}
+                    style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, textDecoration: 'underline', cursor: 'pointer' }}
+                >
+                    {categories.length} kaydın tümünü seç
+                </button>
+            )}
+        </div>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f9ff', padding: '8px 16px', fontWeight: 600, color: '#5a6a85' }}>
+          <input type="checkbox" style={{ marginRight: 16 }} onChange={handleSelectAll} checked={allSelected} />
+          <div style={{ flex: 2 }}>KATEGORİ ADI</div>
+          <div style={{ flex: 2 }}>EŞİTLEME DURUMLARI</div>
+          <div style={{ flex: 1, textAlign: 'right' }}>İŞLEMLER</div>
+        </div>
+      )}
+
 
       {/* Kategori listesi */}
       {categories.map((cat) => (
-        <div key={cat.id} style={{ display: 'flex', alignItems: 'center', background: '#fff', borderRadius: 10, margin: '12px 0', padding: '16px 16px', boxShadow: '0 1px 4px #e3eafc33', position: 'relative' }}>
-          <input type="checkbox" style={{ marginRight: 16 }} />
+        <div key={cat.id} style={{ display: 'flex', alignItems: 'center', background: selectedCategories.includes(cat.id) ? '#eaf4ff' : '#fff', borderRadius: 10, margin: '12px 0', padding: '16px 16px', boxShadow: '0 1px 4px #e3eafc33', position: 'relative' }}>
+          <input type="checkbox" style={{ marginRight: 16 }} checked={selectedCategories.includes(cat.id)} onChange={() => handleSelectCategory(cat.id)} />
           <div style={{ flex: 2 }}>
             <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginRight: 8 }}>
               <MdKeyboardArrowRight style={{ color: '#168cff', width: 16, height: 16 }} />
@@ -133,6 +208,7 @@ export default function CategoryPage() {
                     outline: 'none',
                   }}
                   onMouseDown={e => e.preventDefault()}
+                  onClick={() => router.push(`/categorys-marks/category/edit/${cat.id}`)}
                 >
                   Düzenle
                 </button>
@@ -148,6 +224,10 @@ export default function CategoryPage() {
                     outline: 'none',
                   }}
                   onMouseDown={e => e.preventDefault()}
+                  onClick={() => {
+                    setDeactivateModalInfo({ open: true, category: cat });
+                    setOpenDropdown(null);
+                  }}
                 >
                   Pasife Al
                 </button>
@@ -166,6 +246,25 @@ export default function CategoryPage() {
                 >
                   Kopyala
                 </button>
+                <div style={{ height: 1, background: 'rgba(255,255,255,0.2)', margin: '0 16px' }} />
+                <button
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    textAlign: 'left',
+                    padding: '12px 24px',
+                    cursor: 'pointer',
+                    outline: 'none',
+                  }}
+                  onMouseDown={e => e.preventDefault()}
+                   onClick={() => {
+                    setActivateModalInfo({ open: true, category: cat });
+                    setOpenDropdown(null);
+                  }}
+                >
+                  Aktif Et
+                </button>
               </div>
             )}
           </div>
@@ -173,6 +272,27 @@ export default function CategoryPage() {
       ))}
 
       <DetailedFilterSidebar open={filterOpen} onClose={() => setFilterOpen(false)} />
+
+      {isBulkProcessModalOpen && (
+        <BatchTransactions
+          showModal={isBulkProcessModalOpen}
+          onClose={() => setIsBulkProcessModalOpen(false)}
+        />
+      )}
+      {deactivateModalInfo.open && (
+        <DeactivateCategoryModal
+          open={deactivateModalInfo.open}
+          onClose={() => setDeactivateModalInfo({ open: false, category: null })}
+          category={deactivateModalInfo.category}
+        />
+      )}
+      {activateModalInfo.open && (
+        <ActivateCategoryModal
+          open={activateModalInfo.open}
+          onClose={() => setActivateModalInfo({ open: false, category: null })}
+          category={activateModalInfo.category}
+        />
+      )}
     </div>
   );
 }
