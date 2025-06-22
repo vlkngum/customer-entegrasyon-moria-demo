@@ -26,7 +26,7 @@ body {
 }
 
 .panel {
-  @apply bg-white rounded-lg shadow-sm border-b border-gray-200 p-4 mb-4;
+  @apply bg-white rounded-lg shadow-sm border-b border-gray-200 p-4 mb-2;
 }
 
 

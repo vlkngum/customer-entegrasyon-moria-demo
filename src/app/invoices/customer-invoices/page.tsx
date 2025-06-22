@@ -3,6 +3,30 @@
 import { useState } from "react";
 import { FaUsers, FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import ProductTable, { ProductTableColumn } from '@/components/ProductTable';
+
+const customers = [
+  { id: '1', name: 'Ahmet Yılmaz', email: 'ahmet@example.com' },
+  { id: '2', name: 'Ayşe Demir', email: 'ayse@example.com' },
+  { id: '3', name: 'Mehmet Can', email: 'mehmet@example.com' },
+];
+
+const columns: ProductTableColumn[] = [
+  { key: 'name', title: 'MÜŞTERİ ADI' },
+  { key: 'email', title: 'MÜŞTERİ MAİL' },
+  {
+    key: 'actions',
+    title: <div className="text-right">İŞLEMLER</div>,
+    render: (_, row) => (
+      <div className="flex justify-end gap-2">
+        {/* Buraya ileride düzenle/sil ikonları eklenebilir */}
+        <button className="text-blue-600 hover:underline text-xs">Düzenle</button>
+        <button className="text-red-500 hover:underline text-xs">Sil</button>
+      </div>
+    ),
+    className: 'text-right',
+  },
+];
 
 export default function Invoices() {
   const [activeTab, setActiveTab] = useState("customers");
@@ -52,17 +76,8 @@ export default function Invoices() {
             </button>
           </div>
         </div>
- 
-        <div className="panel">
-          <div className="grid grid-cols-3 text-sm font-semibold text-gray-600 border-b border-gray-200 py-3 px-6">
-            <div>MÜŞTERİ ADI</div>
-            <div>MÜŞTERİ MAİL</div>
-            <div className="text-right">İŞLEMLER</div>
-          </div>
-          {/* Customer List will go here */}
-          <div className="py-10 text-center text-gray-500">
-            {/* No customers found message or loading indicator */}
-          </div>
+        <div className="">
+          <ProductTable columns={columns} data={customers} />
         </div>
       </div>
     </div>
