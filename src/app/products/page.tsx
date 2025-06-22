@@ -1,11 +1,11 @@
 import ProductListTable from "@/components/products/list/ProductListTable";
-import ProductList from "@/components/products/list/ProductList";
+import ProductList from "@/components/products/list/ProductList"; 
 
-export default function Products(){
+export default function Products(){ 
     return(
-        <div className="p-4">
+        <div className="p-4"> 
             <ProductListTable />
-            <ProductList />
+            <ProductList /> 
         </div>
     );
 }

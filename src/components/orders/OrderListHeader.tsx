@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductTable, { ProductTableColumn } from '../ProductTable';
 
 interface Order {
   id: string;
@@ -50,36 +51,47 @@ export default function OrderListHeader() {
     },
   ];
 
-  return (
-    <div className="panel">
-      <div className="grid grid-cols-4 gap-4 font-semibold text-sm text-gray-600  pb-3 mb-3 items-center">
-        <div className=" gap-4 flex"> 
-          <input type="checkbox" className="form-checkbox hidden " />
+  const columns: ProductTableColumn[] = [
+    {
+      key: 'marketplace',
+      title: (
+        <span className="flex items-center gap-2">
+          <input type="checkbox" className="form-checkbox opacity-0" />
           PAZARYERİ
+        </span>
+      ),
+      render: (value) => (
+        <span className="flex items-center gap-2">
+          <input type="checkbox" className="form-checkbox" />
+          {value}
+        </span>
+      ),
+    },
+    {
+      key: 'customerName',
+      title: 'MÜŞTERİ VE FATURA TARİHİ',
+      render: (value, row) => (
+        <div>
+          <div className="text-gray-900">{row.customerName}</div>
+          <div className="text-gray-500 text-xs">{row.invoiceDate}</div>
         </div>
-        <div>MÜŞTERİ VE FATURA TARİHİ</div>
-        <div>SİPARİŞ NO VE TUTARI</div> 
-        <div>İŞLEM</div>
-      </div>
-      {orders.map((order) => (
-        <div key={order.id} className="grid grid-cols-4 gap-4 py-3 border-b border-gray-100 items-center text-sm">
-          <div className="font-medium text-gray-900 gap-4 flex"> 
-            <input type="checkbox" className="form-checkbox" />
-            {order.marketplace}
-          </div>
-          
-          <div>
-            <div className="text-gray-900">{order.customerName}</div>
-            <div className="text-gray-500 text-xs">{order.invoiceDate}</div>
-          </div>
-          <div>
-            <div className="text-gray-900">{order.orderNumber}</div>
-            <div className="text-gray-500 text-xs">{order.amount}</div>
-          </div>
-          <div>{order.status}</div>
-           
+      ),
+    },
+    {
+      key: 'orderNumber',
+      title: 'SİPARİŞ NO VE TUTARI',
+      render: (value, row) => (
+        <div>
+          <div className="text-gray-900">{row.orderNumber}</div>
+          <div className="text-gray-500 text-xs">{row.amount}</div>
         </div>
-      ))}
-    </div>
-  );
+      ),
+    },
+    {
+      key: 'status',
+      title: 'İŞLEM',
+    },
+  ];
+
+  return <ProductTable columns={columns} data={orders} />;
 } 

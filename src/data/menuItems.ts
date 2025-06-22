@@ -55,7 +55,7 @@ export const menuItems: MenuItem[] = [
       { name: 'Kategoriler', href: '/categorys-marks/category' },
       { name: 'Markalar', href: '/categorys-marks/marks' },
       { name: 'Etiketler', href: '/tags' },
-      { name: 'Seçenekler', href: '/products/variant' },
+      { name: 'Seçenekler', href: '/variant' },
       { name: 'XML Kaynakları', href: '/xml' }
     ]
   },

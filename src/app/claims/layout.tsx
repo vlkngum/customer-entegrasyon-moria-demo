@@ -5,10 +5,10 @@ import { FaBars } from "react-icons/fa6";
 import { FaFileDownload } from "react-icons/fa";
 
 export default function ClaimsLayout({ children }: { children: React.ReactNode }) {
-  const [activeTab, setActiveTab] = useState("Aktif İadeler");
+  const [activeTab, setActiveTab] = useState("Tümü");
 
   const tabs = [
-    { name: "Tümü", icon: <FaBars className="w-4 h-4" />, href: '/claims/tumu' },
+    { name: "Tümü", icon: <FaBars className="w-4 h-4" />, href: '/claims' },
     { name: "Aktif İadeler", href: '/claims/active' },
     { name: "Aksiyon Alınacak", href: '/claims/action' },
     { name: "Kabul Edilen", href: '/claims/accepted' },
