@@ -69,24 +69,24 @@ export default function MarksPage() {
   const allSelected = selectedMarks.length === marks.length && marks.length > 0;
 
   return (
-    <div style={{ background: '#f5f9ff', minHeight: '100vh', padding: 20 }}>
+    <div className="bg-[#f5f9ff] min-h-screen p-5">
       {/* Search and filter area */}
-      <div style={{ background: '#fff', borderRadius: 10, padding: 34, marginBottom: 24 }}>
-        <div style={{ marginBottom: 8, fontWeight: 700, fontSize: 15, color: '#5a6a85', letterSpacing: 0.5 }}>
+      <div className="bg-white rounded-[10px] p-[34px] mb-6">
+        <div className="mb-2 font-bold text-[15px] text-[#5a6a85] tracking-[0.5px]">
           MARKA ARAMA
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div className="flex items-center gap-4">
           <input
             type="text"
             placeholder="Marka adı ile ara..."
-            style={{ width: 350, maxWidth: '100%', padding: 12, borderRadius: 8, border: '1px solid #e3eafc' }}
+            className="w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc]"
           />
-          <button style={{ background: '#168cff', color: '#fff', padding: '12px 32px', borderRadius: 8, border: 'none', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button className="bg-[#168cff] text-white py-3 px-8 rounded-lg border-none font-semibold flex items-center gap-2">
             <FaSearch /> FİLTRELE
           </button>
-          <div style={{ marginLeft: 'auto' }}>
-            <button onClick={() => setFilterOpen(true)} style={{ background: 'none', border: 'none', color: '#5a6a85', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }}>
-                <MdKeyboardArrowRight style={{ color: '#168cff' }} />
+          <div className="ml-auto">
+            <button onClick={() => setFilterOpen(true)} className="bg-transparent border-none text-[#5a6a85] font-medium flex items-center gap-1">
+                <MdKeyboardArrowRight className="text-[#168cff]" />
                 Detaylı Filtrele
             </button>
           </div>
@@ -94,33 +94,29 @@ export default function MarksPage() {
       </div>
 
       {selectedMarks.length > 0 ? (
-        <div style={{ background: '#168cff', color: '#fff', borderRadius: 10, padding: '12px 20px', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 24 }}>
+        <div className="bg-[#168cff] text-white rounded-[10px] py-3 px-5 mb-3 flex items-center gap-6">
           <input
             type="checkbox"
             checked={allSelected}
             onChange={handleSelectAll}
-            style={{
-                width: 18,
-                height: 18,
-                accentColor: '#168cff'
-            }}
+            className="w-[18px] h-[18px] accent-[#168cff]"
         />
-        <span style={{ fontWeight: 600 }}>{selectedMarks.length} adet kayıt seçildi.</span>
-        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24, marginLeft: 8 }}></div>
+        <span className="font-semibold">{selectedMarks.length} adet kayıt seçildi.</span>
+        <div className="border-l border-white/30 h-6 ml-2"></div>
         <button
             onClick={() => setIsBulkProcessModalOpen(true)}
-            style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+            className="bg-transparent border-none text-white font-medium flex items-center gap-2 cursor-pointer">
             <MdKeyboardArrowRight /> TOPLU İŞLEMLER
         </button>
-        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24 }}></div>
-        <button style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div className="border-l border-white/30 h-6"></div>
+        <button className="bg-transparent border-none text-white font-medium flex items-center gap-2">
             <FaTrash /> SİLME İŞLEMLERİ
         </button>
-        <div style={{ marginLeft: 'auto' }}>
+        <div className="ml-auto">
             {selectedMarks.length < marks.length && (
                 <button
                     onClick={() => setSelectedMarks(marks.map(m => m.id))}
-                    style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, textDecoration: 'underline', cursor: 'pointer' }}
+                    className="bg-transparent border-none text-white font-medium underline cursor-pointer"
                 >
                     {marks.length} kaydın tümünü seç
                 </button>
@@ -128,32 +124,32 @@ export default function MarksPage() {
         </div>
         </div>
       ) : (
-        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f9ff', padding: '12px 16px', fontWeight: 600, color: '#5a6a85' }}>
-          <input type="checkbox" style={{ marginRight: 16, width: 18, height: 18, accentColor: '#168cff' }} onChange={handleSelectAll} checked={allSelected} />
-          <div style={{ flex: 1 }}>MARKA ADI</div>
-          <div style={{ flex: 1 }}>EŞİTLEME DURUMLARI</div>
-          <div style={{ flex: 2, textAlign: 'right' }}>İŞLEMLER</div>
+        <div className="flex items-center bg-[#f5f9ff] py-3 px-4 font-semibold text-[#5a6a85]">
+          <input type="checkbox" className="mr-4 w-[18px] h-[18px] accent-[#168cff]" onChange={handleSelectAll} checked={allSelected} />
+          <div className="flex-1">MARKA ADI</div>
+          <div className="flex-1">EŞİTLEME DURUMLARI</div>
+          <div className="flex-[2] text-right">İŞLEMLER</div>
         </div>
       )}
 
       {/* Mark list */}
       {marks.map((mark) => (
-        <div key={mark.id} style={{ display: 'flex', alignItems: 'center', background: selectedMarks.includes(mark.id) ? '#eaf4ff' : '#fff', borderRadius: 10, margin: '8px 0', padding: '16px', boxShadow: '0 1px 4px #e3eafc33' }}>
-          <input type="checkbox" style={{ marginRight: 16, width: 18, height: 18, accentColor: '#168cff' }} checked={selectedMarks.includes(mark.id)} onChange={() => handleSelectMark(mark.id)} />
+        <div key={mark.id} className={`flex items-center ${selectedMarks.includes(mark.id) ? 'bg-[#eaf4ff]' : 'bg-white'} rounded-[10px] my-2 p-4 shadow-[0_1px_4px_#e3eafc33]`}>
+          <input type="checkbox" className="mr-4 w-[18px] h-[18px] accent-[#168cff]" checked={selectedMarks.includes(mark.id)} onChange={() => handleSelectMark(mark.id)} />
           
-          <div style={{ flex: 1, display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ background: '#eaf4ff', color: '#168cff', borderRadius: 4, padding: 4, display: 'inline-flex' }}>
+          <div className="flex-1 flex items-center gap-2">
+            <span className="bg-[#eaf4ff] text-[#168cff] rounded p-1 inline-flex">
                 <MdKeyboardArrowRight />
             </span>
-            <span style={{ fontWeight: 'bold', fontSize: 16 }}>{mark.name}</span>
+            <span className="font-bold text-base">{mark.name}</span>
           </div>
 
-          <div style={{ flex: 1, display: 'flex', gap: 8, alignItems: 'center' }}>
+          <div className="flex-1 flex gap-2 items-center">
             {mark.platforms.map(platform => (
-                <div key={platform.name} style={{ position: 'relative' }}>
-                    <img src={platform.logo} alt={platform.name} style={{ width: 40, height: 40, borderRadius: '50%', border: '2px solid #eee', filter: platform.synced ? 'grayscale(0)' : 'grayscale(1)' }}/>
+                <div key={platform.name} className="relative">
+                    <img src={platform.logo} alt={platform.name} className={`w-10 h-10 rounded-full border-2 border-[#eee] ${platform.synced ? 'grayscale-0' : 'grayscale'}`}/>
                     {!platform.synced && (
-                        <div style={{ position: 'absolute', top: -2, right: -2, background: '#ff3b3b', color: 'white', width: 16, height: 16, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 'bold', border: '1px solid white' }}>
+                        <div className="absolute top-[-2px] right-[-2px] bg-[#ff3b3b] text-white w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold border border-white">
                             &times;
                         </div>
                     )}
@@ -161,71 +157,29 @@ export default function MarksPage() {
             ))}
           </div>
 
-          <div style={{ flex: 2, display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
-            <div style={{ position: "relative" }}>
+          <div className="flex-[2] flex justify-end gap-2">
+            <div className="relative">
               <button
                 onClick={() =>
                   setSyncPopoverOpenFor(
                     syncPopoverOpenFor === mark.id ? null : mark.id
                   )
                 }
-                style={{
-                  background: "#fff4f0",
-                  color: "#ff6a3a",
-                  border: "none",
-                  borderRadius: 8,
-                  padding: "8px 16px",
-                  fontWeight: 600,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 6,
-                  cursor: "pointer",
-                }}
+                className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-1.5 cursor-pointer"
               >
                 <FaSync size={14} />
                 <span>MARKA EŞİTLE</span>
               </button>
               {syncPopoverOpenFor === mark.id && (
                 <div
-                  style={{
-                    position: "absolute",
-                    bottom: "110%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    background: "white",
-                    borderRadius: 8,
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                    zIndex: 10,
-                    width: "max-content",
-                  }}
+                  className="absolute bottom-[110%] left-1/2 -translate-x-1/2 bg-white rounded-lg shadow-[0_4px_12px_rgba(0,0,0,0.15)] z-10 w-max"
                 >
                   <div
-                    style={{
-                      position: "absolute",
-                      bottom: -5,
-                      left: "50%",
-                      marginLeft: -5,
-                      width: 0,
-                      height: 0,
-                      borderLeft: "5px solid transparent",
-                      borderRight: "5px solid transparent",
-                      borderTop: "5px solid white",
-                    }}
+                    className="absolute bottom-[-5px] left-1/2 ml-[-5px] w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[5px] border-t-white"
                   />
                   <button
                     onClick={() => handleOpenSyncModal(mark)}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 8,
-                      padding: "12px 16px",
-                      background: "#168cff",
-                      color: "white",
-                      border: "none",
-                      borderRadius: 8,
-                      fontWeight: 600,
-                      cursor: "pointer",
-                    }}
+                    className="flex items-center gap-2 py-3 px-4 bg-[#168cff] text-white border-none rounded-lg font-semibold cursor-pointer"
                   >
                     <MdKeyboardArrowRight /> Trendyol Eşitle
                   </button>
@@ -234,11 +188,11 @@ export default function MarksPage() {
             </div>
             <button 
                 onClick={() => handleEditClick(mark)}
-                style={{ background: '#eaf4ff', color: '#168cff', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                className="bg-[#eaf4ff] text-[#168cff] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-1.5">
                 <FaPencilAlt size={14} />
                 <span>DÜZENLE</span>
             </button>
-            <button style={{ background: '#ffeaea', color: '#ff3b3b', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-1.5">
                 <FaTrash size={14} />
                 <span>SİL</span>
             </button>

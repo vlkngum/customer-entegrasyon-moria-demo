@@ -59,31 +59,31 @@ export default function CategoryPage() {
   const allSelected = selectedCategories.length === categories.length && categories.length > 0;
 
   return (
-    <div style={{ background: '#f5f9ff', minHeight: '100vh', padding: 20 }}>
+    <div className="bg-[#f5f9ff] min-h-screen p-5">
       {/* Filtreleme ve arama alanı */}
-      <div style={{ background: '#fff', borderRadius: 10, padding: 34, marginBottom: 24 }}>
-        <div style={{ marginBottom: 8, fontWeight: 700, fontSize: 15, color: '#5a6a85', letterSpacing: 0.5 }}>
+      <div className="bg-white rounded-[10px] p-[34px] mb-6">
+        <div className="mb-2 font-bold text-[15px] text-[#5a6a85] tracking-[0.5px]">
           KATEGORİ ARAMA
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+        <div className="flex items-center gap-4">
           <input
             type="text"
             placeholder="Kategori adı ile ara..."
-            style={{ width: 350, maxWidth: '100%', padding: 12, borderRadius: 8, border: '1px solid #e3eafc' }}
+            className="w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc]"
           />
-          <button style={{ background: '#168cff', color: '#fff', padding: '12px 32px', borderRadius: 8, border: 'none', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <button className="bg-[#168cff] text-white py-3 px-8 rounded-lg border-none font-semibold flex items-center gap-2">
           <FaSearch /> FİLTRELE
           </button>
-          <div style={{ marginLeft: 'auto', display: 'flex', gap: 24 }}>
-            <button onClick={() => setIsBulkProcessModalOpen(true)} style={{ background: 'none', border: 'none', color: '#222', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <MdKeyboardArrowRight style={{ color: '#168cff', width: 16, height: 16 }} />
+          <div className="ml-auto flex gap-6">
+            <button onClick={() => setIsBulkProcessModalOpen(true)} className="bg-transparent border-none text-[#222] font-medium flex items-center gap-1">
+              <span className="bg-[#eaf4ff] rounded-full p-1 flex items-center justify-center">
+                <MdKeyboardArrowRight className="text-[#168cff] w-4 h-4" />
               </span>
               Toplu İşlemler
             </button>
-            <button style={{ background: 'none', border: 'none', color: '#222', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 4 }} onClick={() => setFilterOpen(true)}>
-              <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <MdKeyboardArrowRight style={{ color: '#168cff', width: 16, height: 16 }} />
+            <button className="bg-transparent border-none text-[#222] font-medium flex items-center gap-1" onClick={() => setFilterOpen(true)}>
+              <span className="bg-[#eaf4ff] rounded-full p-1 flex items-center justify-center">
+                <MdKeyboardArrowRight className="text-[#168cff] w-4 h-4" />
               </span>
               Detaylı Filtrele
             </button>
@@ -92,38 +92,34 @@ export default function CategoryPage() {
       </div>
 
       {selectedCategories.length > 0 ? (
-        <div style={{ background: '#168cff', color: '#fff', borderRadius: 10, padding: '12px 20px', marginBottom: 12, display: 'flex', alignItems: 'center', gap: 24 }}>
+        <div className="bg-[#168cff] text-white rounded-[10px] py-3 px-5 mb-3 flex items-center gap-6">
           <input
             type="checkbox"
             checked={allSelected}
             onChange={handleSelectAll}
-            style={{
-                width: 18,
-                height: 18,
-                accentColor: '#168cff'
-            }}
+            className="w-[18px] h-[18px] accent-[#168cff]"
         />
-        <span style={{ fontWeight: 600 }}>{selectedCategories.length} adet kayıt seçildi.</span>
+        <span className="font-semibold">{selectedCategories.length} adet kayıt seçildi.</span>
 
-        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24, marginLeft: 8 }}></div>
+        <div className="border-l border-[rgba(255,255,255,0.3)] h-6 ml-2"></div>
 
         <button
             onClick={() => setIsBulkProcessModalOpen(true)}
-            style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer' }}>
+            className="bg-transparent border-none text-white font-medium flex items-center gap-2 cursor-pointer">
             <MdKeyboardArrowRight /> TOPLU İŞLEMLER
         </button>
 
-        <div style={{ borderLeft: '1px solid rgba(255, 255, 255, 0.3)', height: 24 }}></div>
+        <div className="border-l border-[rgba(255,255,255,0.3)] h-6"></div>
 
-        <button style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8 }}>
+        <button className="bg-transparent border-none text-white font-medium flex items-center gap-2">
             <FaTrash /> SİLME İŞLEMLERİ
         </button>
 
-        <div style={{ marginLeft: 'auto' }}>
+        <div className="ml-auto">
             {selectedCategories.length < categories.length && (
                 <button
                     onClick={() => setSelectedCategories(categories.map(c => c.id))}
-                    style={{ background: 'none', border: 'none', color: '#fff', fontWeight: 500, textDecoration: 'underline', cursor: 'pointer' }}
+                    className="bg-transparent border-none text-white font-medium underline cursor-pointer"
                 >
                     {categories.length} kaydın tümünü seç
                 </button>
@@ -131,11 +127,11 @@ export default function CategoryPage() {
         </div>
         </div>
       ) : (
-        <div style={{ display: 'flex', alignItems: 'center', background: '#f5f9ff', padding: '8px 16px', fontWeight: 600, color: '#5a6a85' }}>
-          <input type="checkbox" style={{ marginRight: 16 }} onChange={handleSelectAll} checked={allSelected} />
-          <div style={{ flex: 2 }}>KATEGORİ ADI</div>
-          <div style={{ flex: 2 }}>EŞİTLEME DURUMLARI</div>
-          <div style={{ flex: 1, textAlign: 'right' }}>İŞLEMLER</div>
+        <div className="flex items-center bg-[#f5f9ff] py-2 px-4 font-semibold text-[#5a6a85]">
+          <input type="checkbox" className="mr-4" onChange={handleSelectAll} checked={allSelected} />
+          <div className="flex-[2]">KATEGORİ ADI</div>
+          <div className="flex-[2]">EŞİTLEME DURUMLARI</div>
+          <div className="flex-1 text-right">İŞLEMLER</div>
         </div>
       )}
 
@@ -143,91 +139,60 @@ export default function CategoryPage() {
       {/* Kategori listesi */}
       {categories.map((cat) => (
         <React.Fragment key={cat.id}>
-        <div style={{ display: 'flex', alignItems: 'center', background: selectedCategories.includes(cat.id) ? '#eaf4ff' : '#fff', borderRadius: 10, margin: '12px 0', padding: '16px 16px', boxShadow: '0 1px 4px #e3eafc33', position: 'relative' }}>
-          <input type="checkbox" style={{ marginRight: 16 }} checked={selectedCategories.includes(cat.id)} onChange={() => handleSelectCategory(cat.id)} />
-          <div style={{ flex: 2 }}>
-            <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginRight: 8 }}>
-              <MdKeyboardArrowRight style={{ color: '#168cff', width: 16, height: 16 }} />
+        <div className={`flex items-center rounded-[10px] my-3 p-4 shadow-[0_1px_4px_#e3eafc33] relative ${selectedCategories.includes(cat.id) ? 'bg-[#eaf4ff]' : 'bg-white'}`}>
+          <input type="checkbox" className="mr-4" checked={selectedCategories.includes(cat.id)} onChange={() => handleSelectCategory(cat.id)} />
+          <div className="flex-[2]">
+            <span className="bg-[#eaf4ff] rounded-full p-1 inline-flex items-center justify-center mr-2">
+              <MdKeyboardArrowRight className="text-[#168cff] w-4 h-4" />
             </span>
-            <span style={{ fontWeight: 700, fontSize: 18 }}>{cat.name}</span>
-            <div style={{ fontSize: 13, color: '#5a6a85', marginTop: 4 }}>
-              Kaynak: <span style={{ fontWeight: 700 }}>{cat.source}</span>
+            <span className="font-bold text-lg">{cat.name}</span>
+            <div className="text-sm text-[#5a6a85] mt-1">
+              Kaynak: <span className="font-bold">{cat.source}</span>
             </div>
           </div>
-          <div style={{ flex: 2, display: 'flex', gap: 12 }}>
+          <div className="flex-[2] flex gap-3">
             <button
               onClick={() => setSyncingCategoryId(syncingCategoryId === cat.id ? null : cat.id)}
-              style={{ background: '#fff4f0', color: '#ff6a3a', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ background: '#ff6a3a', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <MdSync style={{ color: '#fff', width: 15, height: 15 }} />
+              className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+              <span className="bg-[#ff6a3a] rounded-full p-1 flex items-center justify-center">
+                <MdSync className="text-white w-[15px] h-[15px]" />
               </span>
               KATEGORİ EŞİTLE
             </button>
-            <button style={{ background: '#fff4f0', color: '#ff6a3a', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ background: '#ff6a3a', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <MdSync style={{ color: '#fff', width: 15, height: 15 }} />
+            <button className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+              <span className="bg-[#ff6a3a] rounded-full p-1 flex items-center justify-center">
+                <MdSync className="text-white w-[15px] h-[15px]" />
               </span>
               SEÇENEK EŞİTLE
             </button>
           </div>
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
-            <button style={{ background: '#ffeaea', color: '#ff3b3b', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <span style={{ background: '#e60023', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src="/delete-icon.png" alt="Sil" style={{ width: 15, height: 15, display: 'block' }} />
+          <div className="flex-1 flex justify-end gap-2">
+            <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+              <span className="bg-[#e60023] rounded-full p-1 flex items-center justify-center">
+                <img src="/delete-icon.png" alt="Sil" className="w-[15px] h-[15px] block" />
               </span>
               SİL
             </button>
             <button
-              style={{ background: '#f5f9ff', border: 'none', borderRadius: 8, padding: '8px 12px', fontWeight: 600, color: '#5a6a85', position: 'relative', cursor: 'pointer' }}
+              className="bg-[#f5f9ff] border-none rounded-lg py-2 px-3 font-semibold text-[#5a6a85] relative cursor-pointer"
               onClick={() => setOpenDropdown(openDropdown === cat.id ? null : cat.id)}
             >
               <span role="img" aria-label="more">⋯</span>
             </button>
             {openDropdown === cat.id && (
               <div
-                style={{
-                  position: 'absolute',
-                  top: 56,
-                  right: 0,
-                  background: '#168cff',
-                  borderRadius: 8,
-                  boxShadow: '0 2px 8px #168cff33',
-                  minWidth: 160,
-                  zIndex: 10,
-                  padding: '8px 0',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  color: '#fff',
-                  fontWeight: 600,
-                  fontSize: 16,
-                }}
+                className="absolute top-14 right-0 bg-[#168cff] rounded-lg shadow-[0_2px_8px_#168cff33] min-w-[160px] z-10 py-2 flex flex-col text-white font-semibold text-base"
               >
                 <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#fff',
-                    textAlign: 'left',
-                    padding: '12px 24px',
-                    cursor: 'pointer',
-                    outline: 'none',
-                  }}
+                  className="bg-transparent border-none text-white text-left py-3 px-6 cursor-pointer outline-none"
                   onMouseDown={e => e.preventDefault()}
                   onClick={() => router.push(`/categorys-marks/category/edit/${cat.id}`)}
                 >
                   Düzenle
                 </button>
-                <div style={{ height: 1, background: 'rgba(255,255,255,0.2)', margin: '0 16px' }} />
+                <div className="h-[1px] bg-[rgba(255,255,255,0.2)] my-0 mx-4" />
                 <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#fff',
-                    textAlign: 'left',
-                    padding: '12px 24px',
-                    cursor: 'pointer',
-                    outline: 'none',
-                  }}
+                  className="bg-transparent border-none text-white text-left py-3 px-6 cursor-pointer outline-none"
                   onMouseDown={e => e.preventDefault()}
                   onClick={() => {
                     setDeactivateModalInfo({ open: true, category: cat });
@@ -236,32 +201,16 @@ export default function CategoryPage() {
                 >
                   Pasife Al
                 </button>
-                <div style={{ height: 1, background: 'rgba(255,255,255,0.2)', margin: '0 16px' }} />
+                <div className="h-[1px] bg-[rgba(255,255,255,0.2)] my-0 mx-4" />
                 <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#fff',
-                    textAlign: 'left',
-                    padding: '12px 24px',
-                    cursor: 'pointer',
-                    outline: 'none',
-                  }}
+                  className="bg-transparent border-none text-white text-left py-3 px-6 cursor-pointer outline-none"
                   onMouseDown={e => e.preventDefault()}
                 >
                   Kopyala
                 </button>
-                <div style={{ height: 1, background: 'rgba(255,255,255,0.2)', margin: '0 16px' }} />
+                <div className="h-[1px] bg-[rgba(255,255,255,0.2)] my-0 mx-4" />
                 <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#fff',
-                    textAlign: 'left',
-                    padding: '12px 24px',
-                    cursor: 'pointer',
-                    outline: 'none',
-                  }}
+                  className="bg-transparent border-none text-white text-left py-3 px-6 cursor-pointer outline-none"
                   onMouseDown={e => e.preventDefault()}
                    onClick={() => {
                     setActivateModalInfo({ open: true, category: cat });
