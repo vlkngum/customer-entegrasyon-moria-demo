@@ -77,14 +77,14 @@ export const menuItems: MenuItem[] = [
     icon: TbReport,
     hasSubmenu: true,
     submenu: [
-      { name: 'Çok Satan Ürünler', href: '/users/sales-reports' },
-      { name: 'Satılan Ürün Listesi', href: '/users/stock-reports' },
-      { name: 'Sipariş ve Ciro', href: '/users/stock-reports' },
-      { name: 'Kategori Bazlı Satış', href: '/users/stock-reports' },
-      { name: 'Marka Bazlı Satış', href: '/users/stock-reports' },
-      { name: 'Kdv Raporu', href: '/users/stock-reports' },
-      { name: 'Komisyon Raporu', href: '/users/stock-reports' },
-      { name: 'Stoktaki Ürün Tutarları Raporu', href: '/users/stock-reports' }
+      { name: 'Çok Satan Ürünler', href: '/reports/best-selling-products' },
+      { name: 'Satılan Ürün Listesi', href: '/reports/list-of-products-sold' },
+      { name: 'Sipariş ve Ciro', href: '/reports/order-and-turnover' },
+      { name: 'Kategori Bazlı Satış', href: '/reports/category-based-selling' },
+      { name: 'Marka Bazlı Satış', href: '/reports/brand-based-selling' },
+      { name: 'Kdv Raporu', href: '/reports/vat-report' },
+      { name: 'Komisyon Raporu', href: '/reports/commission-report' },
+      { name: 'Stoktaki Ürün Tutarları Raporu', href: '/reports/product-amounts-in-stock-report' }
     ]
   },
   { 
@@ -103,5 +103,5 @@ export const menuItems: MenuItem[] = [
       { name: 'İşlem Hareketleri', href: '/reports/user-settings' }
     ]
   },
-  { name: 'Uygulamalar', href: '/documents', icon: CiShop },
+  { name: 'Uygulamalar', href: '/applications', icon: CiShop },
 ]; 

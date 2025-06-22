@@ -9,13 +9,13 @@ interface ProductImageUploadProps {
 export default function ProductImageUpload({ onImageChange, initialImageUrl }: ProductImageUploadProps) {
   return (
     <div className="panel">
-      <div className='w-96 aspect-square'>
-      <ImageUpload 
-        onImageChange={onImageChange} 
-        id="whatWeProduceImage" 
-        initialImageUrl={initialImageUrl} 
-      />
-        </div>
+      <div className="h-min">
+        <ImageUpload 
+          onImageChange={onImageChange} 
+          id="whatWeProduceImage" 
+          initialImageUrl={initialImageUrl} 
+        />
+      </div>
     </div>
   );
 } 

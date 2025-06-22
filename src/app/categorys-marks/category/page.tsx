@@ -8,6 +8,7 @@ import BatchTransactions from "@/components/products/list/batch-transactions";
 import { useRouter } from "next/navigation";
 import DeactivateCategoryModal from "@/components/categorys-marks/DeactivateCategoryModal";
 import ActivateCategoryModal from "@/components/categorys-marks/ActivateCategoryModal";
+import CategorySyncTable from "@/components/categorys-marks/CategorySyncTable";
 
 const categories = [
   {
@@ -34,6 +35,7 @@ export default function CategoryPage() {
   const [isBulkProcessModalOpen, setIsBulkProcessModalOpen] = useState(false);
   const [deactivateModalInfo, setDeactivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
   const [activateModalInfo, setActivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
+  const [syncingCategoryId, setSyncingCategoryId] = useState<number | null>(null);
   const router = useRouter();
 
   const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -140,7 +142,8 @@ export default function CategoryPage() {
 
       {/* Kategori listesi */}
       {categories.map((cat) => (
-        <div key={cat.id} style={{ display: 'flex', alignItems: 'center', background: selectedCategories.includes(cat.id) ? '#eaf4ff' : '#fff', borderRadius: 10, margin: '12px 0', padding: '16px 16px', boxShadow: '0 1px 4px #e3eafc33', position: 'relative' }}>
+        <React.Fragment key={cat.id}>
+        <div style={{ display: 'flex', alignItems: 'center', background: selectedCategories.includes(cat.id) ? '#eaf4ff' : '#fff', borderRadius: 10, margin: '12px 0', padding: '16px 16px', boxShadow: '0 1px 4px #e3eafc33', position: 'relative' }}>
           <input type="checkbox" style={{ marginRight: 16 }} checked={selectedCategories.includes(cat.id)} onChange={() => handleSelectCategory(cat.id)} />
           <div style={{ flex: 2 }}>
             <span style={{ background: '#eaf4ff', borderRadius: '50%', padding: 4, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', marginRight: 8 }}>
@@ -152,7 +155,9 @@ export default function CategoryPage() {
             </div>
           </div>
           <div style={{ flex: 2, display: 'flex', gap: 12 }}>
-            <button style={{ background: '#fff4f0', color: '#ff6a3a', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <button
+              onClick={() => setSyncingCategoryId(syncingCategoryId === cat.id ? null : cat.id)}
+              style={{ background: '#fff4f0', color: '#ff6a3a', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
               <span style={{ background: '#ff6a3a', borderRadius: '50%', padding: 4, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <MdSync style={{ color: '#fff', width: 15, height: 15 }} />
               </span>
@@ -269,6 +274,10 @@ export default function CategoryPage() {
             )}
           </div>
         </div>
+        {syncingCategoryId === cat.id && (
+          <CategorySyncTable categoryName={cat.name} onClose={() => setSyncingCategoryId(null)} />
+        )}
+        </React.Fragment>
       ))}
 
       <DetailedFilterSidebar open={filterOpen} onClose={() => setFilterOpen(false)} />

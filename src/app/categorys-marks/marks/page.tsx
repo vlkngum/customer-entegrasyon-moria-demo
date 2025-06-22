@@ -7,6 +7,7 @@ import MarkaFilterSidebar from "../../../components/categorys-marks/MarkaFilterS
 import BatchTransactions from "@/components/products/list/batch-transactions";
 import { useRouter } from "next/navigation";
 import MarkaDuzenleModal from "@/components/categorys-marks/MarkaDuzenleModal";
+import MarkaEsitleModal from "@/components/categorys-marks/MarkaEsitleModal";
 
 const marks = [
   {
@@ -29,11 +30,22 @@ export default function MarksPage() {
   const [isBulkProcessModalOpen, setIsBulkProcessModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editingMark, setEditingMark] = useState<{ id: number; name: string } | null>(null);
+  const [syncPopoverOpenFor, setSyncPopoverOpenFor] = useState<number | null>(
+    null
+  );
+  const [isSyncModalOpen, setIsSyncModalOpen] = useState(false);
+  const [syncingMark, setSyncingMark] = useState<any | null>(null);
   const router = useRouter();
 
   const handleEditClick = (mark: { id: number; name: string }) => {
     setEditingMark(mark);
     setIsEditModalOpen(true);
+  };
+
+  const handleOpenSyncModal = (mark: any) => {
+    setSyncingMark(mark);
+    setIsSyncModalOpen(true);
+    setSyncPopoverOpenFor(null);
   };
 
   const handleSelectAll = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -150,10 +162,76 @@ export default function MarksPage() {
           </div>
 
           <div style={{ flex: 2, display: 'flex', justifyContent: 'flex-end', gap: 8 }}>
-            <button style={{ background: '#fff4f0', color: '#ff6a3a', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+            <div style={{ position: "relative" }}>
+              <button
+                onClick={() =>
+                  setSyncPopoverOpenFor(
+                    syncPopoverOpenFor === mark.id ? null : mark.id
+                  )
+                }
+                style={{
+                  background: "#fff4f0",
+                  color: "#ff6a3a",
+                  border: "none",
+                  borderRadius: 8,
+                  padding: "8px 16px",
+                  fontWeight: 600,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  cursor: "pointer",
+                }}
+              >
                 <FaSync size={14} />
                 <span>MARKA EŞİTLE</span>
-            </button>
+              </button>
+              {syncPopoverOpenFor === mark.id && (
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "110%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    background: "white",
+                    borderRadius: 8,
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                    zIndex: 10,
+                    width: "max-content",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      bottom: -5,
+                      left: "50%",
+                      marginLeft: -5,
+                      width: 0,
+                      height: 0,
+                      borderLeft: "5px solid transparent",
+                      borderRight: "5px solid transparent",
+                      borderTop: "5px solid white",
+                    }}
+                  />
+                  <button
+                    onClick={() => handleOpenSyncModal(mark)}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 8,
+                      padding: "12px 16px",
+                      background: "#168cff",
+                      color: "white",
+                      border: "none",
+                      borderRadius: 8,
+                      fontWeight: 600,
+                      cursor: "pointer",
+                    }}
+                  >
+                    <MdKeyboardArrowRight /> Trendyol Eşitle
+                  </button>
+                </div>
+              )}
+            </div>
             <button 
                 onClick={() => handleEditClick(mark)}
                 style={{ background: '#eaf4ff', color: '#168cff', border: 'none', borderRadius: 8, padding: '8px 16px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
@@ -187,6 +265,11 @@ export default function MarksPage() {
         open={isEditModalOpen}
         onClose={() => setIsEditModalOpen(false)}
         mark={editingMark}
+      />
+      <MarkaEsitleModal
+        open={isSyncModalOpen}
+        onClose={() => setIsSyncModalOpen(false)}
+        markName={syncingMark?.name}
       />
     </div>
   );

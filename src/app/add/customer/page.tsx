@@ -52,9 +52,9 @@ export default function AddCustomerPage() {
   };
 
   return (
-    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-2xl">
-        <div className="bg-white rounded-lg shadow-md p-8">
+    <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center p-2">
+      <div className="w-full max-w-6xl">
+        <div className="bg-white rounded-lg shadow-md p-12">
           <div className="flex items-center mb-6">
             <div className="mr-4">
               <svg width="40" height="40" fill="none" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="#E3F0FF"/><path d="M20 21c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0 2c-4.418 0-8 2.239-8 5v2h16v-2c0-2.761-3.582-5-8-5z" fill="#2196F3"/></svg>
