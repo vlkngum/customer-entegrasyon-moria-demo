@@ -55,9 +55,9 @@ export default function Home() {
         <div className="mb-8">
           <SalesStatisticsChart data={salesData} />
         </div>
-
+{/* 
           <QuickActions actions={quickActions}/>
-          <ActivityList activities={activities}/>
+          <ActivityList activities={activities}/> */}
 
       </div>
  
