@@ -93,8 +93,8 @@ export const menuItems: MenuItem[] = [
     icon: CiSettings,
     hasSubmenu: true,
     submenu: [
-      { name: 'Genel Ayarlar', href: '/reports/general-settings' },
-      { name: 'ERP Muhasebe', href: '/reports/user-settings' },
+      { name: 'Genel Ayarlar', href: '/settings/erp' },
+      { name: 'ERP Muhasebe', href: '/settings/erp' },
       { name: 'Mağaza(Pazaryeri)', href: '/reports/user-settings' },
       { name: 'E-Ticaret(Site)', href: '/reports/user-settings' },
       { name: 'Kargo Ayarları', href: '/reports/user-settings' },
