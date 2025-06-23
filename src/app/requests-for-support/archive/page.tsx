@@ -5,52 +5,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { GiShop } from 'react-icons/gi';
 import { FiFilePlus } from 'react-icons/fi';
+import Error from '@/components/requests-for-support/Error';
 
 const OpenSupportRequestsPage = () => {
   const [activeTab, setActiveTab] = useState('open');
   const [filterOpen, setFilterOpen] = useState(false);
 
-  const supportRequests = [
-    {
-      id: '#77564',
-      type: 'Ürün İşlemleri',
-      platform: 'Trendyol',
-      subject: 'Deneme',
-      date: '22.06.2025 18:56',
-      status: 'Kapalı',
-    },
-    {
-      id: '#77565',
-      type: 'Sipariş Sorunu',
-      platform: 'Hepsiburada',
-      subject: 'Kargo gecikmesi',
-      date: '21.06.2025 14:30',
-      status: 'Kapalı',
-    },
-    {
-      id: '#77566',
-      type: 'Fatura Hatası',
-      platform: 'N11',
-      subject: 'Faturada yanlış ürün',
-      date: '20.06.2025 11:00',
-      status: 'Kapalı',
-    },
-  ];
-
-  const getStatusClass = (status: string) => {
-    switch (status) {
-      case 'İşlem Bekliyor':
-        return 'border-cyan-400 text-cyan-500';
-      case 'Cevaplandı':
-        return 'border-green-400 text-green-500';
-      case 'İnceleniyor':
-        return 'border-yellow-400 text-yellow-500';
-      case 'Kapalı':
-        return 'border-red-400 text-red-500';
-      default:
-        return 'border-gray-400 text-gray-500';
-    }
-  };
 
   return (
     <>
@@ -60,8 +20,8 @@ const OpenSupportRequestsPage = () => {
             <span className="text-2xl text-blue-600 mr-2">
               <GiShop />
             </span>
-            Kapalı Destek Taleplerim
-          </h1>
+            Arşivlenen Destek Taleplerim
+            </h1>
           
         </div>
 
@@ -100,9 +60,7 @@ const OpenSupportRequestsPage = () => {
             Arşivlenen Destek Taleplerim
           </Link>
         </div>
-        <div className='flex justify-center items-center bg-[#f2f8ff] h-screen'>
-        <img src="/noTicket.svg" alt="" className='w-300 h-150' />
-        </div>
+        <Error />
       </div>
     </>
   );
