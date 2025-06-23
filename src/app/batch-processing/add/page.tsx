@@ -2,17 +2,18 @@
 import React, { useState } from 'react';
 import IntegrationError from '@/components/batch-processing/IntegrationError';
 import PlatformSelection from '@/components/batch-processing/PlatformSelection';
+import Image from 'next/image';
 
 export default function AddBulkProductPage() {
   // Entegrasyon durumunu kontrol edecek state. 'true' yaparak normal akışı gösteriyoruz.
-  const [hasIntegration, setHasIntegration] = useState(true); 
+  const [hasIntegration] = useState(true); 
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 bg-[#f4f8fd] min-h-full">
       <div className="bg-white rounded-lg shadow-sm max-w-5xl mx-auto">
         <div className="flex items-center gap-4 border-b border-gray-200 p-6">
           <div className=" p-3 rounded-lg">
-            <img src="/reportIcon.svg" alt="Report Icon" className="h-16 w-16" />
+            <Image src="/reportIcon.svg" alt="Report Icon" width={64} height={64} className="h-16 w-16" />
           </div>
           <div>
             <h1 className="text-xl font-bold text-gray-800">Toplu Ürün Gönderim Sihirbazı</h1>

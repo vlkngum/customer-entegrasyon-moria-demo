@@ -139,7 +139,7 @@ export default function AddCustomerPage() {
                 </>
               )}
             </div>
-            <div className="text-xs text-blue-500 mt-2">Şahıs şirketleri dahil LTD, AŞ, vb. tüm şirketler 'Tüzel Kişi' kapsamındadır.</div>
+            <div className="text-xs text-blue-500 mt-2">Şahıs şirketleri dahil LTD, AŞ, vb. tüm şirketler &apos;Tüzel Kişi&apos; kapsamındadır.</div>
             <div className="flex justify-between mt-6">
               <button type="button" className="px-4 py-2 border rounded text-gray-600 border-gray-400 hover:bg-gray-100" disabled>Vazgeç</button>
               <button type="submit" className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-auto">Kaydet</button>

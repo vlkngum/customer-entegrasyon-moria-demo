@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { GiShop } from "react-icons/gi";
-import { FiFilePlus, FiLock, FiFileText, FiTrash2, FiEdit3 } from "react-icons/fi";
+import { FiFilePlus, FiLock, FiTrash2, FiEdit3 } from "react-icons/fi";
 import FilterDrawer from "@/components/product-shipments/FilterDrawer";
 import { useState } from "react";
 import FilterStatusBar from "@/components/product-shipments/FilterStatusBar";
 import { useRouter } from "next/navigation";
 import { FiTag } from "react-icons/fi";
 import { FiCalendar } from "react-icons/fi";
+import Image from "next/image";
 
 import Error from "@/components/product-shipments/Error";
 
@@ -116,7 +117,7 @@ export default function BulkTransactionsPage() {
               <div key={item.id} className="grid grid-cols-1 md:grid-cols-7 gap-4 bg-white items-center rounded-xl shadow-sm p-4">
                 {/* PLATFORM */}
                 <div className="flex flex-col items-center justify-center gap-2">
-                  <img src={item.platform.logo} alt={item.platform.name} className="w-16 h-16 object-contain" />
+                  <Image src={item.platform.logo} alt={item.platform.name} width={64} height={64} className="w-16 h-16 object-contain" />
                   <div className="text-sm text-gray-500 font-medium">{item.platform.code}</div>
                 </div>
                 
