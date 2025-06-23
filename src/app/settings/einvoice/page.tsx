@@ -6,94 +6,71 @@ import { useRouter } from 'next/navigation';
 
 const erpList = [
   {
-    name: 'Asb Yazılım',
-    settings: 'Asb Yazılım Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#F2993A]',
+    name: 'Trendyol E-faturam (Sovos)',
+    settings: 'Trendyol E-faturam (Sovos) Ayarları',
+    logo: '/dp-trLogo.svg',
+    bg: 'bg-[#b4c42c]',
     passive: true,
   },
   {
-    name: 'Dia',
-    settings: 'Dia Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#223A6A]',
+    name: 'Turkcell E-Fatura',
+    settings: 'Turkcell E-Fatura Ayarları',
+    logo: '/logo-dark.svg',
+    bg: 'bg-[#f7e5a6]',
     passive: true,
   },
   {
-    name: 'Sysmond',
-    settings: 'Sysmond Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#3B7C99]',
+    name: 'Logo E-Fatura',
+    settings: 'Logo E-Fatura Ayarları',
+    logo: '/eLogoWhite.svg',
+    bg: 'bg-[#2b378a]',
     passive: true,
   },
   {
-    name: 'Paraşüt',
-    settings: 'Paraşüt Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#FF6F5B]',
+    name: 'GİB E-Arşiv',
+    settings: 'GİB E-Arşiv Ayarları',
+    logo: '/earsiv-beyazlogo.svg',
+    bg: 'bg-[#d8232a]',
     passive: true,
   },
   {
-    name: 'Bizim Hesap',
-    settings: 'Bizim Hesap Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#2B5C54]',
+    name: 'QNB eFinans E-Fatura',
+    settings: 'QNB eFinans E-Fatura Ayarları',
+    logo: '/indir.png',
+    bg: 'bg-[#b14f88]',
     passive: true,
-  },
-  {
-    name: 'Logo',
-    settings: 'Logo Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#D13B3B]',
-    passive: false,
-  },
-  {
-    name: 'Logo İşbaşı',
-    settings: 'Logo İşbaşı Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#D13B3B]',
-    passive: true,
-  },
-  {
-    name: 'IdeaConnect',
-    settings: 'IdeaConnect Muhasebe Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#B6E07B]',
-    passive: false,
-  },
-  {
-    name: 'Nebim',
-    settings: 'Nebim Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#3B7C99]',
-    passive: true,
-  },
-  {
-    name: 'Eta',
-    settings: 'Eta Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#223A6A]',
-    passive: false,
   },
 ];
 
 export default function ErpSettingsPage() {
   const router = useRouter();
   const handleCardClick = (erpName: string) => {
-    router.push(`/settings/erp/${erpName}`);
+    if (erpName === 'Trendyol E-faturam (Sovos)') {
+      router.push('/settings/einvoice/detail');
+    } else if (erpName === 'Turkcell E-Fatura') {
+      router.push('/settings/einvoice/turkcell-detail');
+    } else if (erpName === 'Logo E-Fatura') {
+      router.push('/settings/einvoice/logoefatura');
+    } else if (erpName === 'GİB E-Arşiv') {
+      router.push('/settings/einvoice/gib');
+    } else if (erpName === 'QNB eFinans E-Fatura') {
+      router.push('/settings/einvoice/qnb');
+    } else {
+      router.push(`/settings/einvoice/${encodeURIComponent(erpName)}`);
+    }
   };
 
   return (
     <div className="px-6 py-8">
       {/* Başlık */}
-      <h1 className="text-3xl font-semibold text-[#444] mb-1">Erp Ayarları</h1>
+      <h1 className="text-3xl font-semibold text-[#444] mb-1">E-Fatura Ayarları</h1>
       {/* Breadcrumb */}
       <div className="text-base flex items-center gap-1 mb-6">
         <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
         <span className="mx-1 text-gray-400">/</span>
         <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
         <span className="mx-1 text-gray-400">/</span>
-        <span className="text-gray-400">Erp Ayarları</span>
+        <span className="text-gray-400">E-Fatura Ayarları</span>
       </div>
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -119,9 +96,9 @@ export default function ErpSettingsPage() {
               />
             </div>
             {/* Alt başlık ve dişli */}
-            <div className="bg-[#F8FAFC] flex items-center border-t border-gray-200 px-6 py-4 mt-auto w-full">
-              <FiSettings className="text-gray-500 mr-2" size={20} />
-              <span className="text-base font-medium text-gray-700 whitespace-nowrap">{erp.settings}</span>
+            <div className="bg-[#F8FAFC] flex gap-2 items-center justify-center border-t border-gray-200 px-6 py-4 mt-auto w-full">
+              <FiSettings className="text-gray-500 self-center" size={20} />
+              <span className="flex flex-col justify-center text-base font-medium text-gray-700 break-words text-center">{erp.settings}</span>
             </div>
           </div>
         ))}

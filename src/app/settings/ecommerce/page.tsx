@@ -6,72 +6,72 @@ import { useRouter } from 'next/navigation';
 
 const erpList = [
   {
-    name: 'Asb Yazılım',
-    settings: 'Asb Yazılım Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#F2993A]',
+    name: 'İdeasoft',
+    settings: 'İdeasoft Ayarları',
+    logo: '/ideasoft.png',
+    bg: 'bg-[#99cf65]',
     passive: true,
   },
   {
-    name: 'Dia',
-    settings: 'Dia Ayarları',
-    logo: '/asb.png',
+    name: 'ankaEticaret',
+    settings: 'ankaEticaret Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#223A6A]',
     passive: true,
   },
   {
-    name: 'Sysmond',
-    settings: 'Sysmond Ayarları',
-    logo: '/asb.png',
+    name: 'Opencart',
+    settings: 'Opencart Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#3B7C99]',
     passive: true,
   },
   {
-    name: 'Paraşüt',
-    settings: 'Paraşüt Ayarları',
-    logo: '/asb.png',
+    name: 'Woocommerce',
+    settings: 'Woocommerce Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#FF6F5B]',
     passive: true,
   },
   {
-    name: 'Bizim Hesap',
-    settings: 'Bizim Hesap Ayarları',
-    logo: '/asb.png',
+    name: 'Shopify',
+    settings: 'Shopify Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#2B5C54]',
     passive: true,
   },
   {
-    name: 'Logo',
-    settings: 'Logo Ayarları',
-    logo: '/asb.png',
+    name: 'Ticimax',
+    settings: 'Ticimax Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#D13B3B]',
     passive: false,
   },
   {
-    name: 'Logo İşbaşı',
-    settings: 'Logo İşbaşı Ayarları',
-    logo: '/asb.png',
+    name: 'Wix',
+    settings: 'Wix Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#D13B3B]',
     passive: true,
   },
   {
-    name: 'IdeaConnect',
-    settings: 'IdeaConnect Muhasebe Ayarları',
-    logo: '/asb.png',
+    name: 'Kolay Sipariş',
+    settings: 'Kolay Sipariş Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#B6E07B]',
     passive: false,
   },
   {
-    name: 'Nebim',
-    settings: 'Nebim Ayarları',
-    logo: '/asb.png',
+    name: 'ETicaretSoft',
+    settings: 'ETicaretSoft Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#3B7C99]',
     passive: true,
   },
   {
-    name: 'Eta',
-    settings: 'Eta Ayarları',
-    logo: '/asb.png',
+    name: 'Shopier',
+    settings: 'Shopier Ayarları',
+    logo: '/ideasoft.png',
     bg: 'bg-[#223A6A]',
     passive: false,
   },
@@ -80,20 +80,22 @@ const erpList = [
 export default function ErpSettingsPage() {
   const router = useRouter();
   const handleCardClick = (erpName: string) => {
-    router.push(`/settings/erp/${erpName}`);
+    router.push(`/settings/ecommerce/${erpName}`);
   };
 
   return (
     <div className="px-6 py-8">
       {/* Başlık */}
-      <h1 className="text-3xl font-semibold text-[#444] mb-1">Erp Ayarları</h1>
+      <h1 className="text-3xl font-semibold text-[#444] mb-1">E-ticaret Ayarları
+      </h1>
       {/* Breadcrumb */}
       <div className="text-base flex items-center gap-1 mb-6">
         <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
         <span className="mx-1 text-gray-400">/</span>
         <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
         <span className="mx-1 text-gray-400">/</span>
-        <span className="text-gray-400">Erp Ayarları</span>
+        <span className="text-gray-400">E-ticaret Ayarları
+        </span>
       </div>
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

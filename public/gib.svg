@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Gelir İdaresi Logo İcon</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44" height="44" rx="21.2142857"></rect>
+        <filter x="-17.0%" y="-10.2%" width="134.1%" height="134.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.105868253 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <polygon id="path-3" points="0 0 20 0 20 26 0 26"></polygon>
+        <polygon id="path-5" points="0 0 4.10218606 0 4.10218606 4.19176437 0 4.19176437"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-35.000000, -3587.000000)">
+            <g id="Gelir-İdaresi-Logo-İcon" transform="translate(39.000000, 3587.000000)">
+                <g id="n11" transform="translate(0.000000, 1.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Group-2" transform="translate(3.000000, 3.000000)" fill="#F60000">
+                        <circle id="Oval" cx="19" cy="19" r="19"></circle>
+                    </g>
+                </g>
+                <g id="Group-9" transform="translate(12.000000, 10.000000)">
+                    <g id="Fill-1-Clipped">
+                        <mask id="mask-4" fill="white">
+                            <use xlink:href="#path-3"></use>
+                        </mask>
+                        <g id="path-40"></g>
+                        <path d="M20,-2.1134374e-05 C20,-2.1134374e-05 12.0443581,3.48582513 8.65255408,11.9720738 C5.26054075,20.4581111 10.3175911,26 10.3175911,26 L2.67059943,26 C2.67059943,26 -1.6463182,20.250985 0.696912222,11.6537761 C3.04056115,3.05593297 8.77622341,-2.1134374e-05 8.77622341,-2.1134374e-05 L20,-2.1134374e-05 Z" id="Fill-1" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                    </g>
+                    <polygon id="Fill-4" fill="#FFFFFF" fill-rule="nonzero" points="10.0027302 13.5529572 10.6135438 11.6678146 16.7005859 11.6678146 14.6717183 22.1815311 10.915728 22.1815311 12.7288333 13.5529572"></polygon>
+                    <g id="Fill-6-Clipped" transform="translate(14.236629, 7.052140)">
+                        <mask id="mask-6" fill="white">
+                            <use xlink:href="#path-5"></use>
+                        </mask>
+                        <g id="path-42"></g>
+                        <path d="M4.00461865,2.36834335 C3.6600296,3.5159694 2.50646817,4.3242047 1.42759777,4.17374245 C0.348727366,4.02328019 -0.2466359,2.97078415 0.0975923154,1.82330604 C0.442000945,0.675679977 1.59556237,-0.132555316 2.6746132,0.0180548849 C3.7534836,0.168517138 4.34884687,1.22086523 4.00461865,2.36834335" id="Fill-6" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-6)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
