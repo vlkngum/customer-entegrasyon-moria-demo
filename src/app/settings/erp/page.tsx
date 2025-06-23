@@ -1,0 +1,125 @@
+import Image from 'next/image';
+import { FiSettings } from 'react-icons/fi';
+import Link from 'next/link';
+
+const erpList = [
+  {
+    name: 'Asb Yazılım',
+    settings: 'Asb Yazılım Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#F2993A]',
+    passive: true,
+  },
+  {
+    name: 'Dia',
+    settings: 'Dia Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#223A6A]',
+    passive: true,
+  },
+  {
+    name: 'Sysmond',
+    settings: 'Sysmond Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#3B7C99]',
+    passive: true,
+  },
+  {
+    name: 'Paraşüt',
+    settings: 'Paraşüt Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#FF6F5B]',
+    passive: true,
+  },
+  {
+    name: 'Bizim Hesap',
+    settings: 'Bizim Hesap Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#2B5C54]',
+    passive: true,
+  },
+  {
+    name: 'Logo',
+    settings: 'Logo Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#D13B3B]',
+    passive: false,
+  },
+  {
+    name: 'Logo İşbaşı',
+    settings: 'Logo İşbaşı Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#D13B3B]',
+    passive: true,
+  },
+  {
+    name: 'IdeaConnect',
+    settings: 'IdeaConnect Muhasebe Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#B6E07B]',
+    passive: false,
+  },
+  {
+    name: 'Nebim',
+    settings: 'Nebim Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#3B7C99]',
+    passive: true,
+  },
+  {
+    name: 'Eta',
+    settings: 'Eta Ayarları',
+    logo: '/asb.png',
+    bg: 'bg-[#223A6A]',
+    passive: false,
+  },
+];
+
+export default function ErpSettingsPage() {
+  return (
+    <div className="px-6 py-8">
+      {/* Başlık */}
+      <h1 className="text-3xl font-semibold text-[#444] mb-1">Erp Ayarları</h1>
+      {/* Breadcrumb */}
+      <div className="text-base flex items-center gap-1 mb-6">
+        <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
+        <span className="mx-1 text-gray-400">/</span>
+        <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
+        <span className="mx-1 text-gray-400">/</span>
+        <span className="text-gray-400">Erp Ayarları</span>
+      </div>
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {erpList.map((erp, i) => (
+          <div
+            key={erp.name}
+            className={`relative rounded-lg shadow-md flex flex-col min-h-[210px] px-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between`}
+          >
+            {/* PASİF etiketi */}
+            {erp.passive && (
+              <span className="absolute left-3 top-3 bg-[#E74C3C] text-white text-[11px] px-2 py-0.5 rounded font-bold z-10">PASİF</span>
+            )}
+            {/* Logo */}
+            <div className="flex flex-1 w-full items-center justify-center h-[120px]">
+              <Image
+                src={erp.logo}
+                alt={erp.name}
+                width={140}
+                height={54}
+                className="object-contain max-h-[54px]"
+                unoptimized
+              />
+            </div>
+            {/* Alt başlık ve dişli */}
+            <div className="bg-white rounded-b-lg flex items-center px-6 py-3" style={{borderTopLeftRadius: 0, borderTopRightRadius: 0}}>
+              <div className="flex items-center gap-2">
+                <FiSettings className="text-gray-500" size={18} />
+                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">{erp.settings}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
