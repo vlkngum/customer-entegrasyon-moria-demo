@@ -75,19 +75,19 @@ export default function Header () {
                         ${isDropdownOpen ? 'max-h-screen opacity-100 ' : 'max-h-0 opacity-0 pointer-events-none'}
                     `}>
                         <div className="px-4 py-2 text-sm text-gray-700 border-b border-gray-200">
-                            CM App ID: 45352
+                            Entekas ID: 45352
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700">
                             <FaUserLock className="w-4 h-4"/>
-                            <p className="text-sm">Şifre Değiştir</p>
+                            <a href="/settings/account-edit" className="text-sm">Şifre Değiştir</a>
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700">
                             <FaCog className="w-4 h-4"/>
-                            <p className="text-sm">Abonelik Ayarları</p>
+                            <a href="/settings/profile" className="text-sm">Abonelik Ayarları</a>
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700">
                             <FaFileInvoice className="w-4 h-4"/>
-                            <p className="text-sm">Fatura Bilgileri</p>
+                            <a href="/subscriptions/billing-info" className="text-sm">Fatura Bilgileri</a>
                         </div>
                         <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700 border-b border-gray-200 mb-2">
                             <FaUsers className="w-4 h-4"/>
