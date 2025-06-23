@@ -93,7 +93,7 @@ export default function ErpSettingsPage() {
         {erpList.map((erp, i) => (
           <div
             key={erp.name}
-            className={`relative rounded-lg shadow-md flex flex-col min-h-[210px] px-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between`}
+            className={`relative rounded-lg shadow-md flex flex-col h-[210px] pt-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between`}
           >
             {/* PASİF etiketi */}
             {erp.passive && (
@@ -111,11 +111,9 @@ export default function ErpSettingsPage() {
               />
             </div>
             {/* Alt başlık ve dişli */}
-            <div className="bg-white rounded-b-lg flex items-center px-6 py-3" style={{borderTopLeftRadius: 0, borderTopRightRadius: 0}}>
-              <div className="flex items-center gap-2">
-                <FiSettings className="text-gray-500" size={18} />
-                <span className="text-sm font-medium text-gray-700 whitespace-nowrap">{erp.settings}</span>
-              </div>
+            <div className="bg-[#F8FAFC] flex items-center border-t border-gray-200 px-6 py-4 mt-auto w-full">
+              <FiSettings className="text-gray-500 mr-2" size={20} />
+              <span className="text-base font-medium text-gray-700 whitespace-nowrap">{erp.settings}</span>
             </div>
           </div>
         ))}
