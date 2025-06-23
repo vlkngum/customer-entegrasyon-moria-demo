@@ -92,7 +92,7 @@ export default function ProductList() {
       sku: '1212',
       name: 'sSsS',
       price: '121,00', 
-      img:'cmapps-logo.svg',
+      img:'entekas-logo.svg',
       stock: 1212,
       platform: {
         name: 'Trendyol',

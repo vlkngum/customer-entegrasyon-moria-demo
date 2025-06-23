@@ -13,7 +13,7 @@ import BulkProcessModal from '@/components/products/list_sync/BulkProcessModal';
 const sampleProducts = [
   {
     id: 1,
-    image: '/cmapps-logo.svg',
+    image: '/entekas-logo.svg',
     code: 'DT-WEB',
     name: 'Web Tabanlı Personel Takip Sistemi Parmak Okuma',
     category: 'Güvenlik Cihazı',
@@ -22,7 +22,7 @@ const sampleProducts = [
   },
   {
     id: 2,
-    image: '/cmapps-logo.svg',
+    image: '/entekas-logo.svg',
     code: '3641272468425',
     name: 'Libre EDP 90 Ml Kadın Parfüm',
     category: 'Parfüm',
@@ -30,7 +30,7 @@ const sampleProducts = [
     platform: '/trendyolLogo.svg',
   },
   {
-    id: 3,image: '/cmapps-logo.svg',
+    id: 3,image: '/entekas-logo.svg',
     code: '8886006000079',
     name: 'Black Orchid EDP 100ml',
     category: 'Parfüm',
@@ -38,7 +38,7 @@ const sampleProducts = [
     platform: '/trendyolLogo.svg',
   },
   {
-    id: 4,image: '/cmapps-logo.svg',
+    id: 4,image: '/entekas-logo.svg',
     code: '8411061025222',
     name: '212 Sexy Men Bay Parfüm 100 ml Resmi Distribütör',
     category: 'Parfüm',
@@ -46,7 +46,7 @@ const sampleProducts = [
     platform: '/trendyolLogo.svg',
   },
   {
-    id: 5,image: '/cmapps-logo.svg',
+    id: 5,image: '/entekas-logo.svg',
     code: '8411061273760',
     name: '212 Vip Erkek EDT 100ml',
     category: 'Parfüm',

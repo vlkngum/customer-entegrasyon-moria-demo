@@ -56,7 +56,7 @@ const SupportRequestDetailPage = ({ params }: { params: { id: string } }) => {
           <div className="flex items-center">
             <div className="mr-4">
               <Image
-                src="/cmapps-logo.svg"
+                src="/entekas-logo.svg"
                 alt="Sopyo"
                 width={40}
                 height={40}

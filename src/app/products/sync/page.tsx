@@ -47,7 +47,7 @@ export default function ProductSyncPage() {
         <div className="flex flex-row w-full  gap-8 items-start justify-between border-t border-gray-300 py-4"> 
           <div className="flex items-start gap-3 min-w-36">
             <div className="rounded-lg items-center justify-center flex-shrink-0 flex flex-col ">
-              <img src={"/cmapps-logo.svg"} className='w-24 aspect-square'></img>
+              <img src={"/entekas-logo.svg"} className='w-24 aspect-square'></img>
               <p className="text-xs text-gray-500"> Ürünün seçenekleri yok</p>
             </div> 
           </div>        
@@ -105,7 +105,7 @@ export default function ProductSyncPage() {
             </div> 
             <span>→</span>
             <div className="  flex items-center justify-center flex-shrink-0 ">
-              <img src={'/cmapps-logo.svg'} className='rounded-full w-6 h-6'></img>
+              <img src={'/entekas-logo.svg'} className='rounded-full w-6 h-6'></img>
             </div> 
           </div>
         </div>

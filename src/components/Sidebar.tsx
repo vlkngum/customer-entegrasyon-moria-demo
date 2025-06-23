@@ -59,7 +59,7 @@ export default function Sidebar() {
         {!isCollapsed && (
           <div className='flex-1 px-5'>
             <Image 
-              src="/cmapps-logo.svg" 
+              src="/entekas-logo.svg" 
               alt="CMApps Logo"
               width={0}
               height={0}

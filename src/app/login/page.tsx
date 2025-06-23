@@ -24,12 +24,12 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center z-50">
       <div className="flex w-full max-w-5xl rounded-2xl shadow-xl overflow-hidden border border-black/10"> 
         <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-600 p-12 flex-col justify-between">
           <div className="space-y-6">
             <Image 
-              src="/cmapps-logo.svg" 
+              src="/entekas-logo.svg" 
               alt="CMApps Logo"
               width={200}
               height={60}
@@ -52,7 +52,7 @@ export default function LoginPage() {
           <div className="max-w-md mx-auto">
             <div className="md:hidden mb-8">
               <Image 
-                src="/cmapps-logo.svg" 
+                src="/entekas-logo.svg" 
                 alt="CMApps Logo"
                 width={150}
                 height={45}

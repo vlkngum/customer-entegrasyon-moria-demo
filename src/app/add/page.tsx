@@ -71,7 +71,7 @@ export default function AddProductPage() {
         </div> 
         {showQuickAdd && (<QuickAddProductModal open={showQuickAdd} onClose={() => setShowQuickAdd(false)} />)}
       </div>
-      <footer className="sticky bottom-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 p-4 z-20">
+      <footer className="sticky bottom-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 p-4 z-20 ">
         <div className="flex justify-end">
           <button className="bg-emerald-500 text-white px-6 py-2.5 rounded-lg flex items-center text-sm font-semibold shadow-md hover:bg-emerald-600 transition-colors">
             ÜRÜNÜ KAYDET
