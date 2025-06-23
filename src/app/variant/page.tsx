@@ -1,11 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { FiEdit, FiTrash2, FiPlus } from 'react-icons/fi';
-import { AiFillProduct, AiOutlineProduct } from "react-icons/ai";
-import { IoArrowBack } from 'react-icons/io5';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
+import { AiFillProduct } from "react-icons/ai";
 import VariantGroupModal, { Group } from '../../components/products/variant/VariantGroupModal';
+import ProductTable from '@/components/ProductTable';
 
 export default function VariantPage() {
   const [groups, setGroups] = useState<Group[]>([
@@ -33,15 +32,55 @@ export default function VariantPage() {
 
   const handleSaveGroup = (groupToSave: Group) => {
     if (groupToSave.id) {
-      // Edit
       setGroups(groups.map(g => g.id === groupToSave.id ? { ...g, ...groupToSave } : g));
     } else {
-      // Add
-      const newGroup = { ...groupToSave, id: Date.now() }; // temporary ID
+      const newGroup = { ...groupToSave, id: Date.now() };
       setGroups([...groups, newGroup]);
     }
     handleCloseModal();
   };
+
+  const handleDeleteGroup = (id: number) => {
+    setGroups(groups.filter(g => g.id !== id));
+  };
+
+  const columns = [
+    {
+      key: 'name',
+      title: 'SEÇENEK GRUBU ADI',
+      render: (value: any) => <span className="font-medium text-gray-800">{value}</span>,
+      className: 'col-span-5',
+    },
+    {
+      key: 'options',
+      title: 'SEÇENEKLER',
+      render: (value: any) => (
+        <span className="text-gray-600 text-sm">{value.length > 0 ? value.join(", ") : '-'}</span>
+      ),
+      className: 'col-span-5',
+    },
+    {
+      key: 'actions',
+      title: <div className="text-right">İŞLEMLER</div>,
+      render: (_: any, row: Group) => (
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={() => handleOpenEditModal(row)}
+            className="text-blue-600 hover:text-blue-800 p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+          >
+            <FiEdit className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => handleDeleteGroup(row.id!)}
+            className="text-red-600 hover:text-red-800 p-2 rounded-full bg-red-100 hover:bg-red-200 transition-colors"
+          >
+            <FiTrash2 className="w-4 h-4" />
+          </button>
+        </div>
+      ),
+      className: 'col-span-2 text-right',
+    },
+  ];
 
   return (
     <div className="p-4 sm:p-6 bg-gray-50 min-h-screen">
@@ -55,41 +94,16 @@ export default function VariantPage() {
             </div>
           </div>
           <div className="flex gap-2 mt-4 sm:mt-0">
-            <button onClick={handleOpenAddModal} className="border_button">
-            <AiFillProduct className="w-6 h-6" />
-              <span style={{ fontSize: 10 }} >Seçenek Grubu Ekle</span>
+            <button onClick={handleOpenAddModal} className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg shadow hover:bg-gray-50 transition">
+              <AiFillProduct className="w-6 h-6 text-gray-700" />
+              <span className="text-xs font-semibold text-gray-700">Seçenek Grubu Ekle</span>
             </button>
           </div>
         </div>
       </div>
-
-      {/* List */}
-      <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm">
-        <div className="grid grid-cols-12 font-semibold text-gray-600 border-b pb-2 mb-2 text-sm">
-          <div className="col-span-5">SEÇENEK GRUBU ADI</div>
-          <div className="col-span-5">SEÇENEKLER</div>
-          <div className="col-span-2 text-right">İŞLEMLER</div>
-        </div>
-        <div className="space-y-2">
-          {groups.map((group) => (
-            <div key={group.id} className="grid grid-cols-12 items-center bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-              <div className="col-span-5 font-medium text-gray-800">{group.name}</div>
-              <div className="col-span-5 text-gray-600 text-sm">
-                {group.options.length > 0 ? group.options.join(", ") : "-"}
-              </div>
-              <div className="col-span-2 flex justify-end gap-2">
-                <button onClick={() => handleOpenEditModal(group)} className="text-blue-600 hover:text-blue-800 p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors">
-                  <FiEdit className="w-4 h-4" />
-                </button>
-                <button className="text-red-600 hover:text-red-800 p-2 rounded-full bg-red-100 hover:bg-red-200 transition-colors">
-                  <FiTrash2 className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="">
+        <ProductTable columns={columns} data={groups} variant="card" />
       </div>
-
       <VariantGroupModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
