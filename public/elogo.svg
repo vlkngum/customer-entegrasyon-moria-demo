@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>elogo</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44" height="44" rx="22"></rect>
+        <filter x="-17.0%" y="-10.2%" width="134.1%" height="134.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.105868253 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-45.000000, -4653.000000)">
+            <g id="elogo" transform="translate(49.000000, 4654.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <path d="M32.3908412,11.6976744 C32.2518405,11.5581395 31.9738391,11.4186047 31.6958378,11.2790698 L31.5568371,11.2790698 C31.2788357,11.1395349 30.8618336,11 30.4448316,11 L15.0157553,11 C13.2087463,11 11.6797388,12.3953488 11.4017374,14.2093023 L10.0117305,29.4186047 C9.87272983,30.9534884 10.9847353,32.4883721 12.5137429,32.627907 C12.6527436,32.627907 12.7917443,32.627907 12.930745,32.627907 L28.0818199,32.627907 C29.8888288,32.627907 31.4178364,31.2325581 31.5568371,29.4186047 L31.6958378,27.1860465 L20.7147835,27.1860465 L31.6958378,16.4418605 C31.8348385,16.4418605 31.8348385,16.3023256 31.9738391,16.1627907 L31.9738391,16.1627907 L31.9738391,16.1627907 C32.2518405,15.8837209 32.5298419,15.4651163 32.6688426,15.0465116 L32.6688426,15.0465116 C32.8078433,14.7674419 32.8078433,14.3488372 32.8078433,14.0697674 C33.5028467,13.2325581 33.0858446,12.3953488 32.3908412,11.6976744 M17.795769,16.4418605 L24.467802,16.4418605 L15.9887601,24.8139535 L16.6837635,17.5581395 C16.6837635,17 17.2397663,16.4418605 17.795769,16.4418605" id="Path_47" fill="#2B378A" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

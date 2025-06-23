@@ -95,10 +95,10 @@ export const menuItems: MenuItem[] = [
     submenu: [
       { name: 'Genel Ayarlar', href: '/settings/erp' },
       { name: 'ERP Muhasebe', href: '/settings/erp' },
-      { name: 'Mağaza(Pazaryeri)', href: '/reports/user-settings' },
-      { name: 'E-Ticaret(Site)', href: '/reports/user-settings' },
-      { name: 'Kargo Ayarları', href: '/reports/user-settings' },
-      { name: 'E-fatura Ayarları', href: '/reports/general-settings' },
+      { name: 'Mağaza(Pazaryeri)', href: '/settings/stores' },
+      { name: 'E-Ticaret(Site)', href: '/settings/ecommerce' },
+      { name: 'Kargo Ayarları', href: '/settings/cargoes' },
+      { name: 'E-fatura Ayarları', href: '/settings/einvoice' },
       { name: 'Ürün ve Sipariş Çıktıları', href: '/reports/user-settings' },
       { name: 'İşlem Hareketleri', href: '/reports/user-settings' }
     ]

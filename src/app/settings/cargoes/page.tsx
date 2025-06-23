@@ -6,73 +6,59 @@ import { useRouter } from 'next/navigation';
 
 const erpList = [
   {
-    name: 'Asb Yazılım',
-    settings: 'Asb Yazılım Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#F2993A]',
+    name: 'Aras Kargo',
+    settings: 'Aras Kargo Ayarları',
+    logo: '/aras.svg',
+    bg: 'bg-[#eb727a]',
     passive: true,
   },
   {
-    name: 'Dia',
-    settings: 'Dia Ayarları',
-    logo: '/asb.png',
+    name: 'Yurtiçi Kargo',
+    settings: 'Yurtiçi Kargo Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#223A6A]',
     passive: true,
   },
   {
-    name: 'Sysmond',
-    settings: 'Sysmond Ayarları',
-    logo: '/asb.png',
+    name: 'DHL Kargo',
+    settings: 'DHL Kargo Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#3B7C99]',
     passive: true,
   },
   {
-    name: 'Paraşüt',
-    settings: 'Paraşüt Ayarları',
-    logo: '/asb.png',
+    name: 'UPS Kargo',
+    settings: 'UPS Kargo Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#FF6F5B]',
     passive: true,
   },
   {
-    name: 'Bizim Hesap',
-    settings: 'Bizim Hesap Ayarları',
-    logo: '/asb.png',
+    name: 'Sürat Kargo',
+    settings: 'Sürat Kargo Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#2B5C54]',
     passive: true,
   },
   {
-    name: 'Logo',
-    settings: 'Logo Ayarları',
-    logo: '/asb.png',
+    name: 'Oplog',
+    settings: 'Oplog Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#D13B3B]',
     passive: false,
   },
   {
-    name: 'Logo İşbaşı',
-    settings: 'Logo İşbaşı Ayarları',
-    logo: '/asb.png',
+    name: 'Hepsijet',
+    settings: 'Hepsijet Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#D13B3B]',
     passive: true,
   },
   {
-    name: 'IdeaConnect',
-    settings: 'IdeaConnect Muhasebe Ayarları',
-    logo: '/asb.png',
+    name: 'Sendeo',
+    settings: 'Sendeo Ayarları',
+    logo: '/aras.svg',
     bg: 'bg-[#B6E07B]',
-    passive: false,
-  },
-  {
-    name: 'Nebim',
-    settings: 'Nebim Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#3B7C99]',
-    passive: true,
-  },
-  {
-    name: 'Eta',
-    settings: 'Eta Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#223A6A]',
     passive: false,
   },
 ];
@@ -86,14 +72,14 @@ export default function ErpSettingsPage() {
   return (
     <div className="px-6 py-8">
       {/* Başlık */}
-      <h1 className="text-3xl font-semibold text-[#444] mb-1">Erp Ayarları</h1>
+      <h1 className="text-3xl font-semibold text-[#444] mb-1">Kargo Ayarları</h1>
       {/* Breadcrumb */}
       <div className="text-base flex items-center gap-1 mb-6">
         <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
         <span className="mx-1 text-gray-400">/</span>
         <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
         <span className="mx-1 text-gray-400">/</span>
-        <span className="text-gray-400">Erp Ayarları</span>
+        <span className="text-gray-400">Kargo Ayarları</span>
       </div>
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

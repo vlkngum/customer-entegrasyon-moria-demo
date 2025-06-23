@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from 'next/image';
 import { FiSettings } from 'react-icons/fi';
 import Link from 'next/link';
@@ -6,94 +6,90 @@ import { useRouter } from 'next/navigation';
 
 const erpList = [
   {
-    name: 'Asb Yazılım',
-    settings: 'Asb Yazılım Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#F2993A]',
+    name: 'Akakçe Yazılım',
+    settings: 'Akakçe Ayarları',
+    logo: '/akakceBeyaz.png',
+    bg: 'bg-[#17629e]',
     passive: true,
   },
   {
-    name: 'Dia',
-    settings: 'Dia Ayarları',
-    logo: '/asb.png',
+    name: 'Amazon',
+    settings: 'Amazon Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#223A6A]',
     passive: true,
   },
   {
-    name: 'Sysmond',
-    settings: 'Sysmond Ayarları',
-    logo: '/asb.png',
+    name: 'Hepsiburada',
+    settings: 'Hepsiburada Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#3B7C99]',
     passive: true,
   },
   {
-    name: 'Paraşüt',
-    settings: 'Paraşüt Ayarları',
-    logo: '/asb.png',
+    name: 'Pazarama',
+    settings: 'Pazarama Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#FF6F5B]',
     passive: true,
   },
   {
-    name: 'Bizim Hesap',
-    settings: 'Bizim Hesap Ayarları',
-    logo: '/asb.png',
+    name: 'N11',
+    settings: 'N11 Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#2B5C54]',
     passive: true,
   },
   {
-    name: 'Logo',
-    settings: 'Logo Ayarları',
-    logo: '/asb.png',
+    name: 'Trendyol',
+    settings: 'Trendyol Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#D13B3B]',
     passive: false,
   },
   {
-    name: 'Logo İşbaşı',
-    settings: 'Logo İşbaşı Ayarları',
-    logo: '/asb.png',
+    name: 'Çiçeksepeti',
+    settings: 'Çiçeksepeti Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#D13B3B]',
     passive: true,
   },
   {
-    name: 'IdeaConnect',
-    settings: 'IdeaConnect Muhasebe Ayarları',
-    logo: '/asb.png',
+    name: 'PttAVM',
+    settings: 'PttAVM Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#B6E07B]',
     passive: false,
   },
   {
-    name: 'Nebim',
-    settings: 'Nebim Ayarları',
-    logo: '/asb.png',
+    name: 'İdefix',
+    settings: 'İdefix Ayarları',
+    logo: '/akakceBeyaz.png',
     bg: 'bg-[#3B7C99]',
     passive: true,
-  },
-  {
-    name: 'Eta',
-    settings: 'Eta Ayarları',
-    logo: '/asb.png',
-    bg: 'bg-[#223A6A]',
-    passive: false,
   },
 ];
 
 export default function ErpSettingsPage() {
   const router = useRouter();
-  const handleCardClick = (erpName: string) => {
-    router.push(`/settings/erp/${erpName}`);
+
+  const handleCardClick = (storeName: string) => {
+    router.push(`/settings/stores/${storeName}`);
   };
 
   return (
     <div className="px-6 py-8">
       {/* Başlık */}
-      <h1 className="text-3xl font-semibold text-[#444] mb-1">Erp Ayarları</h1>
+      <h1 className="text-3xl font-semibold text-[#444] mb-1">Mağaza Ayarları
+      </h1>
       {/* Breadcrumb */}
       <div className="text-base flex items-center gap-1 mb-6">
         <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
         <span className="mx-1 text-gray-400">/</span>
         <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
         <span className="mx-1 text-gray-400">/</span>
-        <span className="text-gray-400">Erp Ayarları</span>
+        <span className="text-gray-400">Mağaza Ayarları
+        </span>
       </div>
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
