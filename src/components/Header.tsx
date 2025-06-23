@@ -35,7 +35,7 @@ export default function Header () {
                     <div className="h-5">
                       <MdPersonAddAlt1 className="text-blue-800 w-full h-full"/>
                     </div>
-                    <p className="text-xs">Destek Talebi Oluştur</p>
+                    <a href="/requests-for-support/open" className="text-xs">Destek Talebi Oluştur</a>
                 </div>  
             </div>
 
