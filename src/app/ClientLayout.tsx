@@ -15,16 +15,16 @@ export default function ClientLayoutWrapper({
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <div className="w-full min-h-screen bg-blue-50">{children}</div>;
+    return <div className="w-full min-h-screen bg-blue-50 overflow-x-hidden">{children}</div>;
   }
 
   return (
-    <div className="flex h-screen bg-blue-50 text-black">
+    <div className="flex h-screen bg-blue-50 text-black overflow-hidden">
       <Sidebar />
-      <main className="w-full overflow-y-auto">
+      <main className="flex-1 flex flex-col overflow-hidden">
         <Header />
         <PromotionalBanner />
-        <div className="pb-12">{children}</div>
+        <div className="flex-1 overflow-y-auto overflow-x-hidden pb-12">{children}</div>
         <div className="fixed bottom-0 w-full pr-15 z-40 text-gray-200">
           <FixedPaginationBar />
         </div>

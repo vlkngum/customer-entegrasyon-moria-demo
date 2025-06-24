@@ -49,7 +49,7 @@ export default function Sidebar() {
 
   return (
     <div 
-      className={`bg-white shadow-lg transition-all duration-300 ${
+      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
       onMouseEnter={() => !isPinned && setIsCollapsed(false)}
@@ -79,7 +79,7 @@ export default function Sidebar() {
           </span>
         </button>
       </div>
-      <nav className="mt-6">
+      <nav className="mt-6 overflow-y-auto overflow-x-hidden h-[calc(100vh-80px)]">
         {menuItems.map((item: MenuItem) => {
           const isActive = pathname === item.href;
           const isSubmenuOpen = openSubmenus[item.name];
