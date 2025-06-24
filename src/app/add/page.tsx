@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import ProductGeneralInfo from '@/components/add/ProductGeneralInfo';
 import ProductDescription from '@/components/add/ProductDescription';
 import ProductPricing from '@/components/add/ProductPricing';
@@ -10,6 +10,7 @@ import { MdCancelPresentation } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 
 import QuickAddProductModal from '@/components/add/modal/QuickAddProductModal';
+import Link from 'next/link';
 
 export default function AddProductPage() {
   const [image, setImage] = useState<string | undefined>(undefined);
@@ -25,7 +26,7 @@ export default function AddProductPage() {
           <div className="mb-6">
             <h1 className="text-2xl font-semibold">Ürün Genel Bilgileri</h1>
             <div className="text-xs text-gray-500 mb-1 flex gap-1 items-center">
-              <a href="/" className="text-blue-600 hover:underline">CMApps</a>
+              <Link href="/" className="text-blue-600 hover:underline">CMApps</Link>
               <span>/</span>
               <a className="text-blue-600 hover:underline">Ürünler</a>
               <span>/</span>

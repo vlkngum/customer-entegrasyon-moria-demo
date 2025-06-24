@@ -9,7 +9,7 @@ interface InvoiceItemsTableProps {
   showDropdown: boolean;
   setSearchTerm: (term: string) => void;
   setShowDropdown: (show: boolean) => void;
-  handleItemChange: (idx: number, field: ItemField, value: any) => void;
+  handleItemChange: (idx: number, field: ItemField, value: string) => void;
   handleRemoveRow: (idx: number) => void;
   handleAddRow: () => void;
   filteredOptions: string[];

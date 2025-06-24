@@ -26,9 +26,11 @@ export default function ProductDifferenceControl() {
           <p className="text-gray-500 text-center mb-8 max-w-2xl">
             ÜRÜN FARKLILIK KONTROLÜ özelliğimizi kullanabilmeniz için satın alım yapmanız gerekmektedir.
           </p>
-          <img
+          <Image
             src="/exportError.webp"
             alt="Toplu Ürün Gönderimi Görseli"
+            width={400}
+            height={250}
             className="mb-6 w-full max-w-md mx-auto"
           />
           {/* Satın Al Butonu */}

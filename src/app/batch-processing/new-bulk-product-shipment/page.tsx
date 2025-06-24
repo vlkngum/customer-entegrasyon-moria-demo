@@ -29,9 +29,11 @@ export default function BulkProductUpdatesPage() {
           
           <h2 className="text-lg font-bold text-center text-gray-700 mb-2">DAHA ÖNCE HİÇ TOPLU ÜRÜN GÜNCELLEMESİ YAPMAMIŞSINIZ</h2>
           <p className="text-gray-500 text-center mb-6">Toplu ürün güncellemesi başlatmak için ürün listenizden toplu işlemler ekranından yapabilirsiniz.</p>
-          <img
+          <Image
             src="/bulk-products-illustration.webp"
             alt="Toplu Ürün Gönderimi Görseli"
+            width={800}
+            height={400}
             className="mb-6 w-full max-w-xxl mx-auto"
           />
           <button className="bg-green-600 text-white mt-10 px-6 py-3 rounded font-semibold hover:bg-green-700 transition">ÜRÜN LİSTESİNE GİT</button>

@@ -44,7 +44,7 @@ export default function CreateInvoicePage() {
     ]);
   };
 
-  const handleItemChange = (idx: number, field: ItemField, value: any) => {
+  const handleItemChange = (idx: number, field: ItemField, value: string) => {
     const newItems = [...items];
     if (field === "quantity" || field === "price" || field === "vat" || field === "total") {
       newItems[idx][field] = Number(value);
@@ -61,7 +61,7 @@ export default function CreateInvoicePage() {
       newItems[idx].total = Number((subtotal + vatAmount).toFixed(2));
     }
     setItems(newItems);
-  };
+  }
 
   const handleRemoveRow = (idx: number) => {
     if (items.length === 1) return;
