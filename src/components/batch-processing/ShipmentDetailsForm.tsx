@@ -11,12 +11,12 @@ const SelectInput = ({ label, value, onChange, options, required = false, placeh
       <select 
         value={value}
         onChange={onChange}
-        className="w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 appearance-none"
+        className="input"
       >
         <option value="">{placeholder}</option>
         {options.map(option => <option key={option} value={option}>{option}</option>)}
       </select>
-      <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+      
     </div>
   </div>
 );
@@ -82,18 +82,18 @@ const ShipmentDetailsForm = () => {
           {/* Bu kısımdaki select'leri de state'e bağlamak gerekebilir, şimdilik statik bırakıyorum */}
           <div className="relative">
             <label className="block text-xs font-semibold text-gray-600 mb-1">ÖN TANIMLI KARGO FİRMASI</label>
-            <select className="w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 appearance-none"><option>DHL Marketplace</option></select>
-            <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <select className="input"><option>DHL Marketplace</option></select>
+            
           </div>
           <div className="relative">
             <label className="block text-xs font-semibold text-gray-600 mb-1">ÖN TANIMLI KARGO ADRESİ</label>
-            <select className="w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 appearance-none"><option>Mahalle:ÇİFTLİKKÖY MAH. Cadde/Sokak:1</option></select>
-            <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <select className="input"><option>Mahalle:ÇİFTLİKKÖY MAH. Cadde/Sokak:1</option></select>
+            
           </div>
           <div className="relative">
             <label className="block text-xs font-semibold text-gray-600 mb-1">ÖN TANIMLI İADE ADRESİ</label>
-            <select className="w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 appearance-none"><option>Mahalle:ÇİFTLİKKÖY MAH. Cadde/Sokak:1</option></select>
-            <FiChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+            <select className="input"><option>Mahalle:ÇİFTLİKKÖY MAH. Cadde/Sokak:1</option></select>
+            
           </div>
         </div>
       </div>

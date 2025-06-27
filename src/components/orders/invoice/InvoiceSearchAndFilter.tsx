@@ -19,10 +19,10 @@ const InvoiceSearchAndFilter: React.FC = () => {
           <input
             type="text"
             placeholder="Sipariş numarası ile ara.."
-            className="border border-gray-300 p-2 rounded-md w-full"
+            className="input"
           />
         </div>
-        <button className="bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-900 flex items-center justify-center">
+        <button className="bg-[#0f82ff] text-white py-2 px-4 rounded-md hover:bg-[#0068ff] flex items-center justify-center">
           <GoSearch className="mr-2" /> FİLTRELE
         </button>
       </div>

@@ -180,7 +180,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
             <div className="mb-8">
               <label className="block text-sm font-bold text-gray-700 mb-2">Dosya Seçiniz</label>
               <div className="flex items-center gap-2">
-                <input type="text" className="input w-full" placeholder="" value={fileName} readOnly />
+                <input type="text" className="input" placeholder="" value={fileName} readOnly />
                 <button type="button" className="bg-green-500 hover:bg-green-600 text-white p-2 rounded" onClick={handleFileButtonClick}>
                   <FaRegFileExcel className="w-5 h-5" />
                 </button>
