@@ -65,11 +65,11 @@ export default function CategoryPage() {
         <div className="mb-2 font-bold text-[15px] text-[#5a6a85] tracking-[0.5px]">
           KATEGORİ ARAMA
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 ">
           <input
             type="text"
             placeholder="Kategori adı ile ara..."
-            className="w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc]"
+            className=" w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc] focus:outline-none"
           />
           <button className="bg-[#168cff] text-white py-3 px-8 rounded-lg border-none font-semibold flex items-center gap-2">
           <FaSearch /> FİLTRELE

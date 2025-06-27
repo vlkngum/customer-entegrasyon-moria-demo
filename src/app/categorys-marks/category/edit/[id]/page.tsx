@@ -56,7 +56,7 @@ export default function EditCategoryPage() {
                         type="text"
                         value={categoryName}
                         onChange={(e) => setCategoryName(e.target.value)}
-                        style={{ width: '100%', padding: '12px', border: '1px solid #ced4da', borderRadius: '4px' }}
+                        className="input"
                     />
                 </div>
                 <button

@@ -79,7 +79,7 @@ export default function MarksPage() {
           <input
             type="text"
             placeholder="Marka adı ile ara..."
-            className="w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc]"
+            className="w-[350px] max-w-full p-3 rounded-lg border border-[#e3eafc] focus:outline-none"
           />
           <button className="bg-[#168cff] text-white py-3 px-8 rounded-lg border-none font-semibold flex items-center gap-2">
             <FaSearch /> FİLTRELE

@@ -44,15 +44,15 @@ const ProductPricing: React.FC = () => {
         </div>
         <div>
           <label className="block text-xs text-gray-500 mb-1">ALIŞ FİYATI</label>
-          <input className="w-full border rounded px-3 py-2 text-sm" placeholder="" />
+          <input className="input" placeholder="" />
         </div>
         <div>
           <label className="block text-xs text-gray-500 mb-1">PİYASA(LİSTE) FİYATI</label>
-          <input className="w-full border rounded px-3 py-2 text-sm" placeholder="" />
+          <input className="input" placeholder="" />
         </div>
         <div>
           <label className="block text-xs text-gray-500 mb-1">SATIŞ FİYATI *</label>
-          <input className="w-full border rounded px-3 py-2 text-sm" placeholder="" />
+          <input className="input" placeholder="" />
         </div>
       </div>
       <div className="flex items-center mt-2">

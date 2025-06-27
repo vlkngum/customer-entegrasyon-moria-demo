@@ -182,7 +182,7 @@ export default function CompanySettingsPanel() {
           <textarea
             value={formData[field.name] || ""}
             onChange={(e) => handleChange(field.name, e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="input"
             rows={3}
           />
         ) : field.type === "file" ? (
@@ -206,7 +206,7 @@ export default function CompanySettingsPanel() {
           <select
             value={formData[field.name] || ""}
             onChange={(e) => handleChange(field.name, e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="input"
           >
             <option value="">Seçiniz...</option>
             {field.options?.map((option: string) => (
@@ -228,7 +228,7 @@ export default function CompanySettingsPanel() {
             type={field.type}
             value={formData[field.name] || ""}
             onChange={(e) => handleChange(field.name, e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+            className="input"
           />
         )}
       </div>
@@ -245,7 +245,7 @@ export default function CompanySettingsPanel() {
             placeholder="Ara..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md mb-6 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="input"
           />
           
           <nav>

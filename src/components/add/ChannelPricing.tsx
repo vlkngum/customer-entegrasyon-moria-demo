@@ -24,7 +24,7 @@ const ChannelPricing: React.FC = () => {
             {platform.fields.map((field) => (
               <div key={field}>
                 <label className="block text-xs text-gray-500 mb-1">{field}</label>
-                <input className="w-full border rounded px-3 py-2 text-sm" placeholder="" />
+                <input className="input" placeholder="" />
               </div>
             ))}
           </div>

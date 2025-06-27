@@ -133,7 +133,7 @@ export default function CreateInvoicePage() {
               <label className="block text-sm font-medium mb-1">Müşteri Seçiniz</label>
               <div className="relative">
                 <input
-                  className="w-full border rounded px-2 py-1 mb-2"
+                  className="input"
                   placeholder="Lütfen müşteri seçiniz"
                   value={customerSearch}
                   onFocus={() => setShowCustomerDropdown(true)}

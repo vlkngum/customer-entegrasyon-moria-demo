@@ -29,7 +29,7 @@ const AccountEditPage = () => {
             <input
               id="password"
               type="password"
-              className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="input"
               placeholder="Yeni şifrenizi giriniz"
             />
           </div>
@@ -38,7 +38,7 @@ const AccountEditPage = () => {
             <input
               id="passwordRepeat"
               type="password"
-              className="w-full border border-gray-300 rounded px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-200"
+              className="input"
               placeholder="Yeni şifrenizi tekrar giriniz"
             />
           </div>
