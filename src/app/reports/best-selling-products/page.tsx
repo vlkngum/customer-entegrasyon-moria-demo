@@ -97,7 +97,7 @@ const BestSellingProductsPage = () => {
                 name="startDate"
                 value={filter.startDate.split("-").reverse().join(".")}
                 onChange={handleFilterChange}
-                className="w-full flex-1 rounded-none rounded-r-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="input"
               />
             </div>
           </div>
@@ -118,7 +118,7 @@ const BestSellingProductsPage = () => {
                 name="endDate"
                 value={filter.endDate.split("-").reverse().join(".")}
                 onChange={handleFilterChange}
-                className="w-full flex-1 rounded-none rounded-r-md px-3 py-2 border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                className="input"
               />
             </div>
           </div>
