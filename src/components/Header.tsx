@@ -21,19 +21,19 @@ export default function Header () {
             <div className="max-w-1/2 flex flex-row gap-4">
                 <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                     <div className="h-5">
-                      <IoIosVideocam className="text-blue-800 w-full h-full"/>
+                      <IoIosVideocam className="text-[#0f82ff] w-full h-full"/>
                     </div>
                     <p className="text-xs">Videolu Eğitim Merkezi</p>
                 </div> 
                 <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                     <div className="h-5">
-                      <MdPerson className="text-blue-800 w-full h-full"/>
+                      <MdPerson className="text-[#0f82ff] w-full h-full"/>
                     </div>
                     <p className="text-xs">Destek Merkezi</p>
                 </div> 
                 <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                     <div className="h-5">
-                      <MdPersonAddAlt1 className="text-blue-800 w-full h-full"/>
+                      <MdPersonAddAlt1 className="text-[#0f82ff] w-full h-full"/>
                     </div>
                     <a href="/requests-for-support/open" className="text-xs">Destek Talebi Oluştur</a>
                 </div>  
@@ -43,17 +43,17 @@ export default function Header () {
                 <div className="flex flex-row gap-2">
                     <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                         <div className="h-8 aspect-square bg-blue-300/50 rounded-full p-1.5">
-                            <HiMiniGift className="text-blue-800 w-full h-full"/>
+                            <HiMiniGift className="text-[#0f82ff] w-full h-full"/>
                         </div>
                     </div> 
                     <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                         <div className="h-8 aspect-square bg-blue-300/50 rounded-full p-1.5">
-                            <IoMdNotifications className="text-blue-800 w-full h-full"/>
+                            <IoMdNotifications className="text-[#0f82ff] w-full h-full"/>
                         </div>
                     </div> 
                     <div className="flex flex-row items-center gap-2 hover:cursor-pointer">
                         <div className="h-8 aspect-square bg-blue-300/50 rounded-full p-1.5">
-                            <MdMessage className="text-blue-800 w-full h-full"/>
+                            <MdMessage className="text-[#0f82ff] w-full h-full"/>
                         </div>
                     </div>  
                 </div>
