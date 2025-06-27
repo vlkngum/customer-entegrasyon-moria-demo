@@ -1,47 +1,50 @@
 "use client";
 
-import { useState } from "react";
-import { FaBars } from "react-icons/fa6";
-import { FaFileDownload } from "react-icons/fa";
+import { ReactNode } from 'react';
+import { usePathname } from 'next/navigation';
+import OrderHeader from '@/app/orders/components/Header';
+import { FaFileInvoiceDollar, FaBars } from "react-icons/fa";
+import Image from 'next/image';
 
-export default function ClaimsLayout({ children }: { children: React.ReactNode }) {
-  const [activeTab, setActiveTab] = useState("Tümü");
+interface OrdersLayoutProps {
+  children: ReactNode;
+}
 
+export default function OrdersLayout({ children }: OrdersLayoutProps) {
+  const pathname = usePathname();
+  
   const tabs = [
-    { name: "Tümü", icon: <FaBars className="w-4 h-4" />, href: '/claims' },
-    { name: "Aktif İadeler", href: '/claims/active' },
-    { name: "Aksiyon Alınacak", href: '/claims/action' },
-    { name: "Kabul Edilen", href: '/claims/accepted' },
-    { name: "Reddedilen", href: '/claims/rejected' },
-    { name: "Servis & Analiz", href: '/claims/service-analysis' },
-    { name: "İptal Edilen", href: '/claims/cancelled' },
+    { id:"/claims", name: "Tümü", icon: <FaBars className="w-4 h-4" />, href: '/claims' },
+    { id:"/claims/active", name: "Aktif İadeler", href: '/claims/active' },
+    { id:"/claims/action", name: "Aksiyon Alınacak", href: '/claims/action' },
+    { id:"/claims/accepted", name: "Kabul Edilen", href: '/claims/accepted' },
+    { id:"/claims/rejected", name: "Reddedilen", href: '/claims/rejected' },
+    { id:"/claims/service-analysis", name: "Servis & Analiz", href: '/claims/service-analysis' },
+    { id:"/claims/cancelled", name: "İptal Edilen", href: '/claims/cancelled' },
   ];
 
+  // Aktif sayfanın adını bul
+  const activeTab = tabs.find(tab => tab.href === pathname) || tabs[0];
+  const pageTitle = activeTab.name;
+
   return (
-    <div className="min-h-screen p-4">
-      <div className="mx-auto">
-        <div className="panel">
-          <div className="flex items-center space-x-2 py-4 px-6">
-            <FaFileDownload className="text-3xl text-gray-700" />
-            <h1 className="text-xl font-semibold text-gray-800">İade Yönetimi</h1> 
-          </div>
-          <div className="flex flex-wrap p-1 border-t border-gray-200">
-            {tabs.map((tab) => (
-              <a
-                href={tab.href}
-                key={tab.name}
-                className={`px-6 py-2  text-sm font-semibold flex items-center space-x-2 transition-colors duration-200 ${activeTab === tab.name ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600" : "text-gray-500 hover:bg-blue-50 hover:text-gray-700"}`}
-                onClick={() => setActiveTab(tab.name)}
-              >
-                {tab.icon && tab.icon}
-                <span>{tab.name}</span>
-              </a>
-            ))}
-          </div>
+    <div className="min-h-screen p-0"> 
+      <div className='layout-panel'>
+
+        <div className='flex justify-between'>
+          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/> {pageTitle}</h1>
         </div>
+
+        <div className='bg-white'>
+          <OrderHeader
+            tabItems={tabs}
+          />
+        </div> 
+      </div>
+      
+      <div className='px-6 py-4'>
         {children}
       </div>
     </div>
   );
-}
- 
+} 

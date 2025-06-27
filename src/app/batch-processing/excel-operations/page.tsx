@@ -1,13 +1,13 @@
 import React from "react";
-import { GiShop } from "react-icons/gi";
+import Image from "next/image";
+
 export default function ExcelOperationsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
       <div className="flex items-center space-x-3 pt-6 px-8">
-        {/* Example icon (replace with your own if needed) */}
-        <GiShop className="text-2xl text-blue-600" />
-        <h1 className="text-2xl font-semibold text-gray-800">Excel İşlemleri</h1>
+      <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/>Toplu Ürün Gönderimi</h1>
+        
       </div>
 
       {/* Tabs */}

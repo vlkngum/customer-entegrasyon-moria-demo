@@ -14,14 +14,8 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
   const pathname = usePathname();
   
   const tabs = [
-    { id: 'products', name: "Ürün Listesi", href: '/products' },
-    { id: 'add', name: "Ürün Ekle", href: '/add' },
-    { id: 'category', name: "Kategoriler", href: '/categorys-marks/category' },
-    { id: 'marks', name: "Markalar", href: '/categorys-marks/marks' },
-    { id: 'variant', name: "Seçenek Grupları (Varyant)", href: '/variant' },
-    { id: 'hbCatalogProducts', name: "Hepsiburada Kataloğa Önerilen Ürünler", href: '/products/hbCatalogProducts' },
-    { id: 'list_sync', name: "Ürün Bazlı Kategori Özellik Eşitleme Listesi", href: '/products/list_sync' },
-    { id: 'price-robot', name: "Rekabet Robotu", href: '/products/price-robot' },
+    { id: 'invoice-list', name: "Fatura", href: '/orders/invoice-list' },
+    { id: 'customer-invoices', name: "Müşteriler", href: '/invoices/customer-invoices' }, 
   ];
 
   // Aktif sayfanın adını bul
@@ -33,7 +27,7 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
       <div className='layout-panel'>
 
         <div className='flex justify-between'>
-          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/production.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/> {pageTitle}</h1>
+          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/> {pageTitle}</h1>
         </div>
 
         <div className='bg-white'>

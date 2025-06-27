@@ -55,12 +55,11 @@ export default function BulkTransactionsPage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#f4f8fd] flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
       <header className="bg-white shadow-sm px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-2xl text-blue-600"><GiShop /></span>
-          <span className="font-semibold text-xl text-gray-800">Toplu Ürün Gönderimi</span>
+          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/>Toplu Ürün Gönderimi</h1>
         </div>
         <div className="flex gap-6">
           {/* Detaylı Filtrele Button */}

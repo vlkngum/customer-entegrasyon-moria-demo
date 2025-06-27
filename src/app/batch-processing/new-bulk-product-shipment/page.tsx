@@ -5,11 +5,11 @@ import Image from "next/image";
 
 export default function BulkProductUpdatesPage() {
   return (
-    <div className="min-h-screen bg-[#f4f8fd] flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center">
       {/* Header */}
       <header className="bg-white shadow-sm px-8 py-4 flex items-center w-full mx-auto">
-        <span className="text-2xl text-blue-600 mr-2"><GiShop /></span>
-        <span className="font-semibold text-xl text-gray-800">Toplu Ürün Güncellemeleri</span>
+        <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/>Toplu Ürün Gönderimi</h1>
+        
       </header>
 
       {/* Sekme */}
