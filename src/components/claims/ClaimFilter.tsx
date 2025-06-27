@@ -18,10 +18,10 @@ export default function ClaimFilter () {
                         <input
                             type="text"
                             placeholder="Sipariş numarası, talep numarası, Müşteri adı-soyadı veya stok kodu ile ara..."
-                            className="w-full border rounded-lg px-4 py-2 text-md focus:ring-blue-500 focus:border-blue-500"
+                            className="input"
                         />
                     </div>
-                    <button className="bg-blue-600 text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-blue-700 transition-colors duration-200 ">
+                    <button className="bg-[#0f82ff] text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-[#0068ff] transition-colors duration-200 ">
                         <FaSearch className="w-4 h-4" />
                         <span>FİLTRELE</span>
                     </button>

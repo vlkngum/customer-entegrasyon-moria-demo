@@ -43,7 +43,7 @@ export default function OrderFilters() {
         </div>
         {/* Filter buttons */}
         <div className="flex flex-col justify-start pt-7">
-          <button className="bg-blue-800 text-white py-2 px-4 rounded-md hover:bg-blue-900 flex items-center justify-center">
+          <button className="bg-[#0f82ff] text-white py-2 px-4 rounded-md hover:bg-[#0068ff] flex items-center justify-center">
             <FiFilter className="mr-2" /> <span className="text-sm whitespace-nowrap">FİLTRELE</span>
           </button>
           <button className="text-gray-600 hover:text-gray-800 py-3 px-4 rounded-md flex items-center justify-center">

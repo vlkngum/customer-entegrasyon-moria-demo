@@ -36,7 +36,7 @@ export default function DetailedFilterSidebar({
             <h3 className="text-sm font-semibold text-gray-800 mb-3">KAYNAK/DURUM FİLTRESİ</h3>
             <label className="block text-xs font-semibold text-gray-600 mb-1">PLATFORM</label>
             <div> 
-                <select id="platform-status" className="block w-full px-2 py-3 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                <select id="platform-status" className="input">
                     {platforms.map((platform) => (
                         <option key={platform} value={platform}>
                         {platform}
@@ -49,14 +49,14 @@ export default function DetailedFilterSidebar({
           <div>
         <label className="block text-sm font-medium text-gray-700">TARİH SEÇİMİ</label>
         <div className="mt-1 flex space-x-2">
-          <input type="date" placeholder="Başlangıç" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
-          <input type="date" placeholder="Bitiş" className="block w-1/2 p-2 border border-gray-300 rounded-md" />
+          <input type="date" placeholder="Başlangıç" className="input" />
+          <input type="date" placeholder="Bitiş" className="input" />
         </div>
       </div>
         </div>
 
         <div className="w-full p-4 bg-white border-t border-gray-200">
-          <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold flex items-center justify-center space-x-2 w-full hover:bg-blue-700 transition-colors duration-200">
+          <button className="bg-[#0f82ff] text-white px-6 py-2.5 rounded-lg font-semibold flex items-center justify-center space-x-2 w-full hover:bg-[#0068ff] transition-colors duration-200">
             <FaSearch className="w-4 h-4" />
             <span>FİLTRELE</span>
           </button>

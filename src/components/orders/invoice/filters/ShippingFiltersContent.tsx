@@ -5,7 +5,7 @@ const ShippingFiltersContent: React.FC = () => {
     <div className="space-y-4">
       <div>
         <label className="block text-sm font-medium text-gray-700">KARGOLANMA DURUMU</label>
-        <select id="platform-status" className="block w-full px-2 py-3 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+        <select id="platform-status" className="input">
            <option>Kargolanma Durumu</option>
            <option>Kargolanmayı Bekliyor</option>
            <option>Kargolandı</option>
@@ -16,7 +16,7 @@ const ShippingFiltersContent: React.FC = () => {
       </div>
       <div>
         <label className="block text-sm font-medium text-gray-700">KARGO FİŞİ YAZDIRILMA DURUMU</label>
-        <select id="platform-status" className="block w-full px-2 py-3 text-base border border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+        <select id="platform-status" className="input">
            <option>Kargo Fişi Yazdırılma Durumu</option>
            <option>Kargo Fişi Yazdırıldı</option>
            <option>Kargo Fişi Yazdırılmadı</option>

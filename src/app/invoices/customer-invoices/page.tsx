@@ -67,7 +67,7 @@ export default function Invoices() {
               <input
                 type="text"
                 placeholder="Müşteri Adı veya Mail Adresi ile Ara..."
-                className="w-full border border-gray-500 rounded-lg px-4 py-2 focus:ring-blue-500 focus:border-blue-500 text-md"
+                className="input"
               />
             </div>
             <button className="bg-blue-600 text-white px-18 py-2.5 rounded-lg font-semibold flex items-center space-x-2 cursor-pointer hover:bg-blue-700 transition-colors duration-200 self-end">
