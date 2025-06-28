@@ -24,7 +24,7 @@ export default function ErpDetailPage() {
         </div>
         <div className="w-full max-w-7xl mb-6 px-4 mt-4">
           <div className="text-base flex items-center gap-1 mb-2">
-            <Link href="/" className="font-semibold text-[#222] hover:underline">Sopyo</Link>
+            <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
             <span className="mx-1 text-gray-400">/</span>
             <Link href="/settings" className="text-[#444] hover:underline">Ayarlar</Link>
             <span className="mx-1 text-gray-400">/</span>
@@ -86,11 +86,11 @@ export default function ErpDetailPage() {
               </div>
               <div>
                 <label className="block mb-1">E-Fatura Numara Eki*</label>
-                <input className="w-full border rounded px-3 py-2" placeholder="Üç harf, örneğin Sopyo şrl" />
+                <input className="w-full border rounded px-3 py-2" placeholder="Üç harf, örneğin Entekas şrl" />
               </div>
               <div>
                 <label className="block mb-1">E-Arşiv Numara Eki</label>
-                <input className="w-full border rounded px-3 py-2" placeholder="Üç harf, örneğin Sopyo şrl" />
+                <input className="w-full border rounded px-3 py-2" placeholder="Üç harf, örneğin Entekas şrl" />
               </div>
               <div>
                 <label className="block mb-1">Son Kesilen Fatura No</label>

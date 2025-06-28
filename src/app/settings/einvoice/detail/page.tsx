@@ -69,11 +69,11 @@ export default function DigitalPlanetSettings() {
             </div>
             <div style={{ flex: 1, minWidth: 200 }}>
               <label className="form-label">E-FATURA NUMARA EKİ*</label>
-              <input className="form-input" placeholder="Üç harf, örneğin Sopyo şrl" />
+              <input className="form-input" placeholder="Üç harf, örneğin Entekas şrl" />
             </div>
             <div style={{ flex: 1, minWidth: 200 }}>
               <label className="form-label">E-ARSİV NUMARA EKİ</label>
-              <input className="form-input" placeholder="Üç harf, örneğin Sopyo şrl" />
+              <input className="form-input" placeholder="Üç harf, örneğin Entekas şrl" />
             </div>
             <div style={{ flex: 1, minWidth: 200 }}>
               <label className="form-label">SON KESİLEN FATURA NO</label>

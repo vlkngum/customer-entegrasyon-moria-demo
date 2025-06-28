@@ -59,7 +59,7 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
         <div className="flex-1">
           <label className="block text-sm font-medium">Fatura Kaynağı</label>
           <select className="input">
-            <option>CMApps</option>
+            <option>Entekas</option>
           </select>
         </div>
         <div className="flex-1">

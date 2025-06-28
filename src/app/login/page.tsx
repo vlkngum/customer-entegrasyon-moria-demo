@@ -24,7 +24,7 @@ const slides = [
   { 
     title: "E-fatura Entegrasyonu",
     desc: "Pazaryeri, e-ticaret siteniz ve sosyal medyadan gelen siparişlerin e-fatura süreçlerini tek bir ekrandan yönetin.",
-    desc2: "Kağıt faturaya son! Sopyo ile e-fatura süreçlerinizi zahmetsizce yönetin.",
+    desc2: "Kağıt faturaya son! Entekas ile e-fatura süreçlerinizi zahmetsizce yönetin.",
     img: "/login/login4.png",  
   }, 
   { 
@@ -110,7 +110,7 @@ export default function LoginPage() {
           </div>
 
           <h1 className="text-3xl font-medium text-gray-800 mb-2">Giriş Yapın</h1>
-          <p className="text-gray-500 mb-6">Sopyo'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
+          <p className="text-gray-500 mb-6">Entekas'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1 text-gray-600">E-POSTA ADRESİNİZ</label>

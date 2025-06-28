@@ -5,7 +5,7 @@ const helpContent: Record<string, { title: string; description: string; image?: 
   "Çiçeksepeti": {
     title: "Çiçeksepeti",
     description:
-      "Çiçeksepeti panelinizden Ürün Listesi sayfasına gelerek Sopyo'ya çekilecek ürünü bulup yanındaki düzenle tuşuna tıklayıp fotoğraftaki gibi Tedarikçi Varyant Kodunu alabilirsiniz.",
+      "Çiçeksepeti panelinizden Ürün Listesi sayfasına gelerek Entekas'ya çekilecek ürünü bulup yanındaki düzenle tuşuna tıklayıp fotoğraftaki gibi Tedarikçi Varyant Kodunu alabilirsiniz.",
     image: "ciceksepetiSinglePrice.png", // örnek, gerçek görsel yolu eklenmeli
   },
   "İdefix": {

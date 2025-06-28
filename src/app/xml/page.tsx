@@ -43,7 +43,7 @@ export default function XmlPage() {
                 </button>
                 {open.first && (
                   <div className='w-full flex flex-col items-center px-6 py-4'>
-                  <Image src="https://app.sopyo.com/assets/images/v2/noxml.jpg" alt="XML Kaynak" className="w-full object-contain" />
+                  <Image src="/noxml.jpg" alt="XML Kaynak" width={1000} height={500} className="w-full object-contain" />
                   <div className="text-center text-[#6c3fc5] font-bold mt-2">XML KAYNAĞINIZ BULUNMAMAKTADIR</div>
                 </div>
                 )}

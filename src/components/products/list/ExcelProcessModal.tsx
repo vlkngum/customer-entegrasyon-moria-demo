@@ -79,7 +79,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                 </div>
                 <div>
                   <div className="font-bold text-gray-800 flex items-center gap-2">Excel Stok Güncelleme <a href='/products' className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5">Tüm Ürünler</a></div>
-                  <div className="text-gray-600 text-sm">Sopyo üzerinde bulunan ürünlerinizi Excel e aktararak stok güncellemelerini yaptıktan sonra satış kanallarınıza aktarılmasını sağlayabilirsiniz.</div>
+                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak stok güncellemelerini yaptıktan sonra satış kanallarınıza aktarılmasını sağlayabilirsiniz.</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -88,7 +88,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                 </div>
                 <div>
                   <div className="font-bold text-gray-800 flex items-center gap-2">Excel Fiyat Güncelleme <a href='/products' className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5">Tüm Ürünler</a></div>
-                  <div className="text-gray-600 text-sm">Sopyo üzerinde bulunan ürünlerinizi Excel e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
+                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -97,7 +97,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                 </div>
                 <div>
                   <div className="font-bold text-gray-800 flex items-center gap-2">Excel Ürün Güncelleme <a  className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5" onClick={handleAllProductsClick} href="#">Tüm Ürünler</a></div>
-                  <div className="text-gray-600 text-sm">Sopyo üzerinde bulunan ürünlerinizi Excel e aktararak ürünlerinizin güncellemelerini sağlayabilirsiniz.</div>
+                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak ürünlerinizin güncellemelerini sağlayabilirsiniz.</div>
                   <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${showCustomize ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}
                   >

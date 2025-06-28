@@ -24,7 +24,7 @@ const slides = [
   { 
     title: "E-fatura Entegrasyonu",
     desc: "Pazaryeri, e-ticaret siteniz ve sosyal medyadan gelen siparişlerin e-fatura süreçlerini tek bir ekrandan yönetin.",
-    desc2: "Kağıt faturaya son! Sopyo ile e-fatura süreçlerinizi zahmetsizce yönetin.",
+    desc2: "Kağıt faturaya son! Entekas ile e-fatura süreçlerinizi zahmetsizce yönetin.",
     img: "/login/login4.png",  
   }, 
   { 
