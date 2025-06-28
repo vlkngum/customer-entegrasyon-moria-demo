@@ -1,7 +1,7 @@
 'use client'
 
 import { FaSearch } from "react-icons/fa"; 
-import ProductSingleFetchModal from "@/components/products/list/ProductSingleFetchModal";
+import ProductSingleFetchModal from "@/components/orders/invoice/ProductSingleFetchModal";
 import { useState } from "react"; 
 import { AiFillProduct, AiOutlineProduct } from "react-icons/ai";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"

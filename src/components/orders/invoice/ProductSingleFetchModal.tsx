@@ -1,26 +1,26 @@
 import { useState } from "react";
 import { MdClose } from "react-icons/md";
-import ProductSingleFetchHelpModal from "./ProductSingleFetchHelpModal";
+import ProductSingleFetchHelpModal from "../../products/list/ProductSingleFetchHelpModal";
 
-const platforms = ["Çiçeksepeti", "İdefix"];
+const platforms = [
+  "Trendyol",
+  "Trendyol(Paket Numarası ile)",
+  "Hepsiburada",
+  "Hepsiburada(Paket Numarası ile)",
+  "Çiçeksepeti",
+  "N11",
+  "PttAVM",
+  "Pazaryama"
+];
 
-const platformFieldLabels: Record<string, { label: string; help: string }> = {
-  "Çiçeksepeti": {
-    label: "TEDARİKÇİ VARYANT KODUNU GİRİNİ",
-    help: "Tedarikçi varyant kodunu nasıl bulabilirim?",
-  },
-  "İdefix": {
-    label: "İdefix Barkodunu Giriniz",
-    help: "İdefix ürün detayında barkod yer alır. Nasıl bulabilirim?",
-  },
-};
+ 
 
 export default function ProductSingleFetchModal({ open, onClose }: { open: boolean, onClose: () => void }) {
   const [selectedPlatform, setSelectedPlatform] = useState<string>("");
   const [barcode, setBarcode] = useState("");
   const [showHelp, setShowHelp] = useState(false);
 
-  const fieldInfo = platformFieldLabels[selectedPlatform] || { label: "Barkod Giriniz", help: "Barkodu nasıl bulabilirim?" };
+ 
 
   if (!open) return null;
   return (
@@ -28,7 +28,7 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
       <div className="panel w-1/4 animate-fadeIn min-h-1/2 justify-between flex flex-col fixed">
         <div>
           <div className="flex flex-row w-full justify-between items-center"> 
-            <h2 className="text-lg font-semibold mb-4">Tekil Ürün Çek - Platform Seçimi</h2>
+            <h2 className="text-lg font-medium mb-4">Hızlı Sipariş Ekle - Platform Seçimi</h2>
             <button
               onClick={onClose}
               className=" text-gray-500 hover:text-gray-700 items-center self-start"
@@ -40,7 +40,7 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
             Ürününüzü (varyantlar dahil) sisteme getirmek için aşağıdaki seçim ekranını kullanabilirsiniz.
           </div>
           <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">1- Ürününüzü hangi platformdan getirelim?</label>
+            <label className="block text-sm font-medium mb-1">1- Ürününüzü hangi platformdan getirelim?</label>
             <select
               className="input"
               value={selectedPlatform}
@@ -52,10 +52,9 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
               ))}
             </select>
           </div>
-          {selectedPlatform && (
             <>
               <div className="mb-2">
-                <label className="block text-xs font-semibold mb-1">{fieldInfo.label}</label>
+                <label className="block text-sm font-medium mb-1">2-Sipariş Numarasını Giriniz.</label>
                 <input
                   className="input"
                   value={barcode}
@@ -63,11 +62,7 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
                   placeholder=""
                 />
               </div>
-              <div className="mb-4 text-xs text-blue-600 underline cursor-pointer" onClick={() => setShowHelp(true)}>
-                {fieldInfo.help}
-              </div>
             </>
-          )}
         </div>
         <div className="flex justify-between mt-6 border-t border-gray-400 pt-4">
           <button
@@ -77,10 +72,11 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
             Vazgeç
           </button>
           <button
-            className="px-6 py-2 rounded bg-blue-600 text-white font-semibold hover:bg-blue-700 disabled:bg-gray-300 cursor-pointer"
+            className="px-6 py-2 rounded bg-blue-600 text-white font-medium hover:bg-blue-700 disabled:bg-gray-300 cursor-pointer"
             disabled={!selectedPlatform || !barcode}
           >
-            Ürünü Getir
+            
+            Siparişi Getir
           </button>
         </div>
         <ProductSingleFetchHelpModal open={showHelp} onClose={() => setShowHelp(false)} platform={selectedPlatform} />
