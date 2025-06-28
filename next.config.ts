@@ -8,7 +8,8 @@ const nextConfig: NextConfig = {
             "upload.wikimedia.org",
             "cdn.dsmcdn.com",
             "www.amazon.com",
-            "www.hepsiburada.com"
+            "www.hepsiburada.com",
+            "democustomer.entekas.com"
         ],
     },
 };

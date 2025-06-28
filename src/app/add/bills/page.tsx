@@ -122,44 +122,46 @@ export default function CreateInvoicePage() {
 
   return (
     <>
-      <div className="min-h-screen bg-blue-50 p-4">
-        {/* Header */}
+      <div className="min-h-screen bg-blue-50 p-0 flex flex-row w-full"> 
+        
+
+        <div className="flex flex-col w-3/5 px-8 gap-6 p-4">
+
         <div className="mb-6 flex items-center space-x-2 border-b border-[#d6e8ff] pb-4">
           <Image src="/sopyoOrderico.svg" alt="logo" width={32} height={32} />
           <h1 className="text-xl font-semibold">Fatura Oluştur</h1>
         </div>
-
-        <div className="flex w-full px-8 gap-6">
           {/* Sol: Fatura Kalemleri ve Genel Toplamlar Ortak Kapsayıcı */}
           <div className="flex-1">
-  {/* Fatura Kalemleri Paneli */}
-  <div className="panel w-full">
-    <InvoiceItemsTable
-      items={items}
-      searchTerm={searchTerm}
-      showDropdown={showDropdown}
-      setSearchTerm={setSearchTerm}
-      setShowDropdown={setShowDropdown}
-      handleItemChange={handleItemChange}
-      handleRemoveRow={handleRemoveRow}
-      handleAddRow={handleAddRow}
-      filteredOptions={filteredOptions}
-    />
-  </div>
+            {/* Fatura Kalemleri Paneli */}
+            <div className="panel w-full">
+              <InvoiceItemsTable
+                items={items}
+                searchTerm={searchTerm}
+                showDropdown={showDropdown}
+                setSearchTerm={setSearchTerm}
+                setShowDropdown={setShowDropdown}
+                handleItemChange={handleItemChange}
+                handleRemoveRow={handleRemoveRow}
+                handleAddRow={handleAddRow}
+                filteredOptions={filteredOptions}
+              />
+            </div>
 
-  {/* Genel Toplamlar: Fatura panelinin dışında, sağ altına hizalı */}
-  <div className="w-full mt-4 flex justify-end">
-    <InvoiceTotals
-      araToplam={araToplam}
-      toplamKdv={toplamKdv}
-      toplam={toplam}
-    />
-  </div>
-</div>
+            {/* Genel Toplamlar: Fatura panelinin dışında, sağ altına hizalı */}
+            <div className="w-full mt-4 flex justify-end">
+              <InvoiceTotals
+                araToplam={araToplam}
+                toplamKdv={toplamKdv}
+                toplam={toplam}
+              />
+            </div>
+          </div> 
+        </div>
 
-          {/* Sağ: Müşteri ve Fatura Bilgileri */}
-          <div className="w-full sm:w-80 md:w-96 lg:w-[400px] xl:w-[450px] 2xl:w-[500px] flex flex-col min-h-[500px] lg:min-h-[70vh]">
-            <div className="panel">
+
+        <div className="w-2/5 flex flex-col min-h-[500px]">
+            <div className="layout-panel">
               <label className="block text-xs text-[#5d6e76] mb-1">MÜŞTERİ SEÇİNİZ</label>
               <div className="relative" ref={customerDropdownRef}>
                 <button
@@ -247,8 +249,19 @@ export default function CreateInvoicePage() {
               setSatisTipi={setSatisTipi}
             />
           </div>
-        </div>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
       <footer className="sticky bottom-0 bg-white/80 backdrop-blur-sm border-t border-gray-200 p-4 z-20 w-full">
         <div className="flex justify-between">
           <button
