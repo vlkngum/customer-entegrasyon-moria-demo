@@ -48,10 +48,24 @@ export default function Sidebar() {
       setIsCollapsed(false);
     }
   };
+  // Aktif menü kontrolü - alt menüleri de kontrol eder
+  const isMenuActive = (item: MenuItem) => {
+    // Ana href kontrolü
+    if (pathname === item.href) {
+      return true;
+    }
+    
+    // Alt menü kontrolü
+    if (item.hasSubmenu && item.submenu) {
+      return item.submenu.some(subItem => pathname === subItem.href);
+    }
+    
+    return false;
+  };
 
   return (
     <div 
-      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden border-r border-gray-300 ${
+      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden border-r border-gray-300 z-50 ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
       onMouseEnter={() => !isPinned && setIsCollapsed(false)}

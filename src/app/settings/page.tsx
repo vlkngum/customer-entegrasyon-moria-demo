@@ -128,7 +128,7 @@ const menuItems: MenuItemType[] = [
 ]
 
 export default function CompanySettingsPanel() {
-  const [activeTab, setActiveTab] = useState("company")
+  const [activeTab, setActiveTab] = useState("all")
   const [searchTerm, setSearchTerm] = useState("")
   {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
   const [formData, setFormData] = useState<Record<string, any>>({})
@@ -240,67 +240,70 @@ export default function CompanySettingsPanel() {
   )
 
   return (
-    <div className="min-h-screen  flex items-start justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-lg flex w-full max-w-7xl min-h-[600px]">
-        {/* Sidebar */}
-        <aside className="w-80  border-r border-gray-200 p-6 ">
+    <div className="min-h-screen flex items-start justify-center p-8 mb-16 mt-2">
+      <div className="bg-white rounded-2xl shadow-lg w-full max-w-5xl min-h-[600px] flex flex-col relative pb-24">
+        {/* Search Box - EN ÜSTE */}
+        <div className="p-6 pb-6 border-b border-gray-200">
           <input
             type="text"
             placeholder="Ara..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="input"
+            className="input w-80"
           />
-          
-          <nav>
-            <ul className="space-y-2">
-              {filteredMenuItems.map(({ id, label, icon: Icon }) => (
-                <li key={id}>
-                  <button
-                    onClick={() => setActiveTab(id)}
-                    className={`w-full flex items-center gap-3 p-3 rounded-lg text-left transition-colors ${
-                      activeTab === id
-                        ? "bg-blue-50 text-blue-700 font-semibold border border-blue-200"
-                        : "hover:bg-gray-100 text-gray-700"
-                    }`}
-                  >
-                    <Icon className="w-5 h-5" />
-                    {label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
-
-        {/* Main Content */}
-        <main className="flex-1 p-8">
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">
-              {activeTab === "all" ? "Tüm Ayarlar" : menuItems.find(item => item.id === activeTab)?.label}
-            </h1>
-            <p className="text-gray-600">
-              {activeTab === "all" 
-                ? "Tüm ayarları bu sayfadan görüntüleyebilir ve düzenleyebilirsiniz." 
-                : "Aşağıdaki formu doldurarak ayarlarınızı güncelleyebilirsiniz."
-              }
-            </p>
-          </div>
-
-          <div className="space-y-1 max-w-4xl">
-            {getActiveFields().map(field => renderField(field))}
-
-            <div className="flex justify-end pt-8 border-t border-gray-200 mt-8">
-              <button
-                onClick={handleSubmit}
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-              >
-                Ayarları Kaydet
-              </button>
+        </div>
+        <div className="flex flex-1">
+          {/* Sidebar */}
+          <aside className="w-80 border-r border-gray-200 p-6 pt-4 flex flex-col">
+            <nav>
+              <ul className="space-y-2">
+                {filteredMenuItems.map(({ id, label, icon: Icon }) => (
+                  <li key={id}>
+                    <button
+                      onClick={() => setActiveTab(id)}
+                      className={`w-full flex items-center gap-3 p-3 rounded-lg text-left transition-colors ${
+                        activeTab === id
+                          ? "bg-blue-50 text-blue-700 font-semibold border border-blue-200"
+                          : "hover:bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      <Icon className="w-5 h-5" />
+                      {label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          {/* Main Content */}
+          <main className="flex-1 p-8">
+            <div className="mb-8">
+              <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                {activeTab === "all" ? "Tüm Ayarlar" : menuItems.find(item => item.id === activeTab)?.label}
+              </h1>
+              <p className="text-gray-600">
+                {activeTab === "all" 
+                  ? "Tüm ayarları bu sayfadan görüntüleyebilir ve düzenleyebilirsiniz." 
+                  : "Aşağıdaki formu doldurarak ayarlarınızı güncelleyebilirsiniz."
+                }
+              </p>
             </div>
-          </div>
-        </main>
+
+            <div className="space-y-1 max-w-4xl">
+              {getActiveFields().map(field => renderField(field))}
+            </div>
+          </main>
+        </div>
       </div>
+      <footer className="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-sm border-t border-gray-200 z-10 shadow-lg flex justify-end items-center px-8 py-4">
+        <button
+          onClick={handleSubmit}
+          className="bg-[#11c26d] hover:bg-[#1ed57d] text-white px-6 py-3 rounded-lg text-sm flex items-center gap-2 shadow-md transition-colors focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+        >
+          AYARLARI KAYDET
+          <span className="ml-2">→</span>
+        </button>
+      </footer>
     </div>
   )
 }
