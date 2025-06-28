@@ -1,15 +1,13 @@
 "use client";
 
-import OrderFilters from '@/components/orders/OrderFilters';
-import OrderListHeader from '@/components/orders/OrderListHeader';
-import OrderPagination from '@/components/orders/OrderPagination';
+import OrderFiltersAll from '@/components/orders/OrderFiltersAll';
+import InvoiceListHeader from '@/components/orders/invoice/InvoiceListHeader'; 
 
-export default function PendingApprovalOrdersPage() {
+export default function AllUnprocessedOrdersPage() {
   return (
     <div className='flex flex-col justify-between w-full h-full'> 
-        <OrderFilters />
-        <OrderListHeader /> 
-        <OrderPagination /> 
+        <OrderFiltersAll />
+        <InvoiceListHeader />  
     </div>
   );
 }
