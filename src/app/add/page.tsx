@@ -11,6 +11,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 import QuickAddProductModal from '@/components/add/modal/QuickAddProductModal';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function AddProductPage() {
   const [image, setImage] = useState<string | undefined>(undefined);
@@ -26,23 +27,23 @@ export default function AddProductPage() {
           <div className="mb-6">
             <h1 className="text-2xl font-semibold">Ürün Genel Bilgileri</h1>
             <div className="text-xs text-gray-500 mb-1 flex gap-1 items-center">
-              <Link href="/" className="text-blue-600 hover:underline">CMApps</Link>
+              <Link href="/" className="text-black hover:text-blue-600 hover:underline">Entekas</Link>
               <span>/</span>
-              <a className="text-blue-600 hover:underline">Ürünler</a>
+              <Link href="/products" className="text-black hover:text-blue-600 hover:underline">Ürünler</Link>
               <span>/</span>
-              <a href="#" className="text-blue-600 hover:underline">Ürün Genel Bilgileri</a>
+              <span className="text-gray-400">Ürün Genel Bilgileri</span>
             </div>
           </div>
 
           <div className="flex gap-2">
-            <button className="border_button" onClick={() => setShowQuickAdd(true)}>
-              <AiFillProduct className="w-6 h-6" />
-              <span style={{ fontSize:10 }}>HIZLI ÜRÜN EKLE</span>
+            <button className="border_button hover:underline hover:outline-none hover:border-[#3e8ef7]" onClick={() => setShowQuickAdd(true)}>
+              <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
+              <span className="text-[#6b7b83]" style={{ fontSize:10 }}>HIZLI ÜRÜN EKLE</span>
             </button>
-            <button className="border_button" onClick={() => setShowQuickAdd(true)}>
-              <MdCancelPresentation className="w-6 h-6" />
-              <span style={{ fontSize:10 }}>VAZGEÇ</span>
-            </button>
+            <Link href="/products" className="border_button hover:underline bg-[#e8ebed]">
+              <Image src="/vazgec.svg" alt="vazgec" width={20} height={20} />
+              <span className="text-[#6b7b83]" style={{ fontSize:10 }}>VAZGEÇ</span>
+            </Link>
           </div>
         </div>
 

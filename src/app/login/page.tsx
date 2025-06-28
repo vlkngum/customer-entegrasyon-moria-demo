@@ -1,114 +1,123 @@
 "use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+const slides = [
+  { 
+    title: "Kargo Entegrasyonları",
+    desc: "Kargo süreçlerini otomatik hale getirin.",
+    img: "/login/login1.png",  
+  },
+  { 
+    title: "Sipariş Yönetimi",
+    desc: "Siparişlerinizi tek panelden yönetin.",
+    img: "/login/login2.png",  
+  },
+  { 
+    title: "Faturalandırma Kolaylığı",
+    desc: "Faturalarınızı hızlıca oluşturun.",
+    img: "/login/login3.png",  
+  },
+]; 
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [slide, setSlide] = useState(0);
   const router = useRouter();
-  const { login } = useAuth();
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlide((prev) => (prev + 1) % slides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
-
-    if (login(username, password)) {
-      router.push('/');
-    } else {
-      setError('Geçersiz kullanıcı adı veya şifre');
-    }
+    setError("");
+    setError("Geçersiz e-posta veya parola");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center z-50">
-      <div className="flex w-full max-w-5xl rounded-2xl shadow-xl overflow-hidden border border-black/10"> 
-        <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-blue-600 to-indigo-600 p-12 flex-col justify-between">
-          <div className="space-y-6">
-            <Image 
-              src="/entekas-logo.svg" 
-              alt="Entekas Logo"
-              width={200}
-              height={60}
-              className="brightness-0 invert"
-            />
-            <h2 className="text-3xl font-bold text-white">
-              Entekas Müşteri Portalı
-            </h2>
-            <p className="text-blue-100">
-              Tüm müşteri işlemlerinizi tek bir yerden yönetin.
-            </p>
+    <div className="min-h-screen flex">
+      {/* Sol: Form */}
+      <div className="flex flex-col justify-center w-full md:w-1/2 px-8 md:px-24 py-12 bg-white">
+        <div className="max-w-md w-full mx-auto">
+          <Image src="/entekas-logo.svg" alt="Sopyo Logo" width={120} height={40} className="mb-8" />
+          <div className="flex items-center justify-end mb-8">
+            <span className="text-sm text-gray-500 mr-2">Hesabınız yok mu?</span>
+            <a href="#" className="text-blue-600 font-semibold hover:underline">Hesap oluştur.</a>
           </div>
-          <div className="text-blue-100 text-sm">
-            © 2025 Entekas
-          </div>
-        </div>
-
-        {/* Sağ taraf - Giriş Formu */}
-        <div className="w-full md:w-1/2 p-12">
-          <div className="max-w-md mx-auto">
-            <div className="md:hidden mb-8">
-              <Image 
-                src="/entekas-logo.svg" 
-                alt="Entekas Logo"
-                width={150}
-                height={45}
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Giriş Yapın</h1>
+          <p className="text-gray-500 mb-6">Sopyo'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label className="block text-sm font-semibold mb-1">E-POSTA ADRESİNİZ</label>
+              <input
+                type="email"
+                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                required
               />
             </div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Hoş Geldiniz
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="username" className="block text-md font-medium text-gray-700 mb-2">
-                  Kullanıcı Adı
-                </label>
-                <input
-                  id="username"
-                  name="username"
-                  type="text"
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-black/50 text-black"
-                  placeholder="Kullanıcı adınızı girin"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="block text-md font-medium text-gray-700 mb-2">
-                  Şifre
-                </label>
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors placeholder-black/50 text-black"
-                  placeholder="Şifrenizi girin"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-
-              {error && (
-                <div className="text-red-500 text-sm bg-red-50 p-3 rounded-lg">
-                  {error}
-                </div>
-              )}
-
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors cursor-pointer"
-              >
-                Giriş Yap
-              </button>
-            </form>
+            <div>
+              <label className="block text-sm font-semibold mb-1">PAROLANIZ</label>
+              <input
+                type="password"
+                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            {error && (
+              <div className="text-red-600 text-sm bg-red-50 border border-red-200 rounded px-3 py-2">{error}</div>
+            )}
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"
+            >
+              <span className="text-lg">→</span> HESABINIZA GİRİŞ YAPIN
+            </button>
+            <div className="text-center text-gray-400 my-2">YA DA</div>
+            <button
+              type="button"
+              className="w-full border-2 border-red-400 text-red-600 font-bold py-3 rounded-lg hover:bg-red-50 transition"
+            >
+              PAROLANIZI MI UNUTTUNUZ?
+            </button>
+          </form>
+        </div>
+      </div>
+      {/* Sağ: Tanıtım/Slider */}
+      <div className="hidden md:flex w-1/2 bg-[#188fff] flex-col justify-center items-center relative overflow-hidden">
+        {/* Arka plan görseli kaldırıldı, sadece mavi arka plan sabit */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-12">
+          <h2 className="text-white text-2xl font-bold mb-4 mt-12">{slides[slide].title}</h2>
+          <p className="text-white text-lg mb-8">{slides[slide].desc}</p>
+          <div className="bg-white rounded-xl shadow-lg p-6 flex gap-4 items-center mb-8">
+            <Image src={slides[slide].img} alt="Slider" width={320} height={120} />
+          </div>
+          <p className="text-white text-center text-sm max-w-md">
+            Hem pazaryerleri hem de e-ticaret sitenizden gelen siparişlerin kargo süreçlerini otomatikleştirin.
+          </p>
+          {/* Slider noktaları */}
+          <div className="flex gap-2 mt-8">
+            {slides.map((_, i) => (
+              <span
+                key={i}
+                className={`w-3 h-3 rounded-full ${i === slide ? "bg-white" : "bg-white opacity-60"}`}
+                style={{ transition: 'all 0.3s' }}
+              />
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
-} 
+}

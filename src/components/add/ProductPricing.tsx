@@ -19,7 +19,7 @@ const ProductPricing: React.FC = () => {
   return (
     <div className="panel">
       {/* Channel icons */}
-      <div className="flex justify-center items-center flex-wrap gap-4 mb-4">
+      <div className="flex justify-center items-center flex-wrap gap-4 mb-4 border-b border-gray-200 pb-4">
         {platforms.map((platform) => (
           <div key={platform.name} className="relative">
             <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center grayscale overflow-hidden">
@@ -32,8 +32,17 @@ const ProductPricing: React.FC = () => {
       <div className="text-xs text-center text-gray-500 mb-4">Ürünü satışa çıkarmak için ilk olarak ÜRÜNÜ KAYDEDİN.</div>
       <div className="grid grid-cols-2 gap-4 mb-2">
         <div>
-          <label className="block text-xs text-gray-500 mb-1">KDV ORANI</label>
-          <select className="input">
+          <label className="block text-xs text-[#6a7286] mb-1">KDV ORANI</label>
+          <select className="input" style={{ 
+            appearance: 'none',
+            WebkitAppearance: 'none',
+            MozAppearance: 'none',
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%230f82ff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e")`,
+            backgroundPosition: 'right 0.5rem center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '1.5em 1.5em',
+            paddingRight: '2.5rem'
+          }}>
             <option>% 20</option>
             <option>% 18</option>
             <option>% 10</option>
