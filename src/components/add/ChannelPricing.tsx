@@ -16,9 +16,9 @@ const platforms = [
 
 const ChannelPricing: React.FC = () => {
   return (
-    <div className="mt-4 space-y-4">
+    <div className="mt-4 space-y-4 border-t border-gray-200 ">
       {platforms.map((platform, index) => (
-        <div key={platform.name} className={`${index !== 0 ? 'border-t' : ''} pt-4`}>
+        <div key={platform.name} className={`${index !== 0 ? 'border-t border-gray-200' : ''} pt-4`}>
           <h3 className={`font-semibold ${platform.color}`}>{platform.name}</h3>
           <div className={`grid ${platform.fields.length === 1 ? 'grid-cols-1' : 'grid-cols-2'} gap-4 mt-2`}>
             {platform.fields.map((field) => (

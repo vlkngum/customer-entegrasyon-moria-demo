@@ -30,7 +30,7 @@ const ProductPricing: React.FC = () => {
         ))}
       </div>
       <div className="text-xs text-center text-gray-500 mb-4">Ürünü satışa çıkarmak için ilk olarak ÜRÜNÜ KAYDEDİN.</div>
-      <div className="grid grid-cols-2 gap-4 mb-2">
+      <div className="grid grid-cols-2 gap-4 mb-2 border-b border-gray-200 py-4">
         <div>
           <label className="block text-xs text-[#6a7286] mb-1">KDV ORANI</label>
           <select className="input" style={{ 

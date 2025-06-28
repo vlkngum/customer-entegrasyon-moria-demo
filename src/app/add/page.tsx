@@ -2,7 +2,6 @@
 
 import React, { useState, useCallback } from 'react';
 import ProductGeneralInfo from '@/components/add/ProductGeneralInfo';
-import ProductDescription from '@/components/add/ProductDescription';
 import ProductPricing from '@/components/add/ProductPricing';
 import ProductImageUpload from '@/components/add/ProductImageUpload';
 import { AiFillProduct } from "react-icons/ai";
@@ -48,12 +47,12 @@ export default function AddProductPage() {
         </div>
 
         <div className="flex gap-6">
-          <div className="flex-1">
+          <div className="flex-[1.2]">
             <ProductGeneralInfo />
-            <ProductDescription />
+            {/* <ProductDescription /> */}
             <div className="flex gap-6">
               <div className="flex-1">
-                <ProductImageUpload onImageChange={handleImageChange} initialImageUrl={image} />
+              <ProductImageUpload onImageChange={handleImageChange} initialImageUrl={image} />
               </div>
               {image && (
                 <div className="panel flex-1">
@@ -67,7 +66,7 @@ export default function AddProductPage() {
             </div>
           </div>
 
-          <div>
+          <div className="flex-[0.8] min-w-[320px] max-w-[400px]">
             <ProductPricing />
           </div>
         </div> 
