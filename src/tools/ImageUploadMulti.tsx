@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-
+import Image from 'next/image';
 interface ImageUploadMultiProps {
   images: string[];
   onImagesChange: (images: string[]) => void;
@@ -40,7 +40,7 @@ export default function ImageUploadMulti({ images, onImagesChange }: ImageUpload
   };
 
   return (
-    <div>
+    <div className='panel'>
       <label className="block text-sm font-medium text-gray-700 mb-2">Görseller</label>
       <div
          className={`border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-blue-500 transition-colors duration-200 h-full w-full flex flex-col items-center justify-center relative overflow-hidden`}
@@ -77,7 +77,7 @@ export default function ImageUploadMulti({ images, onImagesChange }: ImageUpload
         <div className="flex flex-wrap gap-4 mt-4">
           {images.map((img, idx) => (
             <div key={idx} className="relative group">
-              <img src={img} alt={`Yüklenen ${idx + 1}`} className="w-24 h-24 object-cover rounded shadow" />
+              <Image src={img} width={0} height={0} alt={`Yüklenen ${idx + 1}`} className="w-24 h-24 object-cover rounded shadow" />
               <button
                 type="button"
                 className="absolute top-1 right-1 bg-white bg-opacity-80 rounded-full p-1 text-red-500 hover:bg-red-100"

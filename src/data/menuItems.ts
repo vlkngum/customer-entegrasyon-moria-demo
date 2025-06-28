@@ -46,7 +46,7 @@ export const menuItems: MenuItem[] = [
   { name: 'İade Yönetimi', href: '/claims', icon: LuFolderDown },
   { 
     name: 'Ürünler', 
-    href: '/settings', 
+    href: '/products', 
     icon: Layers,
     hasSubmenu: true,
     submenu: [
@@ -61,7 +61,7 @@ export const menuItems: MenuItem[] = [
   },
   { 
     name: 'Toplu İşlemler', 
-    href: '/settings', 
+    href: '/batch-processing', 
     icon: Send,
     hasSubmenu: true,
     submenu: [
@@ -89,7 +89,7 @@ export const menuItems: MenuItem[] = [
   },
   { 
     name: 'Ayarlar', 
-    href: '/reports', 
+    href: '/settings', 
     icon: Wrench,
     hasSubmenu: true,
     submenu: [

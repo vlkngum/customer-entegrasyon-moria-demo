@@ -51,7 +51,7 @@ export default function Sidebar() {
 
   return (
     <div 
-      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden border-r border-gray-300 ${
+      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden border-r border-gray-300 z-50 ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
       onMouseEnter={() => !isPinned && setIsCollapsed(false)}
@@ -170,4 +170,4 @@ export default function Sidebar() {
       </nav>
     </div>
   );
-} 
+}

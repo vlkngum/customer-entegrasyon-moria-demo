@@ -8,14 +8,23 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const SupportRequestDetailPage = ({ params }: Props) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const [id, setId] = useState<string>('');
+
+  useEffect(() => {
+    const getParams = async () => {
+      const resolvedParams = await params;
+      setId(resolvedParams.id);
+    };
+    getParams();
+  }, [params]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -23,12 +32,16 @@ const SupportRequestDetailPage = ({ params }: Props) => {
     }
   };
 
+  if (!id) {
+    return <div className="p-4 md:p-8 bg-gray-50 min-h-screen text-gray-800">Loading...</div>;
+  }
+
   return (
     <div className="p-4 md:p-8 bg-gray-50 min-h-screen text-gray-800">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-800">
-            #{params.id} Numaralı Destek Talebi Detayı
+            #{id} Numaralı Destek Talebi Detayı
           </h1>
           <div className="flex items-center text-sm text-gray-500">
             <Link
@@ -45,7 +58,7 @@ const SupportRequestDetailPage = ({ params }: Props) => {
               Destek
             </Link>
             <ChevronRight className="w-4 h-4 mx-1" />
-            <span>#{params.id} Numaralı Destek Talebi</span>
+            <span>#{id} Numaralı Destek Talebi</span>
           </div>
         </div>
         <a href="/requests-for-support/open" className="bg-white border border-gray-300 hover:bg-gray-100 text-gray-600 px-4 py-2 rounded-lg flex items-center text-sm font-semibold">
@@ -69,7 +82,7 @@ const SupportRequestDetailPage = ({ params }: Props) => {
             <div>
               <p className="font-semibold text-gray-800">Deneme</p>
               <p className="text-sm text-gray-600">
-                #{params.id} Numaralı destek talebiniz 22.06.2025 18:56
+                #{id} Numaralı destek talebiniz 22.06.2025 18:56
                 tarihinde oluşturulmuş.
               </p>
             </div>
