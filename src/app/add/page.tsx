@@ -20,8 +20,8 @@ export default function AddProductPage() {
   return (
     <>
       <div className="p-4">
-        <div className="flex items-center justify-between px-3 py-5 ">
-          <div className="mb-6">
+        <div className="flex items-center justify-between px-3 py-3 ">
+          <div className="mb-3">
             <h1 className="text-2xl font-semibold">Ürün Genel Bilgileri</h1>
             <div className="text-xs text-gray-500 mb-1 flex gap-1 items-center">
               <Link href="/" className="text-black hover:text-blue-600 hover:underline">Entekas</Link>
