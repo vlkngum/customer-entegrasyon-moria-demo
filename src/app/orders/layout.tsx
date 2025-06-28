@@ -82,6 +82,7 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
       </div>
 
       <ProductSingleFetchModal open={showSingleFetchModal} onClose={() => setShowSingleFetchModal(false)} />
+        
     </div>
   );
 } 
