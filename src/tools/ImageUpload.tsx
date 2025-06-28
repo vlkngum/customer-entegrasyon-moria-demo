@@ -77,6 +77,8 @@ export default function ImageUpload({ onImageChange, id, initialImageUrl }: Imag
           <div className="relative w-full h-full">
             <Image
               src={previewUrl}
+              width={400}
+              height={300}
               className="w-full h-full object-contain rounded-lg"
               alt="Preview"
             />
