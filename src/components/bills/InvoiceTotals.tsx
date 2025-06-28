@@ -26,7 +26,7 @@ const InvoiceTotals: React.FC<InvoiceTotalsProps> = ({
   );
 
   return (
-    <div className="bg-white rounded-xl shadow border border-[#e6edf5] p-0 overflow-hidden w-full max-w-xs min-w-[300px] mx-auto">
+    <div className="bg-white rounded-xl shadow border border-[#e6edf5] p-0 overflow-hidden w-full max-w-xs min-w-[300px]">
       <div className="px-4 pt-4 pb-2">
         <h3 className="font-semibold text-lg text-[#23272e]">GENEL TOPLAMALAR</h3>
       </div>

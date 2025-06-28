@@ -130,35 +130,36 @@ export default function CreateInvoicePage() {
           <h1 className="text-xl font-semibold">Fatura Oluştur</h1>
         </div>
 
-        <div className="flex w-full gap-6">
+        <div className="flex w-full px-8 gap-6">
           {/* Sol: Fatura Kalemleri ve Genel Toplamlar Ortak Kapsayıcı */}
-          <div className="w-3/5 mx-auto">
-            <div className="flex flex-col items-end">
-              <div className="panel self-start">
-                <InvoiceItemsTable
-                  items={items}
-                  searchTerm={searchTerm}
-                  showDropdown={showDropdown}
-                  setSearchTerm={setSearchTerm}
-                  setShowDropdown={setShowDropdown}
-                  handleItemChange={handleItemChange}
-                  handleRemoveRow={handleRemoveRow}
-                  handleAddRow={handleAddRow}
-                  filteredOptions={filteredOptions}
-                />
-              </div>
-              {/* Genel Toplamlar: Panelin SAĞ ALTINA hizalı */}
-              <div className="mt-2">
-                <InvoiceTotals
-                  araToplam={araToplam}
-                  toplamKdv={toplamKdv}
-                  toplam={toplam}
-                />
-              </div>
-            </div>
-          </div>
+          <div className="flex-1">
+  {/* Fatura Kalemleri Paneli */}
+  <div className="panel w-full">
+    <InvoiceItemsTable
+      items={items}
+      searchTerm={searchTerm}
+      showDropdown={showDropdown}
+      setSearchTerm={setSearchTerm}
+      setShowDropdown={setShowDropdown}
+      handleItemChange={handleItemChange}
+      handleRemoveRow={handleRemoveRow}
+      handleAddRow={handleAddRow}
+      filteredOptions={filteredOptions}
+    />
+  </div>
+
+  {/* Genel Toplamlar: Fatura panelinin dışında, sağ altına hizalı */}
+  <div className="w-full mt-4 flex justify-end">
+    <InvoiceTotals
+      araToplam={araToplam}
+      toplamKdv={toplamKdv}
+      toplam={toplam}
+    />
+  </div>
+</div>
+
           {/* Sağ: Müşteri ve Fatura Bilgileri */}
-          <div className="w-2/5 flex flex-col">
+          <div className="w-[340px] flex flex-col">
             <div className="panel">
               <label className="block text-xs text-[#5d6e76] mb-1">MÜŞTERİ SEÇİNİZ</label>
               <div className="relative" ref={customerDropdownRef}>
