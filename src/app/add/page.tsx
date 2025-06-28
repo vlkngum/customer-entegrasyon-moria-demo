@@ -3,9 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import ProductGeneralInfo from '@/components/add/ProductGeneralInfo';
 import ProductPricing from '@/components/add/ProductPricing';
-import ProductImageUpload from '@/components/add/ProductImageUpload';
-import { AiFillProduct } from "react-icons/ai";
-import { MdCancelPresentation } from "react-icons/md";
+import ImageUploadMulti from '@/tools/ImageUploadMulti';
 import { FaArrowRight } from "react-icons/fa";
 
 import QuickAddProductModal from '@/components/add/modal/QuickAddProductModal';
@@ -13,9 +11,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function AddProductPage() {
-  const [image, setImage] = useState<string | undefined>(undefined);
+  const [images, setImages] = useState<string[]>([]);
   const handleImageChange = useCallback((base64Image: string) => {
-    setImage(base64Image);
+    setImages([base64Image]);
   }, []);
   const [showQuickAdd, setShowQuickAdd] = useState(false);
 
@@ -52,11 +50,11 @@ export default function AddProductPage() {
             {/* <ProductDescription /> */}
             <div className="flex gap-6">
               <div className="flex-1">
-              <ProductImageUpload onImageChange={handleImageChange} initialImageUrl={image} />
+              <ImageUploadMulti images={images} onImagesChange={setImages} />
               </div>
-              {image && (
+              {images.length > 0 && (
                 <div className="panel flex-1">
-                  <div className="w-full h-full p-2 text-sm text-gray-700 dark:text-gray-300">
+                  <div className="w-full h-full p-2 text-sm text-gray-700">
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
                     </p>
