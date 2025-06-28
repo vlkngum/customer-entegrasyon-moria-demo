@@ -55,14 +55,30 @@ const slides = [
 ]; 
 
 export default function LoginPage() { 
-  const [slide, setSlide] = useState(0); 
-
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [slide, setSlide] = useState(0);  
   const router = useRouter();
   const { login, isAuthenticated } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+
+  const [form, setForm] = useState({
+    company: "",
+    fullname: "",
+    email: "",
+    phone: "",
+    password: "",
+    passwordConfirm: "",
+  }); 
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Kayıt işlemleri burada yapılacak
+  };
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -79,50 +95,89 @@ export default function LoginPage() {
  
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-white">
       {/* Sol: Form */}
-      <div className="flex flex-col justify-center w-full md:w-1/2 px-8 md:px-24 py-12 bg-white">
+      <div className="flex flex-col justify-center w-full md:w-1/2 px-8 md:px-14 py-10 bg-white">
         <div className="max-w-7xl w-full mx-auto">
           
           <div className="flex justify-between items-center w-1/2 mb-8 absolute top-8 left-0 px-8 md:px-24 z-10">
-            <Image src="/entekas-logo.svg" alt="Entekas Logo" width={190} height={60} />
+          <Image src="/entekas-logo.png" alt="Entekas Logo" width={190} height={60} />
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-blue-100 text-blue-600 mr-1">
                 <FiArrowLeft size={18} />
               </span>
-              <span className="text-sm text-gray-800 font-medium">Hesabınız yok mu?</span>
-              <button
-                type="button"
-                onClick={() => router.push("/register")}
-                className="text-blue-600 font-medium hover:underline ml-1 bg-transparent border-none p-0 cursor-pointer"
-                style={{ background: "none" }}
+              <span className="text-gray-800 font-medium">Hesabınız var mı?</span>
+              <Link
+                href="/login"
+                className="text-blue-600 font-medium hover:underline ml-1"
               >
-                Hesap oluştur.
-              </button>
+                Giriş Yap.
+              </Link>
             </div>
           </div>
 
-          <h1 className="text-3xl font-medium text-gray-800 mb-2">Giriş Yapın</h1>
-          <p className="text-gray-500 mb-6">Sopyo'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
-          <form className="space-y-4">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">Hesabınızı Oluşturun</h1>
+          <p className="text-gray-500 mb-6 ">Entekas'ın tüm özellikleriyle 7 gün ücretsiz deneyebilirsiniz.</p>
+          <form onSubmit={handleSubmit} className="space-y-2">
+          <div>
+            <label className="block text-xs font-semibold mb-1 text-gray-600">FİRMA ADINIZ</label>
+            <input
+              name="company"
+              type="text"
+              className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700"
+              value={form.company}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold mb-1 text-gray-600">YETKİLİ AD SOYAD</label>
+            <input
+              name="fullname"
+              type="text"
+              className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700"
+              value={form.fullname}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium mb-1 text-gray-600">E-POSTA ADRESİNİZ</label>
+              <label className="block text-xs font-semibold mb-1 text-gray-600">E-POSTA ADRESİ</label>
               <input
-                type="input"
-                className="w-full border border-gray-300 rounded px-4 py-2 focus:ring-1 focus:ring-blue-500 outline-none text-gray-600"
-                value={username}
-                onChange={e => setUsername(e.target.value)}
+                name="email"
+                type="email"
+                className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700"
+                value={form.email}
+                onChange={handleChange}
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1 text-gray-600">PAROLANIZ</label>
+              <label className="block text-xs font-semibold mb-1 text-gray-600">
+                TELEFON NO <span className="text-orange-500 text-xs font-normal">*</span>
+                <span className="text-xs font-normal text-gray-400 ml-1">SMS Doğrulaması Gerekmektedir!</span>
+              </label>
+              <input
+                name="phone"
+                type="tel"
+                className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700"
+                value={form.phone}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold mb-1 text-gray-600">ENTEKAS GİRİŞ PAROLANIZ</label>
               <div className="relative">
                 <input
+                  name="password"
                   type={showPassword ? "text" : "password"}
-                  className="w-full border border-gray-300 rounded px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none pr-10 text-gray-600"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
+                  className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700 pr-10"
+                  value={form.password}
+                  onChange={handleChange}
                   required
                 />
                 <button
@@ -136,29 +191,50 @@ export default function LoginPage() {
                 </button>
               </div>
             </div>
-            {error && (
-              <div className="text-red-600 text-sm bg-red-50 border border-red-200 rounded px-3 py-2">{error}</div>
-            )}
-
-            <div className="max-w-xs w-full mx-auto">
-              <button
-                type="submit"
-                className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"
-              >
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-blue-600 mr-1">
-                  <FiArrowRight size={17} />
-                </span> HESABINIZA GİRİŞ YAPIN
-              </button>
-              <div className="text-center text-gray-400 my-2 font-light">YA DA</div>
-              <button
-                type="button"
-                className="w-full border-2 border-red-400 text-red-600 font-medium py-3 rounded-lg hover:bg-red-50 transition"
-              >
-                PAROLANIZI MI UNUTTUNUZ?
-              </button>
+            <div>
+              <label className="block text-xs font-bold mb-1 text-gray-600">ENTEKAS GİRİŞ PAROLANIZI DOĞRULAMA</label>
+              <div className="relative">
+                <input
+                  name="passwordConfirm"
+                  type={showPasswordConfirm ? "text" : "password"}
+                  className="w-full border border-gray-200 rounded px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-gray-700 pr-10"
+                  value={form.passwordConfirm}
+                  onChange={handleChange}
+                  required
+                />
+                <button
+                  type="button"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                  tabIndex={-1}
+                  onClick={() => setShowPasswordConfirm((v) => !v)}
+                  aria-label={showPasswordConfirm ? "Şifreyi gizle" : "Şifreyi göster"}
+                >
+                  {showPasswordConfirm ? <MdVisibilityOff size={22} /> : <MdVisibility size={22} />}
+                </button>
+              </div>
             </div>
-            
-          </form>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center">
+            <button
+              type="submit"
+              className="max-w-md mt-6 bg-[#1890ff] text-white font-bold py-3 px-3 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700 transition text-lg"
+            >
+              <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-white text-blue-600 mr-1">
+                <FiArrowRight size={20} />
+              </span>
+              ÜCRETSİZ HESAP OLUŞTUR
+            </button>
+            <div className="text-center mt-6 text-base text-gray-700 w-full  ">
+              <span className="text-red-500">*</span> Kayıt Olarak{" "}
+              <Link href="#" className="text-blue-600  underline">Kullanıcı Sözleşmemizi</Link> &amp;{" "}
+              <Link href="#" className="text-blue-600  underline">Gizlilik Politikamızı</Link> kabul etmiş olursunuz.
+            </div>
+            <div className="text-center text-base text-gray-700 mt-2 w-full">
+              <span className="text-red-500">*</span> Kredi kartı bilgisi <span className="text-blue-600 underline">gerektirmez.</span>
+            </div>
+          </div>
+          
+        </form>
         </div>
       </div>
       {/* Sağ: Tanıtım/Slider */}
