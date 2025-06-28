@@ -159,7 +159,7 @@ export default function CreateInvoicePage() {
 </div>
 
           {/* Sağ: Müşteri ve Fatura Bilgileri */}
-          <div className="w-[340px] flex flex-col">
+          <div className="w-full sm:w-80 md:w-96 lg:w-[400px] xl:w-[450px] 2xl:w-[500px] flex flex-col min-h-[500px] lg:min-h-[70vh]">
             <div className="panel">
               <label className="block text-xs text-[#5d6e76] mb-1">MÜŞTERİ SEÇİNİZ</label>
               <div className="relative" ref={customerDropdownRef}>
