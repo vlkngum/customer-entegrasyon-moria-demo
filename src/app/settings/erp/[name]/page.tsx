@@ -2,7 +2,6 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { GiShop } from 'react-icons/gi';
-import { FiChevronDown } from 'react-icons/fi';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
