@@ -49,7 +49,7 @@ export default function Sidebar() {
 
   return (
     <div 
-      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden ${
+      className={`bg-white shadow-lg transition-all duration-300 overflow-hidden border-r border-gray-300 ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
       onMouseEnter={() => !isPinned && setIsCollapsed(false)}
@@ -64,8 +64,9 @@ export default function Sidebar() {
               width={0}
               height={0}
               sizes="100vw"
-              style={{ width: '100%', height: 'auto' }} 
+              style={{ width: '100%', height: 'auto', objectFit: 'contain' }} 
               priority
+              className='w-full h-auto object-contain pt-1'
             />
           </div>
         )}
