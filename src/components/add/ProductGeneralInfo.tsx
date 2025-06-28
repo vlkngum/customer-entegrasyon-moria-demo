@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BsNewspaper } from "react-icons/bs";
 import DesiCalculatorModal from './DesiCalculatorModal';
 
 export default function ProductGeneralInfo() {
@@ -10,7 +9,7 @@ export default function ProductGeneralInfo() {
   const [value, setValue] = useState(false);
   const [buttonValue,setButtonValue] = useState(true);
 
-  const [brands, setBrands] = useState<{ id: number; name: string }[]>([
+  const [brands] = useState<{ id: number; name: string }[]>([
     { id: 1, name: "dd" },
     { id: 2, name: "Arçelik" },
     { id: 3, name: "Vestel" },
@@ -21,7 +20,7 @@ export default function ProductGeneralInfo() {
   const [selectedBrand, setSelectedBrand] = useState<{ id: number; name: string } | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const [categories, setCategories] = useState<{ id: number; name: string }[]>([
+  const [categories] = useState<{ id: number; name: string }[]>([
     { id: 1, name: "Elektronik" },
     { id: 2, name: "Ev Eşyası" },
     { id: 3, name: "Giyim" },
@@ -43,8 +42,8 @@ export default function ProductGeneralInfo() {
 
   // Dışarı tıklanınca dropdown'ı kapat
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setDropdownOpen(false);
       }
     }
@@ -59,8 +58,8 @@ export default function ProductGeneralInfo() {
   }, [dropdownOpen]);
 
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target as Node)) {
         setCategoryDropdownOpen(false);
       }
     }

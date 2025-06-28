@@ -57,7 +57,7 @@ const slides = [
 export default function LoginPage() { 
   const [slide, setSlide] = useState(0);  
   const router = useRouter();
-  const { login, isAuthenticated } = useAuth();
+  const { isAuthenticated } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({
@@ -117,7 +117,7 @@ export default function LoginPage() {
           </div>
 
           <h1 className="text-3xl font-bold text-gray-800 mb-2">Hesabınızı Oluşturun</h1>
-          <p className="text-gray-500 mb-6 ">Entekas'ın tüm özellikleriyle 7 gün ücretsiz deneyebilirsiniz.</p>
+          <p className="text-gray-500 mb-6 ">Entekas&apos;ın tüm özellikleriyle 7 gün ücretsiz deneyebilirsiniz.</p>
           <form onSubmit={handleSubmit} className="space-y-2">
           <div>
             <label className="block text-xs font-semibold mb-1 text-gray-600">FİRMA ADINIZ</label>

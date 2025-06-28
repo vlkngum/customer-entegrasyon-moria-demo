@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import ProductGeneralInfo from '@/components/add/ProductGeneralInfo';
 import ProductPricing from '@/components/add/ProductPricing';
 import ImageUploadMulti from '@/tools/ImageUploadMulti';
@@ -12,9 +12,6 @@ import Image from 'next/image';
 
 export default function AddProductPage() {
   const [images, setImages] = useState<string[]>([]);
-  const handleImageChange = useCallback((base64Image: string) => {
-    setImages([base64Image]);
-  }, []);
   const [showQuickAdd, setShowQuickAdd] = useState(false);
 
   return (

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { LuPackage } from "react-icons/lu";
 import CustomerForm, { CustomerFormValues } from "@/components/bills/CustomerForm";
 import CustomerInfo from "@/components/bills/CustomerInfo";
 import CustomerInfoPlaceholder from "@/components/bills/CustomerInfoPlaceholder";
@@ -41,8 +40,8 @@ export default function CreateInvoicePage() {
 
   // Dışarı tıklanınca dropdown'ı kapat
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (customerDropdownRef.current && !customerDropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (customerDropdownRef.current && !customerDropdownRef.current.contains(event.target as Node)) {
         setShowCustomerDropdown(false);
       }
     }

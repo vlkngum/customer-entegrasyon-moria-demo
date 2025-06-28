@@ -31,8 +31,8 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
 
   // Dışarı tıklanınca dropdown'ı kapat
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowDropdown(false);
       }
     }
@@ -44,7 +44,7 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [showDropdown]);
+  }, [showDropdown, setShowDropdown]);
 
   return (
     <div className="">

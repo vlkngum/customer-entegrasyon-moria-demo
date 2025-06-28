@@ -48,20 +48,6 @@ export default function Sidebar() {
       setIsCollapsed(false);
     }
   };
-  // Aktif menü kontrolü - alt menüleri de kontrol eder
-  const isMenuActive = (item: MenuItem) => {
-    // Ana href kontrolü
-    if (pathname === item.href) {
-      return true;
-    }
-    
-    // Alt menü kontrolü
-    if (item.hasSubmenu && item.submenu) {
-      return item.submenu.some(subItem => pathname === subItem.href);
-    }
-    
-    return false;
-  };
 
   return (
     <div 
@@ -184,4 +170,4 @@ export default function Sidebar() {
       </nav>
     </div>
   );
-} 
+}
