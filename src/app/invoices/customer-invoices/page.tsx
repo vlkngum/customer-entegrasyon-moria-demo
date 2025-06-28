@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FaUsers, FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import ProductTable, { ProductTableColumn } from '@/components/ProductTable';
+import { MdKeyboardArrowRight } from "react-icons/md";
+import CustomerForm, { CustomerFormValues } from '@/components/bills/CustomerForm';
 
 const customers = [
   { id: '1', name: 'Ahmet Yılmaz', email: 'ahmet@example.com' },
@@ -11,25 +13,59 @@ const customers = [
   { id: '3', name: 'Mehmet Can', email: 'mehmet@example.com' },
 ];
 
-const columns: ProductTableColumn[] = [
-  { key: 'name', title: 'MÜŞTERİ ADI' },
-  { key: 'email', title: 'MÜŞTERİ MAİL' },
-  {
-    key: 'actions',
-    title: <div className="text-right">İŞLEMLER</div>,
-    render: (_, row) => (
-      <div className="flex justify-end gap-2">
-        {/* Buraya ileride düzenle/sil ikonları eklenebilir */}
-        <button className="text-blue-600 hover:underline text-xs">Düzenle</button>
-        <button className="text-red-500 hover:underline text-xs">Sil</button>
-      </div>
-    ),
-    className: 'text-right',
-  },
-];
-
 export default function Invoices() {
   const [activeTab, setActiveTab] = useState("customers");
+  const [editModalOpen, setEditModalOpen] = useState(false);
+  const [selectedCustomer, setSelectedCustomer] = useState<Partial<CustomerFormValues> | undefined>(undefined);
+
+  const handleEdit = (customer: any) => {
+    setSelectedCustomer(customer);
+    setEditModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setEditModalOpen(false);
+    setSelectedCustomer(undefined);
+  };
+  const handleCustomerSubmit = (values: any) => {
+    // Burada güncelleme işlemi yapılabilir
+    setEditModalOpen(false);
+    setSelectedCustomer(undefined);
+  };
+
+  const columns = useMemo<ProductTableColumn[]>(() => [
+    {
+      key: 'arrow',
+      title: '',
+      render: () => (
+        <span className="flex items-center justify-center w-4 h-4 rounded-full bg-blue-100">
+          <MdKeyboardArrowRight className="text-blue-400 w-4 h-4" />
+        </span>
+      ),
+      className: 'w-8',
+    },
+    { key: 'name', title: 'MÜŞTERİ ADI', className: 'text-left pl-0 justify-start' },
+    { key: 'email', title: 'MÜŞTERİ MAİL', className: 'text-left pl-0 justify-start' },
+    {
+      key: 'actions',
+      title: <div className="text-right">İŞLEMLER</div>,
+      render: (_: any, row: any) => (
+        <div className="flex justify-end gap-2">
+          <button
+            className="flex items-center gap-1 bg-blue-100 text-blue-700 px-3 py-1 rounded-md text-xs font-semibold shadow hover:bg-blue-200 transition"
+            onClick={() => handleEdit(row)}
+          >
+            <FaUsers className="w-3 h-3" />
+            DÜZENLE
+          </button>
+          <button className="flex items-center gap-1 bg-red-100 text-red-700 px-3 py-1 rounded-md text-xs font-semibold shadow hover:bg-red-200 transition">
+            <FaFileInvoiceDollar className="w-3 h-3" />
+            SİL
+          </button>
+        </div>
+      ),
+      className: 'text-right',
+    },
+  ], []);
 
   return (
     <div className="min-h-screen">
@@ -44,7 +80,7 @@ export default function Invoices() {
                 className="input"
               />
             </div>
-            <button className="bg-blue-600 text-white px-18 py-2.5 rounded-lg font-mono flex items-center space-x-2 cursor-pointer hover:bg-blue-700 transition-colors duration-200 self-end">
+            <button className="bg-[#0f82ff] text-white px-18 py-2.5 rounded-lg font-mono flex items-center space-x-2 cursor-pointer hover:bg-[#0068ff] transition-colors duration-200 self-end">
               <FaSearch className="w-4 h-4" />
               <span className="text-sm">FİLTRELE</span>
             </button>
@@ -52,6 +88,13 @@ export default function Invoices() {
         </div>
         <div className="">
           <ProductTable columns={columns} data={customers} />
+          {editModalOpen && selectedCustomer && (
+            <CustomerForm
+              initialValues={selectedCustomer}
+              onSubmit={handleCustomerSubmit}
+              onCancel={handleCloseModal}
+            />
+          )}
         </div>
       </div>
     </div>
