@@ -47,11 +47,11 @@ export default function StoreDetailPage() {
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN LİNKİ) <span className="text-red-500">*</span></label>
-              <input type="text" className="w-full border rounded px-3 py-2 text-gray-500 bg-gray-50" value="https://app.sopyo.com/export/akakce/jStRw" readOnly />
+              <input type="text" className="w-full border rounded px-3 py-2 text-gray-500 bg-gray-50" value="https://entekas.com" readOnly />
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN İSİMLERİNİN BAŞINA MARKA EKLİ ŞEKİLDE GÖZÜKEN LİNK) <span className="text-red-500">*</span></label>
-              <input type="text" className="w-full border rounded px-3 py-2 text-gray-500 bg-gray-50" value="https://app.sopyo.com/export/akakceBrand/jStRw" readOnly />
+              <input type="text" className="w-full border rounded px-3 py-2 text-gray-500 bg-gray-50" value="https://entekas.com" readOnly />
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">ENTEGRASYON DURUMU</label>

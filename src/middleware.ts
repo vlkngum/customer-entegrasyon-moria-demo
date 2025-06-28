@@ -4,8 +4,9 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const isAuthenticated = request.cookies.get('isAuthenticated')
   const isLoginPage = request.nextUrl.pathname === '/login'
+  const isRegisterPage = request.nextUrl.pathname === '/register'
 
-  if (!isAuthenticated && !isLoginPage) {
+  if (!isAuthenticated && !isLoginPage && !isRegisterPage) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 

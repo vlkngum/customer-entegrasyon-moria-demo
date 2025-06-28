@@ -98,7 +98,7 @@ export default function TurkcellEFaturaAyar() {
               Turkcell E-Şirket hesabınıza giriş yaptıktan sonra sayfanın sağ üst kısmından e-posta adresinizin yazdığı alan / Profilim menüsüne tıklıyoruz.<br/><br/>
               Açılan sayfada sol menüden API Yönetimi sekmesine tıklıyoruz.<br/><br/>
               API Yönetimi sayfasında sağ üst kısımda bulunan Yeni API Anahtarı butonuna tıklıyoruz.<br/><br/>
-              Açılan pencereden Lütfen oluşturulacak API anahtarı için bir isim belirleyin alanına Sopyo yazıyoruz ve Oluştur butonuna tıklıyoruz.<br/><br/>
+              Açılan pencereden Lütfen oluşturulacak API anahtarı için bir isim belirleyin alanına Entekas yazıyoruz ve Oluştur butonuna tıklıyoruz.<br/><br/>
               Oluşturulan API anahtarını seçip <b>Anahtarı Kopyala</b> butonuna tıklıyoruz. Kopyaladığınız API anahtarını entegrasyon için Turkcell E-Fatura Ayarları sayfasındaki ilgili alana yapıştırıyoruz.<br/><br/>
               Turkcell E-Fatura Entegrasyonunun nasıl yapılacağını <a href="https://www.notion.so/c4dc75644b049dab3e557409346a9fb?psv=21" target="_blank" className="text-blue-600 underline">[Turkcell E-Fatura Entegrasyonu]</a> kısmından öğrenebilirsiniz.
             </div>

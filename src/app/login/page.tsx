@@ -24,7 +24,7 @@ const slides = [
   { 
     title: "E-fatura Entegrasyonu",
     desc: "Pazaryeri, e-ticaret siteniz ve sosyal medyadan gelen siparişlerin e-fatura süreçlerini tek bir ekrandan yönetin.",
-    desc2: "Kağıt faturaya son! Sopyo ile e-fatura süreçlerinizi zahmetsizce yönetin.",
+    desc2: "Kağıt faturaya son! Entekas ile e-fatura süreçlerinizi zahmetsizce yönetin.",
     img: "/login/login4.png",  
   }, 
   { 
@@ -94,25 +94,23 @@ export default function LoginPage() {
         <div className="max-w-7xl w-full mx-auto">
           
           <div className="flex justify-between items-center w-1/2 mb-8 absolute top-8 left-0 px-8 md:px-24 z-10">
-            <Image src="/entekas-logo.svg" alt="Entekas Logo" width={190} height={60} />
+            <Image src="/entekas-logo.png" alt="Entekas Logo" width={190} height={60} />
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-blue-100 text-blue-600 mr-1">
                 <FiArrowLeft size={18} />
               </span>
               <span className="text-sm text-gray-800 font-medium">Hesabınız yok mu?</span>
-              <button
-                type="button"
-                onClick={() => router.push("/register")}
-                className="text-blue-600 font-medium hover:underline ml-1 bg-transparent border-none p-0 cursor-pointer"
-                style={{ background: "none" }}
+              <Link
+                href="/register"
+                className="text-blue-600 font-medium hover:underline ml-1"
               >
                 Hesap oluştur.
-              </button>
+              </Link>
             </div>
           </div>
 
           <h1 className="text-3xl font-medium text-gray-800 mb-2">Giriş Yapın</h1>
-          <p className="text-gray-500 mb-6">Sopyo'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
+          <p className="text-gray-500 mb-6">Entekas'ya hoş geldiniz, e-posta ve parolanız ile güvenli giriş yapabilirsiniz.</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-1 text-gray-600">E-POSTA ADRESİNİZ</label>
@@ -152,7 +150,7 @@ export default function LoginPage() {
             <div className="max-w-xs w-full mx-auto">
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white font-medium py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"
+                className="w-full bg-[#1890ff] text-white font-medium py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"
               >
                 <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white text-blue-600 mr-1">
                   <FiArrowRight size={17} />
@@ -161,7 +159,7 @@ export default function LoginPage() {
               <div className="text-center text-gray-400 my-2 font-light">YA DA</div>
               <button
                 type="button"
-                className="w-full border-2 border-red-400 text-red-600 font-medium py-3 rounded-lg hover:bg-red-50 transition"
+                className="w-full border-2 border-red-400 text-red-600 font-medium py-3 rounded-lg hover:bg-red-100 transition"
               >
                 PAROLANIZI MI UNUTTUNUZ?
               </button>

@@ -100,7 +100,7 @@ export default function ProductList() {
         synced: false
       },
       status: 'Satışa Açık',
-      source: 'Sopyo'
+      source: 'Entekas'
     },
     {
       id: 2,
@@ -130,7 +130,7 @@ export default function ProductList() {
         synced: false
       },
       status: 'Satıştan Kaldırıldı',
-      source: 'Sopyo'
+      source: 'Entekas'
     },
     // Örnek veri, buraya daha fazla ürün eklenebilir
   ];

@@ -60,7 +60,7 @@ const SupportRequestDetailPage = ({ params }: Props) => {
             <div className="mr-4">
               <Image
                 src="/entekas-logo.svg"
-                alt="Sopyo"
+                alt="Entekas"
                 width={40}
                 height={40}
                 className="rounded-full"

@@ -60,7 +60,7 @@ export default function Sidebar() {
           <div className='flex-1 px-5'>
             <Image 
               src="/entekas-logo.svg" 
-              alt="CMApps Logo"
+              alt="Entekas Logo"
               width={0}
               height={0}
               sizes="100vw"

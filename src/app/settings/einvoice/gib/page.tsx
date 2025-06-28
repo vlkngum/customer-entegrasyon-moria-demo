@@ -95,7 +95,7 @@ const GibEArsivAyar = () => {
           <h2 className="text-xl font-semibold mb-2">Kurulum Rehberi</h2>
           <div className="overflow-y-auto max-h-72 pr-2">
             <p className="text-red-600 font-semibold mb-2">
-              !!! UYARI !!! GİB E-Arşiv sisteminde toplu olarak fatura kesmenizi önermiyoruz. GİB E-Arşiv sistemi toplu işlemlerde aynı işlemi birden fazla kez yapmaktadır. Faturalarınız birden çok kesilmesine sebebiyet verebilir. Önerimiz faturaları tek tek kesmenizden yanadır. Fatura çoklanmalarında Sopyo sorumluluk kabul etmemektedir.
+              !!! UYARI !!! GİB E-Arşiv sisteminde toplu olarak fatura kesmenizi önermiyoruz. GİB E-Arşiv sistemi toplu işlemlerde aynı işlemi birden fazla kez yapmaktadır. Faturalarınız birden çok kesilmesine sebebiyet verebilir. Önerimiz faturaları tek tek kesmenizden yanadır. Fatura çoklanmalarında Entekas sorumluluk kabul etmemektedir.
             </p>
             <p className="text-red-600 font-semibold mb-2">
               !!! UYARI !!! Entegrasyon işlemini sorunsuz bir şekilde gerçekleştirebilmek için GİB E-Arşiv Portal paneliniz açık ise kapatmanız (güvenli çıkış yapmanız) gerekmektedir.
