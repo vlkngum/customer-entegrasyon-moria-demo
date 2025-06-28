@@ -33,7 +33,7 @@ const ProductPricing: React.FC = () => {
       <div className="grid grid-cols-2 gap-4 mb-2">
         <div>
           <label className="block text-xs text-gray-500 mb-1">KDV ORANI</label>
-          <select className="w-full border rounded px-3 py-2 text-sm bg-gray-50">
+          <select className="input">
             <option>% 20</option>
             <option>% 18</option>
             <option>% 10</option>

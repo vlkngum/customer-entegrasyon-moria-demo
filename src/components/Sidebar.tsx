@@ -80,7 +80,7 @@ export default function Sidebar() {
           </span>
         </button>
       </div>
-      <nav className="mt-6 overflow-y-auto overflow-x-hidden h-[calc(100vh-80px)]">
+      <nav className="mt-6 overflow-y-auto overflow-x-hidden h-[calc(100vh-80px)] scrollbar-hide">
         {menuItems.map((item: MenuItem) => {
           const isActive = pathname === item.href;
           const isSubmenuOpen = openSubmenus[item.name];
