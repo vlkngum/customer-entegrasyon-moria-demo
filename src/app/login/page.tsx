@@ -30,20 +30,20 @@ export default function LoginPage() {
           <div className="space-y-6">
             <Image 
               src="/entekas-logo.svg" 
-              alt="CMApps Logo"
+              alt="Entekas Logo"
               width={200}
               height={60}
               className="brightness-0 invert"
             />
             <h2 className="text-3xl font-bold text-white">
-              CMApps Müşteri Portalı
+              Entekas Müşteri Portalı
             </h2>
             <p className="text-blue-100">
               Tüm müşteri işlemlerinizi tek bir yerden yönetin.
             </p>
           </div>
           <div className="text-blue-100 text-sm">
-            © 2025 CM Apps
+            © 2025 Entekas
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export default function LoginPage() {
             <div className="md:hidden mb-8">
               <Image 
                 src="/entekas-logo.svg" 
-                alt="CMApps Logo"
+                alt="Entekas Logo"
                 width={150}
                 height={45}
               />

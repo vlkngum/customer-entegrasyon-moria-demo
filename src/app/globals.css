@@ -45,7 +45,7 @@ body {
 }
 
 .input {
-  @apply block w-full px-2 py-2 text-base border border-gray-500 sm:text-sm rounded-md focus:outline-none
+  @apply block w-full px-2 py-2 text-base border border-gray-200 sm:text-sm rounded-sm focus:outline-none
 }
 
 .input2 {

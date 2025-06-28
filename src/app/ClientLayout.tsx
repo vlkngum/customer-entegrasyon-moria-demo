@@ -36,7 +36,7 @@ export default function ClientLayoutWrapper({
       <main className="flex-1 flex flex-col overflow-hidden">
         <Header />
         <PromotionalBanner />
-        <div className="flex-1 overflow-y-auto overflow-x-hidden pb-12">{children}</div>
+        <div className="flex-1 overflow-y-auto overflow-x-hidden pb-0">{children}</div>
         {isOrdersOrInvoicesOrClaimsOrProductsOrCategorysMarksOrBatchProcessingPage && (
           <div className="fixed bottom-0 w-full pr-15 z-40 text-gray-200">
             <FixedPaginationBar />
