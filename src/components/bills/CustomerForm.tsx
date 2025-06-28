@@ -54,7 +54,7 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center"
       onClick={onCancel}
     >
       <form
@@ -65,42 +65,42 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold mb-1">MÜŞTERİ ADI</label>
-            <input name="name" value={values.name} onChange={handleChange} className="w-full border rounded px-3 py-2" required />
+            <input name="name" value={values.name} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} required />
           </div>
           <div></div>
           <div>
             <label className="block text-xs font-semibold mb-1">MAIL ADRESİ</label>
-            <input name="email" value={values.email} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Müşteri email giriniz" />
+            <input name="email" value={values.email} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Müşteri email giriniz" />
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1">TELEFON</label>
-            <input name="phone" value={values.phone} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Müşteri telefon giriniz" />
+            <input name="phone" value={values.phone} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Müşteri telefon giriniz" />
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1">İL</label>
-            <select name="city" value={values.city} onChange={handleChange} className="w-full border rounded px-3 py-2">
+            <select name="city" value={values.city} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }}>
               <option value="">Lütfen İl Seçiniz</option>
               {/* Şehir seçenekleri buraya eklenebilir */}
             </select>
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1">İLÇE</label>
-            <select name="district" value={values.district} onChange={handleChange} className="w-full border rounded px-3 py-2">
+            <select name="district" value={values.district} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }}>
               <option value="">Lütfen İlçe Seçiniz</option>
               {/* İlçe seçenekleri buraya eklenebilir */}
             </select>
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1">MAHALLE</label>
-            <input name="neighborhood" value={values.neighborhood} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Müşteri mahalle giriniz" />
+            <input name="neighborhood" value={values.neighborhood} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Müşteri mahalle giriniz" />
           </div>
           <div>
             <label className="block text-xs font-semibold mb-1">SOKAK</label>
-            <input name="street" value={values.street} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Müşteri sokak giriniz" />
+            <input name="street" value={values.street} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Müşteri sokak giriniz" />
           </div>
           <div className="md:col-span-2">
             <label className="block text-xs font-semibold mb-1">AÇIK ADRES</label>
-            <textarea name="address" value={values.address} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Açık Adres giriniz." />
+            <textarea name="address" value={values.address} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Açık Adres giriniz." />
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:space-x-8 mt-2">
@@ -120,17 +120,17 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
           {values.type === 'gercek' ? (
             <div className="md:col-span-2">
               <label className="block text-xs font-semibold mb-1">TC KİMLİK NO *</label>
-              <input name="taxOrId" value={values.taxOrId} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="TC NO" required={values.type === 'gercek'} />
+              <input name="taxOrId" value={values.taxOrId} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="TC NO" required={values.type === 'gercek'} />
             </div>
           ) : (
             <>
               <div>
                 <label className="block text-xs font-semibold mb-1">VERGİ KİMLİK NO *</label>
-                <input name="taxOrId" value={values.taxOrId} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="VKN" required={values.type === 'tuzel'} />
+                <input name="taxOrId" value={values.taxOrId} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="VKN" required={values.type === 'tuzel'} />
               </div>
               <div>
                 <label className="block text-xs font-semibold mb-1">VERGİ DAİRESİ <span className="text-gray-400 text-xs">BOŞ BIRAKILABİLİR*</span></label>
-                <input name="taxOffice" value={values.taxOffice} onChange={handleChange} className="w-full border rounded px-3 py-2" placeholder="Vergi Dairesi" />
+                <input name="taxOffice" value={values.taxOffice} onChange={handleChange} className="w-full border rounded px-3 py-2" style={{ color: '#76838f' }} placeholder="Vergi Dairesi" />
               </div>
             </>
           )}

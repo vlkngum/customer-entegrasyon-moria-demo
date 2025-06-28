@@ -1,7 +1,6 @@
 import React from "react";
 import { CustomerFormValues } from "./CustomerForm";
-import { IoPersonSharp } from "react-icons/io5";
-
+import Image from "next/image";
 interface CustomerInfoProps {
   customer: CustomerFormValues;
   onEdit?: () => void;
@@ -9,10 +8,10 @@ interface CustomerInfoProps {
 
 export default function CustomerInfo({ customer, onEdit }: CustomerInfoProps) {
   return (
-    <div className="bg-white rounded-lg shadow p-4">
-      <div className="flex items-center justify-between mb-2">
+    <div className="">
+      <div className="flex items-center justify-between mb-2 border-b border-gray-200 pb-4">
         <div className="flex items-center space-x-2">
-        <IoPersonSharp className="text-3xl" />
+        <Image src="/iconUser.svg" alt="logo" width={20} height={20} />
 
           <h2 className="font-semibold text-lg">MÜŞTERİ BİLGİLERİ</h2>
         </div>
@@ -22,8 +21,7 @@ export default function CustomerInfo({ customer, onEdit }: CustomerInfoProps) {
           </button>
         )}
       </div>
-      <hr className="mb-3" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-base">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-base text-[#37474f]">
         <div>
           <div><span className="font-medium">Müşteri Adı:</span> {customer.name}</div>
           <div><span className="font-medium">Email:</span> {customer.email}</div>
