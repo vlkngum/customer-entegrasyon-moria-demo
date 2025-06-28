@@ -40,11 +40,11 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
   const isMarksPage = pathname.includes('/categorys-marks/marks');
 
   return (
-    <div className="min-h-screen p-4">
+    <div className="min-h-screen p-0">
       <div className="mx-auto">
         {showHeader && (
-          <div className="bg-white rounded-lg shadow-sm border-b border-gray-200 mb-6 w-full">
-            <div className="w-full flex flex-row justify-between py-4 px-6 items-center">
+          <div className="layout-panel">
+            <div className="w-full flex flex-row justify-between items-center">
               <div className="flex items-center space-x-3 ">
                 <GiShop className="text-3xl text-blue-600"/>
                 <h1 className="text-2xl font-bold text-gray-800">{getPageTitle()}</h1> 

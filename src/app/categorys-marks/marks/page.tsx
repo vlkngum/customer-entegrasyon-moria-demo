@@ -149,7 +149,7 @@ export default function MarksPage() {
           <div className="flex-1 flex gap-2 items-center">
             {mark.platforms.map(platform => (
                 <div key={platform.name} className="relative">
-                    <Image src={platform.logo} alt={platform.name} className={`w-10 h-10 rounded-full border-2 border-[#eee] ${platform.synced ? 'grayscale-0' : 'grayscale'}`}/>
+                    <Image src={platform.logo} alt={platform.name} width={0} height={0} className={`w-10 h-10 rounded-full border-2 border-[#eee] ${platform.synced ? 'grayscale-0' : 'grayscale'}`}/>
                     {!platform.synced && (
                         <div className="absolute top-[-2px] right-[-2px] bg-[#ff3b3b] text-white w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold border border-white">
                             &times;

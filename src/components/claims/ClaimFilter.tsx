@@ -11,7 +11,7 @@ export default function ClaimFilter () {
 
     return (
         <> 
-            <div className="panel">
+            <div className="p-5">
                 <div className="flex items-end space-x-4">
                     <div className=" w-1/3">
                         <label className="block text-xs font-semibold text-gray-600 mb-2">TALEP ARAMA</label>
@@ -21,7 +21,7 @@ export default function ClaimFilter () {
                             className="input"
                         />
                     </div>
-                    <button className="bg-[#0f82ff] text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-[#0068ff] transition-colors duration-200 ">
+                    <button className="bg-[#0f82ff] text-white px-16 py-2 rounded-lg font-medium flex items-center space-x-2 hover:bg-[#0068ff] transition-colors duration-200 ">
                         <FaSearch className="w-4 h-4" />
                         <span>FİLTRELE</span>
                     </button>
@@ -29,7 +29,7 @@ export default function ClaimFilter () {
                 </div>
                 <div className="w-full flex justify-end px-4 py-6">
                     <button 
-                        className="flex items-center space-x-1 text-blue-600 font-semibold text-sm py-2.5 px-3 cursor-pointer"
+                        className="flex items-center space-x-1 text-blue-600 font-medium text-sm py-2.5 px-3 cursor-pointer"
                         onClick={() => setIsSidebarOpen(true)}
                     >
                         <span>Detaylı Filtrele</span>

@@ -7,6 +7,7 @@ import QuickPriceUpdateModal from './QuickPriceUpdateModal';
 import QuickStockUpdateModal from './QuickStockUpdateModal';
 import ProductActionsMenu from './ProductActionsMenu';
 import Image from "next/image";
+import Link from 'next/link';
 
 // Define a type for the Product object for better type safety
 type Product = {
@@ -202,11 +203,11 @@ export default function ProductList() {
               <div className="text-xs text-gray-500 mt-1">Kaynak: {product.source}</div>
             </div>
             
-            <div id={`actions-menu-${product.id}`} className="col-span-1 flex justify-end items-center gap-2 relative">
-              <button className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-md font-semibold text-xs hover:bg-blue-200">
+            <div id={`actions-menu-${product.id}`} className="col-span-2 flex justify-end items-center gap-2 relative">
+              <Link href="/add" className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-md font-semibold text-xs hover:bg-blue-200">
                 <FiEdit /> DÜZENLE
-              </button>
-              <button onClick={() => handleMenuToggle(product.id)} className="p-2 text-gray-500 hover:bg-gray-200 rounded-full">
+              </Link>
+              <button onClick={() => handleMenuToggle(product.id)} className="ml-2 p-2 text-gray-500 hover:bg-gray-200 rounded-full">
                 <BsThreeDots />
               </button>
               {openMenuId === product.id && <ProductActionsMenu onClose={handleCloseMenu} />}

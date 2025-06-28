@@ -1,8 +1,8 @@
-import { CiHome, CiShoppingBasket, CiShoppingCart, CiLocationArrow1, CiSettings, CiShop } from "react-icons/ci";
-import { LuNewspaper, LuFolderDown } from "react-icons/lu";
-import { TbReport } from "react-icons/tb";
+import { LuFolderDown } from "react-icons/lu"; 
 import { IoMdAddCircle } from "react-icons/io"; 
 import { IconType } from "react-icons";
+
+import { House, ShoppingBasket,ScrollText, Layers ,  Send,ChartPie,Wrench,Store,  } from 'lucide-react';
 
 export interface SubMenuItem {
   name: string;
@@ -31,12 +31,12 @@ export const menuItems: MenuItem[] = [
     ],
     isSticky: true
   },
-  { name: 'Dashboard', href: '/', icon: CiHome },
-  { name: 'Siparişler', href: '/orders', icon: CiShoppingBasket },
+  { name: 'Dashboard', href: '/', icon: House },
+  { name: 'Siparişler', href: '/orders', icon: ShoppingBasket },
   { 
     name: 'Faturalar', 
     href: '/invoices', 
-    icon: LuNewspaper,
+    icon: ScrollText,
     hasSubmenu: true,
     submenu: [
       { name: 'Fatura Listesi', href: '/orders/invoice-list' },
@@ -47,7 +47,7 @@ export const menuItems: MenuItem[] = [
   { 
     name: 'Ürünler', 
     href: '/settings', 
-    icon: CiShoppingCart,
+    icon: Layers,
     hasSubmenu: true,
     submenu: [
       { name: 'Ürün Listesi', href: '/products' },
@@ -62,7 +62,7 @@ export const menuItems: MenuItem[] = [
   { 
     name: 'Toplu İşlemler', 
     href: '/settings', 
-    icon: CiLocationArrow1,
+    icon: Send,
     hasSubmenu: true,
     submenu: [
       { name: 'Ürün Gönderimleri', href: '/batch-processing/product-shipments' },
@@ -74,7 +74,7 @@ export const menuItems: MenuItem[] = [
   { 
     name: 'Raporlar', 
     href: '/users', 
-    icon: TbReport,
+    icon: ChartPie,
     hasSubmenu: true,
     submenu: [
       { name: 'Çok Satan Ürünler', href: '/reports/best-selling-products' },
@@ -90,7 +90,7 @@ export const menuItems: MenuItem[] = [
   { 
     name: 'Ayarlar', 
     href: '/reports', 
-    icon: CiSettings,
+    icon: Wrench,
     hasSubmenu: true,
     submenu: [
       { name: 'Genel Ayarlar', href: '/settings' },
@@ -103,5 +103,5 @@ export const menuItems: MenuItem[] = [
       { name: 'İşlem Hareketleri', href: '/reports/user-settings' }
     ]
   },
-  { name: 'Uygulamalar', href: '/applications', icon: CiShop },
+  { name: 'Uygulamalar', href: '/applications', icon: Store },
 ]; 

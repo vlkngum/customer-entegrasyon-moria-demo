@@ -172,7 +172,7 @@ export default function CategoryPage() {
           <div className="flex-1 flex justify-end gap-2">
             <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
               <span className="bg-[#e60023] rounded-full p-1 flex items-center justify-center">
-                <Image src="/delete-icon.png" alt="Sil" className="w-[15px] h-[15px] block"/>
+                <Image src="/delete-icon.png" width={0} height={0} alt="Sil" className="w-[15px] h-[15px] block"/>
               </span>
               SİL
             </button>

@@ -7,7 +7,9 @@ import { useAuth } from '@/context/AuthContext';
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaThumbtack } from "react-icons/fa";
-import { CiLogout } from "react-icons/ci";
+import { TbLogout2 } from "react-icons/tb";
+
+
 import { menuItems, MenuItem } from '@/data/menuItems';
 
 export default function Sidebar() {
@@ -161,7 +163,7 @@ export default function Sidebar() {
           }`}
         >
           <div className="w-5 h-5 flex items-center justify-center">
-            <CiLogout className="w-5 h-5" />
+            <TbLogout2 className="w-5 h-5" />
           </div>
           {!isCollapsed && <span className="ml-3">Çıkış Yap</span>}
         </button>

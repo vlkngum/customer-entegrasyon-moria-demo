@@ -29,6 +29,8 @@ export default function ProductDifferenceControl() {
           </p>
           <Image
             src="/exportError.webp"
+            width={400}
+            height={250}
             alt="Toplu Ürün Gönderimi Görseli"
             className="mb-6 w-full max-w-md mx-auto"
           />
