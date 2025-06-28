@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from 'react';
-import { FiRefreshCcw } from 'react-icons/fi';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 interface OrderHeaderProps { 
   tabItems: { id: string; name: string; href: string; }[];

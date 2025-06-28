@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface SalesData {
@@ -12,7 +11,7 @@ interface SalesData {
 interface SalesStatisticsChartProps {
   data: SalesData[];
 }
-
+{/* eslint-disable-next-line @typescript-eslint/no-explicit-any*/}
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
@@ -27,7 +26,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export default function SalesStatisticsChart({ data }: SalesStatisticsChartProps) {
-  const [tooltipData, setTooltipData] = useState(null);
 
   return (
     <div className="bg-white rounded-lg shadow p-6">

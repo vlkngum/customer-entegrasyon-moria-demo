@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowTrendUp } from "react-icons/fa6";
+import Image from "next/image";
 
 
 export default function ProductDifferenceControl() {
@@ -27,7 +27,7 @@ export default function ProductDifferenceControl() {
           <p className="text-gray-500 text-center mb-8 max-w-2xl">
           FİYAT REKABET özelliğimizi kullanabilmeniz için Gelişmiş paket kullanmanız gerekmektedir.
           </p>
-          <img
+          <Image
             src="/exportError.webp"
             alt="Toplu Ürün Gönderimi Görseli"
             className="mb-6 w-full max-w-md mx-auto"

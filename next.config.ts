@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    images: {
+        domains: [
+            "entekas.com",
+            "cdn.entekas.io",
+            "upload.wikimedia.org",
+            "cdn.dsmcdn.com",
+            "www.amazon.com",
+            "www.hepsiburada.com"
+        ],
+    },
 };
 
 export default nextConfig;

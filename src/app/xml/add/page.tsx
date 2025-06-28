@@ -70,7 +70,7 @@ export default function XmlAddPage() {
             </div>
             <div className="flex items-center gap-2">
               <input type="checkbox" id="noProduct" className="w-4 h-4" />
-              <label htmlFor="noProduct">Sopyo'da olmayan ürünler eklenmesin</label>
+              <label htmlFor="noProduct">Entekasda olmayan ürünler eklenmesin</label>
             </div>
             <div>
               <label className="block text-gray-700 font-semibold mb-1">Kritik stok miktarı</label>

@@ -13,6 +13,7 @@ const platforms = [
   { name: "PAZARAMA KATEGORİSİ", value: "pazarama" },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CategorySyncTable = ({ categoryName, onClose }: { categoryName: string, onClose: () => void }) => {
   return (
     <div style={{ borderRadius: 10, margin: "12px 0", overflow: "hidden", boxShadow: "0 1px 4px #e3eafc33" }}>

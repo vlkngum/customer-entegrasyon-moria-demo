@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import DeactivateCategoryModal from "@/components/categorys-marks/DeactivateCategoryModal";
 import ActivateCategoryModal from "@/components/categorys-marks/ActivateCategoryModal";
 import CategorySyncTable from "@/components/categorys-marks/CategorySyncTable";
+import Image from "next/image";
 
 const categories = [
   {
@@ -33,7 +34,9 @@ export default function CategoryPage() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [isBulkProcessModalOpen, setIsBulkProcessModalOpen] = useState(false);
+  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
   const [deactivateModalInfo, setDeactivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
+  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
   const [activateModalInfo, setActivateModalInfo] = useState<{ open: boolean; category: any | null }>({ open: false, category: null });
   const [syncingCategoryId, setSyncingCategoryId] = useState<number | null>(null);
   const router = useRouter();
@@ -169,7 +172,7 @@ export default function CategoryPage() {
           <div className="flex-1 flex justify-end gap-2">
             <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
               <span className="bg-[#e60023] rounded-full p-1 flex items-center justify-center">
-                <img src="/delete-icon.png" alt="Sil" className="w-[15px] h-[15px] block" />
+                <Image src="/delete-icon.png" alt="Sil" className="w-[15px] h-[15px] block"/>
               </span>
               SİL
             </button>

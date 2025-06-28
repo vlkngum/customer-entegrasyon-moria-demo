@@ -2,7 +2,6 @@
 
 import {
   ChevronRight,
-  Upload,
   Paperclip,
   Calendar,
   User,
@@ -11,7 +10,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, ChangeEvent } from 'react';
 
-const SupportRequestDetailPage = ({ params }: { params: { id: string } }) => {
+interface Props {
+  params: { id: string };
+}
+
+const SupportRequestDetailPage = ({ params }: Props) => {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -161,4 +164,4 @@ const SupportRequestDetailPage = ({ params }: { params: { id: string } }) => {
   );
 };
 
-export default SupportRequestDetailPage; 
+export default SupportRequestDetailPage;

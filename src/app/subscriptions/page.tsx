@@ -146,6 +146,7 @@ const SubscriptionBanner = () => (
   </div>
 );
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PackageDetailMenu = ({ selectedPackage }: { selectedPackage: typeof packages[0] }) => {
   const [showMore, setShowMore] = React.useState(false);
   return (

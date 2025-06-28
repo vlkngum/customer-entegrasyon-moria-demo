@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from 'react';
-import { FiHome, FiArrowLeft, FiFilePlus, FiRefreshCw, FiDownload, FiChevronRight, FiTag } from 'react-icons/fi';
+import { FiArrowLeft, FiFilePlus, FiRefreshCw, FiDownload, FiChevronRight, FiTag } from 'react-icons/fi';
 import { GiShop } from 'react-icons/gi';
 import { useRouter } from 'next/navigation';
 import ReviewModal from '@/components/product-shipments/ReviewModal';
+import Image from "next/image";
 
 const StatCard = ({ title, value, color, description }: { title: string, value: string, color: string, description: string }) => {
   const colorClass = `border-${color}-500`;
@@ -56,7 +57,7 @@ export default function ShipmentReportPage() {
           {/* Report Header */}
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-4">
-              <img src="/trendyolLogo.svg" alt="Trendyol" className="w-16 h-16 object-contain" />
+              <Image src="/trendyolLogo.svg" alt="Trendyol" className="w-16 h-16 object-contain" />
               <div>
                 <h1 className="text-xl font-bold text-gray-800">Trendyol Ürün Gönderim Raporu</h1>
                 <p className="text-sm text-gray-500">20-06-2025 19:45 tarihli gönderim detayları</p>
@@ -110,7 +111,7 @@ export default function ShipmentReportPage() {
                     <h4 className="font-semibold text-gray-600 mb-3">HATA MESAJI</h4>
                     <div className="flex items-center gap-3 text-blue-600 cursor-pointer hover:underline">
                         <FiChevronRight size={20} />
-                        <span className='font-medium'>Trendyol'a aktarım sağlayabileceğiniz gönderilmemiş ürününüz bul...</span>
+                        <span className='font-medium'>Trendyola aktarım sağlayabileceğiniz gönderilmemiş ürününüz bul...</span>
                     </div>
                 </div>
             </div>

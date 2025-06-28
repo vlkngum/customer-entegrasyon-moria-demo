@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { GiShop } from "react-icons/gi";
+import Image from "next/image";
 
 const GibEArsivAyar = () => {
   const [integrationStatus, setIntegrationStatus] = useState("kapali");
@@ -27,7 +28,7 @@ const GibEArsivAyar = () => {
         {/* Sol Kart: Ayar Formu */}
         <div className="bg-white rounded-xl shadow p-6 flex flex-col gap-4">
           <div className="flex items-center gap-3 mb-2">
-            <img src="/gib.svg" alt="GİB Logo"  />
+            <Image src="/gib.svg" alt="GİB Logo" />
             <span className="text-xl font-semibold">GİB E-Arşiv Ayarları</span>
           </div>
           <form className="flex flex-col gap-4">

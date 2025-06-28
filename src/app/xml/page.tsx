@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import Image from "next/image";
 
 export default function XmlPage() {
   const [open, setOpen] = useState({ first: true, second: false, third: false });
@@ -14,18 +15,18 @@ export default function XmlPage() {
             <div className='p-4'>
               <h2 className="text-lg font-bold text-blue-900 mb-2">XML Bilgilendirme</h2>
               <p className="text-gray-600 text-sm mb-4">
-                Entekas'ın XML çalışma mantığı aşağıda belirtildiği şekildedir. Aşağıda belirtilen koşullar dışında ekstra hizmet verilmemektedir.
+                Entekasın XML çalışma mantığı aşağıda belirtildiği şekildedir. Aşağıda belirtilen koşullar dışında ekstra hizmet verilmemektedir.
               </p>
               <div className="text-[#6c3fc5] font-bold mb-2">XML KURALLARIMIZ</div>
               <div className="border-t border-gray-200 mb-4" />
               <ul className="text-sm text-gray-700 space-y-2">
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Maksimum 3 adet XML yükleme hakkınız bulunmaktadır.</li>
-                <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Tüm XML'ler dahil ürün limiti <b>10000</b> adettir.</li>
+                <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Tüm XMLler dahil ürün limiti <b>10000</b> adettir.</li>
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>XML dosyaları <b>12-24</b> saat arasında bir kere olacak şekilde güncellenmektedir.</li>
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>XML destek talepleri <b>24 ile 48</b> saat içerisinde cevaplanmaktadır.</li>
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>XML entegrasyonu sadece Profesyonel ve Gelişmiş paketlerde verilmektedir.</li>
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Deneme yapmak için maksimum <b>1</b> adet XML tanımlaması yapılır.</li>
-                <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Deneme yapmak için ilk <b>100</b> adet ürününüz Sopyo'ya aktarılır.</li>
+                <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Deneme yapmak için ilk <b>100</b> adet ürününüz Entekasa aktarılır.</li>
                 <li><span className="text-green-500 font-bold mr-2 bg-green-200/40 rounded-full p-1"><FaCheck className="inline" /></span>Profesyonel veya Gelişmiş paket satın alımında eğer ilgili kategori destekliyorsa toplu ürün gönderimi yapılabilmektedir.</li>
               </ul>
             </div>
@@ -42,7 +43,7 @@ export default function XmlPage() {
                 </button>
                 {open.first && (
                   <div className='w-full flex flex-col items-center px-6 py-4'>
-                  <img src="https://app.sopyo.com/assets/images/v2/noxml.jpg" alt="XML Kaynak" className="w-full object-contain" /> 
+                  <Image src="https://app.sopyo.com/assets/images/v2/noxml.jpg" alt="XML Kaynak" className="w-full object-contain" />
                   <div className="text-center text-[#6c3fc5] font-bold mt-2">XML KAYNAĞINIZ BULUNMAMAKTADIR</div>
                 </div>
                 )}

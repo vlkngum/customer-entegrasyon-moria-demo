@@ -9,13 +9,6 @@ import { platforms } from '@/data/platforms';
 export default function OrderFilters() {
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
-  const orderStatuses = [
-    "Tüm Durumlar",
-    "Onay Bekliyor",
-    "Onaylandı",
-    "Kargolandı",
-    "İptal Edildi",
-  ];
 
   return (
     <div className="panel">

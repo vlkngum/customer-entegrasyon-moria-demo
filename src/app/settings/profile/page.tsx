@@ -2,6 +2,7 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const integrations = [
   { name: "Hepsiburada", icon: "/hepsiburada.png" },
@@ -64,15 +65,15 @@ export default function ProfilePage() {
                 <div className="text-gray-500 font-medium text-base mb-1">Mevcut Paketiniz</div>
                 <div className="text-3xl font-extrabold mb-4">7 Günlük Ücretsiz Deneme</div>
                 <div className="flex items-center gap-4 flex-wrap mb-6">
-                  <img src="/hepsiburada.png" alt="Hepsiburada" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/n11-ico.png" alt="N11" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/amazon.png" alt="Amazon" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/trendyol-ico.png" alt="Trendyol" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/akakce-ico.png" alt="Akakçe" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/ciceksepetiSinglePrice.png" alt="Çiçeksepeti" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/ptt-ico.png" alt="PttAVM" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/pzrm-ico.png" alt="Pazaryama" className="w-16 h-16 rounded-full bg-white" />
-                  <img src="/idefix.png" alt="İdefix" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/hepsiburada.png" alt="Hepsiburada" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/n11-ico.png" alt="N11" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/amazon.png" alt="Amazon" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/trendyol-ico.png" alt="Trendyol" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/akakce-ico.png" alt="Akakçe" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/ciceksepetiSinglePrice.png" alt="Çiçeksepeti" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/ptt-ico.png" alt="PttAVM" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/pzrm-ico.png" alt="Pazaryama" className="w-16 h-16 rounded-full bg-white" />
+                  <Image src="/idefix.png" alt="İdefix" className="w-16 h-16 rounded-full bg-white" />
                 </div>
                 <div className="text-gray-700 text-base mt-2">
                   Ücretsiz deneme süreniz <span className="font-bold">27 Haziran 2025</span> tarihinde sonlanacaktır. Deneme süreniz bitmeden yaptığınız satın alımlarda, kalan süreniz paketlerinize eklenecektir.
@@ -109,10 +110,10 @@ export default function ProfilePage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {integrations.map((item, idx) => (
+                    {integrations.map((item) => (
                       <tr key={item.name} className="border-none">
                         <td className="flex items-center gap-4 py-4 px-4 text-lg">
-                          <img src={item.icon} alt={item.name} className="w-12 h-12 rounded-full bg-white" />
+                          <Image src={item.icon} alt={item.name} className="w-12 h-12 rounded-full bg-white" />
                           <span>{item.name}</span>
                         </td>
                         <td className="py-4 px-4 text-lg">27 Haziran 2025</td>

@@ -1,11 +1,12 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FiEdit } from 'react-icons/fi';
 import { BsThreeDots } from 'react-icons/bs';
 import { FaSort } from "react-icons/fa";
 import QuickPriceUpdateModal from './QuickPriceUpdateModal';
 import QuickStockUpdateModal from './QuickStockUpdateModal';
-import ProductActionsMenu from './ProductActionsMenu';
+import ProductActionsMenu from "@/components/products/list/ProductActionsMenu";
+import Image from "next/image";
 
 // Define a type for the Product object for better type safety
 type Product = {
@@ -35,7 +36,6 @@ export default function ProductList() {
   
   // State for managing the actions menu
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   const handleOpenPriceModal = (product: Product) => {
     setSelectedProductForPrice(product);
@@ -174,7 +174,7 @@ export default function ProductList() {
             
             <div className="col-span-4 lg:col-span-3 flex items-center gap-3">
               <div className="w-12 h-12  rounded-md flex items-center justify-center shrink-0">
-                <img className="text-xs text-gray-500 text-center" src={product.img}></img>
+                <Image className="text-xs text-gray-500 text-center" src={product.img} alt={''}/>
               </div>
               <div className="truncate">
                 <div className="text-xs text-gray-500">Stok Kodu: {product.sku}</div>
@@ -193,7 +193,7 @@ export default function ProductList() {
             </div>
             
             <div className="col-span-2 flex items-center gap-2">
-               <img src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full" />
+               <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full" />
                {!product.platform.synced && <span className="text-red-500 text-xl font-light">×</span>}
             </div>
             

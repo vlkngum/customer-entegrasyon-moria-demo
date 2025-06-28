@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import { FaUsers, FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
-import { IoMdAddCircleOutline } from "react-icons/io";
 import ProductTable, { ProductTableColumn } from '@/components/ProductTable';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CustomerForm, { CustomerFormValues } from '@/components/bills/CustomerForm';
@@ -14,10 +13,10 @@ const customers = [
 ];
 
 export default function Invoices() {
-  const [activeTab, setActiveTab] = useState("customers");
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState<Partial<CustomerFormValues> | undefined>(undefined);
 
+  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any*/}
   const handleEdit = (customer: any) => {
     setSelectedCustomer(customer);
     setEditModalOpen(true);
@@ -26,8 +25,7 @@ export default function Invoices() {
     setEditModalOpen(false);
     setSelectedCustomer(undefined);
   };
-  const handleCustomerSubmit = (values: any) => {
-    // Burada güncelleme işlemi yapılabilir
+  const handleCustomerSubmit = () => {
     setEditModalOpen(false);
     setSelectedCustomer(undefined);
   };
@@ -45,9 +43,11 @@ export default function Invoices() {
     },
     { key: 'name', title: 'MÜŞTERİ ADI', className: 'text-left pl-0 justify-start' },
     { key: 'email', title: 'MÜŞTERİ MAİL', className: 'text-left pl-0 justify-start' },
+
     {
       key: 'actions',
       title: <div className="text-right">İŞLEMLER</div>,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (_: any, row: any) => (
         <div className="flex justify-end gap-2">
           <button

@@ -5,9 +5,10 @@ import { FaSearch, FaTrash, FaPencilAlt, FaSync } from "react-icons/fa";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import MarkaFilterSidebar from "../../../components/categorys-marks/MarkaFilterSidebar";
 import BatchTransactions from "@/components/products/list/batch-transactions";
-import { useRouter } from "next/navigation";
+
 import MarkaDuzenleModal from "@/components/categorys-marks/MarkaDuzenleModal";
 import MarkaEsitleModal from "@/components/categorys-marks/MarkaEsitleModal";
+import Image from "next/image";
 
 const marks = [
   {
@@ -34,14 +35,15 @@ export default function MarksPage() {
     null
   );
   const [isSyncModalOpen, setIsSyncModalOpen] = useState(false);
+  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
   const [syncingMark, setSyncingMark] = useState<any | null>(null);
-  const router = useRouter();
+
 
   const handleEditClick = (mark: { id: number; name: string }) => {
     setEditingMark(mark);
     setIsEditModalOpen(true);
   };
-
+  {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
   const handleOpenSyncModal = (mark: any) => {
     setSyncingMark(mark);
     setIsSyncModalOpen(true);
@@ -147,7 +149,7 @@ export default function MarksPage() {
           <div className="flex-1 flex gap-2 items-center">
             {mark.platforms.map(platform => (
                 <div key={platform.name} className="relative">
-                    <img src={platform.logo} alt={platform.name} className={`w-10 h-10 rounded-full border-2 border-[#eee] ${platform.synced ? 'grayscale-0' : 'grayscale'}`}/>
+                    <Image src={platform.logo} alt={platform.name} className={`w-10 h-10 rounded-full border-2 border-[#eee] ${platform.synced ? 'grayscale-0' : 'grayscale'}`}/>
                     {!platform.synced && (
                         <div className="absolute top-[-2px] right-[-2px] bg-[#ff3b3b] text-white w-4 h-4 rounded-full flex items-center justify-center text-xs font-bold border border-white">
                             &times;

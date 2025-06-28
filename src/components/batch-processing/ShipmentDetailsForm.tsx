@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
 
 const SelectInput = ({ label, value, onChange, options, required = false, placeholder = 'Seçiniz...' }: { label: string, value: string, onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void, options: string[], required?: boolean, placeholder?: string }) => (
   <div>

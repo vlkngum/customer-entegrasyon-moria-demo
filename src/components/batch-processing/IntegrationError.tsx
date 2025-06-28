@@ -2,6 +2,7 @@
 import React from 'react';
 import { FiArrowRight } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
+import Image from "next/image";
 
 const IntegrationError = () => {
   const router = useRouter();
@@ -12,7 +13,7 @@ const IntegrationError = () => {
       <p className="text-gray-500 mb-8 max-w-md">
         Aktif pazar yeri entegrasyonunuz bulunmamaktadır. Lütfen entegrasyon bilgilerinizi tanımlayınız...
       </p>
-      <img
+      <Image
         src="/syncErrorVector.svg" 
         alt="Entegrasyon bulunamadı"
         className="max-w-xl w-full my-12"

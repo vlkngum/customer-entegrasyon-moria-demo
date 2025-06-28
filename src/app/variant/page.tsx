@@ -48,12 +48,14 @@ export default function VariantPage() {
     {
       key: 'name',
       title: 'SEÇENEK GRUBU ADI',
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (value: any) => <span className="font-medium text-gray-800">{value}</span>,
       className: 'col-span-5',
     },
     {
       key: 'options',
       title: 'SEÇENEKLER',
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (value: any) => (
         <span className="text-gray-600 text-sm">{value.length > 0 ? value.join(", ") : '-'}</span>
       ),
@@ -62,6 +64,7 @@ export default function VariantPage() {
     {
       key: 'actions',
       title: <div className="text-right">İŞLEMLER</div>,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       render: (_: any, row: Group) => (
         <div className="flex justify-end gap-2">
           <button

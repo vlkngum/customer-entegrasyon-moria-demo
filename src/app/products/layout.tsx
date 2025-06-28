@@ -3,7 +3,6 @@
 import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import OrderHeader from '@/app/orders/components/Header';
-import { FaFileInvoiceDollar, FaBars } from "react-icons/fa";
 import Image from 'next/image';
 
 interface OrdersLayoutProps {
@@ -24,7 +23,6 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
     { id: 'price-robot', name: "Rekabet Robotu", href: '/products/price-robot' },
   ];
 
-  // Aktif sayfanın adını bul
   const activeTab = tabs.find(tab => tab.href === pathname) || tabs[0];
   const pageTitle = activeTab.name;
 

@@ -6,7 +6,6 @@ import { GiShop } from 'react-icons/gi';
 import Link from 'next/link';
 
 const CreateSupportRequestPage = () => {
-  const [message, setMessage] = useState('');
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {

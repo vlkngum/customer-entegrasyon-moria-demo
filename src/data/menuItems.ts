@@ -1,4 +1,4 @@
-import { CiHome, CiShoppingBasket, CiShoppingCart, CiLocationArrow1, CiSettings, CiShop, CiLogout } from "react-icons/ci";
+import { CiHome, CiShoppingBasket, CiShoppingCart, CiLocationArrow1, CiSettings, CiShop } from "react-icons/ci";
 import { LuNewspaper, LuFolderDown } from "react-icons/lu";
 import { TbReport } from "react-icons/tb";
 import { IoMdAddCircle } from "react-icons/io"; 

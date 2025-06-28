@@ -1,14 +1,10 @@
 "use client"
-import { useParams } from 'next/navigation';
-import { FiX } from 'react-icons/fi';
-import Link from 'next/link';
-import { FiHome } from 'react-icons/fi';
+
 import { GiShop } from 'react-icons/gi';
 import { FiChevronDown } from 'react-icons/fi';
+import Image from "next/image";
 
 export default function StoreDetailPage() {
-  const params = useParams();
-  const storeName = params?.name || '';
 
   return (
     <div className="min-h-screen bg-[#F5F7FA] flex flex-col items-center py-0 mb-8">
@@ -36,7 +32,7 @@ export default function StoreDetailPage() {
         <div className="w-full bg-white p-8 flex flex-col gap-6 border-r border-gray-100 min-w-[350px]">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-blue-100 rounded-full p-3">
-              <img src="/akakce.svg" alt="logo" className="w-10 h-10 object-contain" />
+              <Image src="/akakce.svg" alt="logo" className="w-10 h-10 object-contain" />
             </div>
             <div className="text-xl font-semibold text-gray-700">API Bilgilerini Tanımlama</div>
           </div>
@@ -85,7 +81,7 @@ export default function StoreDetailPage() {
             *API bilgisini nasıl alacağınızı öğrenmek için ilgili destek yazımızı inceleyebilirsiniz.<br/><br/>
             API bilgisini aldıktan sonra Akakçe API Ayarları sayfasının API Bilgileri Tanımlama kısmında bulunan API Name alanına API Kullanıcı Adını, API KEY kısmına da Şifre bilgilerini yazmalısınız.<br/><br/>
             <b>2– Ürünlerinizi Aktarın</b><br/>
-            Ürünlerinizi Sopyo'ya aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.<br/><br/>
+            Ürünlerinizi Entekasa aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.<br/><br/>
             İlgili ayarlamaları tamamladıktan sonra sayfanın sol üst kısmında bulunan Ürünleri Ve Fiyatları Aktar butonuna tıklayın. Açılan sayfada ürün aktarımı ile ilgili aktarım kurallarını özelleştirip İşlemi Onayla butonuna tıklayarak aktarım işlemini başlatabilirsiniz.<br/><br/>
             <b>3– Aktarım Detaylarını İnceleyin</b><br/>
             Aktarım işlemi tamamlandıktan sonra aktarım raporunu inceleyebilirsiniz.<br/><br/>

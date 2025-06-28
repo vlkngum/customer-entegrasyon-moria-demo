@@ -1,14 +1,11 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiShop } from 'react-icons/gi';
-import { FiFilePlus } from 'react-icons/fi';
 import Error from '@/components/requests-for-support/Error';
 
 const OpenSupportRequestsPage = () => {
   const [activeTab, setActiveTab] = useState('open');
-  const [filterOpen, setFilterOpen] = useState(false);
 
 
   return (

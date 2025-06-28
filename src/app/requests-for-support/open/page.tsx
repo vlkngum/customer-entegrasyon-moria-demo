@@ -1,6 +1,5 @@
 'use client';
-import { ChevronRight, FilePlus, Pencil, Store } from 'lucide-react';
-import Image from 'next/image';
+import { ChevronRight,  Pencil } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 import { GiShop } from 'react-icons/gi';
@@ -8,7 +7,6 @@ import { FiFilePlus } from 'react-icons/fi';
 
 const OpenSupportRequestsPage = () => {
   const [activeTab, setActiveTab] = useState('open');
-  const [filterOpen, setFilterOpen] = useState(false);
 
   const supportRequests = [
     {

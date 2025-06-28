@@ -1,7 +1,8 @@
 'use client';
-import { FiFileText, FiRefreshCw, FiGrid, FiLink, FiTag, FiCheckCircle } from 'react-icons/fi';
+import {  FiGrid, FiCheckCircle } from 'react-icons/fi';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { IoMdSettings  } from "react-icons/io";
+import Image from "next/image";
 const product = {
   name: 'sSsS',
   sku: '1212',
@@ -47,7 +48,7 @@ export default function ProductSyncPage() {
         <div className="flex flex-row w-full  gap-8 items-start justify-between border-t border-gray-300 py-4"> 
           <div className="flex items-start gap-3 min-w-36">
             <div className="rounded-lg items-center justify-center flex-shrink-0 flex flex-col ">
-              <img src={"/entekas-logo.svg"} className='w-24 aspect-square'></img>
+              <Image src={"/entekas-logo.svg"} className="w-24 aspect-square" alt={''}  width={0} height={0}/>
               <p className="text-xs text-gray-500"> Ürünün seçenekleri yok</p>
             </div> 
           </div>        
@@ -79,7 +80,7 @@ export default function ProductSyncPage() {
       <div className="panel max-w-1/4 flex flex-col gap-4">
         <div className='flex flex-row justify-between'>
           <div className="bg-gray-800 rounded-full flex items-center justify-center flex-shrink-0 ">
-            <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pCKN8VDz8eHVrMoM-faHQj3O4HDD12bTLg&s'} className='rounded-full w-16 h-16'></img>
+            <Image src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pCKN8VDz8eHVrMoM-faHQj3O4HDD12bTLg&s'} className='rounded-full w-16 h-16' alt={''}/>
           </div> 
 
           <div className="flex justify-between items-start mb-3"> 
@@ -96,16 +97,16 @@ export default function ProductSyncPage() {
         <div className='w-full flex flex-col justify-between items-center gap-2'>
           <h3 className="text-lg font-semibold text-gray-800 mb-1">Trendyol Entegrasyon</h3>
           <p className="text-sm text-gray-600">
-            Trendyol'de ürününüzü listelemek için aşağıdaki <span className="font-semibold">satışa çıkar</span> butonuna tıklayabilirsiniz.
+            Trendyol de ürününüzü listelemek için aşağıdaki <span className="font-semibold">satışa çıkar</span> butonuna tıklayabilirsiniz.
           </p>
         
           <div className="flex items-center gap-2 text-gray-400 pt-4">
             <div className=" flex items-center justify-center flex-shrink-0 ">
-              <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pCKN8VDz8eHVrMoM-faHQj3O4HDD12bTLg&s'} className='rounded-full w-6 h-6'></img>
+              <Image src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_pCKN8VDz8eHVrMoM-faHQj3O4HDD12bTLg&s'} className='rounded-full w-6 h-6' alt={''} />
             </div> 
             <span>→</span>
             <div className="  flex items-center justify-center flex-shrink-0 ">
-              <img src={'/entekas-logo.svg'} className='rounded-full w-6 h-6'></img>
+              <Image src={'/entekas-logo.svg'} className='rounded-full w-6 h-6' alt={''} width={0} height={0}/>
             </div> 
           </div>
         </div>

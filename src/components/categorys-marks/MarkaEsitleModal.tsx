@@ -47,7 +47,7 @@ const MarkaEsitleModal: React.FC<MarkaEsitleModalProps> = ({
           }}
         >
           <h2 style={{ fontSize: 18, fontWeight: 600, color: "#2a3547" }}>
-            Trendyol Markasını Trendyol'daki Marka ile Eşitle
+            Trendyol Markasını Trendyol daki Marka ile Eşitle
           </h2>
           <button
             onClick={onClose}

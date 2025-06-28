@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface YeniKategoriEkleModalProps {
   open: boolean;
@@ -39,7 +40,7 @@ export default function YeniKategoriEkleModal({ open, onClose }: YeniKategoriEkl
       <div style={modalStyle}>
         {/* Header */}
         <div style={{ width: '100%', position: 'relative', marginBottom: 24 }}>
-          <img src="/kategoriEkle.svg" alt="Kategori" style={{ width: '100%', height: 'auto', display: 'block', maxHeight: 140, objectFit: 'contain' }} />
+          <Image src="/kategoriEkle.svg" alt="Kategori" style={{ width: '100%', height: 'auto', display: 'block', maxHeight: 140, objectFit: 'contain' }} />
           <button
             onClick={onClose}
             style={{

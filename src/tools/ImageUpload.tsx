@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-
+import Image from 'next/image'
 interface ImageUploadProps {
   onImageChange: (base64Image: string) => void;
   id: string;
@@ -75,7 +75,7 @@ export default function ImageUpload({ onImageChange, id, initialImageUrl }: Imag
         
         {previewUrl ? (
           <div className="relative w-full h-full">
-            <img
+            <Image
               src={previewUrl}
               className="w-full h-full object-contain rounded-lg"
               alt="Preview"

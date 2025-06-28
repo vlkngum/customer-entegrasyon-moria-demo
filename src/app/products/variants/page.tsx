@@ -6,7 +6,6 @@ import {
   FiBox,
   FiCpu,
   FiCheckSquare,
-  FiSettings,
   FiPlus,
   FiTrash2,
   FiLayers,
@@ -15,7 +14,6 @@ import {
   FiImage,
 } from 'react-icons/fi';
 
-import { IoMdSettings } from 'react-icons/io';
 
 interface Option {
   id: number;
@@ -149,7 +147,7 @@ export default function VariantsPage() {
         <div className="flex flex-row w-full  gap-8 items-start justify-between border-t border-gray-300 py-4">
           <div className="flex items-start gap-3 min-w-36">
             <div className="rounded-lg items-center justify-center flex-shrink-0 flex flex-col ">
-              <img src={'/entekas-logo.svg'} className="w-24 aspect-square"></img>
+              <Image src={'/entekas-logo.svg'} className="w-24 aspect-square" alt={''} width={0} height={0}/>
               <p className="text-xs text-gray-500">
                 {' '}
                 Ürünün seçenekleri yok
@@ -304,7 +302,7 @@ export default function VariantsPage() {
       <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md" role="alert">
         <p className="text-sm">
           <span className="font-bold">Uyarı:</span> Bu ürün kategorisinde
-          Trendyol'da varyantlı/seçenekli ürün satışı sunmak için, Trendyol
+          Trendyolda varyantlı/seçenekli ürün satışı sunmak için, Trendyol
           Seçenek Eşitleme işlemi yapmanız gerekmektedir.
         </p>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Calendar, RefreshCw, FileText, Download } from "lucide-react";
+import { Calendar, RefreshCw,  Download } from "lucide-react";
 import Link from "next/link";
 import SalesChart from "@/components/reports/SalesChart";
 import MarketplaceDistribution from "@/components/reports/MarketplaceDistribution";

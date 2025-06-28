@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 
 export default function QnbEFaturaAyarlar() {
   const [integration, setIntegration] = useState(false);
@@ -11,7 +12,7 @@ export default function QnbEFaturaAyarlar() {
         <h1 className="flex items-center gap-2 text-xl font-semibold mb-2">
           <span className="text-blue-600">
             {/* QNB eFinans logo placeholder */}
-            <img src="/indir (1).png" alt="QNB eFinans Logo" width={32} height={32} />
+            <Image src="/indir (1).png" alt="QNB eFinans Logo" width={32} height={32} />
           </span>
           QNB eFinans E-Fatura Ayarları
         </h1>
@@ -24,7 +25,7 @@ export default function QnbEFaturaAyarlar() {
             {/* Kart başlık ve logo */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 flex items-center justify-center ">
-                <img src="/indir (1).png" alt="QNB eFinans Logo" className="w-full h-full" />
+                <Image src="/indir (1).png" alt="QNB eFinans Logo" className="w-full h-full" />
               </div>
               <div className="font-semibold text-lg">QNB eFinans E-Fatura Ayarları</div>
             </div>

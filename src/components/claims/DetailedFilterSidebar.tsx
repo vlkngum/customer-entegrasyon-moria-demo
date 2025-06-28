@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 import { platforms } from "@/data/platforms";

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import ProductTable, { ProductTableColumn } from '../../ProductTable';
+import { ProductTableColumn } from '../../ProductTable';
 
 interface Invoice {
   id: string;
@@ -66,6 +66,7 @@ export default function InvoiceListHeader() {
     setExpandedRows(newExpandedRows);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Onaylandı':
@@ -81,6 +82,7 @@ export default function InvoiceListHeader() {
     }
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const columns: ProductTableColumn[] = [
     {
       key: 'marketplace',

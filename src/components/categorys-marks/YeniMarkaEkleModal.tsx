@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import Image from "next/image";
 
 interface YeniMarkaEkleModalProps {
   open: boolean;
@@ -37,7 +38,7 @@ const YeniMarkaEkleModal: React.FC<YeniMarkaEkleModalProps> = ({ open, onClose }
       }}>
         
         <div style={{ padding: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8f9fa', borderBottom: '1px solid #eee' }}>
-          <img src="/markaEkle.svg" alt="Yeni Marka Ekle" style={{ height: '180px' }} />
+          <Image src="/markaEkle.svg" alt="Yeni Marka Ekle" style={{ height: '180px' }} />
           <button onClick={onClose} style={{
             position: 'absolute',
             top: '16px',

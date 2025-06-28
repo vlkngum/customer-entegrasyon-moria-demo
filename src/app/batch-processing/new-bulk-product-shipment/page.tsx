@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { GiShop } from "react-icons/gi";
 import Image from "next/image";
 
 export default function BulkProductUpdatesPage() {

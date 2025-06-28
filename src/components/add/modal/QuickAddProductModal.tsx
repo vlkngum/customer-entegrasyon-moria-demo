@@ -2,6 +2,7 @@ import { useState } from "react"
 import { MdClose } from "react-icons/md";
 import { platforms } from "@/data/platformsSelect";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function QuickAddProductModal({ open, onClose }: { open: boolean, onClose: () => void }) {
  
     const [link, setLink] = useState(''); 

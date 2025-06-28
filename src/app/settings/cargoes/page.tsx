@@ -83,7 +83,7 @@ export default function ErpSettingsPage() {
       </div>
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {erpList.map((erp, i) => (
+        {erpList.map((erp) => (
           <div
             key={erp.name}
             className={`relative rounded-lg shadow-md flex flex-col h-[210px] pt-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between cursor-pointer`}

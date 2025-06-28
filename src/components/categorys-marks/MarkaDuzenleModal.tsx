@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaCheck } from 'react-icons/fa';
+import Image from "next/image";
 
 interface MarkaDuzenleModalProps {
   open: boolean;
@@ -44,7 +45,7 @@ const MarkaDuzenleModal: React.FC<MarkaDuzenleModalProps> = ({ open, onClose, ma
       }}>
         
         <div style={{ padding: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8f9fa', borderBottom: '1px solid #eee' }}>
-          <img src="/markaDuzenle.svg" alt="Markayı Düzenle" style={{ height: '180px' }} />
+          <Image src="/markaDuzenle.svg" alt="Markayı Düzenle" style={{ height: '180px' }} />
           <button onClick={onClose} style={{
             position: 'absolute',
             top: '16px',

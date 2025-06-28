@@ -4,8 +4,6 @@ import { MdDiscount } from "react-icons/md";
 import { LuWallet } from "react-icons/lu";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import StatCard from "@/components/dashboard/StatCard";
-import ActivityList from "@/components/dashboard/ActivityList";
-import QuickActions from "@/components/dashboard/QuickActions";
 import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart"; 
 const stats = [
   { name: 'Bugunki Sipariş Sayısı', value: '16', icon: MdDiscount, change: '+12%', gradient: 'blue' as const },
@@ -14,6 +12,7 @@ const stats = [
   { name: 'Dökümanlar', value: '156', icon: LuWallet, change: '+3%', gradient: 'orange' as const },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const activities = [
   { id: 1, user: 'Kullanıcı 1', action: 'Yeni bir işlem gerçekleştirdi', time: '2 saat önce' },
   { id: 2, user: 'Kullanıcı 2', action: 'Yeni bir işlem gerçekleştirdi', time: '3 saat önce' },
@@ -22,6 +21,7 @@ const activities = [
   { id: 5, user: 'Kullanıcı 5', action: 'Yeni bir işlem gerçekleştirdi', time: '6 saat önce' },
 ];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const quickActions = [
   { label: 'Yeni Kullanıcı Ekle', color: 'blue' as const, onClick: () => console.log('Yeni Kullanıcı') },
   { label: 'Rapor Oluştur', color: 'green' as const, onClick: () => console.log('Rapor') },

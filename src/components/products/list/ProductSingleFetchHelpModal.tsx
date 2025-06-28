@@ -1,4 +1,5 @@
 import { MdClose } from "react-icons/md";
+import Image from "next/image";
 
 const helpContent: Record<string, { title: string; description: string; image?: string }> = {
   "Çiçeksepeti": {
@@ -30,7 +31,7 @@ export default function ProductSingleFetchHelpModal({ open, onClose, platform }:
         <h2 className="text-xl font-bold mb-4">{content?.title || platform}</h2>
         <div className="mb-4 text-gray-700">{content?.description}</div>
         {content?.image && (
-          <img src={content.image} alt={platform + " yardım görseli"} className="rounded border max-h-96 mx-auto" />
+          <Image src={content.image} alt={platform + " yardım görseli"} className="rounded border max-h-96 mx-auto" />
         )}
         <div className="flex justify-end mt-6">
           <button

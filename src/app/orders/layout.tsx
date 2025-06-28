@@ -6,7 +6,6 @@ import OrderHeader from '@/app/orders/components/Header';
 import { PiStepsFill } from "react-icons/pi";
 import { FaFileInvoiceDollar } from 'react-icons/fa';
 import Image from 'next/image';
-import ProductActionsMenu from '@/components/products/list/ProductActionsMenu';
 import ProductSingleFetchModal from '@/components/orders/invoice/ProductSingleFetchModal';
 
 interface OrdersLayoutProps {

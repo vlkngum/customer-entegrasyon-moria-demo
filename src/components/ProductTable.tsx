@@ -3,13 +3,15 @@ import React from 'react';
 export interface ProductTableColumn {
   key: string;
   title: string | React.ReactNode;
-  render?: (value: any, row: any) => React.ReactNode;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    render?: (value: any, row: any) => React.ReactNode;
   className?: string;
 }
 
 interface ProductTableProps {
   columns: ProductTableColumn[];
-  data: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data: any[];
   variant?: 'default' | 'card';
 }
 

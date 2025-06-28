@@ -10,7 +10,7 @@ interface StatCardProps {
   gradient?: GradientType;
 }
 
-export default function StatCard({ name, value, icon: Icon, change, gradient = 'blue' }: StatCardProps) {
+export default function StatCard({ name, value, icon: Icon,  gradient = 'blue' }: StatCardProps) {
   const getGradientClasses = (gradient: GradientType) => {
     const gradients: Record<GradientType, string> = {
       blue: 'from-blue-500 to-blue-700',

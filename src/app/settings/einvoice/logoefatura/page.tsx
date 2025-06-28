@@ -11,7 +11,7 @@ export default function LogoEFaturaAyarlar() {
       <div className="max-w-7xl mx-auto">
         <h1 className="flex items-center gap-2 text-xl font-semibold mb-2">
           <span className="text-blue-600">
-           <img src="/elogo.svg" alt="Logo" width={24} height={24} />
+           <Image src="/elogo.svg" alt="Logo" width={24} height={24} />
           </span>
           Logo E-Fatura Ayarları
         </h1>
@@ -24,7 +24,7 @@ export default function LogoEFaturaAyarlar() {
             {/* Kart başlık ve logo */}
             <div className="flex items-center gap-3 mb-6">
               <div className="w-16 h-16 flex items-center justify-center ">
-                <img src="/elogo.svg" alt="Logo" className="w-full h-full" />
+                <Image src="/elogo.svg" alt="Logo" className="w-full h-full" />
               </div>
               <div className="font-semibold text-lg">Logo E-Fatura Ayarları</div>
             </div>

@@ -1,8 +1,5 @@
 "use client";
 import { useParams } from 'next/navigation';
-import { FiX } from 'react-icons/fi';
-import Link from 'next/link';
-import { FiHome } from 'react-icons/fi';
 import { GiShop } from 'react-icons/gi';
 import { FiChevronDown } from 'react-icons/fi';
 

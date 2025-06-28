@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react';
-import { FiHash, FiSearch } from 'react-icons/fi';
+import { FiHash } from 'react-icons/fi';
 import { FaSearch } from "react-icons/fa"; 
 
-import { AiFillProduct, AiOutlineProduct } from "react-icons/ai";
+import { AiOutlineProduct } from "react-icons/ai";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"
 
 
 import ProductFilterModal from "@/components/products/list_sync/ProductFilterModal"
 import BulkProcessModal from '@/components/products/list_sync/BulkProcessModal';
+import Image from "next/image";
 const sampleProducts = [
   {
     id: 1,
@@ -126,14 +127,14 @@ export default function ListSyncPage() {
               <div key={row.id} className="grid grid-cols-8 gap-4 items-center bg-white rounded-xl shadow p-4 mb-4">
                 <div className="w-8 flex justify-center"><input type="checkbox" className="form-checkbox" /></div>
                 <div className="flex justify-center"><FiHash className="text-blue-500 w-5 h-5" /></div>
-                <div className="flex justify-center"><img src={row.image} alt="Ürün" className="w-12 h-12 object-contain rounded bg-gray-50" /></div>
+                <div className="flex justify-center"><Image src={row.image} alt="Ürün" className="w-12 h-12 object-contain rounded bg-gray-50" /></div>
                 <div className="flex flex-col items-start col-span-2">
                   <span className="text-xs text-gray-400 font-semibold">Stok Kodu: {row.code}</span>
                   <span className="font-semibold text-gray-700">{row.name}</span>
                   <span className="text-xs text-blue-600 font-semibold">{row.category}</span>
                 </div>
                 <div className="text-center font-bold text-gray-700">{row.stock}</div>
-                <div className="flex justify-center"><img src={row.platform} alt="Platform" className="w-8 h-8" /></div>
+                <div className="flex justify-center"><Image src={row.platform} alt="Platform" className="w-8 h-8" /></div>
                 <div className="flex justify-center">
                   <button className="bg-orange-50 text-orange-600 border border-orange-200 px-4 py-2 rounded-lg font-semibold flex items-center gap-2 hover:bg-orange-100 transition">
                     ÖZELLİK EŞİTLE

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { GiShop } from "react-icons/gi";
 import { FiFilePlus, FiLock, FiTrash2, FiEdit3 } from "react-icons/fi";
 import FilterDrawer from "@/components/product-shipments/FilterDrawer";
 import { useState } from "react";
