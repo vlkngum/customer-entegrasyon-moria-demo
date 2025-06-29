@@ -69,7 +69,7 @@ const InvoiceItemsTable: React.FC<InvoiceItemsTableProps> = ({
                     <button
                       type="button"
                       className={`border border-gray-200 rounded px-4 py-2 w-full flex items-center justify-between transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-blue-200 ${!item.name ? "text-gray-400" : "text-black"} ${idx !== items.length - 1 ? 'pointer-events-none opacity-60' : ''}`}
-                      style={{ minHeight: 42, background: '#fff', minWidth: 340 }}
+                      style={{ minHeight: 42, background: '#fff', width: 'full' }}
                       onClick={() => idx === items.length - 1 && setShowDropdown(showDropdown === idx ? false : idx)}
                       disabled={idx !== items.length - 1}
                     >

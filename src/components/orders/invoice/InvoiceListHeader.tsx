@@ -20,6 +20,7 @@ interface Invoice {
 export default function InvoiceListHeader() {
 
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [selectedOrderIds, setSelectedOrderIds] = useState<string[]>([]);
 
   
   const orders: Invoice[] = [
@@ -170,6 +171,20 @@ export default function InvoiceListHeader() {
     },
   ];
 
+  const handleSelectAll = () => {
+    if (selectedOrderIds.length === orders.length) {
+      setSelectedOrderIds([]);
+    } else {
+      setSelectedOrderIds(orders.map((order) => order.id));
+    }
+  };
+
+  const handleSelectOrder = (id: string) => {
+    setSelectedOrderIds((prev) =>
+      prev.includes(id) ? prev.filter((oid) => oid !== id) : [...prev, id]
+    );
+  };
+
   return(
 
    <>
@@ -179,7 +194,12 @@ export default function InvoiceListHeader() {
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 <div className="flex items-center gap-2">
-                  <input type="checkbox" className="rounded border-gray-300" /> 
+                <input
+                  type="checkbox"
+                  checked={selectedOrderIds.length === orders.length && orders.length > 0}
+                  onChange={handleSelectAll}
+                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                />
                   PLATFORM
                 </div>
               </th>
@@ -201,7 +221,12 @@ export default function InvoiceListHeader() {
                 <tr className="hover:bg-gray-50 py-4">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-3">
-                      <input type="checkbox" className="rounded border-gray-300" />
+                      <input
+                        type="checkbox"
+                        checked={selectedOrderIds.includes(order.id)}
+                        onChange={() => handleSelectOrder(order.id)}
+                        className="rounded border-gray-300"
+                      />
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-gray-100 flex items-center justify-center overflow-hidden rounded-full">
                           <Image

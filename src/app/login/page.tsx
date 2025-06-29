@@ -90,10 +90,10 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex">
       {/* Sol: Form */}
-      <div className="flex flex-col justify-center w-full md:w-1/2 px-8 md:px-24 py-12 bg-white">
-        <div className="max-w-7xl w-full mx-auto">
+      <div className="flex flex-col justify-center w-full md:w-1/2 px-8 md:px-24 py-12 bg-white ">
+        <div className="max-w-7xl w-full mx-auto ">
           
-          <div className="flex justify-between items-center w-1/2 mb-8 absolute top-8 left-0 px-8 md:px-24 z-10">
+          <div className="flex justify-between items-center w-1/2 absolute top-0 left-0 py-6 px-8 md:px-24 z-10 border-b border-gray-300">
             <Image src="/entekas-logo.png" alt="Entekas Logo" width={190} height={60} />
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-blue-100 text-blue-600 mr-1">
