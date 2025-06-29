@@ -55,7 +55,7 @@ export default function OrderFilters() {
           <button className="bg-[#0f82ff] text-white py-2 px-4 rounded-md hover:bg-[#0068ff] flex items-center justify-center">
             <FiFilter className="mr-2" /> <span className="text-sm whitespace-nowrap">FİLTRELE</span>
           </button>
-          <button className="text-gray-600 hover:text-gray-800 py-3 px-4 rounded-md flex items-center justify-center">
+          <button className="text-[#0f82ff] hover:text-gray-800 py-3 px-4 rounded-md flex items-center justify-center">
             <MdCancel className="mr-2 text-xl" /> <span className="text-sm whitespace-nowrap">Filtreyi Temizle</span>
           </button>
         </div>

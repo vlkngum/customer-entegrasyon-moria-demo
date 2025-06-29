@@ -172,7 +172,7 @@ export default function CreateInvoicePage() {
                 >
                   <span className={`block w-full text-left ${!selectedCustomer ? "text-gray-400 mx-auto text-center" : "text-black"}`}
                     style={!selectedCustomer ? { width: '100%' } : {}}>
-                    {selectedCustomer ? selectedCustomer.name : "--------------"}
+                    {selectedCustomer ? selectedCustomer.name : "Lütfen Müşteri Seçiniz"}
                   </span>
                   <svg className="w-4 h-4 ml-2 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                 </button>
