@@ -32,7 +32,7 @@ export default function StoreDetailPage() {
         <div className="w-full bg-white p-8 flex flex-col gap-6 border-r border-gray-100 min-w-[350px]">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-blue-100 rounded-full p-3">
-              <Image src="/akakce.svg" alt="logo" className="w-10 h-10 object-contain" />
+              <Image src="/akakce.svg" alt="logo" width={0} height={0} className="w-10 h-10 object-contain" />
             </div>
             <div className="text-xl font-semibold text-gray-700">API Bilgilerini Tanımlama</div>
           </div>

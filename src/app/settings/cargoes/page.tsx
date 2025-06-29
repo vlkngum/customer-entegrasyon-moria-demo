@@ -86,12 +86,12 @@ export default function ErpSettingsPage() {
         {erpList.map((erp) => (
           <div
             key={erp.name}
-            className={`relative rounded-lg shadow-md flex flex-col h-[210px] pt-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between cursor-pointer`}
+            className={`relative rounded-md shadow-md flex flex-col h-[210px] pt-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between cursor-pointer`}
             onClick={() => handleCardClick(erp.name)}
           >
             {/* PASİF etiketi */}
             {erp.passive && (
-              <span className="absolute left-3 top-3 bg-[#E74C3C] text-white text-[11px] px-2 py-0.5 rounded font-bold z-10">PASİF</span>
+               <span className="absolute left-3 top-3 bg-gray-400/20 text-white text-[11px] px-2 py-0.5 rounded font-bold z-10">PASİF</span>
             )}
             {/* Logo */}
             <div className="flex flex-1 w-full items-center justify-center h-[120px]">
@@ -105,7 +105,7 @@ export default function ErpSettingsPage() {
               />
             </div>
             {/* Alt başlık ve dişli */}
-            <div className="bg-[#F8FAFC] flex items-center border-t border-gray-200 px-6 py-4 mt-auto w-full">
+            <div className="bg-[#F8FAFC] flex items-center border-t border-gray-200 px-6 py-4 mt-auto w-full rounded-b-md">
               <FiSettings className="text-gray-500 mr-2" size={20} />
               <span className="text-base font-medium text-gray-700 whitespace-nowrap">{erp.settings}</span>
             </div>

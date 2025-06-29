@@ -276,19 +276,7 @@ export default function CompanySettingsPanel() {
             </nav>
           </aside>
           {/* Main Content */}
-          <main className="flex-1 p-8">
-            <div className="mb-8">
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">
-                {activeTab === "all" ? "Tüm Ayarlar" : menuItems.find(item => item.id === activeTab)?.label}
-              </h1>
-              <p className="text-gray-600">
-                {activeTab === "all" 
-                  ? "Tüm ayarları bu sayfadan görüntüleyebilir ve düzenleyebilirsiniz." 
-                  : "Aşağıdaki formu doldurarak ayarlarınızı güncelleyebilirsiniz."
-                }
-              </p>
-            </div>
-
+          <main className="flex-1 p-8"> 
             <div className="space-y-1 max-w-4xl">
               {getActiveFields().map(field => renderField(field))}
             </div>
