@@ -32,7 +32,7 @@ export default function StatCard({ name, value, icon: Icon,  gradient = 'blue' }
   };
 
   return (
-    <div className={`bg-gradient-to-br ${getGradientClasses(gradient)} rounded-lg shadow px-6 py-10 transition-all duration-300 hover:shadow-xl hover:cursor-pointer hover:-translate-y-2`}>
+    <div className={`bg-gradient-to-l ${getGradientClasses(gradient)} rounded-lg shadow px-6 py-10 transition-all duration-300 hover:shadow-xl hover:cursor-pointer hover:-translate-y-2`}>
       <div className="flex items-center">
         <div className={`p-3 rounded-full ${getIconClasses(gradient)}`}>
           <Icon className="h-6 w-6" />
