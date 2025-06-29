@@ -84,8 +84,8 @@ export default function DigitalPlanetSettings() {
               <input className="input" placeholder="0" />
             </div>
           </div>
-          <div style={{ color: "#8b98a9", fontSize: 12, marginBottom: 16, marginTop: -8 }}>
-            (Fatura ön ekleri hakkında "Fatura seri numaraları oluşturulurken numaraların başına size özel 3 harf eklenmektedir. Kendi ön ekinizi 3 büyük harften oluşacak şekilde belirtmeniz gerekmektedir. 1. ön ek e-Fatura sisteminde, 2. ön ek e-Arşiv sisteminde gönderilen faturalar için kullanılacak. Entegratör değiştiriyorsanız, fatura numaranızın çakışmaması için yeni ön ekler belirleyiniz.")
+            <div style={{ color: "#8b98a9", fontSize: 12, marginBottom: 16, marginTop: -8 }}>
+              {`(Fatura ön ekleri hakkında Fatura seri numaraları oluşturulurken numaraların başına size özel 3 harf eklenmektedir. Kendi ön ekinizi 3 büyük harften oluşacak şekilde belirtmeniz gerekmektedir. 1. ön ek e-Fatura sisteminde, 2. ön ek e-Arşiv sisteminde gönderilen faturalar için kullanılacak. Entegratör değiştiriyorsanız, fatura numaranızın çakışmaması için yeni ön ekler belirleyiniz.")`}
           </div>
           <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>
             <div style={{ flex: 1 }}>

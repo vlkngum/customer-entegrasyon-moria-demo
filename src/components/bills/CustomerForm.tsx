@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 
 export type CustomerType = "gercek" | "tuzel";
 export interface CustomerFormValues {
@@ -145,7 +146,7 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
                 </>
               )}
             </div>
-            <div className="text-xs text-blue-500 mt-2 border-b border-[#e0e0e0] pb-4">Şahıs şirketleri dahil LTD, AŞ, vb. tüm şirketler 'Tüzel Kişi' kapsamındadır.</div>
+            <div className="text-xs text-blue-500 mt-2 border-b border-[#e0e0e0] pb-4">Şahıs şirketleri dahil LTD, AŞ, vb. tüm şirketler Tüzel Kişi kapsamındadır.</div>
             <div className="flex justify-between mt-6">
               {onCancel ? (
                 <button type="button" onClick={onCancel} className="cursor-pointer px-4 py-2 border rounded text-gray-600 border-gray-400 hover:bg-gray-100">Vazgeç</button>
