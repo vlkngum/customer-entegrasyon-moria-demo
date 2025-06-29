@@ -125,7 +125,7 @@ export default function CreateInvoicePage() {
       <div className="min-h-screen bg-blue-50 p-0 flex flex-row w-full"> 
         
 
-        <div className="flex flex-col w-3/5 px-8 gap-6 p-4">
+        <div className="flex flex-col w-2/3 px-8 gap-6 p-4">
 
         <div className="mb-6 flex items-center space-x-2 border-b border-[#d6e8ff] pb-4">
           <Image src="/sopyoOrderico.svg" alt="logo" width={32} height={32} />
@@ -160,7 +160,7 @@ export default function CreateInvoicePage() {
         </div>
 
 
-        <div className="w-2/5 flex flex-col min-h-[500px]">
+        <div className="w-1/3 flex flex-col min-h-[500px]">
             <div className="layout-panel">
               <label className="block text-xs text-[#5d6e76] mb-1">MÜŞTERİ SEÇİNİZ</label>
               <div className="relative" ref={customerDropdownRef}>

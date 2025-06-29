@@ -148,7 +148,7 @@ export default function ProductList() {
   };
 
   return (
-    <div className="bg-blue-50/50 p-4 rounded-lg mt-4">
+    <div className="bg-blue-50/50 p-4 rounded-lg mt-4 mb-20">
       {/* Liste Başlığı */}
       <div className="grid grid-cols-12 gap-4 items-center px-4 py-2 text-xs font-bold text-gray-500 uppercase">
         <div className="col-span-1 flex items-center gap-2">
@@ -199,7 +199,7 @@ export default function ProductList() {
             </div>
             
             <div className="col-span-1">
-              <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusClass(product.status)}`}>{product.status}</span>
+              <span className={`px-2 py-1 text-xs text-nowrap font-semibold rounded-full ${getStatusClass(product.status)}`}>{product.status}</span>
               <div className="text-xs text-gray-500 mt-1">Kaynak: {product.source}</div>
             </div>
             

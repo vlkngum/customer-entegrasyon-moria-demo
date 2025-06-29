@@ -104,7 +104,7 @@ export default function AddCustomerPage() {
               </div>
               <div className="md:col-span-2 border-b border-[#e0e0e0] pb-4">
                 <label className="block text-xs text-[#5d6e76] font-semibold mb-1">AÇIK ADRES</label>
-                <textarea name="address" value={values.address} onChange={handleChange} className="input" placeholder="Açık Adres giriniz." />
+                <textarea name="address" value={values.address} onChange={handleChange} className="input h-30" placeholder="Açık Adres giriniz." />
               </div>
             </div>
             <div className="mt-4">

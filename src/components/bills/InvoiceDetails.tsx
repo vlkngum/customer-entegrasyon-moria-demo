@@ -11,13 +11,15 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
 }) => {
   return (
     <div className="panel">
+      <div className="border-b border-gray-200 mb-4">
       <label className="block text-xs font-semibold mb-1 text-[#707376]">FATURA DÜZENLEME TARİHİ <span className="text-red-500">*</span></label>
       <input type="datetime-local" className="input mb-4 text-[#76838f]" defaultValue="2025-06-28T17:00" />
-
+      </div>
+      <div className="border-b border-gray-200 mb-4">
       <label className="block text-xs font-semibold mb-1 text-[#707376]">SİPARİŞ NO <span className="text-red-500">*</span></label>
       <input type="text" className="input mb-4 text-[#76838f]" defaultValue="454171UWUOCIZUL0J45417" />
-
-      <div className="flex items-center space-x-8 mt-2 mb-4">
+      </div>
+      <div className="flex items-center space-x-8 mt-2 mb-4 border-b border-gray-200 pb-4">
         <label className="font-extrabold text-base tracking-wide flex items-center">
           <input
             type="radio"
@@ -41,7 +43,7 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
       </div>
 
       {satisTipi === "internetten" && (
-        <div className="flex space-x-4 mb-4">
+        <div className="flex space-x-4 mb-4 border-b border-gray-200 pb-4">
           <div className="flex-1">
             <label className="block text-xs font-semibold mb-1 text-[#686b6f]">KARGO ŞİRKETİ <span className="text-red-500">*</span></label>
             <select className="input" style={{ color: '#76838f' }}>
@@ -55,7 +57,7 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
         </div>
       )}
 
-      <div className="flex space-x-4 mb-4">
+      <div className="flex space-x-4 mb-16">
         <div className="flex-1">
           <label className="block text-xs font-semibold mb-1 text-[#616468]">FATURA KAYNAĞI</label>
           <select className="input" style={{ color: '#76838f' }}>
@@ -70,8 +72,10 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({
         </div>
       </div>
 
+      <div className="mb-12">
       <label className="block text-xs font-semibold mb-1 text-[#616468]">FATURA AÇIKLAMASI</label>
-      <textarea className="input" style={{ color: '#76838f' }} rows={3} placeholder="Fatura açıklaması giriniz." />
+      <textarea className="input h-30" style={{ color: '#76838f' }} rows={3} placeholder="Fatura açıklaması giriniz." />
+      </div>
     </div>
   );
 };
