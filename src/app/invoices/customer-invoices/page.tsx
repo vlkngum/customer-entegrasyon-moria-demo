@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import ProductTable, { ProductTableColumn } from '@/components/ProductTable';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CustomerForm, { CustomerFormValues } from '@/components/bills/CustomerForm';

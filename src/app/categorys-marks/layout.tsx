@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { usePathname, useRouter } from 'next/navigation';
 import { FiFilePlus } from "react-icons/fi";
-import { GiShop } from "react-icons/gi";
 import { IoReturnUpBack } from "react-icons/io5";
 import Image from "next/image";
 

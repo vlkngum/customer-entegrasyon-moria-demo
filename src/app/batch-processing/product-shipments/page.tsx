@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FiFilePlus, FiLock, FiTrash2, FiEdit3 } from "react-icons/fi";
+import { FiLock, FiTrash2, FiEdit3 } from "react-icons/fi";
 import FilterDrawer from "@/components/product-shipments/FilterDrawer";
 import { useState } from "react";
 import FilterStatusBar from "@/components/product-shipments/FilterStatusBar";

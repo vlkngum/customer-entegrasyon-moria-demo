@@ -3,11 +3,6 @@
 import { useState } from 'react';
 import { FiHash } from 'react-icons/fi';
 import { FaSearch } from "react-icons/fa"; 
-
-import { AiOutlineProduct } from "react-icons/ai";
-import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io"
-
-
 import ProductFilterModal from "@/components/products/list_sync/ProductFilterModal"
 import BulkProcessModal from '@/components/products/list_sync/BulkProcessModal';
 import Image from "next/image";

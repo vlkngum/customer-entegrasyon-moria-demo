@@ -3,7 +3,6 @@
 import { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import OrderHeader from '@/app/orders/components/Header';
-import { FaFileInvoiceDollar } from "react-icons/fa";
 import Image from 'next/image';
 
 interface OrdersLayoutProps {

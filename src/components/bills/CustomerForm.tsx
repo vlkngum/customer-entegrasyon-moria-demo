@@ -58,7 +58,7 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
         <div className="bg-white rounded-lg shadow-md p-0" onClick={e => e.stopPropagation()}>
           <div className="flex items-center justify-between p-8 pb-4 border-b border-[#e0e0e0]">
             <div className="flex items-center">
-              <img src="/review.svg" alt="logo" width={50} height={50} className="mr-4" />
+              <Image src="/review.svg" alt="logo" width={50} height={50} className="mr-4" />
               <div>
                 <h3 className="text-lg text-[#37474f]">Müşteri Bilgileri</h3>
                 <p className="text-xs text-[#37474f]">Müşteriye ait bilgileri eksiksiz olarak doldurunuz.</p>
