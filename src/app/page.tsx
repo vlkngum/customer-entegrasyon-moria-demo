@@ -4,7 +4,10 @@ import { MdDiscount } from "react-icons/md";
 import { LuWallet } from "react-icons/lu";
 import { RiShoppingCart2Line } from "react-icons/ri";
 import StatCard from "@/components/dashboard/StatCard";
-import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart"; 
+import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart";
+import MarketplaceDistribution from "@/components/reports/MarketplaceDistribution";
+import TopSellingProducts from "@/components/reports/TopSellingProducts";
+
 const stats = [
   { name: 'Bugunki Sipariş Sayısı', value: '16', icon: MdDiscount, change: '+12%', gradient: 'blue' as const },
   { name: 'Aylık Gelir', value: '₺45,678', icon: LuWallet, change: '+8%', gradient: 'green' as const },
@@ -55,13 +58,17 @@ export default function Home() {
         <div className="mb-8">
           <SalesStatisticsChart data={salesData} />
         </div>
-{/* 
-          <QuickActions actions={quickActions}/>
-          <ActivityList activities={activities}/> */}
 
+        <div className="w-full flex flex-row gap-4"> 
+          <div className="w-1/2">
+            <MarketplaceDistribution />
+          </div>
+          <div className="w-1/2">
+            <TopSellingProducts />
+          </div> 
+        </div> 
+          
       </div>
- 
-   
     </div>
   );
 }
