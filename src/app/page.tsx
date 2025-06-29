@@ -7,6 +7,7 @@ import StatCard from "@/components/dashboard/StatCard";
 import SalesStatisticsChart from "@/components/dashboard/SalesStatisticsChart";
 import MarketplaceDistribution from "@/components/reports/MarketplaceDistribution";
 import TopSellingProducts from "@/components/reports/TopSellingProducts";
+import LatestVideoCard, { AnnouncementsCard } from "@/components/dashboard/LatestVideoCard";
 
 const stats = [
   { name: 'Bugunki Sipariş Sayısı', value: '16', icon: MdDiscount, change: '+12%', gradient: 'blue' as const },
@@ -56,18 +57,29 @@ export default function Home() {
         </div>
 
         <div className="mb-8">
-          <SalesStatisticsChart data={salesData} />
-        </div>
-
-        <div className="w-full flex flex-row gap-4"> 
-          <div className="w-1/2">
-            <MarketplaceDistribution />
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 w-full">
+            <div className="lg:col-span-3">
+              <SalesStatisticsChart data={salesData} />
+              
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="w-full">
+                  <MarketplaceDistribution />
+                </div>
+                <div className="w-full">
+                  <TopSellingProducts />
+                </div>
+              </div>
+            </div>
+            <div className="lg:col-span-1 flex justify-end">
+              <div className="w-full max-w-[340px]">
+                <LatestVideoCard />
+                <div className="mt-6">
+                  <AnnouncementsCard />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-1/2">
-            <TopSellingProducts />
-          </div> 
-        </div> 
-          
+        </div>
       </div>
     </div>
   );
