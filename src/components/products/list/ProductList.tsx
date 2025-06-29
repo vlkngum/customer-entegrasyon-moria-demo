@@ -8,6 +8,7 @@ import QuickStockUpdateModal from './QuickStockUpdateModal';
 import ProductActionsMenu from './ProductActionsMenu';
 import Image from "next/image";
 import Link from 'next/link';
+import BulkProcessModal from './BulkProcessModal';
 
 // Define a type for the Product object for better type safety
 type Product = {
@@ -37,6 +38,15 @@ export default function ProductList() {
   
   // State for managing the actions menu
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
+
+  // Seçili ürünlerin ID'leri için state
+  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
+
+  // State for BulkProcessModal
+  const [isBulkModalOpen, setIsBulkModalOpen] = useState(false);
+
+  // State for delete dropdown
+  const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
 
   const handleOpenPriceModal = (product: Product) => {
     setSelectedProductForPrice(product);
@@ -68,6 +78,20 @@ export default function ProductList() {
     setOpenMenuId(null);
   };
 
+  const handleSelectProduct = (id: number) => {
+    setSelectedProductIds(prev =>
+      prev.includes(id) ? prev.filter(pid => pid !== id) : [...prev, id]
+    );
+  };
+
+  const handleSelectAll = () => {
+    if (selectedProductIds.length === products.length) {
+      setSelectedProductIds([]);
+    } else {
+      setSelectedProductIds(products.map(p => p.id));
+    }
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // Check if the click is outside the currently active menu area
@@ -86,6 +110,20 @@ export default function ProductList() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [openMenuId]);
+
+  // Dropdown dışına tıklanınca kapat
+  useEffect(() => {
+    if (!isDeleteDropdownOpen) return;
+    const handleClickOutside = (event: MouseEvent) => {
+      const dropdown = document.getElementById('delete-dropdown');
+      const button = document.getElementById('delete-dropdown-btn');
+      if (dropdown && !dropdown.contains(event.target as Node) && button && !button.contains(event.target as Node)) {
+        setIsDeleteDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isDeleteDropdownOpen]);
 
   const products: Product[] = [
     {
@@ -149,11 +187,42 @@ export default function ProductList() {
 
   return (
     <div className="bg-blue-50/50 p-4 rounded-lg mt-4 mb-20">
+      {/* Toplu İşlemler Barı */}
+      {selectedProductIds.length > 0 && (
+        <div className="bg-blue-500 text-white rounded-lg flex items-center p-4 mb-4 relative">
+          <input
+            type="checkbox"
+            checked={selectedProductIds.length === products.length}
+            onChange={handleSelectAll}
+            className="mr-2 h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          />
+          <span className="font-bold mr-4">{selectedProductIds.length} adet kayıt seçildi.</span>
+          <button className="flex items-center mr-4 hover:opacity-70" onClick={() => setIsBulkModalOpen(true)}>
+          <Image src={'/filtArrow.svg'} width={0} height={0} alt='arrowUp' className='w-4 h-4 mr-2' /> TOPLU İŞLEMLER
+          </button>
+          <div className="relative">
+            <button id="delete-dropdown-btn" className="flex items-center text-white hover:opacity-70" onClick={() => setIsDeleteDropdownOpen((v) => !v)}>
+              <Image src="/filtDelete.svg" width={0} height={0} alt="Sil" className="w-[15px] h-[15px] block mr-2"/> SİLME İŞLEMLERİ
+            </button>
+            {isDeleteDropdownOpen && (
+              <div id="delete-dropdown" className="absolute left-0 top-full mt-2 z-20 bg-blue-500 rounded-lg shadow-lg w-56">
+                <button className="w-full text-left px-6 py-3 hover:bg-blue-600 text-white font-bold border-b border-blue-400" onClick={() => {/* Seçilenleri sil */ setIsDeleteDropdownOpen(false);}}>SEÇİLENLERİ SİL</button>
+                <button className="w-full text-left px-6 py-3 hover:bg-blue-600 text-white font-bold" onClick={() => {/* Tüm ürünleri sil */ setIsDeleteDropdownOpen(false);}}>TÜM ÜRÜNLERİ SİL</button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       {/* Liste Başlığı */}
       <div className="grid grid-cols-12 gap-4 items-center px-4 py-2 text-xs font-bold text-gray-500 uppercase">
         <div className="col-span-1 flex items-center gap-2">
-            <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 opacity-0" /> 
-            ETİKET
+          <input
+            type="checkbox"
+            checked={selectedProductIds.length === products.length && products.length > 0}
+            onChange={handleSelectAll}
+            className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+          />
+          ETİKET
         </div>
         <div className="col-span-4 lg:col-span-3 flex items-center gap-1 cursor-pointer hover:text-gray-800">ÜRÜN ADI <FaSort /></div>
         <div className="col-span-2 flex items-center gap-1 cursor-pointer hover:text-gray-800">FİYATI <FaSort /></div>
@@ -169,7 +238,12 @@ export default function ProductList() {
           <div key={product.id} className="grid grid-cols-12 gap-4 items-center bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             
             <div className="col-span-1 flex items-center gap-3">
-              <input type="checkbox" className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+              <input
+                type="checkbox"
+                checked={selectedProductIds.includes(product.id)}
+                onChange={() => handleSelectProduct(product.id)}
+                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+              />
               <span className="font-bold text-gray-400 text-lg">#</span>
             </div>
             
@@ -225,6 +299,7 @@ export default function ProductList() {
         onClose={handleCloseStockModal}
         product={selectedProductForStock}
       />
+      <BulkProcessModal showModal={isBulkModalOpen} onClose={() => setIsBulkModalOpen(false)} />
     </div>
   );
 } 

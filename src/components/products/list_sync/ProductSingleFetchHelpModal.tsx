@@ -20,7 +20,7 @@ export default function ProductSingleFetchHelpModal({ open, onClose, platform }:
   if (!open) return null;
   const content = helpContent[platform];
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-2xl mx-auto p-8 relative animate-fadeIn">
         <button
           onClick={onClose}

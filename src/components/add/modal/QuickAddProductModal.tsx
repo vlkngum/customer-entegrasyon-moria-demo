@@ -18,7 +18,7 @@ export default function QuickAddProductModal({ open, onClose }: { open: boolean,
 
     return (
         <div
-            className="fixed inset-0 z-40 flex items-center justify-center bg-black/40 w-full h-full"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 w-full h-full"
             onClick={handleBackdropClick}
         >
             <div

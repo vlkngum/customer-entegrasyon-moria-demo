@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { FaUsers, FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
+import { FaSearch, FaFileInvoiceDollar } from "react-icons/fa";
 import ProductTable, { ProductTableColumn } from '@/components/ProductTable';
 import { MdKeyboardArrowRight } from "react-icons/md";
 import CustomerForm, { CustomerFormValues } from '@/components/bills/CustomerForm';
+import Image from "next/image";
 
 const customers = [
   { id: '1', name: 'Ahmet Yılmaz', email: 'ahmet@example.com' },
@@ -51,14 +52,14 @@ export default function Invoices() {
       render: (_: any, row: any) => (
         <div className="flex justify-end gap-2">
           <button
-            className="flex items-center gap-1 bg-blue-100 text-blue-700 px-3 py-1 rounded-md text-xs font-semibold shadow hover:bg-blue-200 transition"
+            className="flex items-center gap-1 bg-blue-100 text-[#0f82ff] px-3 py-1 rounded-md text-xs font-semibold shadow hover:bg-blue-200 transition"
             onClick={() => handleEdit(row)}
           >
-            <FaUsers className="w-3 h-3" />
+            <Image src={'/entekasProductedit.svg'} width={0} height={0} alt='edit' className='w-3 h-3' />
             DÜZENLE
           </button>
           <button className="flex items-center gap-1 bg-red-100 text-red-700 px-3 py-1 rounded-md text-xs font-semibold shadow hover:bg-red-200 transition">
-            <FaFileInvoiceDollar className="w-3 h-3" />
+            <Image src={'/mini-delete.svg'} width={0} height={0} alt='delete' className='w-4 h-4' />
             SİL
           </button>
         </div>

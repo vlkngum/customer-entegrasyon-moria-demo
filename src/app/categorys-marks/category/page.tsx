@@ -156,13 +156,13 @@ export default function CategoryPage() {
           <div className="flex-[2] flex gap-3">
             <button
               onClick={() => setSyncingCategoryId(syncingCategoryId === cat.id ? null : cat.id)}
-              className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+              className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px] hover:opacity-70">
               <span className="bg-[#ff6a3a] rounded-full p-1 flex items-center justify-center">
                 <MdSync className="text-white w-[15px] h-[15px]" />
               </span>
               KATEGORİ EŞİTLE
             </button>
-            <button className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+            <button className="bg-[#fff4f0] text-[#ff6a3a] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px] hover:opacity-70">
               <span className="bg-[#ff6a3a] rounded-full p-1 flex items-center justify-center">
                 <MdSync className="text-white w-[15px] h-[15px]" />
               </span>
@@ -170,9 +170,9 @@ export default function CategoryPage() {
             </button>
           </div>
           <div className="flex-1 flex justify-end gap-2">
-            <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px]">
+            <button className="bg-[#ffeaea] text-[#ff3b3b] border-none rounded-lg py-2 px-4 font-semibold flex items-center gap-[6px] hover:opacity-70">
               <span className="bg-[#e60023] rounded-full p-1 flex items-center justify-center">
-                <Image src="/delete-icon.png" width={0} height={0} alt="Sil" className="w-[15px] h-[15px] block"/>
+                <Image src="/mini-delete.svg" width={0} height={0} alt="Sil" className="w-4 h-4 block"/>
               </span>
               SİL
             </button>

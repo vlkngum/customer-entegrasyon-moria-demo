@@ -29,8 +29,8 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
         <div className='flex justify-between'>
           <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/> {pageTitle}</h1>
           <a href='/add/customer' className="border_button">
-            <FaFileInvoiceDollar className="w-6 h-6 opacity-70" />
-            <span className='opacity-80' style={{ fontSize:10 }}>Müşteri Ekle</span>
+            <Image src={'/invoicePrint.svg'} width={0} height={0} alt='add' className='w-6 h-6 opacity-70' />
+            <span className='opacity-80' style={{ fontSize:10 }}>Yeni Müşteri Ekle</span>
           </a>
         </div>
 

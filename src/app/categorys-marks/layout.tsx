@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { FiFilePlus } from "react-icons/fi";
 import { GiShop } from "react-icons/gi";
 import { IoReturnUpBack } from "react-icons/io5";
+import Image from "next/image";
 
 import YeniKategoriEkleModal from "@/components/categorys-marks/YeniKategoriEkleModal";
 import YeniMarkaEkleModal from "@/components/categorys-marks/YeniMarkaEkleModal";
@@ -46,7 +47,7 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
           <div className="layout-panel">
             <div className="w-full flex flex-row justify-between items-center">
               <div className="flex items-center space-x-3 ">
-                <GiShop className="text-3xl text-blue-600"/>
+              <Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/>
                 <h1 className="text-2xl font-bold text-gray-800">{getPageTitle()}</h1> 
               </div>
 
@@ -79,7 +80,7 @@ export default function ProductsLayout({ children }: { children: React.ReactNode
                     onClick={() => setIsKategoriModalOpen(true)}
                     style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4, padding: '8px 12px', minWidth: 90 }}
                   >
-                    <FiFilePlus className="w-6 h-6 text-gray-500" />
+                    <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
                     <span className="font-semibold text-gray-600" style={{ fontSize:10 }}>YENİ KATEGORİ EKLE</span>
                   </button>
                 )}

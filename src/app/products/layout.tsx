@@ -32,6 +32,15 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
 
         <div className='flex justify-between'>
           <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/production.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/> {pageTitle}</h1>
+          {pathname === '/products/list_sync' && (
+            <div className="flex gap-2 mb-6">
+              <a className="border_button flex items-center gap-1" href="/add">
+                {/* AiOutlineProduct ikonu burada kullanılacak */}
+                <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
+                <span style={{ fontSize: 10 }}>YENİ ÜRÜN EKLE</span>
+              </a>
+            </div>
+          )}
         </div>
 
         <div className='bg-white'>

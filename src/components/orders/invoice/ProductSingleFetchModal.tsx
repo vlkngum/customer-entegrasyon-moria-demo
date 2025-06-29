@@ -24,7 +24,7 @@ export default function ProductSingleFetchModal({ open, onClose }: { open: boole
 
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
       <div className="panel w-1/4 animate-fadeIn min-h-1/2 justify-between flex flex-col fixed">
         <div>
           <div className="flex flex-row w-full justify-between items-center"> 

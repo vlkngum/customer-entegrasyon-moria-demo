@@ -1,8 +1,7 @@
 "use client";
 
 import { ReactNode } from 'react';
-
-import Image from 'next/image';
+import { LuFolderDown } from "react-icons/lu"; 
 
 interface OrdersLayoutProps {
   children: ReactNode;
@@ -14,7 +13,7 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
       <div className='px-8 pt-8 mb-2'>
 
         <div className='flex justify-between'>
-          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><Image src={'/icon/product.svg'} width={0} height={0} alt='orderIcon' className='h-10 w-10'/>İade Yönetimi</h1>
+          <h1 className="text-2xl font-mono text-gray-900 mb-6 flex flex-row items-center gap-2"><LuFolderDown className="w-8 h-8 text-[#0f82ff]" />İade Yönetimi</h1>
         </div>
 
         

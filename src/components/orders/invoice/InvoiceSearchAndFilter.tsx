@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { GoSearch } from 'react-icons/go';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io'; 
 import InvoiceFilterModal from './InvoiceFilterModal';
+import Image from 'next/image';
 
 const InvoiceSearchAndFilter: React.FC = () => {
   const [showDetailedFilters, setShowDetailedFilters] = useState(false);
@@ -27,8 +27,8 @@ const InvoiceSearchAndFilter: React.FC = () => {
         </button>
       </div>
 
-      <div className="text-blue-600 cursor-pointer flex items-center mb-4 justify-end" onClick={toggleDetailedFilters}>
-        {showDetailedFilters ? <IoIosArrowUp className="mr-1" /> : <IoIosArrowDown className="mr-1" />}
+      <div className="text-[#47494c] cursor-pointer flex text-md items-center mb-4 justify-end hover:text-[#0868dd]" onClick={toggleDetailedFilters}>
+        {showDetailedFilters ? <Image src={'/arrow-right.svg'} width={0} height={0} alt='arrowUp' className='w-4 h-4 opacity-70 mr-2' /> : <Image src={'/arrow-right.svg'} width={0} height={0} alt='arrowDown' className='w-4 h-4 opacity-70 mr-2' />}
         Detaylı Filtrele
       </div>
 

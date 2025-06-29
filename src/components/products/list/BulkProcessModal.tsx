@@ -20,8 +20,8 @@ const BulkProcessModal: React.FC<BulkProcessModalProps> = ({ showModal, onClose 
   if (!showModal) return null;
   return (
     <>
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20">
-        <div className="bg-white rounded-xl shadow-lg p-0 max-w-1/3 relative">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20" onClick={onClose}>
+        <div className="bg-white rounded-xl shadow-lg p-0 max-w-1/3 relative" onClick={e => e.stopPropagation()}>
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-red-500 hover:text-red-700 text-2xl"

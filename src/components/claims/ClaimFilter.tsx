@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa"; 
-import { MdKeyboardArrowRight } from "react-icons/md"; 
 import DetailedFilterSidebar from "@/components/claims/DetailedFilterSidebar";
+import Image from "next/image";
 
 export default function ClaimFilter () {
 
@@ -28,13 +28,10 @@ export default function ClaimFilter () {
                     
                 </div>
                 <div className="w-full flex justify-end px-4 py-6">
-                    <button 
-                        className="flex items-center space-x-1 text-blue-600 font-medium text-sm py-2.5 px-3 cursor-pointer"
-                        onClick={() => setIsSidebarOpen(true)}
-                    >
-                        <span>Detaylı Filtrele</span>
-                        <MdKeyboardArrowRight className="w-5 h-5" />
-                    </button>
+                <div className="text-[#47494c] cursor-pointer flex text-md items-center mb-4 justify-end hover:text-[#0868dd]" onClick={() => setIsSidebarOpen(true)}>
+         <Image src={'/arrow-right.svg'} width={0} height={0} alt='arrowUp' className='w-4 h-4 opacity-70 mr-2' />
+        Detaylı Filtrele
+      </div>
                 </div>
             </div>
 

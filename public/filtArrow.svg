@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="16px" viewBox="0 0 17 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>down-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Toplu-Kategori-Eşitleme-Copy-5" transform="translate(-318.000000, -351.000000)">
+            <g id="FİLTRELER" transform="translate(113.000000, 330.000000)">
+                <g id="DETAYLAR" transform="translate(187.000000, 14.000000)">
+                    <g id="SİLME-BUTON" transform="translate(18.000000, 7.000000)">
+                        <g id="Detaylı-Filtre">
+                            <g id="down-arrow">
+                                <rect id="Rectangle" fill="#E8F2FF" x="0.5" y="0" width="16" height="16" rx="8"></rect>
+                                <path d="M11.8881129,6.33431521 L11.6588184,6.11094288 C11.5866552,6.04118376 11.4906463,6.00275292 11.3880357,6.00275292 C11.285482,6.00275292 11.1893593,6.04118376 11.1171961,6.11094288 L8.50156505,8.64154164 L5.88291775,6.10813489 C5.81086838,6.03837577 5.71474565,6 5.61219197,6 C5.50963829,6 5.41345865,6.03837577 5.34135237,6.10813489 L5.11200091,6.33013076 C4.96266636,6.47449415 4.96266636,6.709649 5.11200091,6.85401239 L8.22981488,9.88118376 C8.30186424,9.95088782 8.39787315,10 8.50133741,10 L8.50253254,10 C8.60514313,10 8.70115204,9.95083276 8.77320141,9.88118376 L11.8881129,6.8622161 C11.9602761,6.79251204 11.9998862,6.69682037 12,6.59760496 C12,6.49833448 11.9602761,6.40396421 11.8881129,6.33431521 Z" id="Path" fill="#0F82FF" transform="translate(8.500000, 8.000000) rotate(-90.000000) translate(-8.500000, -8.000000) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
