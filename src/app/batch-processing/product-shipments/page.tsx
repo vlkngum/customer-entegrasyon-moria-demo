@@ -66,12 +66,12 @@ export default function BulkTransactionsPage() {
             className="border_button hover:shadow-md transition group focus:outline-none"
             onClick={() => setFilterOpen(true)}
           >
-            <FiFilePlus className="text-lg mb-1 text-gray-500 group-hover:text-blue-600 transition" />
+             <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
             <span className="text-[11px] font-semibold text-gray-600 group-hover:text-blue-700 tracking-wide">DETAYLI FİLTRELE</span>
           </button>
           {/* Yeni Toplu Ürün Gönderimi Başlat Button */}
           <button className="border_button hover:shadow-md transition group focus:outline-none" onClick={() => router.push("/batch-processing/add")}>
-            <FiFilePlus className="text-lg mb-1 text-gray-500 group-hover:text-blue-600 transition" />
+          <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
             <span className="text-[11px] font-semibold text-gray-600 group-hover:text-blue-700 tracking-wide">YENİ TOPLU ÜRÜN GÖNDERİMİ BAŞLAT</span>
           </button>
         </div>
@@ -103,7 +103,7 @@ export default function BulkTransactionsPage() {
           )}
 
           {/* Header */}
-          <div className="grid grid-cols-1 md:grid-cols-7 gap-4 bg-transparent text-sm font-bold text-gray-500 border-b-2 pb-3">
+          <div className="grid grid-cols-1 md:grid-cols-7 gap-4 bg-transparent text-sm font-bold text-gray-500 border-b-2 border-gray-200 pb-3">
             <div className="p-2 text-center">PLATFORM</div>
             <div className="p-2 col-span-3">İŞLEM DETAYLARI</div>
             <div className="p-2 text-center">DURUM BİLGİSİ</div>

@@ -73,29 +73,35 @@ export default function ListSyncPage() {
   return (
     <div className="min-h-screen bg-blue-50 p-4">
    <div className="panel"> 
-      <div className="w-full flex flex-row justify-between py-2 px-6">
-        <div className="mb-4 flex flex-row items-center gap-2 w-1/2">
-          <input
-            type="text"
-            className="input"
-            placeholder="Stok Kodu, Ürün Adı veya Barkod ile ara..."
-          />
-          <button className="bg-blue-600 text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-blue-700 transition-colors duration-200 ">
-            <FaSearch className="w-4 h-4" />
-            <span>FİLTRELE</span>
-          </button>
+   <div className="w-full flex flex-row py-2 px-6">
+        <div className="mb-4 flex flex-row items-center gap-2 w-full">
+          <div className="flex flex-col w-full">
+            <label className="block text-sm font-bold text-gray-700 mb-1">ÜRÜN ARAMA</label>
+            <div className="flex flex-row items-center gap-2 w-full">
+              <input
+                type="text"
+                className="input"
+                placeholder="Stok Kodu, Ürün Adı veya Barkod ile ara..."
+              />
+              <button className="bg-[#0f82ff] text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-blue-600 transition-colors duration-200 ">
+                <FaSearch className="w-4 h-4" />
+                <span>FİLTRELE</span>
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      
       
       <div className="w-full flex justify-end px-4 py-6 gap-4">
-        <div className="text-blue-600 cursor-pointer flex items-center mb-4 justify-end" onClick={toggleBulkProcess}>
-          {bulkProcessModal ? <IoIosArrowUp className="mr-1" /> : <IoIosArrowDown className="mr-1" />}
-          Toplu İşlemler
+      <div className="text-[#47494c] cursor-pointer flex text-md items-center mb-4 justify-end hover:text-[#0868dd]" onClick={toggleBulkProcess}>
+        <Image src={'/arrow-right.svg'} width={0} height={0} alt='arrowUp' className='w-4 h-4 opacity-70 mr-2' />
+        Toplu İşlemler
         </div>
-        <div className="text-blue-600 cursor-pointer flex items-center mb-4 justify-end" onClick={toggleDetailedFilters}>
-          {showDetailedFilters ? <IoIosArrowUp className="mr-1" /> : <IoIosArrowDown className="mr-1" />}
-          Detaylı Filtrele
-        </div>
+        <div className="text-[#47494c] cursor-pointer flex text-md items-center mb-4 justify-end hover:text-[#0868dd]" onClick={toggleDetailedFilters}>
+        <Image src={'/arrow-right.svg'} width={0} height={0} alt='arrowUp' className='w-4 h-4 opacity-70 mr-2' />
+        Detaylı Filtrele
+      </div>
+      </div>
       </div>
 
       <ProductFilterModal showModal={showDetailedFilters} onClose={toggleDetailedFilters} />
@@ -106,9 +112,9 @@ export default function ListSyncPage() {
 
     </div>
 
-    <div className="bg-white rounded-lg shadow-sm p-6 overflow-x-auto">
+    <div className="bg-white rounded-lg shadow-sm p-6 overflow-x-auto mb-8">
           <div className="min-w-[900px]">
-            <div className="grid grid-cols-8 gap-4 font-semibold text-gray-600 border-b pb-2 mb-2 text-sm">
+            <div className="grid grid-cols-8 gap-4 font-semibold text-gray-600 border-b border-gray-200 pb-2 mb-2 text-sm">
               <div className="w-8 text-center"><input type="checkbox" className="form-checkbox" /></div>
               <div className="text-center">ETİKET</div>
               <div className="text-center">ÜRÜN GÖRSELİ</div>

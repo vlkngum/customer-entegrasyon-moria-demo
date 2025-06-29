@@ -38,7 +38,7 @@ export default function ShipmentReportPage() {
                 <span className="text-[11px] font-semibold text-gray-600 group-hover:text-blue-700 tracking-wide">GERİ DÖN</span>
             </button>
             <button onClick={() => router.push("/batch-processing/new-bulk-product-shipment")} className="border_button hover:shadow-md transition group focus:outline-none flex items-center gap-2">
-                <FiFilePlus className="text-lg text-gray-500 group-hover:text-blue-600 transition" />
+            <Image src="/hizliEkle.svg" alt="hizliEkle" width={20} height={20} />
                 <span className="text-[11px] font-semibold text-gray-600 group-hover:text-blue-700 tracking-wide">YENİ TOPLU ÜRÜN GÖNDERİMİ BAŞLAT</span>
             </button>
         </div>
@@ -57,7 +57,7 @@ export default function ShipmentReportPage() {
           {/* Report Header */}
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-4">
-              <Image src="/trendyolLogo.svg" alt="Trendyol" className="w-16 h-16 object-contain" />
+              <Image src="/trendyolLogo.svg" alt="Trendyol" width={0} height={0} className="w-16 h-16 object-contain" />
               <div>
                 <h1 className="text-xl font-bold text-gray-800">Trendyol Ürün Gönderim Raporu</h1>
                 <p className="text-sm text-gray-500">20-06-2025 19:45 tarihli gönderim detayları</p>
