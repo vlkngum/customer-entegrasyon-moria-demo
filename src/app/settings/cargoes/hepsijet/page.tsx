@@ -10,7 +10,7 @@ export default function HepsijetSettings() {
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value, type } = e.target;
     setForm((prev) => ({
       ...prev,
       [name]: type === "radio" ? value : value,

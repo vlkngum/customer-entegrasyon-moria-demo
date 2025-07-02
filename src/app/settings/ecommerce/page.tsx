@@ -75,12 +75,42 @@ const erpList = [
     bg: 'bg-[#223A6A]',
     passive: false,
   },
+  {
+    name: 'ikas',
+    settings: 'İkas Ayarları',
+    logo: '/ideasoft.png',
+    bg: 'bg-[#223A6A]',
+    passive: false,
+  },
 ];
 
 export default function ErpSettingsPage() {
   const router = useRouter();
   const handleCardClick = (erpName: string) => {
-    router.push(`/settings/ecommerce/${erpName}`);
+    // Platform adını route uyumlu hale getir (Türkçe küçük harf desteği)
+    const routeName = erpName
+      .toLocaleLowerCase('tr') // Türkçe küçük harfe çevir
+      .replace(/ı/g, 'i')
+      .replace(/ç/g, 'c')
+      .replace(/ş/g, 's')
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ö/g, 'o')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
+    // Her platform için özel route
+    if (erpName === 'Ticimax') {
+      router.push('/settings/ecommerce/ticimax');
+    } else if (erpName === 'Kolay Sipariş') {
+      router.push('/settings/ecommerce/kolay-siparis');
+    } else if (erpName === 'Shopier') {
+      router.push('/settings/ecommerce/shopier');
+    } else {
+      // Diğerleri için dinamik route
+      router.push(`/settings/ecommerce/${routeName}`);
+    }
   };
 
   return (

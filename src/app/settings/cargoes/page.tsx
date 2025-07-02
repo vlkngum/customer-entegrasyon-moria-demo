@@ -4,7 +4,16 @@ import { FiSettings } from 'react-icons/fi';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const erpList = [
+interface ErpItem {
+  name: string;
+  settings: string;
+  logo: string;
+  bg: string;
+  passive: boolean;
+  href: string;
+}
+
+const erpList: ErpItem[] = [
   {
     name: 'Aras Kargo',
     settings: 'Aras Kargo Ayarları',
@@ -73,7 +82,7 @@ const erpList = [
 
 export default function ErpSettingsPage() {
   const router = useRouter();
-  const handleCardClick = (erp: any) => {
+  const handleCardClick = (erp: ErpItem) => {
     router.push(erp.href);
   };
 
