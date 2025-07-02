@@ -1,6 +1,5 @@
 "use client"
 
-import { GiShop } from 'react-icons/gi';
 import Image from "next/image";
 import React, { useState, useRef } from 'react';
 
@@ -39,7 +38,7 @@ export default function StoreDetailPage() {
         <div className="w-full flex flex-row gap-6 mt-8 items-stretch ml-10 mr-10 justify-center">
           {/* Sol: API Bilgileri Formu ve Kargo ve Süreç Seçimleri aynı column parent'ta */}
           <div className="w-1/2 flex flex-col">
-            <div className="bg-white p-8 flex flex-col gap-5 rounded-2xl shadow-md border border-[#E5E7EB] min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
+            <div className="bg-white p-8 flex flex-col gap-5 rounded-2xl border border-[#e5e7eb] shadow-md min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
               <div className="flex items-center gap-3 mb-2 border-b border-gray-200 pb-3">
                 <div className="bg-blue-100 rounded-full p-2">
                   <Image src="/akakce.svg" alt="logo" width={40} height={40} className="w-10 h-10 object-contain" />
@@ -121,7 +120,7 @@ export default function StoreDetailPage() {
               <form className="flex flex-col gap-3">
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id="ucretsiz_kargo" className="w-4 h-4 rounded border-gray-300" />
-                  <label htmlFor="ucretsiz_kargo" className="text-[14px] text-gray-700">Akakçe'ye gönderilecek ürünlerde ücretsiz kargo uygulansın mı?</label>
+                  <label htmlFor="ucretsiz_kargo" className="text-[14px] text-gray-700">Akakçe&#39;ye gönderilecek ürünlerde ücretsiz kargo uygulansın mı?</label>
                 </div>
                 <div className="flex gap-4 border-b border-gray-200 pb-4">
                   <div className="flex flex-col flex-1">
@@ -153,10 +152,17 @@ export default function StoreDetailPage() {
           <div className="flex-1 min-w-0 bg-white p-8 flex flex-col gap-3 rounded-2xl mr-15 border border-[#e5e7eb] shadow-md w-1/2 mx-0 min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
             <div className="flex items-center justify-between mb-2 border-b border-gray-200 pb-3">
               <div className="text-lg font-semibold">Kurulum Rehberi</div>
-              <button className="flex items-center gap-2 bg-red-100 text-red-600 font-semibold px-3 py-1.5 rounded-full hover:bg-red-200 text-xs shadow-none focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" fill="#fff"/><polygon points="10,8 16,12 10,16" fill="#ef4444"/></svg>
-                VİDEOLU ANLATIM
-              </button>
+              <button className="group flex items-center gap-2 bg-[#fedfdf] text-[#d00527] font-semibold px-4 py-2 rounded-full hover:bg-[#d0021b] hover:text-white text-sm shadow-none focus:outline-none transition-colors">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#d00527] group-hover:bg-white transition-colors">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <polygon 
+                    points="6,4.5 12,8 6,11.5" 
+                    className="fill-white group-hover:fill-[#d00527] transition-colors"
+                  />
+                </svg>
+              </span>
+              VİDEOLU ANLATIM
+            </button>
             </div>
             
             <div
@@ -173,7 +179,7 @@ export default function StoreDetailPage() {
               </div>
               <div className="font-semibold mt-2">2- Ürünlerinizi Aktarın</div>
               <div className="mt-1 text-[14px]">
-              Ürünlerinizi Entekas'a aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.
+              Ürünlerinizi Entekas&#39;a aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.
 
 İlgili ayarlamaları tamamladıktan sonra sayfanın sol üst kısmında bulunan Ürünleri Ve Fiyatları Aktar butonuna tıklayın. Açılan sayfada ürün aktarımı ile ilgili aktarım kurallarını özelleştirip İşlemi Onayla butonuna tıklayarak aktarma işlemini başlatabilirsiniz.
               </div>
@@ -183,9 +189,9 @@ export default function StoreDetailPage() {
 
 Mavi alanda aktarılan toplam ürün adedi bilgisi yer alır.
 
-Yeşil alanda aktarılan ürünler ile eşleşen ürünlerin(Entekas'da olan ürünlerle) toplam adet bilgisi yer alır.
+Yeşil alanda aktarılan ürünler ile eşleşen ürünlerin(Entekas&#39;da olan ürünlerle) toplam adet bilgisi yer alır.
 
-Turuncu alanda ise aktarılan ürünler ile eşleşmeyen ürünlerin(Entekas'da olan ürünlerle) toplam adet bilgisi yer alır.
+Turuncu alanda ise aktarılan ürünler ile eşleşmeyen ürünlerin(Entekas&#39;da olan ürünlerle) toplam adet bilgisi yer alır.
 
 
               </div>

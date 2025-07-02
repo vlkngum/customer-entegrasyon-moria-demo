@@ -18,7 +18,7 @@ export default function ErpDetailPage() {
   if (erpName === 'Trendyol E-faturam (Sovos)') {
     return (
       <div className="min-h-screen bg-[#F5F7FA] flex flex-col items-center py-0 mb-8">
-        <div className="w-full flex flex-col items-start bg-white shadow-sm px-4 md:px-8 lg:px-16">
+        <div className="w-full flex flex-col items-start bg-white shadow-sm px-2 md:px-4 lg:px-6">
           <div className="w-full flex items-center gap-3 py-6 px-0">
             <div className="bg-blue-100 rounded-lg p-2 flex items-center justify-center">
               <span className="text-2xl text-blue-600"><GiShop /></span>
@@ -29,7 +29,7 @@ export default function ErpDetailPage() {
             <button className="px-4 py-2 text-blue-600 font-semibold border-b-2 border-blue-600 bg-white focus:outline-none">Ayarlar</button>
           </div>
         </div>
-        <div className="w-full mb-6 px-4 md:px-8 lg:px-16 mt-4">
+        <div className="w-full mb-6 px-2 md:px-4 lg:px-6 mt-4">
           <div className="text-base flex items-center gap-1 mb-2">
             <Link href="/" className="font-semibold text-[#222] hover:underline">Entekas</Link>
             <span className="mx-1 text-gray-400">/</span>
@@ -170,10 +170,10 @@ export default function ErpDetailPage() {
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">ENTEGASYON DURUMU</label>
-              <div className="flex gap-6 mt-2">
+              <div className="flex flex-col md:flex-row w-full gap-2 md:gap-4 mt-2 border-b-2 border-gray-200 pb-4">
                 <label
                   htmlFor="entegrasyon_acik"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                  className={`flex-1 flex items-center gap-3 px-6 py-4 min-w-[160px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
                 >
                   <span className="relative flex items-center">
                     <input
@@ -193,7 +193,7 @@ export default function ErpDetailPage() {
                 </label>
                 <label
                   htmlFor="entegrasyon_kapali"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                  className={`flex-1 flex items-center gap-3 px-6 py-4 min-w-[160px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
                 >
                   <span className="relative flex items-center">
                     <input
@@ -225,7 +225,7 @@ export default function ErpDetailPage() {
   return (
     <div className="min-h-screen bg-[#F5F7FA] flex flex-col items-center py-0 mb-8">
       {/* Üst Başlık ve Sekme */}
-      <div className="w-full flex flex-col items-start bg-white shadow-sm px-4 md:px-8 lg:px-16">
+      <div className="w-full flex flex-col items-start bg-white shadow-sm px-2 md:px-4 lg:px-6">
         <div className="w-full flex items-center gap-3 py-6 px-0">
           <Image src="/production.svg" alt="production" width={32} height={26} />
           <span className="text-2xl font-semibold text-gray-800">{erpName} Ayarları</span>
@@ -236,47 +236,47 @@ export default function ErpDetailPage() {
         </div>
       </div>
       {/* Breadcrumb */}
-      <div className="w-full mb-6 px-4 md:px-8 lg:px-16 mt-4">
+      <div className="w-full mb-6 px-2 md:px-4 lg:px-6 mt-4">
         {/* Breadcrumb can be added here if needed */}
       </div>
       {/* İçerik Kutuları */}
-      <div className="w-full flex gap-8 px-4 md:px-8 lg:px-16">
+      <div className="w-full flex gap-8 px-2 md:px-4 lg:px-6">
         {/* Sol: API Bilgileri Formu */}
-        <div className="w-full bg-white p-8 flex flex-col gap-6 border-r border-gray-100 min-w-[350px] rounded-xl">
+        <div className="w-full bg-white p-8 flex flex-col gap-6 border-r border-gray-100 min-w-[350px] rounded-xl shadow-sm">
           <div className="flex items-center gap-3 mb-4 border-b-2 border-gray-200 pb-4">
-            <div className="text-xl font-semibold text-gray-700">API Bilgilerini Tanımlama</div>
+            <div className="text-xl font-semibold text-[#37474f]">API Bilgilerini Tanımlama</div>
           </div>
           <form className="flex flex-col gap-4 b">
             <div>
-              <label className="block text-gray-700 font-medium mb-1">SUNUCU ADI <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black	 mb-1">SUNUCU ADI <span className="text-red-500">*</span></label>
               <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">KULLANICI ADI <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black mb-1">KULLANICI ADI <span className="text-red-500">*</span></label>
               <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">ŞİFRE <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black mb-1">ŞİFRE <span className="text-red-500">*</span></label>
               <input type="password" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">API KEY <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black mb-1">API KEY <span className="text-red-500">*</span></label>
               <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">FİRMA KODU <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black mb-1">FİRMA KODU <span className="text-red-500">*</span></label>
               <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">DÖNEM KODU <span className="text-red-500">*</span></label>
+              <label className="block text-[#5d6e76] font-black mb-1">DÖNEM KODU <span className="text-red-500">*</span></label>
               <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-1">ENTEGASYON DURUMU</label>
-              <div className="flex gap-6 mt-2 border-b-2 border-gray-200 pb-4">
+              <label className="block text-[#5d6e76] font-black mb-1">ENTEGASYON DURUMU</label>
+              <div className="flex flex-col md:flex-row w-full gap-2 md:gap-4 mt-2 border-b-2 border-gray-200 pb-4">
                 <label
                   htmlFor="entegrasyon_acik"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                  className={`flex-1 flex items-center gap-3 px-6 py-4 min-w-[160px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
                 >
                   <span className="relative flex items-center">
                     <input
@@ -296,7 +296,7 @@ export default function ErpDetailPage() {
                 </label>
                 <label
                   htmlFor="entegrasyon_kapali"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                  className={`flex-1 flex items-center gap-3 px-6 py-4 min-w-[160px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
                 >
                   <span className="relative flex items-center">
                     <input
@@ -327,9 +327,16 @@ export default function ErpDetailPage() {
         {/* Sağ: Kurulum Rehberi */}
         <div className="w-full h-fit bg-white p-8 flex flex-col gap-4 rounded-xl border border-[#e5e7eb] shadow-sm">
           <div className="flex items-center justify-between mb-4 border-b-2 border-gray-200 pb-4">
-            <div className="text-xl font-semibold">Kurulum Rehberi</div>
-            <button className="flex items-center gap-2 bg-red-100 text-red-600 font-semibold px-4 py-2 rounded-full hover:bg-red-200 text-sm shadow-none focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" fill="#fff"/><polygon points="10,8 16,12 10,16" fill="#ef4444"/></svg>
+            <div className="text-xl text-[#37474f] font-semibold">Kurulum Rehberi</div>
+            <button className="group flex items-center gap-2 bg-[#fedfdf] text-[#d00527] font-semibold px-4 py-2 rounded-full hover:bg-[#d0021b] hover:text-white text-sm shadow-none focus:outline-none transition-colors">
+              <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#d00527] group-hover:bg-white transition-colors">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <polygon 
+                    points="6,4.5 12,8 6,11.5" 
+                    className="fill-white group-hover:fill-[#d00527] transition-colors"
+                  />
+                </svg>
+              </span>
               VİDEOLU ANLATIM
             </button>
           </div>
