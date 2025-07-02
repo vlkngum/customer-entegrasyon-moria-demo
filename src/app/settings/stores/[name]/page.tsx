@@ -2,136 +2,201 @@
 
 import { GiShop } from 'react-icons/gi';
 import Image from "next/image";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 export default function StoreDetailPage() {
   const [entegrasyonDurumu, setEntegrasyonDurumu] = useState('kapali');
+  const [showScrollHint, setShowScrollHint] = useState(true);
+  const rehberRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (rehberRef.current) {
+      if (rehberRef.current.scrollTop > 10) {
+        setShowScrollHint(false);
+      } else {
+        setShowScrollHint(true);
+      }
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#F5F7FA] flex flex-col items-center py-0 mb-8">
-      {/* Üst Başlık ve Sekme */}
-      <div className="w-full flex flex-col items-center bg-white shadow-sm">
-        <div className="w-full max-w-7xl flex items-center gap-3 py-6 px-4">
-          <div className="bg-blue-100 rounded-lg p-2 flex items-center justify-center">
-            <span className="text-2xl text-blue-600"><GiShop /></span>
+    <div className="min-h-screen bg-[#F5F7FA] flex flex-col i py-0 mb-8 w-full justify-start">
+      <div className="w-full flex flex-col items-start">
+        {/* Üst Başlık ve Sekme */}
+        <div className="w-full flex flex-col items-start bg-white shadow-sm border-b border-[#E5E7EB]">
+          <div className="w-full flex items-center gap-3 py-4 px-0 ml-10">
+            <div className="p-2 flex items-center justify-center">
+              <Image src="/production.svg" alt="production" width={32} height={26} />
+            </div>
+            <span className="text-[20px] font-semibold text-gray-800">Akakce Ayarları</span>
           </div>
-          <span className="text-2xl font-semibold text-gray-800">Akakce Ayarları</span>
-        </div>
-        {/* Sekme Barı */}
-        <div className="w-full max-w-7xl flex border-b border-gray-200 px-4">
-          <button className="px-4 py-2 text-blue-600 font-semibold border-b-2 border-blue-600 bg-white focus:outline-none">API Tanımlama</button>
-          {/* Diğer sekmeler eklenebilir */}
-        </div>
-      </div>
-      {/* Breadcrumb */}
-      <div className="w-full max-w-7xl mb-6 px-4 mt-4">
-        
-      </div>
-      {/* İçerik Kutuları */}
-      <div className="w-full max-w-7xl flex flex-col md:flex-row overflow-hidden relative mx-4 md:mx-12 xl:mx-32 gap-8">
-        {/* Sol: API Bilgileri Formu */}
-        <div className="w-full bg-white p-8 flex flex-col gap-6 border-r border-gray-100 min-w-[350px] rounded-xl">
-          <div className="flex items-center gap-3 mb-4 border-b-2 border-gray-200 pb-4">
-            <div className="bg-blue-100 rounded-full p-3">
-              <Image src="/akakce.svg" alt="logo" width={0} height={0} className="w-10 h-10 object-contain" />
-            </div>
-            <div className="text-xl font-semibold text-gray-700 ">API Bilgilerini Tanımlama</div>
+          {/* Sekme Barı */}
+          <div className="w-full flex border-b border-gray-200 px-0 ml-10">
+            <button className="px-0 py-2 text-blue-600 font-semibold border-b-2 border-blue-600 bg-white focus:outline-none text-[15px] h-[38px] min-w-[140px]">API Tanımlama</button>
           </div>
-          <form className="flex flex-col gap-4">
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">API NAME <span className="text-red-500">*</span></label>
-              <input type="text" className="input w-full border rounded px-3 py-2" placeholder="API Name" />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">API KEY <span className="text-red-500">*</span></label>
-              <input type="text" className="input w-full border rounded px-3 py-2" placeholder="API Key" />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN LİNKİ) <span className="text-red-500">*</span></label>
-              <input type="text" className="input w-full border rounded px-3 py-2" value="https://entekas.com" readOnly />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN İSİMLERİNİN BAŞINA MARKA EKLİ ŞEKİLDE GÖZÜKEN LİNK) <span className="text-red-500">*</span></label>
-              <input type="text" className="input w-full border rounded px-3 py-2" value="https://entekas.com" readOnly />
-            </div>
-            <div>
-              <label className="block text-gray-700 font-medium mb-1">ENTEGRASYON DURUMU</label>
-              <div className="flex gap-6 mt-2 border-b-2 border-gray-200 pb-4">
-                <label
-                  htmlFor="entegrasyon_acik"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
-                >
-                  <span className="relative flex items-center">
-                    <input
-                      type="radio"
-                      id="entegrasyon_acik"
-                      name="entegrasyon_durumu"
-                      checked={entegrasyonDurumu === 'acik'}
-                      onChange={() => setEntegrasyonDurumu('acik')}
-                      className="peer appearance-none w-5 h-5 rounded-full border-2 border-blue-500 checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition-all"
-                    />
-                    <span className={`absolute left-0 top-0 w-5 h-5 rounded-full border-2 ${entegrasyonDurumu === 'acik' ? 'border-blue-600 bg-white' : 'border-gray-300 bg-white'}`}></span>
-                    {entegrasyonDurumu === 'acik' && (
-                      <span className="absolute left-1 top-1 w-3 h-3 rounded-full bg-blue-600"></span>
-                    )}
-                  </span>
-                  <span className={`font-bold ${entegrasyonDurumu === 'acik' ? 'text-gray-700' : 'text-gray-400'}`}>ENTEGRASYON AÇIK</span>
-                </label>
-                <label
-                  htmlFor="entegrasyon_kapali"
-                  className={`flex items-center gap-3 px-6 py-4 min-w-[260px] rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
-                >
-                  <span className="relative flex items-center">
-                    <input
-                      type="radio"
-                      id="entegrasyon_kapali"
-                      name="entegrasyon_durumu"
-                      checked={entegrasyonDurumu === 'kapali'}
-                      onChange={() => setEntegrasyonDurumu('kapali')}
-                      className="peer appearance-none w-5 h-5 rounded-full border-2 border-blue-500 checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition-all"
-                    />
-                    <span className={`absolute left-0 top-0 w-5 h-5 rounded-full border-2 ${entegrasyonDurumu === 'kapali' ? 'border-blue-600 bg-white' : 'border-gray-300 bg-white'}`}></span>
-                    {entegrasyonDurumu === 'kapali' && (
-                      <span className="absolute left-1 top-1 w-3 h-3 rounded-full bg-blue-600"></span>
-                    )}
-                  </span>
-                  <span className={`font-bold ${entegrasyonDurumu === 'kapali' ? 'text-gray-700' : 'text-gray-400'}`}>ENTEGRASYON KAPALI</span>
-                </label>
+        </div>
+        {/* İçerik Kutuları */}
+        <div className="w-full flex flex-row gap-6 mt-8 items-stretch ml-10 mr-10 justify-center">
+          {/* Sol: API Bilgileri Formu ve Kargo ve Süreç Seçimleri aynı column parent'ta */}
+          <div className="w-1/2 flex flex-col">
+            <div className="bg-white p-8 flex flex-col gap-5 rounded-2xl shadow-md border border-[#E5E7EB] min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
+              <div className="flex items-center gap-3 mb-2 border-b border-gray-200 pb-3">
+                <div className="bg-blue-100 rounded-full p-2">
+                  <Image src="/akakce.svg" alt="logo" width={40} height={40} className="w-10 h-10 object-contain" />
+                </div>
+                <div className="text-lg font-semibold text-gray-700 ">API Bilgilerini Tanımlama</div>
               </div>
+              <form className="flex flex-col gap-3">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-1 text-[14px]">API NAME <span className="text-red-500">*</span></label>
+                  <input type="text" className="input w-full border border-[#E5E7EB] rounded-lg px-3 py-2 text-[15px]" placeholder="API Name" />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-1 text-[14px]">API KEY <span className="text-red-500">*</span></label>
+                  <input type="text" className="input w-full border border-[#E5E7EB] rounded-lg px-3 py-2 text-[15px]" placeholder="API Key" />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-1 text-[14px]">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN LİNKİ) <span className="text-red-500">*</span></label>
+                  <input type="text" className="input w-full border border-[#E5E7EB] rounded-lg px-3 py-2 text-[15px] bg-[#F3F4F6]" value="https://entekas.com" readOnly />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-1 text-[14px]">API EXPORT LINK (AKAKÇEYE GÖNDERİLEN ÜRÜNLERİN İSİMLERİNİN BAŞINA MARKA EKLİ ŞEKİLDE GÖZÜKEN LİNK) <span className="text-red-500">*</span></label>
+                  <input type="text" className="input w-full border border-[#E5E7EB] rounded-lg px-3 py-2 text-[15px] bg-[#F3F4F6]" value="https://entekas.com" readOnly />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-1 text-[14px]">ENTEGRASYON DURUMU</label>
+                  <div className="flex gap-10 mt-2 pb-2 justify-center">
+                    <label
+                      htmlFor="entegrasyon_acik"
+                      className={`flex-1 flex items-center gap-2 px-4 py-3 rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                    >
+                      <span className="relative flex items-center">
+                        <input
+                          type="radio"
+                          id="entegrasyon_acik"
+                          name="entegrasyon_durumu"
+                          checked={entegrasyonDurumu === 'acik'}
+                          onChange={() => setEntegrasyonDurumu('acik')}
+                          className="peer appearance-none w-4 h-4 rounded-full border-2 border-blue-500 checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition-all"
+                        />
+                        <span className={`absolute left-0 top-0 w-4 h-4 rounded-full border-2 ${entegrasyonDurumu === 'acik' ? 'border-blue-600 bg-white' : 'border-gray-300 bg-white'}`}></span>
+                        {entegrasyonDurumu === 'acik' && (
+                          <span className="absolute left-1 top-1 w-2 h-2 rounded-full bg-blue-600"></span>
+                        )}
+                      </span>
+                      <span className={`font-bold text-[14px] ${entegrasyonDurumu === 'acik' ? 'text-gray-700' : 'text-gray-400'}`}>ENTEGRASYON AÇIK</span>
+                    </label>
+                    <label
+                      htmlFor="entegrasyon_kapali"
+                      className={`flex-1 flex items-center gap-2 px-4 py-3 rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'kapali' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
+                    >
+                      <span className="relative flex items-center">
+                        <input
+                          type="radio"
+                          id="entegrasyon_kapali"
+                          name="entegrasyon_durumu"
+                          checked={entegrasyonDurumu === 'kapali'}
+                          onChange={() => setEntegrasyonDurumu('kapali')}
+                          className="peer appearance-none w-4 h-4 rounded-full border-2 border-blue-500 checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition-all"
+                        />
+                        <span className={`absolute left-0 top-0 w-4 h-4 rounded-full border-2 ${entegrasyonDurumu === 'kapali' ? 'border-blue-600 bg-white' : 'border-gray-300 bg-white'}`}></span>
+                        {entegrasyonDurumu === 'kapali' && (
+                          <span className="absolute left-1 top-1 w-2 h-2 rounded-full bg-blue-600"></span>
+                        )}
+                      </span>
+                      <span className={`font-bold text-[14px] ${entegrasyonDurumu === 'kapali' ? 'text-gray-700' : 'text-gray-400'}`}>ENTEGRASYON KAPALI</span>
+                    </label>
+                  </div>
+                </div>
+                <div className="flex justify-end mt-4">
+                  <button type="submit" className="bg-[#11c26d] hover:bg-[#1ed57d] text-white font-bold py-2 px-7 rounded-lg text-[15px] flex items-center gap-2 min-w-[160px] h-[44px]">
+                    AYARLARI KAYDET
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </button>
+                </div>
+              </form>
             </div>
-            <div className="flex justify-end mt-8">
-              <button type="submit" className="bg-[#11c26d] hover:bg-[#1ed57d] text-white font-bold py-3 px-10 rounded-lg text-base flex items-center gap-2">
-                AYARLARI KAYDET
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <div className="bg-white p-8 flex flex-col gap-4 rounded-2xl shadow-md border border-[#E5E7EB] mt-4">
+              <div className="text-lg font-semibold text-gray-700 mb-2 border-b border-gray-200 pb-4">Kargo ve Süreç Seçimleri</div>
+              <form className="flex flex-col gap-3">
+                <div className="flex items-center gap-2">
+                  <input type="checkbox" id="ucretsiz_kargo" className="w-4 h-4 rounded border-gray-300" />
+                  <label htmlFor="ucretsiz_kargo" className="text-[14px] text-gray-700">Akakçe'ye gönderilecek ürünlerde ücretsiz kargo uygulansın mı?</label>
+                </div>
+                <div className="flex gap-4 border-b border-gray-200 pb-4">
+                  <div className="flex flex-col flex-1">
+                    <label className="block text-gray-700 font-medium mb-1 text-[14px]">Kargoya Veriliş Zamanı</label>
+                    <select className="input">
+                      <option>Aynı Gün</option>
+                      <option>Ertesi Gün</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col flex-1">
+                    <label className="block text-gray-700 font-medium mb-1 text-[14px]">Kargoya Veriliş Saati</label>
+                    <select className="input">
+                      {Array.from({ length: 24 }, (_, i) => (
+                        <option key={i}>{i.toString().padStart(2, '0')}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+                <div className="flex justify-end mt-4">
+                  <button type="submit" className="bg-[#11c26d] hover:bg-[#1ed57d] text-white font-bold py-2 px-7 rounded-lg text-[15px] flex items-center gap-2 min-w-[160px] h-[44px]">
+                    AYARLARI KAYDET
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          {/* Sağ: Kurulum Rehberi */}
+          <div className="flex-1 min-w-0 bg-white p-8 flex flex-col gap-3 rounded-2xl mr-15 border border-[#e5e7eb] shadow-md w-1/2 mx-0 min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
+            <div className="flex items-center justify-between mb-2 border-b border-gray-200 pb-3">
+              <div className="text-lg font-semibold">Kurulum Rehberi</div>
+              <button className="flex items-center gap-2 bg-red-100 text-red-600 font-semibold px-3 py-1.5 rounded-full hover:bg-red-200 text-xs shadow-none focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" fill="#fff"/><polygon points="10,8 16,12 10,16" fill="#ef4444"/></svg>
+                VİDEOLU ANLATIM
               </button>
             </div>
-          </form>
-        </div>
-        {/* Sağ: Kurulum Rehberi */}
-        <div className="w-full h-fit bg-white p-8 flex flex-col gap-4 rounded-xl border border-[#e5e7eb] shadow-sm">
-          <div className="flex items-center justify-between mb-4 border-b-2 border-gray-200 pb-4">
-            <div className="text-xl font-semibold">Kurulum Rehberi</div>
-            <button className="flex items-center gap-2 bg-red-100 text-red-600 font-semibold px-4 py-2 rounded-full hover:bg-red-200 text-sm shadow-none focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10" fill="#fff"/><polygon points="10,8 16,12 10,16" fill="#ef4444"/></svg>
-              VİDEOLU ANLATIM
-            </button>
-          </div>
-          <div className="bg-white text-gray-800 text-base leading-relaxed border-b border-gray-200 pb-4">
-            <div>1- API Bilgilerinizi Tanımlayın</div>
-            <div className="mt-2">
-              - Dia tarafındaki müşteri destek ekibinden api bilgilerinizi istemeniz gerekmektedir.<br />
-              - Api bilgilerinizin ardından kullanıcılarınıza yetki vermeyi dia panelinden unutmayınız!<br />
-              - İlgili alınan bilgileri sol taraftaki alanlara yazıp Ayarları kaydet butonuna tıklamanız gerekmektedir.<br />
-              - Sonrasında aşağıdaki alandan mutlaka adres bilgilerinizi giriniz.
+            
+            <div
+              ref={rehberRef}
+              onScroll={handleScroll}
+              className="bg-white text-gray-800 text-[15px] leading-relaxed border-b border-gray-200 pb-3 overflow-y-auto flex-1 pr-2"
+              style={{ transition: 'box-shadow 0.2s', boxShadow: showScrollHint ? '0 2px 8px 0 rgba(239,68,68,0.04)' : 'none' }}
+            >
+              <div className="font-semibold">1- API Bilgilerinizi Tanımlayın</div>
+              <div className="mt-1 text-[14px]">
+                Akakçe entegrasyonunu gerçekleştirebilmek için ilk olarak API Bilgisi alanı gerekmektedir. Bu bilgilere Akakçe yönetim panelinizden ulaşabilirsiniz.<br />
+                *API bilgisini nasıl alacağınız öğrenmek için ilgili destek yazımıza inceleyebilirsiniz.<br />
+                API bilgisini aldıktan sonra Akakçe API Ayarları sayfasının API Bilgilerini Tanımlama kısmında bulunan API Name alanına API Kullanıcı Adını, API KEY kısmına da Şifre bilgilerini yazmalısınız.<br />
+              </div>
+              <div className="font-semibold mt-2">2- Ürünlerinizi Aktarın</div>
+              <div className="mt-1 text-[14px]">
+              Ürünlerinizi Entekas'a aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.
+
+İlgili ayarlamaları tamamladıktan sonra sayfanın sol üst kısmında bulunan Ürünleri Ve Fiyatları Aktar butonuna tıklayın. Açılan sayfada ürün aktarımı ile ilgili aktarım kurallarını özelleştirip İşlemi Onayla butonuna tıklayarak aktarma işlemini başlatabilirsiniz.
+              </div>
+              <div className="font-semibold">3- Aktarım Detaylarını İnceleyin</div>
+              <div className="mt-1 text-[14px]">
+              Aktarım işlemi tamamlandıktan sonra sayfanın sağ üst kısmında bulunan Aktarım Detayları alanında aktarım işlemi ile ilgili detaylı bilgiye ulaşabilirsiniz.
+
+Mavi alanda aktarılan toplam ürün adedi bilgisi yer alır.
+
+Yeşil alanda aktarılan ürünler ile eşleşen ürünlerin(Entekas'da olan ürünlerle) toplam adet bilgisi yer alır.
+
+Turuncu alanda ise aktarılan ürünler ile eşleşmeyen ürünlerin(Entekas'da olan ürünlerle) toplam adet bilgisi yer alır.
+
+
+              </div>
             </div>
-          </div>
-          <div className="flex justify-center mt-6">
-            <button className="border-2 border-[#eff6ff] text-blue-600 font-bold text-lg px-8 py-3 rounded-lg bg-white hover:bg-[#eff6ff] transition-all shadow-sm">
-              DETAYLI KURULUM REHBERİNİ İNCELE
-            </button>
+            <div className="flex justify-center mt-2">
+              <button className="border-2 border-[#eff6ff] text-blue-600 font-bold text-[15px] px-6 py-2 rounded-lg bg-white hover:bg-[#eff6ff] transition-all shadow-sm min-w-[260px] h-[44px]">DETAYLI KURULUM REHBERİNİ İNCELE</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    
   );
 } 
