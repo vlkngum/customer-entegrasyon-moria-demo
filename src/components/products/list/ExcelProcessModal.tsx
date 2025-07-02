@@ -21,27 +21,48 @@ const excelOptions = [
 const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClose }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState('');
-  const [showCustomize, setShowCustomize] = useState(false);
-  const [selectedUploadType, setSelectedUploadType] = useState(excelOptions[1]); // Varsayılan: Excel Fiyat Güncelleme
+  const [openExpander, setOpenExpander] = useState<null | 'stock' | 'prices' | 'products'>(null);
+  const [selectedUploadType, setSelectedUploadType] = useState(excelOptions[1]);
+  const [stockChecks, setStockChecks] = useState<{[key:string]:boolean}>({  'Ürün Adı': false, 'Barkod': false, 'Marka': false, 'Kategori': false, });
+  const [priceChecks, setPriceChecks] = useState<{[key:string]:boolean}>({ 'Ürün Adı': false, 'Barkod': false, 'Marka': false, 'Kategori': false, 'Tümü': true, 'Akakçe': false });
+  const [productChecks, setProductChecks] = useState<{[key:string]:boolean}>({
+    'Ürün Adı': false,
+    'Açıklama': false,
+    'Barkod': false,
+    'Marka': false,
+    'Kategori': false,
+    'Resimler': false,
+    'KDV': false,
+    'Alış Fiyatı': false,
+    'Desi': false,
+    'Etiket': false,
+    'N11 Katalog No(Pims Id)': false,
+    'GTIN': false,
+    'Hepsiburada SKU': false,
+    'Raf': false,
+    'Ürün Durumu': false,
+    'Hazırlık Süresi(Gün)': false,
+    'Garanti Süresi(Ay)': false,
+    'T. Stok Kodu': false,
+    'Ürünün E-Ticaret URL\'i': false,
+    'Ürün Fatura Başlığı': false,
+  });
 
-  const handleFileButtonClick = () => {
-    fileInputRef.current?.click();
+  const handleFileButtonClick = () => fileInputRef.current?.click();
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => { if (e.target.files && e.target.files.length > 0) setFileName(e.target.files[0].name); };
+  const handleUploadTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => setSelectedUploadType(e.target.value);
+
+  const handleExpander = (type: 'stock' | 'prices' | 'products') => {
+    setOpenExpander(prev => prev === type ? null : type);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      setFileName(e.target.files[0].name);
-    }
+  const handleCheck = (type: 'stock' | 'prices' | 'products', key: string) => {
+    if (type === 'stock') setStockChecks(prev => ({ ...prev, [key]: !prev[key] }));
+    if (type === 'prices') setPriceChecks(prev => ({ ...prev, [key]: !prev[key] }));
+    if (type === 'products') setProductChecks(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
-  const handleAllProductsClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setShowCustomize((prev) => !prev);
-  };
-
-  const handleUploadTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedUploadType(e.target.value);
-  };
+  const isAnyChecked = (obj: {[key:string]:boolean}) => Object.values(obj).some(Boolean);
 
   if (!showModal) return null;
   return (
@@ -78,47 +99,93 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                   <FiDownload className="text-green-600 w-5 h-5" />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Stok Güncelleme <a href='/products' className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5">Tüm Ürünler</a></div>
+                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Stok Güncelleme <a className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5 cursor-pointer" onClick={e => {e.preventDefault(); handleExpander('stock')}} href="#">Tüm Ürünler</a></div>
                   <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak stok güncellemelerini yaptıktan sonra satış kanallarınıza aktarılmasını sağlayabilirsiniz.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div>
-                  <FiDownload className="text-green-600 w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Fiyat Güncelleme <a href='/products' className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5">Tüm Ürünler</a></div>
-                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <div>
-                  <FiDownload className="text-green-600 w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Ürün Güncelleme <a  className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5" onClick={handleAllProductsClick} href="#">Tüm Ürünler</a></div>
-                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak ürünlerinizin güncellemelerini sağlayabilirsiniz.</div>
-                  <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${showCustomize ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}
-                  >
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openExpander === 'stock' ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}> 
                     <div className="p-1 rounded">
-                      <div className="font-semibold mb-2 text-sm text-gray-700">Excel Ürün Güncelleme Çıktısını Özelleştir</div>
+                      <div className="font-semibold mb-2 text-sm text-gray-700">Excel Stok Güncelleme Çıktısını Özelleştir</div>
                       <div className="text-xs text-gray-500 mb-2">Excel dosyanız içerisinde bulunmasını istediğiniz özellikleri seçiniz.</div>
+                      <div className="text-xs text-gray-500 mb-2">(Güncellenmez sadece ürün ayırt etmek için kullanılır)</div>
                       <div className="flex flex-wrap gap-2">
-                        {[
-                          'Ürün Adı', 'Açıklama', 'Barkod', 'Marka', 'Kategori', 'Resimler', 'KDV', 'Alış Fiyatı', 'Desi',
-                          'Etiket', 'N11 Katalog No(Pims Id)', 'GTIN', 'Hepsiburada SKU', 'Raf', 'Ürün Durumu', 'Hazırlık Süresi(Gün)',
-                          'Garanti Süresi(Ay)', 'T. Stok Kodu', 'Ürünün E-Ticaret URL\'i', 'Ürün Fatura Başlığı'
-                        ].map((label, i) => (
-                          <label key={i} className="flex items-center gap-1 text-xs border border-gray-400 px-2 py-1 rounded cursor-pointer ">
-                            <input type="checkbox" className="accent-blue-600" defaultChecked={i === 0} />
+                        {Object.keys(stockChecks).map((label, i) => (
+                          <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
+                            <input type="checkbox" className="accent-blue-600 w-6 h-6" checked={stockChecks[label]} onChange={() => handleCheck('stock', label)} />
                             {label}
                           </label>
                         ))}
                       </div>
-                      <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold">
-                        Dosyayı İndir
-                      </button>
+                      {isAnyChecked(stockChecks) && (
+                        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold">
+                          Dosyayı İndir
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+
+              <div className="flex items-start gap-3">
+                <div>
+                  <FiDownload className="text-green-600 w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Fiyat Güncelleme <a  className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5 cursor-pointer" onClick={e => {e.preventDefault(); handleExpander('prices')}} href="#">Tüm Ürünler</a></div>
+                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openExpander === 'prices' ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}> 
+                    <div className="p-1 rounded">
+                      <div className="font-semibold mb-2 text-sm text-gray-700">Excel Fiyat Güncelleme Çıktısını Özelleştir</div>
+                      <div className="text-xs text-gray-500 mb-2">Entekas üzerinde bulunan ürünlerinizi Excel'e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
+                      <div className="flex flex-wrap gap-2">
+                        {Object.keys(priceChecks).filter(k => k !== 'Tümü' && k !== 'Akakçe').map((label, i) => (
+                          <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
+                            <input type="checkbox" className="accent-blue-600 w-6 h-6" checked={priceChecks[label]} onChange={() => handleCheck('prices', label)} />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                      <div className="text-xs text-gray-500 my-2">Excel dosyanız içerisinde bulunmasını istediğiniz özellikleri seçiniz.</div>
+                      <div className="flex flex-wrap gap-2">
+                        {['Tümü', 'Akakçe'].map((label, i) => (
+                          <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
+                            <input type="checkbox" className="accent-blue-600 w-6 h-6" checked={priceChecks[label]} onChange={() => handleCheck('prices', label)} />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                      {isAnyChecked(priceChecks) && (
+                        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold">
+                          Dosyayı İndir
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div>
+                  <FiDownload className="text-green-600 w-5 h-5" />
+                </div>
+                <div>
+                  <div className="font-bold text-gray-800 flex items-center gap-2">Excel Ürün Güncelleme <a  className="bg-blue-100 text-blue-600 text-xs font-semibold rounded px-2 py-0.5 cursor-pointer" onClick={e => {e.preventDefault(); handleExpander('products')}} href="#">Tüm Ürünler</a></div>
+                  <div className="text-gray-600 text-sm">Entekas üzerinde bulunan ürünlerinizi Excel e aktararak ürünlerinizin güncellemelerini sağlayabilirsiniz.</div>
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openExpander === 'products' ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}> 
+                    <div className="p-1 rounded">
+                      <div className="font-semibold mb-2 text-sm text-gray-700">Excel Ürün Güncelleme Çıktısını Özelleştir</div>
+                      <div className="text-xs text-gray-500 mb-2">Excel dosyanız içerisinde bulunmasını istediğiniz özellikleri seçiniz.</div>
+                      <div className="flex flex-wrap gap-2">
+                        {Object.keys(productChecks).map((label, i) => (
+                          <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
+                            <input type="checkbox" className="accent-blue-600 w-6 h-6" checked={productChecks[label]} onChange={() => handleCheck('products', label)} />
+                            {label}
+                          </label>
+                        ))}
+                      </div>
+                      {isAnyChecked(productChecks) && (
+                        <button className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded text-sm font-semibold">
+                          Dosyayı İndir
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

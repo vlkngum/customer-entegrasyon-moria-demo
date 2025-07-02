@@ -35,10 +35,20 @@ export default function ProductListTable() {
                 className="input"
                 placeholder="Stok Kodu, Ürün Adı veya Barkod ile ara..."
               />
-              <button className="bg-[#0f82ff] text-white px-12 py-2 rounded-lg font-semibold flex items-center space-x-2 hover:bg-blue-600 transition-colors duration-200 ">
+              <button className="bg-[#0f82ff] text-white px-16 py-2 rounded-sm font-semibold text-sm flex items-center space-x-2 hover:bg-blue-600 transition-colors duration-200 ">
                 <FaSearch className="w-4 h-4" />
                 <span>FİLTRELE</span>
               </button>
+            </div>
+            <div className="flex items-center mt-3">
+              <input
+                id="optionSearch"
+                type="checkbox"
+                className="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+              />
+              <label htmlFor="optionSearch" className="ml-2 text-sm text-gray-400 select-none">
+                Seçenekli ürünler içerisinde arama yap
+              </label>
             </div>
           </div>
         </div>

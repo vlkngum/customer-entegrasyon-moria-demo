@@ -131,7 +131,7 @@ export default function ProductList() {
       sku: '1212',
       name: 'sSsS',
       price: '121,00', 
-      img:'entekas-logo.svg',
+      img:'/trendyol-ico.png',
       stock: 1212,
       platform: {
         name: 'Trendyol',
@@ -146,7 +146,7 @@ export default function ProductList() {
       sku: 'AMZN-543',
       name: 'Amazon Echo Dot',
       price: '499,99',
-      img:'/globe.svg',
+      img:'/trendyol-ico.png',
       stock: 50,
       platform: {
         name: 'Amazon',
@@ -161,7 +161,7 @@ export default function ProductList() {
       sku: 'HB-987',
       name: 'Hepsiburada E-Kitap Okuyucu',
       price: '1299,00',
-      img:'/window.svg',
+      img:'/trendyol-ico.png',
       stock: 25,
       platform: {
         name: 'Hepsiburada',
@@ -249,7 +249,7 @@ export default function ProductList() {
             
             <div className="col-span-4 lg:col-span-3 flex items-center gap-3">
               <div className="w-12 h-12  rounded-md flex items-center justify-center shrink-0">
-                <Image className="text-xs text-gray-500 text-center" src={product.img} alt={''} width={0} height={0} />
+                <Image className="text-xs text-gray-500 text-center rounded-full" src={product.img} alt={''} width={50} height={50}  />
               </div>
               <div className="truncate">
                 <div className="text-xs text-gray-500">Stok Kodu: {product.sku}</div>
