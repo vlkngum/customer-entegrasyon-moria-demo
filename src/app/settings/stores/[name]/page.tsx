@@ -64,7 +64,7 @@ export default function StoreDetailPage() {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-1 text-[14px]">ENTEGRASYON DURUMU</label>
-                  <div className="flex gap-10 mt-2 pb-2 justify-center border-b border-gray-200 pb-4">
+                  <div className="flex gap-10 mt-2 justify-center border-b border-gray-200 pb-4">
                     <label
                       htmlFor="entegrasyon_acik"
                       className={`flex-1 flex items-center gap-2 px-4 py-3 rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}

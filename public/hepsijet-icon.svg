@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="52px" height="52px" viewBox="0 0 52 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>turkcelicon</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="44" height="44" rx="22"></rect>
+        <filter x="-17.0%" y="-10.2%" width="134.1%" height="134.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.105868253 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-45.000000, -3842.000000)">
+            <g id="Hepsijet-Grup" transform="translate(49.000000, 3842.000000)">
+                <g id="turkcelicon" transform="translate(0.000000, 1.000000)">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                    <g id="Group-14" transform="translate(6.000000, 16.000000)" fill-rule="nonzero">
+                        <path d="M4.89513592,0 L3.43305946,2.45813709 L6.87879405,2.45813709 L6.87879405,8.96430003 C6.87879405,10.4431807 5.97569091,11.5620303 4.63989045,11.5620303 C3.26812431,11.5620303 2.4914556,10.5031566 2.32905548,9.10441928 L0,9.62386011 C0.379144881,12.2017737 2.03990403,14 4.63925669,14 C7.45582943,14 9.33333333,11.8817266 9.33333333,8.96430003 L9.33333333,0 L4.89513592,0 Z" id="Path_23397" fill="#7723DB"></path>
+                        <polygon id="Path_23398" fill="#7723DB" points="21.4357028 0.000164268769 19.8333333 2.30271961 24.3447292 2.30271961 24.3447292 12.8333333 27.0353138 12.8333333 27.0353138 2.30255534 29.8976305 2.30255534 31.5 0"></polygon>
+                        <polygon id="Path_23399" fill="#FF6000" points="32.2233047 0 30.3333333 2.33333333 33.1102335 2.33333333 35 0"></polygon>
+                        <polygon id="Path_23400" fill="#7723DB" points="14.123099 7.60100784 18.475558 7.60100784 19.9146992 5.33598307 14.123099 5.33598307 14.123099 2.30264376 19.5370792 2.30264376 21 0 11.6666667 0 11.6666667 12.8333333 19.5370792 12.8333333 21 10.5306896 14.123099 10.5306896"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

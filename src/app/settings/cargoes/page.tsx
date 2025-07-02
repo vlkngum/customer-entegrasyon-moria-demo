@@ -11,6 +11,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#eb727a]',
     passive: true,
+    href: '/settings/cargoes/aras',
   },
   {
     name: 'Yurtiçi Kargo',
@@ -18,6 +19,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#223A6A]',
     passive: true,
+    href: '/settings/cargoes/yurtici',
   },
   {
     name: 'DHL Kargo',
@@ -25,6 +27,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#3B7C99]',
     passive: true,
+    href: '/settings/cargoes/dhl',
   },
   {
     name: 'UPS Kargo',
@@ -32,6 +35,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#FF6F5B]',
     passive: true,
+    href: '#',
   },
   {
     name: 'Sürat Kargo',
@@ -39,6 +43,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#2B5C54]',
     passive: true,
+    href: '/settings/cargoes/suratkargo',
   },
   {
     name: 'Oplog',
@@ -46,6 +51,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#D13B3B]',
     passive: false,
+    href: '/settings/cargoes/oplog',
   },
   {
     name: 'Hepsijet',
@@ -53,6 +59,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#D13B3B]',
     passive: true,
+    href: '/settings/cargoes/hepsijet',
   },
   {
     name: 'Sendeo',
@@ -60,13 +67,14 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#B6E07B]',
     passive: false,
+    href: '/settings/cargoes/seendeo',
   },
 ];
 
 export default function ErpSettingsPage() {
   const router = useRouter();
-  const handleCardClick = (erpName: string) => {
-    router.push(`/settings/erp/${erpName}`);
+  const handleCardClick = (erp: any) => {
+    router.push(erp.href);
   };
 
   return (
@@ -87,7 +95,7 @@ export default function ErpSettingsPage() {
           <div
             key={erp.name}
             className={`relative rounded-md shadow-md flex flex-col h-[210px] pt-4 pb-0 ${erp.bg} transition-transform hover:scale-[1.03] justify-between cursor-pointer`}
-            onClick={() => handleCardClick(erp.name)}
+            onClick={() => handleCardClick(erp)}
           >
             {/* PASİF etiketi */}
             {erp.passive && (
