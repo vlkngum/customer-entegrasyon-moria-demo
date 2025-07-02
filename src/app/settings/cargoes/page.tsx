@@ -67,7 +67,7 @@ const erpList = [
     logo: '/aras.svg',
     bg: 'bg-[#B6E07B]',
     passive: false,
-    href: '/settings/cargoes/seendeo',
+    href: '/settings/cargoes/sendeo',
   },
 ];
 
