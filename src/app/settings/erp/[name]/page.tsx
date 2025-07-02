@@ -253,7 +253,7 @@ export default function ErpDetailPage() {
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">KULLANICI ADI <span className="text-red-500">*</span></label>
-              <input type="text" className="input w-full border rounded px-3 py-2" placeholder="ı" />
+              <input type="text" className="input w-full border rounded px-3 py-2" placeholder="" />
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-1">ŞİFRE <span className="text-red-500">*</span></label>
