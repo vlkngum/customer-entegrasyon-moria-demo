@@ -22,8 +22,8 @@ export default function StoreDetailPage() {
     <div className="min-h-screen bg-[#F5F7FA] flex flex-col i py-0 mb-8 w-full justify-start">
       <div className="w-full flex flex-col items-start">
         {/* Üst Başlık ve Sekme */}
-        <div className="w-full flex flex-col items-start bg-white shadow-sm border-b border-[#E5E7EB]">
-          <div className="w-full flex items-center gap-3 py-4 px-0 ml-10">
+        <div className="w-full flex flex-col items-start bg-white ">
+          <div className="w-full flex items-center gap-3 py-1 px-0 ml-10">
             <div className="p-2 flex items-center justify-center">
               <Image src="/production.svg" alt="production" width={32} height={26} />
             </div>
@@ -38,10 +38,10 @@ export default function StoreDetailPage() {
         <div className="w-full flex flex-row gap-6 mt-8 items-stretch ml-10 mr-10 justify-center">
           {/* Sol: API Bilgileri Formu ve Kargo ve Süreç Seçimleri aynı column parent'ta */}
           <div className="w-1/2 flex flex-col">
-            <div className="bg-white p-8 flex flex-col gap-5 rounded-2xl border border-[#e5e7eb] shadow-md min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
-              <div className="flex items-center gap-3 mb-2 border-b border-gray-200 pb-3">
-                <div className="bg-blue-100 rounded-full p-2">
-                  <Image src="/akakce.svg" alt="logo" width={40} height={40} className="w-10 h-10 object-contain" />
+            <div className="bg-white p-4 flex flex-col gap-5 rounded-2xl border border-[#e5e7eb] shadow-md min-h-[640px] max-h-[640px] h-[640px] overflow-y-auto">
+              <div className="flex items-center gap-3 mb-0 border-b border-gray-200 pb-1">
+                <div className="p-0">
+                  <Image src="/akakce.svg" alt="logo" width={96} height={96} className="w-20 h-20 object-contain" />
                 </div>
                 <div className="text-lg font-semibold text-gray-700 ">API Bilgilerini Tanımlama</div>
               </div>
@@ -64,7 +64,7 @@ export default function StoreDetailPage() {
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-1 text-[14px]">ENTEGRASYON DURUMU</label>
-                  <div className="flex gap-10 mt-2 pb-2 justify-center">
+                  <div className="flex gap-10 mt-2 pb-2 justify-center border-b border-gray-200 pb-4">
                     <label
                       htmlFor="entegrasyon_acik"
                       className={`flex-1 flex items-center gap-2 px-4 py-3 rounded-lg border transition-all cursor-pointer ${entegrasyonDurumu === 'acik' ? 'border-blue-500 bg-blue-50' : 'border-gray-200 bg-white'}`}
@@ -172,19 +172,19 @@ export default function StoreDetailPage() {
               style={{ transition: 'box-shadow 0.2s', boxShadow: showScrollHint ? '0 2px 8px 0 rgba(239,68,68,0.04)' : 'none' }}
             >
               <div className="font-semibold">1- API Bilgilerinizi Tanımlayın</div>
-              <div className="mt-1 text-[14px]">
+              <div className="mt-1 font-light">
                 Akakçe entegrasyonunu gerçekleştirebilmek için ilk olarak API Bilgisi alanı gerekmektedir. Bu bilgilere Akakçe yönetim panelinizden ulaşabilirsiniz.<br />
                 *API bilgisini nasıl alacağınız öğrenmek için ilgili destek yazımıza inceleyebilirsiniz.<br />
                 API bilgisini aldıktan sonra Akakçe API Ayarları sayfasının API Bilgilerini Tanımlama kısmında bulunan API Name alanına API Kullanıcı Adını, API KEY kısmına da Şifre bilgilerini yazmalısınız.<br />
               </div>
               <div className="font-semibold mt-2">2- Ürünlerinizi Aktarın</div>
-              <div className="mt-1 text-[14px]">
+              <div className="mt-1 font-light">
               Ürünlerinizi Entekas&#39;a aktarmadan önce Kargo ve Süreç Seçimlerinizi ve Sabit Ürün Açıklaması alanları ile ilgili ayarlamaları yapabilirsiniz.
 
 İlgili ayarlamaları tamamladıktan sonra sayfanın sol üst kısmında bulunan Ürünleri Ve Fiyatları Aktar butonuna tıklayın. Açılan sayfada ürün aktarımı ile ilgili aktarım kurallarını özelleştirip İşlemi Onayla butonuna tıklayarak aktarma işlemini başlatabilirsiniz.
               </div>
-              <div className="font-semibold">3- Aktarım Detaylarını İnceleyin</div>
-              <div className="mt-1 text-[14px]">
+              <div className="font-semibold mt-2">3- Aktarım Detaylarını İnceleyin</div>
+              <div className="mt-1 font-light">
               Aktarım işlemi tamamlandıktan sonra sayfanın sağ üst kısmında bulunan Aktarım Detayları alanında aktarım işlemi ile ilgili detaylı bilgiye ulaşabilirsiniz.
 
 Mavi alanda aktarılan toplam ürün adedi bilgisi yer alır.
