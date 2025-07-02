@@ -77,7 +77,7 @@ export default function AddCustomerPage() {
               </div>
               <div>
                 <label className="block text-xs text-[#5d6e76] font-semibold mb-1">TELEFON</label>
-                <input name="phone" value={values.phone} onChange={handleChange} className="input" placeholder="Müşteri telefon giriniz" />
+                <input name="phone" value={values.phone} onChange={handleChange} className="input" placeholder="" />
               </div>
               <div>
                 <label className="block text-xs text-[#5d6e76] font-semibold mb-1">İL</label>

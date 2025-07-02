@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useAuth } from '@/context/AuthContext';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaThumbtack } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
@@ -17,8 +17,16 @@ export default function Sidebar() {
   const router = useRouter();
   const { isAuthenticated, logout } = useAuth();
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isPinned, setIsPinned] = useState(true);
+  const [isPinned, setIsPinned] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(!isPinned);
+
+  useEffect(() => {
+    if (!isPinned) {
+      setIsCollapsed(true);
+    } else {
+      setIsCollapsed(false);
+    }
+  }, [isPinned]);
 
   if (!isAuthenticated) {
     return null;
@@ -44,9 +52,6 @@ export default function Sidebar() {
 
   const togglePin = () => {
     setIsPinned(!isPinned);
-    if (!isPinned) {
-      setIsCollapsed(false);
-    }
   };
 
   return (

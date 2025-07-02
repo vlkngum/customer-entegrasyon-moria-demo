@@ -38,7 +38,7 @@ const YeniMarkaEkleModal: React.FC<YeniMarkaEkleModalProps> = ({ open, onClose }
       }}>
         
         <div style={{ padding: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8f9fa', borderBottom: '1px solid #eee' }}>
-          <Image src="/markaEkle.svg" alt="Yeni Marka Ekle" style={{ height: '180px' }} />
+          <Image src="/markaEkle.svg" width={500} height={300} alt="Yeni Marka Ekle" style={{ height: '180px' }} />
           <button onClick={onClose} style={{
             position: 'absolute',
             top: '16px',

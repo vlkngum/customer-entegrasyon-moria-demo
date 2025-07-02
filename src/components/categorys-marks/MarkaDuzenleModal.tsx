@@ -45,7 +45,7 @@ const MarkaDuzenleModal: React.FC<MarkaDuzenleModalProps> = ({ open, onClose, ma
       }}>
         
         <div style={{ padding: '24px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#f8f9fa', borderBottom: '1px solid #eee' }}>
-          <Image src="/markaDuzenle.svg" alt="Markayı Düzenle" style={{ height: '180px' }} />
+          <Image src="/markaDuzenle.svg" width={500} height={300} alt="Markayı Düzenle" style={{ height: '180px' }} />
           <button onClick={onClose} style={{
             position: 'absolute',
             top: '16px',
