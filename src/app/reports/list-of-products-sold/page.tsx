@@ -28,7 +28,11 @@ const ListOfProductsSoldPage = () => {
   }
 
   const products: Product[] = [
-    // Örnek veri
+    { stockCode: "STK001", productName: "Logitech Mouse M185", option: "Kırmızı", salesCount: 45 },
+    { stockCode: "STK002", productName: "HP Klavye K120", option: "Q Türkçe", salesCount: 32 },
+    { stockCode: "STK003", productName: "Samsung 24'' Monitör", option: "Full HD", salesCount: 18 },
+    { stockCode: "STK004", productName: "Apple AirPods Pro", option: "2. Nesil", salesCount: 12 },
+    { stockCode: "STK005", productName: "Xiaomi Powerbank 10000mAh", option: "Siyah", salesCount: 27 },
   ];
 
   const timeOptions = [];

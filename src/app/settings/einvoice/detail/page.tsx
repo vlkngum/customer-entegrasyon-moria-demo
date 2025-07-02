@@ -7,9 +7,9 @@ export default function DigitalPlanetSettings() {
   const [entegrasyonDurumu, setEntegrasyonDurumu] = useState(true);
 
   return (
-    <div style={{ background: "#f1f6fd", minHeight: "100vh", padding: "40px 0"}}>
+    <div style={{ background: "#f1f6fd", minHeight: "100vh", padding: "20px 0"}}>
       {/* Başlık ve breadcrumb alanı form kutusunun dışında ve en sola yaslı */}
-      <div style={{ width: 900, maxWidth: '100%', marginBottom: 48, paddingLeft: 56 }}>
+      <div style={{ width: 900, maxWidth: '100%', marginBottom: 48, paddingLeft: 26 }}>
         <div style={{ fontSize: 32, fontWeight: 700, color: "#3a3a3a", marginBottom: 4, fontFamily: 'inherit' }}>DigitalPlanet Ayarları</div>
         <div style={{ fontSize: 17, fontWeight: 400, color: "#222", display: "flex", alignItems: "center", gap: 4 }}>
           <span style={{ color: "#222", fontWeight: 600 }}>Entekas</span>
@@ -19,7 +19,7 @@ export default function DigitalPlanetSettings() {
           <span style={{ color: "#b0b8c1", fontWeight: 400 }}>DigitalPlanet Ayarları</span>
         </div>
       </div>
-      <div style={{ width: 900, maxWidth: '100%', background: "#fff", borderRadius: 12, padding: 40, boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative", marginLeft: 56 }}>
+      <div style={{ width: 1200, maxWidth: '100%', background: "#fff", borderRadius: 12, padding: 40, boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative", marginLeft: 26 }}>
         <form autoComplete="off">
           {/* DigitalPlanet Bilgileri */}
           <div style={{ display: "flex", gap: 24, marginBottom: 0 }}>
@@ -84,7 +84,7 @@ export default function DigitalPlanetSettings() {
               <input className="input" placeholder="0" />
             </div>
           </div>
-            <div style={{ color: "#8b98a9", fontSize: 12, marginBottom: 16, marginTop: -8 }}>
+            <div style={{ color: "#202020", fontSize: 12, marginBottom: 16, marginTop: -8 }}>
               {`(Fatura ön ekleri hakkında Fatura seri numaraları oluşturulurken numaraların başına size özel 3 harf eklenmektedir. Kendi ön ekinizi 3 büyük harften oluşacak şekilde belirtmeniz gerekmektedir. 1. ön ek e-Fatura sisteminde, 2. ön ek e-Arşiv sisteminde gönderilen faturalar için kullanılacak. Entegratör değiştiriyorsanız, fatura numaranızın çakışmaması için yeni ön ekler belirleyiniz.")`}
           </div>
           <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>

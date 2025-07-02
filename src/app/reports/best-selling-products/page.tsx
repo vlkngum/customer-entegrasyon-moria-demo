@@ -61,7 +61,7 @@ const BestSellingProductsPage = () => {
         <h2 className="text-lg font-semibold mb-4 text-gray-700">
           En Çok Satan 100 Ürün Listesi
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end pr-60">
           <div className="lg:col-span-1">
             <label
               htmlFor="salesChannel"
