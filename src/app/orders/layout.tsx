@@ -74,7 +74,7 @@ export default function OrdersLayout({ children }: OrdersLayoutProps) {
         />
       </div>
       
-      <div className='px-6 py-4'>
+      <div className='px-6 py-4 mb-12'>
         {children}
       </div>
 
