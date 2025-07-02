@@ -44,7 +44,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
     'Hazırlık Süresi(Gün)': false,
     'Garanti Süresi(Ay)': false,
     'T. Stok Kodu': false,
-    'Ürünün E-Ticaret URL\'i': false,
+    'Ürünün E-Ticaret URL&apos;i': false,
     'Ürün Fatura Başlığı': false,
   });
 
@@ -135,7 +135,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                   <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openExpander === 'prices' ? 'max-h-[600px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}> 
                     <div className="p-1 rounded">
                       <div className="font-semibold mb-2 text-sm text-gray-700">Excel Fiyat Güncelleme Çıktısını Özelleştir</div>
-                      <div className="text-xs text-gray-500 mb-2">Entekas üzerinde bulunan ürünlerinizi Excel'e aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
+                      <div className="text-xs text-gray-500 mb-2">Entekas üzerinde bulunan ürünlerinizi Excel uygulamasına aktararak fiyat güncellemelerini yaptıktan sonra dilediğiniz satış kanalına aktarılmasını sağlayabilirsiniz. Her satış kanalına özel fiyat belirleyebilirsiniz.</div>
                       <div className="flex flex-wrap gap-2">
                         {Object.keys(priceChecks).filter(k => k !== 'Tümü' && k !== 'Akakçe').map((label, i) => (
                           <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
@@ -177,7 +177,7 @@ const ExcelProcessModal: React.FC<ExcelProcessModalProps> = ({ showModal, onClos
                         {Object.keys(productChecks).map((label, i) => (
                           <label key={i} className="flex items-center gap-2 text-base border border-gray-400 px-2 py-1 rounded cursor-pointer ">
                             <input type="checkbox" className="accent-blue-600 w-6 h-6" checked={productChecks[label]} onChange={() => handleCheck('products', label)} />
-                            {label}
+                            {label === "Ürünün E-Ticaret URL'i" ? "Ürünün E-Ticaret URL&apos;i" : label}
                           </label>
                         ))}
                       </div>

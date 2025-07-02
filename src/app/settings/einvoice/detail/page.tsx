@@ -7,189 +7,184 @@ export default function DigitalPlanetSettings() {
   const [entegrasyonDurumu, setEntegrasyonDurumu] = useState(true);
 
   return (
-    <div style={{ background: "#f1f6fd", minHeight: "100vh", padding: "20px 0"}}>
+    <div className="bg-[#f1f6fd] min-h-screen py-5">
       {/* Başlık ve breadcrumb alanı form kutusunun dışında ve en sola yaslı */}
-      <div style={{ width: 900, maxWidth: '100%', marginBottom: 48, paddingLeft: 26 }}>
-        <div style={{ fontSize: 32, fontWeight: 700, color: "#3a3a3a", marginBottom: 4, fontFamily: 'inherit' }}>DigitalPlanet Ayarları</div>
-        <div style={{ fontSize: 17, fontWeight: 400, color: "#222", display: "flex", alignItems: "center", gap: 4 }}>
-          <span style={{ color: "#222", fontWeight: 600 }}>Entekas</span>
-          <span style={{ color: "#b0b8c1", fontWeight: 400 }}>/</span>
-          <span style={{ color: "#222", fontWeight: 400 }}>Ayarlar</span>
-          <span style={{ color: "#b0b8c1", fontWeight: 400 }}>/</span>
-          <span style={{ color: "#b0b8c1", fontWeight: 400 }}>DigitalPlanet Ayarları</span>
+      <div className="w-[900px] max-w-full mb-12 pl-7">
+        <div className="text-[32px] font-bold text-[#3a3a3a] mb-1 font-inherit">DigitalPlanet Ayarları</div>
+        <div className="text-[17px] font-normal text-[#222] flex items-center gap-1">
+          <span className="text-[#222] font-semibold">Entekas</span>
+          <span className="text-[#b0b8c1] font-normal">/</span>
+          <span className="text-[#222] font-normal">Ayarlar</span>
+          <span className="text-[#b0b8c1] font-normal">/</span>
+          <span className="text-[#b0b8c1] font-normal">DigitalPlanet Ayarları</span>
         </div>
       </div>
-      <div style={{ width: 1200, maxWidth: '100%', background: "#fff", borderRadius: 12, padding: 40, boxShadow: "0 2px 16px rgba(0,0,0,0.06)", position: "relative", marginLeft: 26 }}>
+      <div className="w-2/3 max-w-full bg-white rounded-xl p-10 shadow-[0_2px_16px_rgba(0,0,0,0.06)] relative ml-7">
         <form autoComplete="off">
           {/* DigitalPlanet Bilgileri */}
-          <div style={{ display: "flex", gap: 24, marginBottom: 0 }}>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">DIGITALPLANET ŞİRKET KODU*</label>
+          <div className="flex gap-6 mb-0">
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">DIGITALPLANET ŞİRKET KODU*</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">DIGITALPLANET KULLANICI ADI*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">DIGITALPLANET KULLANICI ADI*</label>
               <input className="input" />
             </div>
           </div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 24, marginTop: 24 }}>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">DIGITALPLANET KULLANICI ŞİFRESİ*</label>
+          <div className="flex gap-6 mb-6 mt-6">
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">DIGITALPLANET KULLANICI ŞİFRESİ*</label>
               <input className="input" type="password" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">FATURA TİPİ*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">FATURA TİPİ*</label>
               <select className="input"><option>Temel Fatura</option></select>
             </div>
           </div>
 
           {/* Vergi Bilgileri */}
-          <div className="section-title">Vergi Bilgileri</div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">VERGİ NUMARASI*</label>
+          <div className="font-semibold text-[16px] my-8 text-[#222]">Vergi Bilgileri</div>
+          <div className="flex gap-6 mb-6">
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">VERGİ NUMARASI*</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">VERGİ DAİRESİ*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">VERGİ DAİRESİ*</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">MERSİS NUMARASI*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">MERSİS NUMARASI*</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">SİCİL NUMARASI*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">SİCİL NUMARASI*</label>
               <input className="input" />
             </div>
           </div>
 
           {/* Fatura Bilgileri */}
-          <div className="section-title">Fatura Bilgileri</div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 16 }}>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">GÖNDERİCİ POSTA ADRESİ*</label>
+          <div className="font-semibold text-[16px] my-8 text-[#222]">Fatura Bilgileri</div>
+          <div className="flex gap-6 mb-4">
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">GÖNDERİCİ POSTA ADRESİ*</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">E-FATURA NUMARA EKİ*</label>
-              <input className="input" placeholder="Üç harf, örneğin Sopyo şrl" />
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">E-FATURA NUMARA EKİ*</label>
+              <input className="input" placeholder="Üç harf, örneğin Entekas ent" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">E-ARSİV NUMARA EKİ</label>
-              <input className="input" placeholder="Üç harf, örneğin Sopyo şrl" />
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">E-ARSİV NUMARA EKİ</label>
+              <input className="input" placeholder="Üç harf, örneğin Entekas ent" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">SON KESİLEN FATURA NO</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">SON KESİLEN FATURA NO</label>
               <input className="input" placeholder="0" />
             </div>
           </div>
-            <div style={{ color: "#202020", fontSize: 12, marginBottom: 16, marginTop: -8 }}>
-              {`(Fatura ön ekleri hakkında Fatura seri numaraları oluşturulurken numaraların başına size özel 3 harf eklenmektedir. Kendi ön ekinizi 3 büyük harften oluşacak şekilde belirtmeniz gerekmektedir. 1. ön ek e-Fatura sisteminde, 2. ön ek e-Arşiv sisteminde gönderilen faturalar için kullanılacak. Entegratör değiştiriyorsanız, fatura numaranızın çakışmaması için yeni ön ekler belirleyiniz.")`}
+          <div className="text-[#202020] text-xs mb-4 mt-[-8px]">
+            {`(Fatura ön ekleri hakkında Fatura seri numaraları oluşturulurken numaraların başına size özel 3 harf eklenmektedir. Kendi ön ekinizi 3 büyük harften oluşacak şekilde belirtmeniz gerekmektedir. 1. ön ek e-Fatura sisteminde, 2. ön ek e-Arşiv sisteminde gönderilen faturalar için kullanılacak. Entegratör değiştiriyorsanız, fatura numaranızın çakışmaması için yeni ön ekler belirleyiniz.")`}
           </div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">TELEFON*</label>
+          <div className="flex gap-6 mb-6">
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">TELEFON*</label>
               <input className="input" placeholder="Faturada yazacak olan telefon numara" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">E-POSTA*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">E-POSTA*</label>
               <input className="input" placeholder="Faturada yazacak olan E-posta adresi" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">WEB SİTESİ</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">WEB SİTESİ</label>
               <input className="input" />
             </div>
           </div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-              <label className="form-label">FATURA İMZASI</label>
-              <input className="input" type="file" style={{ padding: 8, background: "#fff" }} />
+          <div className="flex gap-6 mb-6">
+            <div className="flex-1 flex flex-col">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">FATURA İMZASI</label>
+              <input className="input" type="file" />
             </div>
-            <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-              <label className="form-label">FİRMA LOGOSU</label>
-              <input className="input" type="file" style={{ padding: 8, background: "#fff" }} />
+            <div className="flex-1 flex flex-col">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">FİRMA LOGOSU</label>
+              <input className="input" type="file" />
             </div>
           </div>
 
           {/* Fatura Sabit Bilgileri */}
-          <div className="section-title">Fatura Sabit Bilgileri</div>
-          <div style={{ display: "flex", gap: 24, marginBottom: 24 }}>
-            <div style={{ flex: 2 }}>
-              <label className="form-label">SABİT FATURA AÇIKLAMASI</label>
+          <div className="font-semibold text-[16px] my-8 text-[#222]">Fatura Sabit Bilgileri</div>
+          <div className="flex gap-6 mb-6">
+            <div className="flex-[2]">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">SABİT FATURA AÇIKLAMASI</label>
               <input className="input" />
             </div>
-            <div style={{ flex: 1 }}>
-              <label className="form-label">ÖN TANIMLI KARGO FİRMASI*</label>
+            <div className="flex-1">
+              <label className="block text-[14px] font-medium mb-1 text-[#222]">ÖN TANIMLI KARGO FİRMASI*</label>
               <select className="input"><option>Kargo Şirketi Seç</option></select>
             </div>
           </div>
-          <div style={{ marginBottom: 32 }}>
-            <label className="form-label">PAZARYERLERİNDEN GELEN ARA FARK AÇIKLAMASI</label>
+          <div className="mb-8">
+            <label className="block text-[14px] font-medium mb-1 text-[#222]">PAZARYERLERİNDEN GELEN ARA FARK AÇIKLAMASI</label>
             <input className="input" />
           </div>
 
           {/* Ek Ayarlar */}
-          <div className="section-title">Ek Ayarlar</div>
-          <div style={{ marginBottom: 24 }}>
-            <div style={{ marginBottom: 8, fontWeight: 500, color: '#2d3a3a', fontSize: 15 }}>
-            E-fatura/E-Arşiv faturalarınızda kargo kampanya kodu barkod olarak eklensin mi ?
-            </div>
-            <div className='w-2/4'>
-            {kampanyaKodu ? (
-              <div
-                className="flex items-center justify-center w-full px-2 py-2.5 rounded-md font-semibold transition-colors duration-200"
-                style={{ background: "#23db8b", color: "#fff", height: 42, cursor: "pointer" }}
-                onClick={() => setKampanyaKodu(false)}
-                onMouseOver={e => (e.currentTarget.style.background = '#589ffc')}
-                onMouseOut={e => (e.currentTarget.style.background = '#23db8b')}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  className="mr-2"
-                  style={{ display: "inline-block" }}
+          <div className="font-semibold text-[16px] my-8 text-[#222]">Ek Ayarlar</div>
+          <div className="mb-6">
+            <div className="mb-2 font-semibold text-[#2d3a3a] text-[15px]">E-fatura/E-Arşiv faturalarınızda kargo kampanya kodu barkod olarak eklensin mi ?</div>
+            <div className="w-2/4">
+              {kampanyaKodu ? (
+                <div
+                  className="flex items-center justify-center w-full px-2 py-2.5 rounded-md font-semibold transition-colors duration-200 bg-[#23db8b] text-white h-[42px] cursor-pointer"
+                  onClick={() => setKampanyaKodu(false)}
+                  onMouseOver={e => (e.currentTarget.style.background = '#589ffc')}
+                  onMouseOut={e => (e.currentTarget.style.background = '#23db8b')}
                 >
-                  <path
-                    d="M5 10.5L9 14.5L15 7.5"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span className="font-semibold">EVET</span>
-              </div>
-            ) : (
-              <div
-                className="flex items-center justify-center w-full rounded-md transition-colors duration-200"
-                style={{ background: "#f3f7f9", color: "#76838f", height: 42, cursor: "pointer" }}
-                onClick={() => setKampanyaKodu(true)}
-                onMouseOver={e => (e.currentTarget.style.background = '#f3f7f9')}
-                onMouseOut={e => (e.currentTarget.style.background = '#f3f7f9')}
-              >
-                <span
-                  className="inline-block mr-2"
-                  style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    background: "#bfc9d9",
-                  }}
-                ></span>
-                <span className="font-semibold">HAYIR</span>
-              </div>
-            )}
-          </div> 
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    className="mr-2"
+                    style={{ display: "inline-block" }}
+                  >
+                    <path
+                      d="M5 10.5L9 14.5L15 7.5"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                  <span className="font-semibold">EVET</span>
+                </div>
+              ) : (
+                <div
+                  className="flex items-center justify-center w-full rounded-md transition-colors duration-200 bg-[#f3f7f9] text-[#76838f] h-[42px] cursor-pointer"
+                  onClick={() => setKampanyaKodu(true)}
+                  onMouseOver={e => (e.currentTarget.style.background = '#f3f7f9')}
+                  onMouseOut={e => (e.currentTarget.style.background = '#f3f7f9')}
+                >
+                  <span
+                    className="inline-block mr-2"
+                    style={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: "50%",
+                      background: "#bfc9d9",
+                    }}
+                  ></span>
+                  <span className="font-semibold">HAYIR</span>
+                </div>
+              )}
+            </div>
           </div>
-          <div className='w-2/4'>
+          <div className="w-2/4">
             <label className="block text-xs text-black-200 mb-1">Entegrasyon Durumu</label>
             {entegrasyonDurumu ? (
               <div
-                className="flex items-center justify-center w-full px-2 py-2.5 rounded-md font-semibold transition-colors duration-200"
-                style={{ background: "#23db8b", color: "#fff", height: 42, cursor: "pointer" }}
+                className="flex items-center justify-center w-full px-2 py-2.5 rounded-md font-semibold transition-colors duration-200 bg-[#23db8b] text-white h-[42px] cursor-pointer"
                 onClick={() => setEntegrasyonDurumu(false)}
                 onMouseOver={e => (e.currentTarget.style.background = '#589ffc')}
                 onMouseOut={e => (e.currentTarget.style.background = '#23db8b')}
@@ -214,8 +209,7 @@ export default function DigitalPlanetSettings() {
               </div>
             ) : (
               <div
-                className="flex items-center justify-center w-full rounded-md transition-colors duration-200"
-                style={{ background: "#f3f7f9", color: "#76838f", height: 42, cursor: "pointer" }}
+                className="flex items-center justify-center w-full rounded-md transition-colors duration-200 bg-[#f3f7f9] text-[#76838f] h-[42px] cursor-pointer"
                 onClick={() => setEntegrasyonDurumu(true)}
                 onMouseOver={e => (e.currentTarget.style.background = '#f3f7f9')}
                 onMouseOut={e => (e.currentTarget.style.background = '#f3f7f9')}
@@ -232,43 +226,15 @@ export default function DigitalPlanetSettings() {
                 <span className="font-semibold">PASİF</span>
               </div>
             )}
-          </div> 
+          </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
-            <button type="button" style={{ background: "#007aff", color: "#fff", border: 0, borderRadius: 6, padding: "14px 44px", fontWeight: 600, fontSize: 17, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,122,255,0.08)" }}>
+          <div className="flex justify-end">
+            <button type="button" className="bg-[#007aff] text-white border-0 rounded-md px-11 py-[14px] font-semibold text-[17px] cursor-pointer shadow-[0_2px_8px_rgba(0,122,255,0.08)]">
               KAYDET
             </button>
           </div>
         </form>
       </div>
-      <style jsx>{`
-        .form-label {
-          display: block;
-          font-size: 14px;
-          font-weight: 500;
-          margin-bottom: 6px;
-          color: #222;
-        }
-        .form-input {
-          width: 100%;
-          padding: 10px 12px;
-          border: 1px solid #d1d5db;
-          border-radius: 6px;
-          font-size: 15px;
-          background: #f9fafb;
-          margin-bottom: 0;
-        }
-        input[type="file"] {
-          background: #fff;
-          padding: 0;
-        }
-        .section-title {
-          font-weight: 600;
-          font-size: 16px;
-          margin: 32px 0 12px 0;
-          color: #222;
-        }
-      `}</style>
     </div>
   );
 }
