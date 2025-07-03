@@ -104,7 +104,7 @@ export default function ErpSettingsPage() {
     if (erpName === 'Ticimax') {
       router.push('/settings/ecommerce/ticimax');
     } else if (erpName === 'Kolay Sipariş') {
-      router.push('/settings/ecommerce/kolay-siparis');
+      router.push('/settings/ecommerce/kolaysiparis');
     } else if (erpName === 'Shopier') {
       router.push('/settings/ecommerce/shopier');
     } else {
