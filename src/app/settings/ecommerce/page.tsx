@@ -107,6 +107,8 @@ export default function ErpSettingsPage() {
       router.push('/settings/ecommerce/kolaysiparis');
     } else if (erpName === 'Shopier') {
       router.push('/settings/ecommerce/shopier');
+    } else if (erpName === 'ETicaretSoft') {
+      router.push('/settings/ecommerce/eticaretSoft');
     } else {
       // Diğerleri için dinamik route
       router.push(`/settings/ecommerce/${routeName}`);
