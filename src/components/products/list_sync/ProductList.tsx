@@ -157,7 +157,8 @@ export default function ProductList() {
         <div className="col-span-4 lg:col-span-3 flex items-center gap-1 cursor-pointer hover:text-gray-800">ÜRÜN ADI <FaSort /></div>
         <div className="col-span-2 flex items-center gap-1 cursor-pointer hover:text-gray-800">FİYATI <FaSort /></div>
         <div className="col-span-1 flex items-center gap-1 cursor-pointer hover:text-gray-800">STOK <FaSort /></div>
-        <div className="col-span-2">PLATFORM YÜKLENME DURUMU</div>
+        <div className="col-span-2">PLATFORM DURUMU</div>
+        <div className="col-span-2">AI ÖNERİ</div>
         <div className="col-span-1">DURUMU</div>
         <div className="col-span-1 text-right"></div>
       </div>
@@ -196,7 +197,10 @@ export default function ProductList() {
                <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full" />
                {!product.platform.synced && <span className="text-red-500 text-xl font-light">×</span>}
             </div>
-            
+            <div className="col-span-2">
+              <div className="font-semibold">Entekas AI</div>
+            </div>
+
             <div className="col-span-1">
               <span className={`px-2 py-1 text-xs font-semibold rounded-full ${getStatusClass(product.status)}`}>{product.status}</span>
               <div className="text-xs text-gray-500 mt-1">Kaynak: {product.source}</div>
