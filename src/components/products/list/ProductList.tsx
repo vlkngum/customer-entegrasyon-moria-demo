@@ -267,6 +267,10 @@ export default function ProductList() {
               <div className="font-semibold">{product.stock}</div>
               <button onClick={() => handleOpenStockModal(product)} className="text-xs text-blue-600 hover:underline">Hızlı Düzenle</button>
             </div>
+
+            <div className="col-span-2">
+              Entekas AI
+            </div>
             
             <div className="col-span-2 flex items-center gap-2">
                <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full"  width={0} height={0} />
