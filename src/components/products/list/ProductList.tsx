@@ -227,7 +227,8 @@ export default function ProductList() {
         <div className="col-span-4 lg:col-span-3 flex items-center gap-1 cursor-pointer hover:text-gray-800">ÜRÜN ADI <FaSort /></div>
         <div className="col-span-2 flex items-center gap-1 cursor-pointer hover:text-gray-800">FİYATI <FaSort /></div>
         <div className="col-span-1 flex items-center gap-1 cursor-pointer hover:text-gray-800">STOK <FaSort /></div>
-        <div className="col-span-2">PLATFORM YÜKLENME DURUMU</div>
+        <div className="col-span-2">PLATFORM DURUMU</div>
+        <div className="col-span-2">AI ÖNERİ</div>
         <div className="col-span-1">DURUMU</div>
         <div className="col-span-1 text-right"></div>
       </div>

@@ -81,7 +81,6 @@ export default function LoginPage() {
     e.preventDefault();
     setError('');
     if (login(username, password)) {
-      // Başarılı girişte yönlendirme zaten useEffect ile olacak
     } else {
       setError('Geçersiz kullanıcı adı veya şifre');
     }
@@ -168,9 +167,7 @@ export default function LoginPage() {
           </form>
         </div>
       </div>
-      {/* Sağ: Tanıtım/Slider */}
       <div className="hidden md:flex w-1/2 bg-[#188fff] flex-col justify-center items-center relative overflow-hidden">
-        {/* Arka plan görseli kaldırıldı, sadece mavi arka plan sabit */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full w-full px-12">
           <h2 className="text-white text-4xl font-semibold mb-4 mt-12 text-center" >{slides[slide].title}</h2>
           <p className="text-white text-xl mb-8 font-medium text-center">{slides[slide].desc}</p>
@@ -180,7 +177,6 @@ export default function LoginPage() {
           <p className="text-white text-center text-sm max-w-md">
           {slides[slide].desc2}
           </p>
-          {/* Slider noktaları */}
           <div className="flex gap-2 mt-8">
             {slides.map((_, i) => (
               <span
