@@ -267,16 +267,14 @@ export default function ProductList() {
               <div className="font-semibold">{product.stock}</div>
               <button onClick={() => handleOpenStockModal(product)} className="text-xs text-blue-600 hover:underline">Hızlı Düzenle</button>
             </div>
-
-            <div className="col-span-2">
-              Entekas AI
-            </div>
             
             <div className="col-span-2 flex items-center gap-2">
                <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full"  width={0} height={0} />
                {!product.platform.synced && <span className="text-red-500 text-xl font-light">×</span>}
             </div>
-            
+            <div className="col-span-2">
+              <div className="font-semibold">Entekas AI</div>
+            </div>
             <div className="col-span-1">
               <span className={`px-2 py-1 text-xs text-nowrap font-semibold rounded-full ${getStatusClass(product.status)}`}>{product.status}</span>
               <div className="text-xs text-gray-500 mt-1">Kaynak: {product.source}</div>
