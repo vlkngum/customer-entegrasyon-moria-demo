@@ -224,10 +224,10 @@ export default function ProductList() {
           />
           ETİKET
         </div>
-        <div className="col-span-4 lg:col-span-3 flex items-center gap-1 cursor-pointer hover:text-gray-800">ÜRÜN ADI <FaSort /></div>
+        <div className="col-span-3 lg:col-span-3 flex items-center gap-1 cursor-pointer hover:text-gray-800">ÜRÜN ADI <FaSort /></div>
         <div className="col-span-2 flex items-center gap-1 cursor-pointer hover:text-gray-800">FİYATI <FaSort /></div>
         <div className="col-span-1 flex items-center gap-1 cursor-pointer hover:text-gray-800">STOK <FaSort /></div>
-        <div className="col-span-2">PLATFORM DURUMU</div>
+        <div className="col-span-1">PLATFORM DURUMU</div>
         <div className="col-span-2">AI ÖNERİ</div>
         <div className="col-span-1">DURUMU</div>
         <div className="col-span-1 text-right"></div>
@@ -268,11 +268,11 @@ export default function ProductList() {
               <button onClick={() => handleOpenStockModal(product)} className="text-xs text-blue-600 hover:underline">Hızlı Düzenle</button>
             </div>
             
-            <div className="col-span-2 flex items-center gap-2">
+            <div className="col-span-1 flex items-center gap-2">
                <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full"  width={0} height={0} />
                {!product.platform.synced && <span className="text-red-500 text-xl font-light">×</span>}
             </div>
-            <div className="col-span-2">
+            <div className="col-span-1">
               <div className="font-semibold">Entekas AI</div>
             </div>
             <div className="col-span-1">
