@@ -22,7 +22,6 @@ pipeline {
           ssh \$DEPLOY_USER@\$DEPLOY_HOST << 'EOSSH'
             set -e
 
-
             cd /var/www/developmentcustomer
 
             echo "GIT clone çekiliyor..."
