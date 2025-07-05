@@ -25,7 +25,7 @@ pipeline {
             cd /var/www/developmentcustomer
 
             echo "GIT clone çekiliyor..."
-            git clone -b development git@github.com:drjonhoebernews/cmapps-customer.git .
+            git pull
 
             echo "NPM install ve build başlatılıyor..."
             npm install
