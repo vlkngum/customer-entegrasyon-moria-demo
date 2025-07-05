@@ -33,7 +33,7 @@ pipeline {
             echo "🔧 NPM install ve build başlatılıyor..."
             npm install
             npm run build
-
+            pm2 restart all
             echo "✅ İşlem tamam!"
 EOSSH
         """
