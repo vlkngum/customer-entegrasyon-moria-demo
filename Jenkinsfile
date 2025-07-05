@@ -8,8 +8,8 @@ pipeline {
   environment {
     DEPLOY_USER = "root"
     DEPLOY_HOST = "152.228.170.244"
-    DEPLOY_DIR = "/var/www/entekas-web-dev"
-    GIT_REPO = "git@github.com:drjonhoebernews/entekas-web.git"
+    DEPLOY_DIR = "/var/www/developmentcustomer"
+    GIT_REPO = "git@github.com:drjonhoebernews/cmapps-customer.git"
     GIT_BRANCH = "development"
   }
 
@@ -22,7 +22,7 @@ pipeline {
           ssh \$DEPLOY_USER@\$DEPLOY_HOST << 'EOSSH'
             set -e
 
-            cd /var/www/entekas-web-dev
+            cd /var/www/developmentcustomer
 
             echo "GIT clone çekiliyor..."
             git pull
@@ -30,8 +30,8 @@ pipeline {
             echo "NPM install ve build başlatılıyor..."
             npm install
             npm run build
-            pm2 start node_modules/next/dist/bin/next --name entekas-web-development -- start --port 3002
-            echo "şlem tamam!"
+            pm2 restart all
+            echo "İşlem tamam!"
 EOSSH
         """
       }
