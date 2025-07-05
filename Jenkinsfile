@@ -22,9 +22,7 @@ pipeline {
           ssh \$DEPLOY_USER@\$DEPLOY_HOST << 'EOSSH'
             set -e
 
-            echo "Dizin temizleniyor: /var/www/developmentcustomer"
-            rm -rf /var/www/developmentcustomer
-            mkdir -p /var/www/developmentcustomer
+
             cd /var/www/developmentcustomer
 
             echo "GIT clone çekiliyor..."
