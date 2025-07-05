@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+
+
 export function middleware(request: NextRequest) {
   const isAuthenticated = request.cookies.get('isAuthenticated')
   const isLoginPage = request.nextUrl.pathname === '/login'
