@@ -1,5 +1,4 @@
 'use client'
-
 import { IoIosVideocam, IoMdNotifications  } from "react-icons/io";
 import { MdPersonAddAlt1 , MdPerson, MdMessage } from "react-icons/md";
 import { FaChevronDown } from "react-icons/fa";
@@ -7,13 +6,26 @@ import { HiMiniGift } from "react-icons/hi2";
 import { useState } from "react";
 import { FaUserLock, FaCog, FaFileInvoice, FaUsers } from "react-icons/fa";
 import { RiShutDownLine } from "react-icons/ri";
+import { signOut } from "next-auth/react";
+import { useDispatch } from 'react-redux';
+import { clearUser } from '@/store/slices/userSlice';
+import { useLogout } from "@/context/LogoutContext";
 
-
-export default function Header () {
+export default function Header() {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dispatch = useDispatch();
+    const { startLogout } = useLogout();
+
+    // Only show header if authenticated and not on /login
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
+    };
+
+    const handleLogout = () => {
+        startLogout();
+        dispatch(clearUser());
+        signOut({ redirect: true });
     };
 
     return (
@@ -93,7 +105,7 @@ export default function Header () {
                             <FaUsers className="w-4 h-4"/>
                             <p className="text-sm">Kullanıcı ve Yetki Yönetimi</p>
                         </div>
-                        <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700">
+                        <div className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer text-gray-700" onClick={handleLogout}>
                             <RiShutDownLine className="w-5 h-5"/>
                             <p className="text-sm">Çıkış</p>
                         </div>

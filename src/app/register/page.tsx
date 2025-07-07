@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
+import { useUser } from '@/store/hooks/useUser';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Link from "next/link";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
@@ -57,7 +57,7 @@ const slides = [
 export default function LoginPage() { 
   const [slide, setSlide] = useState(0);  
   const router = useRouter();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated } = useUser();
   const [showPassword, setShowPassword] = useState(false);
 
   const [form, setForm] = useState({

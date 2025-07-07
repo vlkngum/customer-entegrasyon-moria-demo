@@ -1,12 +1,11 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
 import { MdVisibility, MdVisibilityOff } from "react-icons/md";
 import Link from "next/link";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { signIn } from "next-auth/react";
 
 const slides = [
   { 
@@ -56,13 +55,12 @@ const slides = [
 
 export default function LoginPage() { 
   const [slide, setSlide] = useState(0); 
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { login, isAuthenticated } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  // const [isRedirecting, setIsRedirecting] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -71,18 +69,27 @@ export default function LoginPage() {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
-    if (isAuthenticated) {
-      router.replace("/");
-    }
-  }, [isAuthenticated, router]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    if (login(username, password)) {
-    } else {
-      setError('Geçersiz kullanıcı adı veya şifre');
+    // setIsRedirecting(true);
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email_or_phone: username,
+        password,
+        callbackUrl: "/dashboard"
+      });
+      if (result?.error) {
+        setError("Geçersiz kullanıcı adı veya şifre");
+        // setIsRedirecting(false);
+      } else {
+        router.replace("/dashboard");
+      }
+    } catch {
+      setError('Giriş yapılırken bir hata oluştu');
+      // setIsRedirecting(false);
     }
   };
 

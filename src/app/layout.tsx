@@ -1,10 +1,6 @@
 import "./globals.css";
-
-import { poppins } from "@/app/ui/fonts";
-
-
-import ClientLayoutWrapper from "@/app/ClientLayout";
-import { AuthProvider } from "@/context/AuthContext"; // <-- Bunu ekle
+import { poppins } from "@/app/(protected)/ui/fonts";
+import { Providers } from "@/components/providers/Providers";
 
 import type { Metadata } from "next";
 
@@ -22,9 +18,9 @@ export default function RootLayout({
   return (
       <html lang="en">
         <body className={`${poppins.className} antialiased bg-black text-white`}>
-        <AuthProvider> {/* <-- Burada sarmala */}
-            <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
-          </AuthProvider>
+          <Providers>
+            {children}
+          </Providers>
         </body>
       </html>
   );
