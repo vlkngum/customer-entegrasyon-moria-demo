@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 export type CustomerType = "gercek" | "tuzel";
@@ -12,6 +12,7 @@ export interface CustomerFormValues {
   street: string;
   address: string;
   type: CustomerType;
+  tax_or_identity_no: string;
   taxOrId: string;
   taxOffice: string;
 }
@@ -32,12 +33,18 @@ const defaultValues: CustomerFormValues = {
   street: "",
   address: "",
   type: "gercek",
+  tax_or_identity_no: "",
   taxOrId: "",
   taxOffice: "",
 };
 
 export default function CustomerForm({ initialValues, onSubmit, onCancel }: CustomerFormProps) {
   const [values, setValues] = useState<CustomerFormValues>({ ...defaultValues, ...initialValues });
+
+  useEffect(() => {
+    setValues({ ...defaultValues, ...initialValues });
+    console.log(initialValues);
+  }, [initialValues]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -131,7 +138,7 @@ export default function CustomerForm({ initialValues, onSubmit, onCancel }: Cust
               {values.type === 'gercek' ? (
                 <div className="md:col-span-2">
                   <label className="block text-xs text-[#5d6e76] font-semibold mb-1">TC KİMLİK NO *</label>
-                  <input name="taxOrId" value={values.taxOrId} onChange={handleChange} className="input w-full border rounded px-3 py-2" placeholder="TC NO" style={{ color: '#76838f' }} required={values.type === 'gercek'} />
+                  <input name="tax_or_identity_no" value={values.tax_or_identity_no} onChange={handleChange} className="input w-full border rounded px-3 py-2" placeholder="TC NO" style={{ color: '#76838f' }} required={values.type === 'gercek'} />
                 </div>
               ) : (
                 <>

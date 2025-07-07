@@ -9,38 +9,52 @@ import ProductActionsMenu from './ProductActionsMenu';
 import Image from "next/image";
 import Link from 'next/link';
 import BulkProcessModal from './BulkProcessModal';
+import { useProduct } from '@/store/hooks/useProduct';
+import { useSession } from 'next-auth/react';
+import type { Product } from '@/store/slices/productSlice';
 
-// Define a type for the Product object for better type safety
-type Product = {
-  id: number;
-  sku: string;
-  name: string;
-  price: string;
-  img: string;
-  stock: number;
-  platform: {
+interface ExtendedSession {
+  accessToken: string;
+  user: {
+    id: string;
+    email: string;
     name: string;
-    icon: string;
-    synced: boolean;
+    phone: string;
+    avatar: string;
+    authority: string;
+    two_factor_enabled: boolean;
   };
-  status: string;
-  source: string;
-};
+}
 
-export default function ProductList() { 
+export default function ProductList() {
+  // Redux and session
+  const { data: session } = useSession();
+  const {
+    products,
+    isLoading,
+    error,
+    getProducts,
+    // ...other actions if needed
+  } = useProduct();
+  
+  // Cast session to ExtendedSession type
+  const extendedSession = session as ExtendedSession | null;
+
   // State for managing price modal
   const [isPriceModalOpen, setIsPriceModalOpen] = useState(false);
-  const [selectedProductForPrice, setSelectedProductForPrice] = useState<Product | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedProductForPrice, setSelectedProductForPrice] = useState<any | null>(null);
   
   // State for managing stock modal
   const [isStockModalOpen, setIsStockModalOpen] = useState(false);
-  const [selectedProductForStock, setSelectedProductForStock] = useState<Product | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [selectedProductForStock, setSelectedProductForStock] = useState<any | null>(null);
   
   // State for managing the actions menu
-  const [openMenuId, setOpenMenuId] = useState<number | null>(null);
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
   // Seçili ürünlerin ID'leri için state
-  const [selectedProductIds, setSelectedProductIds] = useState<number[]>([]);
+  const [selectedProductIds, setSelectedProductIds] = useState<string[]>([]);
 
   // State for BulkProcessModal
   const [isBulkModalOpen, setIsBulkModalOpen] = useState(false);
@@ -48,8 +62,23 @@ export default function ProductList() {
   // State for delete dropdown
   const [isDeleteDropdownOpen, setIsDeleteDropdownOpen] = useState(false);
 
+  // Fetch products on mount
+  useEffect(() => {
+    if (extendedSession?.accessToken) {
+      getProducts(extendedSession.accessToken);
+    }
+  }, [extendedSession?.accessToken, getProducts]);
+
   const handleOpenPriceModal = (product: Product) => {
-    setSelectedProductForPrice(product);
+    // Convert Product type to match modal expectations
+    const modalProduct = {
+      id: product.id,
+      sku: product.sku,
+      name: product.name,
+      price: product.price
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setSelectedProductForPrice(modalProduct as any);
     setIsPriceModalOpen(true);
     setIsStockModalOpen(false);
     setSelectedProductForStock(null);
@@ -61,7 +90,15 @@ export default function ProductList() {
   };
 
   const handleOpenStockModal = (product: Product) => {
-    setSelectedProductForStock(product);
+    // Convert Product type to match modal expectations
+    const modalProduct = {
+      id: product.id,
+      sku: product.sku,
+      name: product.name,
+      stock: product.stock
+    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setSelectedProductForStock(modalProduct as any);
     setIsStockModalOpen(true);
   };
 
@@ -70,7 +107,7 @@ export default function ProductList() {
     setSelectedProductForStock(null);
   };
 
-  const handleMenuToggle = (productId: number) => {
+  const handleMenuToggle = (productId: string) => {
     setOpenMenuId(prevId => (prevId === productId ? null : productId));
   };
 
@@ -78,7 +115,7 @@ export default function ProductList() {
     setOpenMenuId(null);
   };
 
-  const handleSelectProduct = (id: number) => {
+  const handleSelectProduct = (id: string) => {
     setSelectedProductIds(prev =>
       prev.includes(id) ? prev.filter(pid => pid !== id) : [...prev, id]
     );
@@ -88,7 +125,7 @@ export default function ProductList() {
     if (selectedProductIds.length === products.length) {
       setSelectedProductIds([]);
     } else {
-      setSelectedProductIds(products.map(p => p.id));
+      setSelectedProductIds(products.map((p: Product) => p.id.toString()));
     }
   };
 
@@ -125,55 +162,6 @@ export default function ProductList() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isDeleteDropdownOpen]);
 
-  const products: Product[] = [
-    {
-      id: 1,
-      sku: '1212',
-      name: 'sSsS',
-      price: '121,00', 
-      img:'/trendyol-ico.png',
-      stock: 1212,
-      platform: {
-        name: 'Trendyol',
-        icon: 'https://cdn.dsmcdn.com/web/production/favicon.ico',
-        synced: false
-      },
-      status: 'Satışa Açık',
-      source: 'Entekas'
-    },
-    {
-      id: 2,
-      sku: 'AMZN-543',
-      name: 'Amazon Echo Dot',
-      price: '499,99',
-      img:'/trendyol-ico.png',
-      stock: 50,
-      platform: {
-        name: 'Amazon',
-        icon: 'https://www.amazon.com/favicon.ico',
-        synced: true
-      },
-      status: 'Satışa Açık',
-      source: 'Manual'
-    },
-    {
-      id: 3,
-      sku: 'HB-987',
-      name: 'Hepsiburada E-Kitap Okuyucu',
-      price: '1299,00',
-      img:'/trendyol-ico.png',
-      stock: 25,
-      platform: {
-        name: 'Hepsiburada',
-        icon: 'https://www.hepsiburada.com/favicon.ico',
-        synced: false
-      },
-      status: 'Satıştan Kaldırıldı',
-      source: 'Entekas'
-    },
-    // Örnek veri, buraya daha fazla ürün eklenebilir
-  ];
-
   const getStatusClass = (status: string) => {
     switch (status) {
       case 'Satışa Açık':
@@ -187,6 +175,9 @@ export default function ProductList() {
 
   return (
     <div className="bg-blue-50/50 p-4 rounded-lg mt-4 mb-20">
+      {/* Loading and error states */}
+      {isLoading && <div className="text-center py-8 text-blue-600 font-bold">Yükleniyor...</div>}
+      {error && <div className="text-center py-8 text-red-600 font-bold">{error}</div>}
       {/* Toplu İşlemler Barı */}
       {selectedProductIds.length > 0 && (
         <div className="bg-blue-500 text-white rounded-lg flex items-center p-4 mb-4 relative">
@@ -235,14 +226,14 @@ export default function ProductList() {
 
       {/* Ürün Kartları */}
       <div className="space-y-3">
-        {products.map((product) => (
+        {products.map((product: Product) => (
           <div key={product.id} className="grid grid-cols-12 gap-4 items-center bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
             
             <div className="col-span-1 flex items-center gap-3">
               <input
                 type="checkbox"
-                checked={selectedProductIds.includes(product.id)}
-                onChange={() => handleSelectProduct(product.id)}
+                checked={selectedProductIds.includes(product.id.toString())}
+                onChange={() => handleSelectProduct(product.id.toString())}
                 className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
               />
               <span className="font-bold text-gray-400 text-lg">#</span>
@@ -250,7 +241,7 @@ export default function ProductList() {
             
             <div className="col-span-4 lg:col-span-3 flex items-center gap-3">
               <div className="w-12 h-12  rounded-md flex items-center justify-center shrink-0">
-                <Image className="text-xs text-gray-500 text-center rounded-full" src={product.img} alt={''} width={50} height={50}  />
+                <Image className="text-xs text-gray-500 text-center rounded-full" src={'/no-image.png'} alt={product.name} width={50} height={50}  />
               </div>
               <div className="truncate">
                 <div className="text-xs text-gray-500">Stok Kodu: {product.sku}</div>
@@ -269,25 +260,24 @@ export default function ProductList() {
             </div>
             
             <div className="col-span-1 flex items-center gap-2">
-               <Image src={product.platform.icon} alt={product.platform.name} className="w-5 h-5 rounded-full"  width={0} height={0} />
-               {!product.platform.synced && <span className="text-red-500 text-xl font-light">×</span>}
+              <Image src={'/no-platform.png'} alt={'Platform'} className="w-8 h-8 rounded-full object-contain"  width={32} height={32} />
             </div>
             <div className="col-span-1">
-              <div className="font-semibold">Entekas AI</div>
+              <div className="font-semibold">E.AI</div>
             </div>
             <div className="col-span-1">
-              <span className={`px-2 py-1 text-xs text-nowrap font-semibold rounded-full ${getStatusClass(product.status)}`}>{product.status}</span>
-              <div className="text-xs text-gray-500 mt-1">Kaynak: {product.source}</div>
+              <span className={`px-2 py-1 text-xs text-nowrap font-semibold rounded-full ${getStatusClass(product.status)} ${product.status === 'approved' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{product.status === 'approved' ? 'Aktif' : 'Pasif'}</span>
+              <div className="text-xs text-gray-500 mt-1">Stok Kodu: {product.sku}</div>
             </div>
             
             <div id={`actions-menu-${product.id}`} className="col-span-2 flex justify-end items-center gap-2 relative">
               <Link href="/add" className="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-md font-semibold text-xs hover:bg-blue-200">
                 <FiEdit /> DÜZENLE
               </Link>
-              <button onClick={() => handleMenuToggle(product.id)} className="ml-2 p-2 text-gray-500 hover:bg-gray-200 rounded-full">
+              <button onClick={() => handleMenuToggle(product.id.toString())} className="ml-2 p-2 text-gray-500 hover:bg-gray-200 rounded-full">
                 <BsThreeDots />
               </button>
-              {openMenuId === product.id && <ProductActionsMenu onClose={handleCloseMenu} />}
+              {openMenuId === product.id.toString() && <ProductActionsMenu onClose={handleCloseMenu} />}
             </div>
           </div>
         ))}

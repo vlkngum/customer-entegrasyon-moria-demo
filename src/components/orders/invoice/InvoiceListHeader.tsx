@@ -2,81 +2,72 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, User, Calendar, Hash, DollarSign } from 'lucide-react';
 import Image from 'next/image';
 import { ProductTableColumn } from '../../ProductTable';
+import { SalesInvoice } from '@/types/Invoice';
 
-interface Invoice {
-  id: string;
-  marketplace: string;
-  customerName: string;
-  invoiceDate: string;
-  orderNumber: string;
-  amount: string;
-  status: string;
-  isShipped: boolean;
-  isInvoicePrinted: boolean;
-  isCargoReceiptPrinted: boolean;
-  isCargoIntegrated: boolean;
+interface InvoiceListHeaderProps {
+  invoices?: SalesInvoice[];
+  isLoading?: boolean;
 }
 
-export default function InvoiceListHeader() {
+export default function InvoiceListHeader({ invoices = [], isLoading = false }: InvoiceListHeaderProps) {
 
   const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
   const [selectedOrderIds, setSelectedOrderIds] = useState<string[]>([]);
 
-  
-  const orders: Invoice[] = [
-    {
-      id: '1',
-      marketplace: 'Trendyol',
-      customerName: 'Ahmet Yılmaz',
-      invoiceDate: '12.03.2023',
-      orderNumber: 'TR123456789',
-      amount: '150.00 TL',
-      status: 'Onay Bekliyor',
-      isShipped: true,
-      isInvoicePrinted: false,
-      isCargoReceiptPrinted: false,
-      isCargoIntegrated: false
-    },
-    {
-      id: '2',
-      marketplace: 'Hepsiburada',
-      customerName: 'Ayşe Demir',
-      invoiceDate: '11.03.2023',
-      orderNumber: 'HB987654321',
-      amount: '220.50 TL',
-      status: 'Onaylandı',
-      isShipped: true,
-      isInvoicePrinted: true,
-      isCargoReceiptPrinted: false,
-      isCargoIntegrated: false
-    },
-    {
-      id: '3',
-      marketplace: 'N11',
-      customerName: 'Mehmet Can',
-      invoiceDate: '10.03.2023',
-      orderNumber: 'N1123456789',
-      amount: '85.75 TL',
-      status: 'Kargolandı',
-      isShipped: true,
-      isInvoicePrinted: true,
-      isCargoReceiptPrinted: true,
-      isCargoIntegrated: false
-    },
-    {
-      id: '4',
-      marketplace: 'GittiGidiyor',
-      customerName: 'Zeynep Korkmaz',
-      invoiceDate: '09.03.2023',
-      orderNumber: 'GG112233445',
-      amount: '300.00 TL',
-      status: 'İptal Edildi',
-      isShipped: false,
-      isInvoicePrinted: false,
-      isCargoReceiptPrinted: false,
-      isCargoIntegrated: false
-    },
-  ];
+  // Helper function to safely parse dates
+  const parseDate = (dateString: string | null | undefined): string => {
+    if (!dateString) return 'N/A';
+    
+    try {
+      // Handle different date formats
+      let date: Date;
+      
+      if (dateString.includes('T')) {
+        // ISO format with time
+        date = new Date(dateString);
+      } else if (dateString.includes('-')) {
+        // YYYY-MM-DD format
+        const [year, month, day] = dateString.split('-').map(Number);
+        date = new Date(year, month - 1, day); // month is 0-indexed
+      } else {
+        // Try default parsing
+        date = new Date(dateString);
+      }
+      
+      // Check if date is valid
+      if (isNaN(date.getTime())) {
+        return 'N/A';
+      }
+      
+      return date.toLocaleDateString('tr-TR');
+    } catch {
+      return 'N/A';
+    }
+  };
+
+  // Transform SalesInvoice to the format expected by the component
+  const orders = invoices.map(invoice => ({
+    id: invoice.id,
+    marketplace: invoice.service?.name || 'Unknown',
+    marketplaceLogo: invoice.service?.logo_url || '/globe.svg',
+    customerName: invoice.raw_payload?.data?.attributes?.description || 'N/A',
+    invoiceDate: parseDate(invoice.issue_date),
+    orderNumber: invoice.invoice_no,
+    amount: `${invoice.gross_total?.toLocaleString('tr-TR') || 0} ${invoice.currency || 'TRY'}`,
+    netAmount: `${invoice.net_total?.toLocaleString('tr-TR') || 0} ${invoice.currency || 'TRY'}`,
+    vatAmount: `${invoice.vat_total?.toLocaleString('tr-TR') || 0} ${invoice.currency || 'TRY'}`,
+    status: invoice.payment_status === 'paid' ? 'Ödendi' : 'Beklemede',
+    isShipped: true,
+    isInvoicePrinted: true,
+    isCargoReceiptPrinted: false,
+    isCargoIntegrated: false,
+    // Additional fields from your data structure
+    externalId: invoice.external_id,
+    dueDate: parseDate(invoice.due_date),
+    orderDate: parseDate(invoice.raw_payload?.data?.attributes?.order_date),
+    isAbroad: invoice.is_abroad,
+    invoiceType: invoice.invoice_type
+  }));
 
   const toggleRow = (rowId: string) => {
     const newExpandedRows = new Set(expandedRows);
@@ -104,7 +95,13 @@ export default function InvoiceListHeader() {
     }
   };
 
-  const getMarketplaceImage = (marketplace: string) => {
+  const getMarketplaceImage = (marketplace: string, logoUrl?: string) => {
+    // If we have a logo URL from the API, use it
+    if (logoUrl && logoUrl !== '/globe.svg') {
+      return logoUrl;
+    }
+    
+    // Fallback to local images for known marketplaces
     const marketplaceImages: { [key: string]: string } = {
       'Hepsiburada': '/hb-ico.png',
       'N11': '/n11-ico.png',
@@ -127,6 +124,7 @@ export default function InvoiceListHeader() {
       'E-Fatura': '/elogo.svg',
       'GIB': '/gib.svg',
       'Ciceksepeti-Single': '/ciceksepetiSinglePrice.png',
+      'Paraşüt': '/entekas-logo.png', // Add Paraşüt as it appears in your data
     };
 
     return marketplaceImages[marketplace] || '/globe.svg'; // fallback to globe icon
@@ -188,6 +186,12 @@ export default function InvoiceListHeader() {
   return(
 
    <>
+  {isLoading ? (
+    <div className="text-center py-8">
+      <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <p className="mt-2 text-gray-600">Faturalar yükleniyor...</p>
+    </div>
+  ) : (
   <div className="overflow-x-auto">
         <table className="w-full">
           <thead className="">
@@ -230,11 +234,16 @@ export default function InvoiceListHeader() {
                       <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-gray-100 flex items-center justify-center overflow-hidden rounded-full">
                           <Image
-                            src={getMarketplaceImage(order.marketplace)}
+                            src={getMarketplaceImage(order.marketplace, order.marketplaceLogo)}
                             alt={order.marketplace}
                             width={24}
                             height={24}
                             className="object-contain rounded-full"
+                            onError={(e) => {
+                              // Fallback to globe icon if image fails to load
+                              const target = e.target as HTMLImageElement;
+                              target.src = '/globe.svg';
+                            }}
                           />
                         </div>
                         <span className="text-sm font-medium text-gray-900">{order.marketplace}</span>
@@ -348,14 +357,57 @@ export default function InvoiceListHeader() {
                     </div>
                   </td>
                 </tr>
-
                 
+                {/* Expanded row with additional invoice details */}
+                {expandedRows.has(order.id) && (
+                  <tr>
+                    <td colSpan={3} className="px-6 py-4 bg-gray-50">
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                        <div>
+                          <span className="font-medium text-gray-700">Net Tutar:</span>
+                          <div className="text-gray-900">{order.netAmount}</div>
+                        </div>
+                        <div>
+                          <span className="font-medium text-gray-700">KDV Tutarı:</span>
+                          <div className="text-gray-900">{order.vatAmount}</div>
+                        </div>
+                        {order.dueDate && (
+                          <div>
+                            <span className="font-medium text-gray-700">Vade Tarihi:</span>
+                            <div className="text-gray-900">{order.dueDate}</div>
+                          </div>
+                        )}
+                        {order.orderDate && (
+                          <div>
+                            <span className="font-medium text-gray-700">Sipariş Tarihi:</span>
+                            <div className="text-gray-900">{order.orderDate}</div>
+                          </div>
+                        )}
+                        <div>
+                          <span className="font-medium text-gray-700">Yurt Dışı:</span>
+                          <div className="text-gray-900">{order.isAbroad ? 'Evet' : 'Hayır'}</div>
+                        </div>
+                        {order.externalId && (
+                          <div>
+                            <span className="font-medium text-gray-700">Harici ID:</span>
+                            <div className="text-gray-900">{order.externalId}</div>
+                          </div>
+                        )}
+                        <div>
+                          <span className="font-medium text-gray-700">Fatura Tipi:</span>
+                          <div className="text-gray-900">{order.invoiceType}</div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
                
               </React.Fragment>
             ))}
           </tbody>
         </table>
       </div>
+  )}
   </>
   );
 } 

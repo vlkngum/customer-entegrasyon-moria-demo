@@ -3,38 +3,51 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { useAuth } from '@/context/AuthContext';
 import { useState, useEffect } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaThumbtack } from "react-icons/fa";
 import { TbLogout2 } from "react-icons/tb";
-
+import {  signOut } from 'next-auth/react';
+import { useDispatch } from 'react-redux';
+import { clearUser } from '@/store/slices/userSlice';
+import { useLogout } from "@/context/LogoutContext";
 
 import { menuItems, MenuItem } from '@/data/menuItems';
 
-export default function Sidebar() {
+// SidebarContent always renders immediately
+function SidebarContent() {
   const pathname = usePathname();
   const router = useRouter();
-  const { isAuthenticated, logout } = useAuth();
   const [openSubmenus, setOpenSubmenus] = useState<{ [key: string]: boolean }>({});
+
+  // Default state: closed/unpinned
   const [isPinned, setIsPinned] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(!isPinned);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const dispatch = useDispatch();
+  const { startLogout } = useLogout();
+
+  // On mount, update state from localStorage
+  useEffect(() => {
+    try {
+      const savedPinState = localStorage.getItem('sidebarPinned');
+      const initialPinned = savedPinState ? JSON.parse(savedPinState) : false;
+      setIsPinned(initialPinned);
+      setIsCollapsed(!initialPinned);
+    } catch (error) {
+      console.warn('Error reading localStorage:', error);
+    }
+  }, []);
 
   useEffect(() => {
-    if (!isPinned) {
-      setIsCollapsed(true);
-    } else {
-      setIsCollapsed(false);
-    }
+    if (!isPinned) setIsCollapsed(true);
+    else setIsCollapsed(false);
   }, [isPinned]);
 
-  if (!isAuthenticated) {
-    return null;
-  }
-
   const handleLogout = () => {
-    logout();
-    router.push('/login');
+    startLogout();
+    dispatch(clearUser());
+    signOut({ redirect: true });
   };
 
   const toggleSubmenu = (itemName: string) => {
@@ -51,7 +64,10 @@ export default function Sidebar() {
   };
 
   const togglePin = () => {
-    setIsPinned(!isPinned);
+    const newPinState = !isPinned;
+    setIsPinned(newPinState);
+    // Save to localStorage
+    localStorage.setItem('sidebarPinned', JSON.stringify(newPinState));
   };
 
   return (
@@ -175,4 +191,8 @@ export default function Sidebar() {
       </nav>
     </div>
   );
+}
+
+export default function Sidebar() {
+  return <SidebarContent />;
 }

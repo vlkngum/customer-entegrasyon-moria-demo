@@ -5,7 +5,17 @@ import { GoSearch } from 'react-icons/go';
 import InvoiceFilterModal from './InvoiceFilterModal';
 import Image from 'next/image';
 
-const InvoiceSearchAndFilter: React.FC = () => {
+interface InvoiceSearchAndFilterProps {
+  searchTerm?: string;
+  onSearchChange?: (value: string) => void;
+  onSearch?: () => void;
+}
+
+const InvoiceSearchAndFilter: React.FC<InvoiceSearchAndFilterProps> = ({ 
+  searchTerm = '', 
+  onSearchChange, 
+  onSearch 
+}) => {
   const [showDetailedFilters, setShowDetailedFilters] = useState(false);
 
   const toggleDetailedFilters = () => {
@@ -18,11 +28,17 @@ const InvoiceSearchAndFilter: React.FC = () => {
         <div className="flex-grow mr-4 w-full md:w-auto">
           <input
             type="text"
-            placeholder="Sipariş numarası ile ara.."
+            placeholder="Fatura numarası ile ara.."
             className="input"
+            value={searchTerm}
+            onChange={(e) => onSearchChange?.(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && onSearch?.()}
           />
         </div>
-        <button className="bg-[#0f82ff] text-white py-2 px-4 rounded-md hover:bg-[#0068ff] flex items-center justify-center">
+        <button 
+          className="bg-[#0f82ff] text-white py-2 px-4 rounded-md hover:bg-[#0068ff] flex items-center justify-center"
+          onClick={onSearch}
+        >
           <GoSearch className="mr-2" /> FİLTRELE
         </button>
       </div>
